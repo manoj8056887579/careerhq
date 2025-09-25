@@ -7,6 +7,7 @@ import {
   getRelatedBlogPosts,
 } from "../../../lib/data";
 import { BlogPostClient } from "./blog-post-client";
+export const dynamic = "force-dynamic";
 
 interface BlogPostPageProps {
   params: Promise<{

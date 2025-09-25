@@ -14,6 +14,8 @@ import { CourseCard } from "@/components/course-card";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { useAllCourses } from "@/hooks/useAllCourses";
 import { generateCountrySlug } from "@/lib/slug-utils";
+import { getImageUrl as getCloudinaryImageUrl } from "@/lib/cloudinary-utils";
+
 import type { EnquiryFormHandle } from "@/components/enquiry-form";
 
 interface UniversityData {
@@ -225,7 +227,7 @@ export const UniversityPageClient: React.FC<UniversityPageClientProps> = ({
               <div className="relative z-10 rounded-lg overflow-hidden shadow-xl h-96">
                 {universityData.imageId ? (
                   <Image
-                    src={universityData.imageId}
+                    src={getCloudinaryImageUrl(universityData.imageId, "card")}
                     alt={`${universityData.name} campus and facilities`}
                     fill
                     className="object-cover"

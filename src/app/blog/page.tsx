@@ -3,6 +3,9 @@ import { Metadata } from "next";
 import { getAllBlogPosts, getBlogCategories } from "@/lib/data";
 import { BlogListingClient } from "./blog-listing-client";
 
+// Force this page to be dynamic due to blog posts
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Blog - Study Abroad Insights & Guides | CareerHQ",
   description:

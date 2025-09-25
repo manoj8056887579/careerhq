@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import { CoursePageClient } from "./course-page-client";
 import { getCourseDataForServer } from "@/utils/courseUtils";
 
+// Force this page to be dynamic
+export const dynamic = "force-dynamic";
+
 interface CoursePageParams {
   params: Promise<{
     countryId: string;

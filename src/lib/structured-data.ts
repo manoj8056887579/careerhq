@@ -115,7 +115,7 @@ export function generateWebsiteSchema(): WebsiteSchema {
       target: {
         "@type": "EntryPoint",
         urlTemplate:
-          "https://career-hq.com/all-courses?search={search_term_string}",
+          "https://career-hq.com/study-abroad?search={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },

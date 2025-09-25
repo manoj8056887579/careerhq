@@ -4,6 +4,9 @@ import { StructuredData } from "@/components/structured-data";
 import { generateBreadcrumbSchema } from "@/lib/structured-data";
 import { CountryPageClient } from "./country-page-client";
 
+// Force this page to be dynamic
+export const dynamic = "force-dynamic";
+
 interface CountryPageProps {
   params: Promise<{
     countryId: string;
@@ -35,7 +38,10 @@ async function getCountryData(countrySlug: string) {
         process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
       }/api/countries`,
       {
-        cache: "no-store", // Ensure fresh data
+        cache: "no-store", // Ensure fresh data on every request
+        headers: {
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+        },
       }
     );
     const data = await response.json();

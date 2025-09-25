@@ -16,9 +16,6 @@ export default async function EditBlogPostPage({
   // Fetch the blog post data
   const blogPost = await getBlogPostById(id);
 
-  console.log("EditBlogPostPage - fetched blogPost:", blogPost);
-  console.log("EditBlogPostPage - blogPost.content:", blogPost?.content);
-
   // If blog post doesn't exist, show 404
   if (!blogPost) {
     notFound();

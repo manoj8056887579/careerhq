@@ -4,14 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://career-hq.com";
 
   // Static pages
-  const staticPages = [
-    "",
-    "/about",
-    "/contact",
-    "/study-abroad",
-    "/all-courses",
-    "/blog",
-  ];
+  const staticPages = ["", "/about", "/contact", "/study-abroad", "/blog"];
 
   // Countries for study abroad
   const countries = [

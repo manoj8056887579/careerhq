@@ -38,7 +38,10 @@ export async function getAllBlogPosts(options?: {
       params.toString() ? `?${params.toString()}` : ""
     }`;
     const response = await fetch(url, {
-      cache: "no-store", // Revalidate every 5 minutes
+      cache: "no-store", // Ensure fresh data on every request
+      headers: {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+      },
     });
 
     const data = await handleApiResponse<{ posts: BlogPost[] }>(response);
@@ -77,7 +80,10 @@ function addComputedFields(post: BlogPost): BlogPost {
 export async function getBlogPostById(id: string): Promise<BlogPost | null> {
   try {
     const response = await fetch(`${API_BASE_URL}/api/blog/${id}`, {
-      next: { revalidate: 300 },
+      cache: "no-store", // Ensure fresh data on every request
+      headers: {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+      },
     });
 
     if (response.status === 404) {
@@ -101,7 +107,10 @@ export async function getRelatedBlogPosts(
     const response = await fetch(
       `${API_BASE_URL}/api/blog/related/${postId}?limit=${limit}`,
       {
-        next: { revalidate: 300 },
+        cache: "no-store", // Ensure fresh data on every request
+        headers: {
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+        },
       }
     );
 
@@ -117,7 +126,10 @@ export async function getRelatedBlogPosts(
 export async function getBlogCategories(): Promise<BlogCategory[]> {
   try {
     const response = await fetch(`${API_BASE_URL}/api/blog/categories`, {
-      next: { revalidate: 600 }, // Revalidate every 10 minutes
+      cache: "no-store", // Ensure fresh data on every request
+      headers: {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+      },
     });
 
     return await handleApiResponse<BlogCategory[]>(response);
@@ -185,7 +197,10 @@ export const blogApi = {
 export async function getCountries(): Promise<string[]> {
   try {
     const response = await fetch(`${API_BASE_URL}/api/countries`, {
-      next: { revalidate: 300 }, // Revalidate every 5 minutes
+      cache: "no-store", // Ensure fresh data on every request
+      headers: {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+      },
     });
 
     if (!response.ok) {

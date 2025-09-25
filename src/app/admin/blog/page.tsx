@@ -5,6 +5,9 @@ import { Plus } from "lucide-react";
 import { getAllBlogPostsForAdmin, getBlogCategories } from "@/lib/data";
 import AdminBlogList from "@/components/admin/admin-blog-list";
 
+// Force this page to be dynamic due to admin blog posts
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Blog Posts - Admin",
   description: "Manage your blog posts - create, edit, and delete content",

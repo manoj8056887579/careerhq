@@ -24,7 +24,6 @@ export const Footer: React.FC = () => {
     {
       title: "Resources",
       links: [
-        { name: "All Courses", path: "/all-courses" },
         { name: "Blog", path: "/blog" },
         { name: "Scholarships", path: "/scholarships" },
         { name: "Visa Information", path: "/visa-info" },

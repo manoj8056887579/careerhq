@@ -4,6 +4,9 @@ import { StructuredData } from "@/components/structured-data";
 import { generateBreadcrumbSchema } from "@/lib/structured-data";
 import { UniversityPageClient } from "./university-page-client";
 
+// Force this page to be dynamic
+export const dynamic = "force-dynamic";
+
 interface UniversityPageProps {
   params: Promise<{
     countryId: string;
