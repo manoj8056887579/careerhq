@@ -13,10 +13,13 @@ import {
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
 import { cn } from "@/lib/utils";
+import type { Country } from "@/types/education";
+import { generateCountrySlug } from "@/lib/slug-utils";
 
 export const MainNavbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [countries, setCountries] = React.useState<Country[]>([]);
 
   const navItems = [
     { name: "Home", link: "/" },
@@ -25,21 +28,32 @@ export const MainNavbar: React.FC = () => {
       name: "Study Abroad",
       link: "/study-abroad",
       dropdown: [
-        { name: "United States", link: "/study-abroad/usa" },
-        { name: "United Kingdom", link: "/study-abroad/uk" },
-        { name: "Canada", link: "/study-abroad/canada" },
-        { name: "Australia", link: "/study-abroad/australia" },
-        { name: "Germany", link: "/study-abroad/germany" },
-        { name: "Ireland", link: "/study-abroad/ireland" },
-        { name: "France", link: "/study-abroad/france" },
-        { name: "New Zealand", link: "/study-abroad/new-zealand" },
+        ...countries.map((country) => ({
+          name: country.name,
+
+          link: `/study-abroad/${
+            generateCountrySlug(country.name) || country.id
+          }`,
+        })),
       ],
     },
     { name: "Blog", link: "/blog" },
     { name: "Begin Test", link: "/career-test" },
   ];
+  const fetchData = async () => {
+    try {
+      const response = await fetch("/api/countries?limit=6");
+      const data = await response.json();
 
+      if (data.countries) {
+        setCountries(data.countries);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
   React.useEffect(() => {
+    fetchData();
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
