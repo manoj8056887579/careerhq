@@ -9,7 +9,7 @@ export async function getCourseDataForServer(
     // Use direct API call to fetch specific course by ID or slug
     const response = await fetch(
       `${
-        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+        process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"
       }/api/courses/${courseSlug}?populate=true`,
       {
         cache: "no-store",

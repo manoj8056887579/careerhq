@@ -17,7 +17,6 @@ const CountrySchema = new Schema<ICountry>(
       type: String,
       trim: true,
       lowercase: true,
-      index: true, // Add index for performance
     },
     code: {
       type: String,

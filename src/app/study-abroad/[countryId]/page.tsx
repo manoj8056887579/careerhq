@@ -129,19 +129,66 @@ async function getCountryData(countrySlug: string) {
 
 // Helper function to fetch universities for a country
 async function getUniversitiesForCountry(countryId: string) {
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    process.env.NEXT_PUBLIC_API_URL ||
+    "http://localhost:3000";
+  const apiUrl = `${baseUrl}/api/universities?countryId=${countryId}&populate=true`;
+
+  console.log("🏫 Fetching universities:", {
+    countryId,
+    apiUrl,
+    timestamp: new Date().toISOString(),
+  });
+
   try {
-    const response = await fetch(
-      `${
-        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
-      }/api/universities?countryId=${countryId}&populate=true`,
-      {
-        cache: "no-store", // Ensure fresh data
-      }
-    );
+    const response = await fetch(apiUrl, {
+      cache: "no-store", // Ensure fresh data
+    });
+
+    console.log("📡 Universities API Response:", {
+      status: response.status,
+      statusText: response.statusText,
+      ok: response.ok,
+      url: response.url,
+    });
+
+    if (!response.ok) {
+      const errorText = await response
+        .text()
+        .catch(() => "Unable to read error response");
+      console.error("🚨 Universities API Error:", {
+        status: response.status,
+        statusText: response.statusText,
+        errorText,
+        countryId,
+      });
+      return [];
+    }
+
     const data = await response.json();
-    return data.universities || [];
+    const universities = data.universities || [];
+
+    console.log("🏫 Universities fetched:", {
+      count: universities.length,
+      countryId,
+      universitiesPreview: universities
+        .slice(0, 3)
+        .map((u: UniversityApiResponse) => ({
+          name: u.name,
+          id: u.id,
+          courses: u.courses,
+        })),
+    });
+
+    return universities;
   } catch (error) {
-    console.error("Error fetching universities:", error);
+    console.error("💥 Error fetching universities:", {
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+      countryId,
+      apiUrl,
+    });
     return [];
   }
 }
@@ -199,7 +246,24 @@ export default async function CountryPage({ params }: CountryPageProps) {
   }
 
   // Get universities for this country
-  const universities = await getUniversitiesForCountry(countryData.id);
+  // Try both the transformed ID and the original MongoDB ID
+  console.log("🔍 Country data for university lookup:", {
+    transformedId: countryData.id,
+    originalId: countryData._id,
+    name: countryData.name,
+  });
+
+  let universities = await getUniversitiesForCountry(countryData.id);
+
+  // If no universities found with transformed ID, try with original MongoDB ID
+  if (
+    universities.length === 0 &&
+    countryData._id &&
+    countryData._id !== countryData.id
+  ) {
+    console.log("🔄 Retrying with original MongoDB ID:", countryData._id);
+    universities = await getUniversitiesForCountry(countryData._id);
+  }
 
   // Transform country data to match expected interface
   const transformedCountryData = {

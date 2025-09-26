@@ -24,7 +24,7 @@ interface UniversityPageProps {
 async function getUniversityData(universitySlug: string) {
   try {
     // Use direct API call to fetch specific university data
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
     const response = await fetch(
       `${baseUrl}/api/universities/${universitySlug}`,
       {
@@ -72,7 +72,7 @@ async function getUniversityData(universitySlug: string) {
 // Helper function to fetch courses for a university
 async function getCoursesForUniversity(universityId: string) {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
     const response = await fetch(
       `${baseUrl}/api/courses?universityId=${universityId}&populate=true`,
       {
