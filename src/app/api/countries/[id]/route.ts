@@ -6,7 +6,7 @@ import {
   handleImageUpload,
   deleteImageFromCloudinary,
 } from "@/lib/image-upload-utils";
-import { findEntityBySlugOrId } from "@/lib/slug-utils";
+import { findEntityBySlugOrId, generateSlug } from "@/lib/slug-utils";
 
 interface RouteParams {
   params: Promise<{ id: string }>;
@@ -18,16 +18,36 @@ export async function GET(_request: NextRequest, { params }: RouteParams) {
 
     const { id } = await params;
 
-    // Use the utility function to find by either ID or slug
-    const country = await findEntityBySlugOrId(Country, id, "name");
+    // Validate route parameter (Requirement 4.1)
+    if (!id || typeof id !== "string" || id.trim() === "") {
+      return NextResponse.json(
+        { error: "Invalid country identifier provided" },
+        { status: 400 }
+      );
+    }
 
+    // Use the utility function to find by either ID or slug (Requirements 5.1, 5.2)
+    const country = await findEntityBySlugOrId(Country, id.trim(), "name");
+
+    // Return 404 if country not found (Requirements 1.2, 4.2, 5.4)
     if (!country) {
+      return NextResponse.json({ error: "Country not found" }, { status: 404 });
+    }
+
+    // Only return published countries unless explicitly requested
+    if (country.published === false) {
       return NextResponse.json({ error: "Country not found" }, { status: 404 });
     }
 
     return NextResponse.json({ country });
   } catch (error) {
-    console.error("Error fetching country:", error);
+    // Log error with appropriate context (Requirement 4.1, 4.3)
+    console.error("Error fetching country:", {
+      error: error instanceof Error ? error.message : String(error),
+      countryId: (await params).id,
+      timestamp: new Date().toISOString(),
+    });
+
     return NextResponse.json(
       { error: "Failed to fetch country" },
       { status: 500 }
@@ -85,6 +105,11 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
         "country-flags"
       );
       data.flagImageId = newFlagImageId;
+    }
+
+    // Update slug if name is being changed and no explicit slug provided
+    if (data.name && !data.slug) {
+      data.slug = generateSlug(data.name);
     }
 
     // Update the country

@@ -1,6 +1,7 @@
 export interface Country {
   id: string;
   name: string;
+  slug?: string; // URL-friendly slug for the country
   code?: string; // ISO country code (e.g., 'US', 'UK', 'CA')
   flagImageId?: string; // Cloudinary image ID for flag
   imageId?: string; // Cloudinary image ID for country image
@@ -92,6 +93,7 @@ export interface Course {
 // Form interfaces for admin
 export interface CreateCountryData {
   name: string;
+  slug?: string;
   code?: string;
   flagImageId?: string;
   imageId?: string;

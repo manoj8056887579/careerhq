@@ -5,6 +5,7 @@ import University from "@/models/University";
 import Course from "@/models/Course";
 import type { CreateCountryData } from "@/types/education";
 import { handleImageUpload } from "@/lib/image-upload-utils";
+import { generateSlug } from "@/lib/slug-utils";
 
 export async function GET(request: NextRequest) {
   try {
@@ -117,6 +118,11 @@ export async function POST(request: NextRequest) {
         "country-flags"
       );
       data.flagImageId = flagImageId;
+    }
+
+    // Generate slug if not provided
+    if (!data.slug && data.name) {
+      data.slug = generateSlug(data.name);
     }
 
     const country = new Country(data);

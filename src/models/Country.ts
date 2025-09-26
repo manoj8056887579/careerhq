@@ -13,6 +13,12 @@ const CountrySchema = new Schema<ICountry>(
       trim: true,
       unique: true,
     },
+    slug: {
+      type: String,
+      trim: true,
+      lowercase: true,
+      index: true, // Add index for performance
+    },
     code: {
       type: String,
       required: false, // Made optional since you didn't specify it as required
@@ -80,6 +86,7 @@ const CountrySchema = new Schema<ICountry>(
 // Create indexes for better query performance
 // Note: name field already has unique index, code field index added below
 CountrySchema.index({ code: 1 });
+CountrySchema.index({ slug: 1 }); // Index for slug-based lookups
 
 export default mongoose.models.Country ||
   mongoose.model<ICountry>("Country", CountrySchema);

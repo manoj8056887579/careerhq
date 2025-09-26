@@ -25,28 +25,34 @@ export function generateCourseSlug(programName: string): string {
 export async function findEntityBySlugOrId<T extends Record<string, unknown>>(
   model: {
     findById: (id: string) => Promise<T | null>;
+    findOne: (query: Record<string, unknown>) => Promise<T | null>;
     find: (query: Record<string, unknown>) => Promise<T[]>;
   },
   slugOrId: string,
   nameField: string = "name"
 ): Promise<T | null> {
   try {
-    // First try to find by MongoDB ObjectId
+    // First try to find by MongoDB ObjectId (Requirement 5.1)
     if (slugOrId.match(/^[0-9a-fA-F]{24}$/)) {
       return await model.findById(slugOrId);
     }
 
-    // Then try to find by matching slug generated from name
-    const entities = await model.find({});
+    // Try to find by slug field first (Requirement 5.2)
+    const bySlug = await model.findOne({ slug: slugOrId });
+    if (bySlug) {
+      return bySlug;
+    }
 
-    for (const entity of entities) {
-      const nameValue = entity[nameField];
-      if (typeof nameValue === "string") {
-        const entitySlug = generateSlug(nameValue);
-        if (entitySlug === slugOrId) {
-          return entity;
-        }
-      }
+    // Fallback: try to find by matching slug generated from name
+    // This is for backward compatibility with existing data that might not have slug field
+    const byGeneratedSlug = await model.findOne({
+      [nameField]: {
+        $regex: new RegExp(`^${slugOrId.replace(/-/g, "\\s+")}$`, "i"),
+      },
+    });
+
+    if (byGeneratedSlug) {
+      return byGeneratedSlug;
     }
 
     return null;
