@@ -111,7 +111,6 @@ export function BulkImport() {
           }
 
           const headers = jsonData[0] as string[];
-          console.log("Excel headers found:", headers);
 
           const rows: CourseImportRow[] = [];
 

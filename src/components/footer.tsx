@@ -25,27 +25,25 @@ export const Footer: React.FC = () => {
       title: "Resources",
       links: [
         { name: "Blog", path: "/blog" },
-        { name: "Scholarships", path: "/scholarships" },
-        { name: "Visa Information", path: "/visa-info" },
-        { name: "Success Stories", path: "/success-stories" },
-        { name: "FAQ", path: "/faq" },
+        { name: "Career Test", path: "/career-test" },
       ],
     },
     {
       title: "Company",
       links: [
+        { name: "Home", path: "/" },
+
         { name: "About Us", path: "/about" },
+        { name: "Study Abroad", path: "/study-abroad" },
+
         { name: "Contact", path: "/contact" },
-        { name: "Careers", path: "/careers" },
-        { name: "Privacy Policy", path: "/privacy" },
-        { name: "Terms of Service", path: "/terms" },
       ],
     },
   ];
 
   const socialLinks = [
     { name: "Facebook", icon: "logos:facebook", url: "https://facebook.com" },
-    { name: "Twitter", icon: "logos:twitter", url: "https://twitter.com" },
+    { name: "Twitter", icon: "logos:x", url: "https://twitter.com" },
     {
       name: "Instagram",
       icon: "logos:instagram-icon",
@@ -116,36 +114,10 @@ export const Footer: React.FC = () => {
 
         <Divider className="my-8" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-foreground-500 text-sm">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+          <p className="text-foreground-500 text-sm text-center">
             © {currentYear} CareerHQ. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <HeroLink
-              as={Link}
-              href="/privacy"
-              color="foreground"
-              className="text-sm text-foreground-500 hover:text-primary transition-colors"
-            >
-              Privacy Policy
-            </HeroLink>
-            <HeroLink
-              as={Link}
-              href="/terms"
-              color="foreground"
-              className="text-sm text-foreground-500 hover:text-primary transition-colors"
-            >
-              Terms of Service
-            </HeroLink>
-            <HeroLink
-              as={Link}
-              href="/cookies"
-              color="foreground"
-              className="text-sm text-foreground-500 hover:text-primary transition-colors"
-            >
-              Cookie Policy
-            </HeroLink>
-          </div>
         </div>
       </div>
     </footer>

@@ -25,20 +25,8 @@ async function getCountryData(countrySlug: string) {
     "@/utils/errorUtils"
   );
 
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL ||
-    process.env.NEXT_PUBLIC_API_URL ||
-    "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
   const apiUrl = `${baseUrl}/api/countries/${countrySlug}`;
-
-  // Enhanced logging for debugging
-  console.log("🔍 Fetching country data:", {
-    countrySlug,
-    baseUrl,
-    apiUrl,
-    environment: process.env.NODE_ENV,
-    timestamp: new Date().toISOString(),
-  });
 
   try {
     // Use direct API call to the single country endpoint
@@ -49,26 +37,12 @@ async function getCountryData(countrySlug: string) {
       },
     });
 
-    console.log("📡 API Response:", {
-      status: response.status,
-      statusText: response.statusText,
-      ok: response.ok,
-      url: response.url,
-      headers: Object.fromEntries(response.headers.entries()),
-    });
-
     if (response.ok) {
       const data = await response.json();
-      console.log("✅ Country data received:", {
-        countryName: data.country?.name,
-        countryId: data.country?.id,
-        hasData: !!data.country,
-      });
       return data.country;
     }
 
     if (response.status === 404) {
-      console.log("❌ Country not found (404):", countrySlug);
       log404Error("Country", countrySlug, {
         endpoint: `/api/countries/${countrySlug}`,
         status: response.status,
@@ -82,13 +56,6 @@ async function getCountryData(countrySlug: string) {
       .catch(() => "Unable to read error response");
     const errorMessage = `API Error: ${response.status} ${response.statusText} - ${errorText}`;
 
-    console.error("🚨 API Error:", {
-      status: response.status,
-      statusText: response.statusText,
-      errorText,
-      url: apiUrl,
-    });
-
     logDataFetchError(errorMessage, "Country", countrySlug, {
       endpoint: `/api/countries/${countrySlug}`,
       status: response.status,
@@ -98,13 +65,6 @@ async function getCountryData(countrySlug: string) {
 
     throw new Error(errorMessage);
   } catch (error) {
-    console.error("💥 Fetch error:", {
-      error: error instanceof Error ? error.message : String(error),
-      stack: error instanceof Error ? error.stack : undefined,
-      countrySlug,
-      apiUrl,
-    });
-
     if (error instanceof TypeError && error.message.includes("fetch")) {
       // Network error
       logNetworkError(error, `/api/countries/${countrySlug}`, {
@@ -129,28 +89,12 @@ async function getCountryData(countrySlug: string) {
 
 // Helper function to fetch universities for a country
 async function getUniversitiesForCountry(countryId: string) {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL ||
-    process.env.NEXT_PUBLIC_API_URL ||
-    "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
   const apiUrl = `${baseUrl}/api/universities?countryId=${countryId}&populate=true`;
-
-  console.log("🏫 Fetching universities:", {
-    countryId,
-    apiUrl,
-    timestamp: new Date().toISOString(),
-  });
 
   try {
     const response = await fetch(apiUrl, {
       cache: "no-store", // Ensure fresh data
-    });
-
-    console.log("📡 Universities API Response:", {
-      status: response.status,
-      statusText: response.statusText,
-      ok: response.ok,
-      url: response.url,
     });
 
     if (!response.ok) {
@@ -169,26 +113,9 @@ async function getUniversitiesForCountry(countryId: string) {
     const data = await response.json();
     const universities = data.universities || [];
 
-    console.log("🏫 Universities fetched:", {
-      count: universities.length,
-      countryId,
-      universitiesPreview: universities
-        .slice(0, 3)
-        .map((u: UniversityApiResponse) => ({
-          name: u.name,
-          id: u.id,
-          courses: u.courses,
-        })),
-    });
-
     return universities;
   } catch (error) {
-    console.error("💥 Error fetching universities:", {
-      error: error instanceof Error ? error.message : String(error),
-      stack: error instanceof Error ? error.stack : undefined,
-      countryId,
-      apiUrl,
-    });
+    console.error("Error fetching universities:", error);
     return [];
   }
 }
@@ -247,11 +174,6 @@ export default async function CountryPage({ params }: CountryPageProps) {
 
   // Get universities for this country
   // Try both the transformed ID and the original MongoDB ID
-  console.log("🔍 Country data for university lookup:", {
-    transformedId: countryData.id,
-    originalId: countryData._id,
-    name: countryData.name,
-  });
 
   let universities = await getUniversitiesForCountry(countryData.id);
 
@@ -277,14 +199,16 @@ export default async function CountryPage({ params }: CountryPageProps) {
       (total: number, uni: UniversityApiResponse) => total + (uni.courses || 0),
       0
     ),
-    avgTuition: "Contact us for tuition information",
+    avgTuition: countryData.avgTuition || "Contact us for tuition information",
     costOfLiving:
       countryData.costOfLiving || "Contact us for cost of living information",
-    workRights: "Contact us for work rights information",
+    workRights:
+      countryData.workRights || "Contact us for work rights information",
     visaInfo: countryData.visaRequirements || "Contact us for visa information",
     scholarships:
       countryData.scholarshipsAvailable || "Various scholarships available",
-    intakes: "Multiple intakes available throughout the year",
+    intakes:
+      countryData.intakes || "Multiple intakes available throughout the year",
   };
 
   const breadcrumbData = generateBreadcrumbSchema([

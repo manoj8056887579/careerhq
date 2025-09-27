@@ -1,7 +1,6 @@
 "use client";
 import * as React from "react";
 import Link from "next/link";
-import { Tabs, Tab } from "@heroui/tabs";
 import { Button } from "@heroui/button";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
@@ -34,7 +33,6 @@ interface HomePageClientProps {
 
 export function HomePageClient({ blogPosts }: HomePageClientProps) {
   const enquiryRef = React.useRef<EnquiryFormHandle | null>(null);
-  const [selected, setSelected] = React.useState("popular");
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [countries, setCountries] = React.useState<CountryWithCounts[]>([]);
   const [universities, setUniversities] = React.useState<University[]>([]);
@@ -260,7 +258,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 </div>
 
                 <div className="flex items-center justify-start gap-2 mb-8">
-                  <p className="text-sm text-foreground-500 mr-4 ">
+                  <p className="text-sm text-foreground-500 mr-4 hidden md:block">
                     Popular Destinations:
                   </p>
                   {!loading && countries.length > 0 && (
@@ -329,9 +327,11 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
             <SearchBar variant="hero" />
           </div>
 
-          <div className="mt-8">
-            <BlogSlider items={blogTickerItems} />
-          </div>
+          {blogTickerItems && blogTickerItems.length > 0 && (
+            <div className="mt-8">
+              <BlogSlider items={blogTickerItems} />
+            </div>
+          )}
         </div>
       </VenomBeam>
 
@@ -347,17 +347,6 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 Explore top countries for international education
               </p>
             </div>
-            <Link href="/study-abroad">
-              {" "}
-              <Button
-                variant="light"
-                color="primary"
-                endContent={<Icon icon="lucide:arrow-right" />}
-                className="mt-4 md:mt-0"
-              >
-                View All Destinations
-              </Button>{" "}
-            </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -402,6 +391,19 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
               </div>
             )}
           </div>
+          <div className="mt-10 text-center">
+            <Link href="/study-abroad">
+              {" "}
+              <Button
+                variant="light"
+                color="primary"
+                endContent={<Icon icon="lucide:arrow-right" />}
+                className="mt-4 md:mt-0"
+              >
+                View All Destinations
+              </Button>{" "}
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -415,18 +417,6 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 Discover world-class educational institutions
               </p>
             </div>
-            <Tabs
-              selectedKey={selected}
-              onSelectionChange={(key) => setSelected(key as string)}
-              variant="light"
-              color="primary"
-              radius="full"
-              className="mt-4 md:mt-0"
-            >
-              <Tab key="popular" title="Popular" />
-              <Tab key="ranked" title="Top Ranked" />
-              <Tab key="affordable" title="Affordable" />
-            </Tabs>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -468,11 +458,6 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 <p className="text-foreground-500 mb-4">
                   No universities available at the moment.
                 </p>
-                <Link href="/admin/education">
-                  <Button color="primary" variant="flat">
-                    Add Universities
-                  </Button>
-                </Link>
               </div>
             )}
           </div>
@@ -494,7 +479,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 lg:py-40 bg-white relative overflow-hidden">
+      <section className="py-20  bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50/30 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
@@ -551,23 +536,17 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 of the process. Schedule a free consultation today.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button
-                  color="default"
-                  variant="solid"
-                  size="lg"
-                  startContent={<Icon icon="lucide:calendar" />}
-                  className="font-medium bg-white text-primary"
-                  onPress={() => {
-                    enquiryRef.current?.scrollIntoView({
-                      behavior: "smooth",
-                      block: "center",
-                    });
-                    // focus after a short delay to allow smooth scroll to finish
-                    setTimeout(() => enquiryRef.current?.focus(), 450);
-                  }}
-                >
-                  Book Free Consultation
-                </Button>
+                <Link href="/career-test">
+                  <Button
+                    color="default"
+                    variant="solid"
+                    size="lg"
+                    startContent={<Icon icon="lucide:calendar" />}
+                    className="font-medium bg-white text-primary"
+                  >
+                    Begin Test
+                  </Button>
+                </Link>
                 <Link href="/about-us">
                   <Button
                     variant="bordered"
@@ -618,19 +597,6 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
             className="py-8"
             cardClassName="bg-white/90 dark:bg-gray-800/90 shadow-lg backdrop-blur-sm"
           />
-
-          <div className="mt-10 text-center">
-            <Link href="testimonials">
-              {" "}
-              <Button
-                color="primary"
-                variant="flat"
-                endContent={<Icon icon="lucide:arrow-right" />}
-              >
-                View More Success Stories
-              </Button>{" "}
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -644,17 +610,6 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 Insights and guides for international students
               </p>
             </div>
-            <Link href="/blog">
-              {" "}
-              <Button
-                variant="light"
-                color="primary"
-                endContent={<Icon icon="lucide:arrow-right" />}
-                className="mt-4 md:mt-0"
-              >
-                View All Articles
-              </Button>{" "}
-            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -680,6 +635,21 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
               </div>
             )}
           </div>
+          {blogPosts.length > 0 && (
+            <div className="mt-10 text-center">
+              <Link href="/blog">
+                {" "}
+                <Button
+                  variant="light"
+                  color="primary"
+                  endContent={<Icon icon="lucide:arrow-right" />}
+                  className="mt-4 md:mt-0"
+                >
+                  View All Articles
+                </Button>{" "}
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 
@@ -725,19 +695,6 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
             cardClassName="bg-white/90 dark:bg-gray-800/90"
             repeat={4}
           />
-
-          <div className="mt-10 text-center">
-            <Link href="/study-abroad">
-              {" "}
-              <Button
-                color="primary"
-                variant="flat"
-                endContent={<Icon icon="lucide:arrow-right" />}
-              >
-                Explore All Partner Universities
-              </Button>{" "}
-            </Link>
-          </div>
         </div>
       </section>
     </>

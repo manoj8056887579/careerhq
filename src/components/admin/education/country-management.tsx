@@ -41,6 +41,10 @@ export function CountryManagement() {
     imageId: "",
     description: "",
     costOfLiving: "",
+    avgTuition: "",
+    workRights: "",
+    intakes: "",
+
     visaRequirements: "",
     scholarshipsAvailable: "",
     // Keep existing fields for backward compatibility
@@ -72,7 +76,10 @@ export function CountryManagement() {
         formData.flagImageId !== (selectedCountry.flagImageId || "") ||
         formData.imageId !== (selectedCountry.imageId || "") ||
         formData.description !== (selectedCountry.description || "") ||
+        formData.avgTuition !== (selectedCountry.avgTuition || "") ||
         formData.costOfLiving !== (selectedCountry.costOfLiving || "") ||
+        formData.workRights !== (selectedCountry.workRights || "") ||
+        formData.intakes !== (selectedCountry.intakes || "") ||
         formData.visaRequirements !==
           (selectedCountry.visaRequirements || "") ||
         formData.scholarshipsAvailable !==
@@ -338,7 +345,10 @@ export function CountryManagement() {
       flagImageId: country.flagImageId || "",
       imageId: country.imageId || "",
       description: country.description || "",
+      avgTuition: country.avgTuition || "",
       costOfLiving: country.costOfLiving || "",
+      workRights: country.workRights || "",
+      intakes: country.intakes || "",
       visaRequirements: country.visaRequirements || "",
       scholarshipsAvailable: country.scholarshipsAvailable || "",
       // Keep existing fields for backward compatibility
@@ -361,7 +371,10 @@ export function CountryManagement() {
       flagImageId: "",
       imageId: "",
       description: "",
+      avgTuition: "",
       costOfLiving: "",
+      workRights: "",
+      intakes: "",
       visaRequirements: "",
       scholarshipsAvailable: "",
       // Keep existing fields for backward compatibility
@@ -662,11 +675,48 @@ export function CountryManagement() {
                 </h3>
                 <div className="space-y-4">
                   <Textarea
+                    label="Average Tuition Fees"
+                    placeholder="Provide information about tuition fees, scholarships, and funding options."
+                    value={formData.avgTuition || ""}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        avgTuition: e.target.value,
+                      })
+                    }
+                    minRows={3}
+                  />
+                  <Textarea
                     label="Cost of Living"
                     placeholder="Provide information about living costs, accommodation, food, transportation, etc."
                     value={formData.costOfLiving || ""}
                     onChange={(e) =>
                       setFormData({ ...formData, costOfLiving: e.target.value })
+                    }
+                    minRows={3}
+                  />
+
+                  <Textarea
+                    label="Work Rights"
+                    placeholder="Describe work rights, employment opportunities, and visa requirements."
+                    value={formData.workRights || ""}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        workRights: e.target.value,
+                      })
+                    }
+                    minRows={3}
+                  />
+                  <Textarea
+                    label="Intakes"
+                    placeholder="Provide information about admission processes, deadlines, and intakes."
+                    value={formData.intakes || ""}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        intakes: e.target.value,
+                      })
                     }
                     minRows={3}
                   />

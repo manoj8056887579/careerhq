@@ -23,7 +23,7 @@ export function ConditionalLayout({ children }: ConditionalLayoutProps) {
   return (
     <>
       <MainNavbar />
-      <div className="min-h-screen flex flex-col pt-20">
+      <div className="min-h-screen flex flex-col pt-14">
         <main className="flex-grow">{children}</main>
         <Footer />
       </div>

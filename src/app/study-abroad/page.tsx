@@ -356,7 +356,51 @@ export default function StudyAbroadPage() {
           </div>
         </div>
       </section>
-
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-primary-500 to-secondary-500 text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-4">
+                Ready to Begin Your International Education Journey?
+              </h2>
+              <p className="text-white/90 mb-6">
+                Our expert counselors are ready to guide you through every step
+                of the process. Schedule a free consultation today.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button
+                  as={Link}
+                  href="/career-test"
+                  color="default"
+                  variant="solid"
+                  size="lg"
+                  startContent={<Icon icon="lucide:calendar" />}
+                  className="font-medium bg-white text-primary"
+                >
+                  Begin Test
+                </Button>
+                <Button
+                  as={Link}
+                  href="/blog"
+                  variant="bordered"
+                  size="lg"
+                  className="font-medium text-white border-white"
+                >
+                  Read Our Blog
+                </Button>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <EnquiryForm
+                ref={enquiryRef}
+                title="Get Expert Guidance"
+                subtitle="Fill out this form and our education experts will get back to you within 24 hours."
+              />
+            </div>
+          </div>
+        </div>
+      </section>
       {/* FAQ Section */}
       <section className="py-16 bg-default-50">
         <div className="container mx-auto px-4">
@@ -416,57 +460,6 @@ export default function StudyAbroadPage() {
                 </Card>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-primary-500 to-secondary-500 text-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-4">
-                Ready to Begin Your International Education Journey?
-              </h2>
-              <p className="text-white/90 mb-6">
-                Our expert counselors are ready to guide you through every step
-                of the process. Schedule a free consultation today.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Button
-                  color="default"
-                  variant="solid"
-                  size="lg"
-                  startContent={<Icon icon="lucide:calendar" />}
-                  className="font-medium bg-white text-primary"
-                  onClick={() => {
-                    enquiryRef.current?.scrollIntoView({
-                      behavior: "smooth",
-                      block: "center",
-                    });
-                    setTimeout(() => enquiryRef.current?.focus(), 450);
-                  }}
-                >
-                  Book Free Consultation
-                </Button>
-                <Button
-                  as={Link}
-                  href="/blog"
-                  variant="bordered"
-                  size="lg"
-                  className="font-medium text-white border-white"
-                >
-                  Read Our Blog
-                </Button>
-              </div>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <EnquiryForm
-                ref={enquiryRef}
-                title="Get Expert Guidance"
-                subtitle="Fill out this form and our education experts will get back to you within 24 hours."
-              />
-            </div>
           </div>
         </div>
       </section>

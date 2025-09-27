@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback, memo } from "react";
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
 import { Textarea } from "@heroui/input";
@@ -24,20 +24,164 @@ const CONTENT_TYPES = [
   { key: "paragraph", label: "Paragraph", icon: AlignLeft },
 ] as const;
 
+// Get placeholder text based on content type
+const getPlaceholder = (type: "heading" | "paragraph"): string => {
+  switch (type) {
+    case "heading":
+      return "Enter heading text...";
+    case "paragraph":
+      return "Enter paragraph content...";
+    default:
+      return "Enter content...";
+  }
+};
+
+// Memoized ContentBlock component to prevent unnecessary re-renders
+interface ContentBlockComponentProps {
+  block: ContentBlock;
+  index: number;
+  totalBlocks: number;
+  onUpdate: (
+    blockId: string,
+    field: keyof Omit<ContentBlock, "id">,
+    value: string
+  ) => void;
+  onMove: (blockId: string, direction: "up" | "down") => void;
+  onRemove: (blockId: string) => void;
+}
+
+const ContentBlockComponent = memo(function ContentBlockComponent({
+  block,
+  index,
+  totalBlocks,
+  onUpdate,
+  onMove,
+  onRemove,
+}: ContentBlockComponentProps) {
+  const handleTextChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      onUpdate(block.id, "text", e.target.value);
+    },
+    [block.id, onUpdate]
+  );
+
+  const handleTypeChange = useCallback(
+    (keys: Set<React.Key> | "all") => {
+      if (keys === "all") return;
+      const newType = Array.from(keys)[0] as "heading" | "paragraph";
+      onUpdate(block.id, "type", newType);
+    },
+    [block.id, onUpdate]
+  );
+
+  const ContentTypeIcon =
+    CONTENT_TYPES.find((type) => type.key === block.type)?.icon || AlignLeft;
+
+  const renderInput = () => {
+    const commonProps = {
+      value: block.text,
+      onChange: handleTextChange,
+      placeholder: getPlaceholder(block.type),
+      variant: "bordered" as const,
+    };
+
+    switch (block.type) {
+      case "heading":
+        return (
+          <Input
+            {...commonProps}
+            size="lg"
+            classNames={{
+              input: "text-lg font-semibold",
+            }}
+          />
+        );
+      case "paragraph":
+        return <Textarea {...commonProps} minRows={3} maxRows={8} />;
+      default:
+        return <Textarea {...commonProps} minRows={2} maxRows={6} />;
+    }
+  };
+
+  return (
+    <Card className="relative">
+      <CardHeader className="pb-2">
+        <div className="flex items-center justify-between w-full">
+          <div className="flex items-center gap-2">
+            <GripVertical size={16} className="text-default-400 cursor-move" />
+            <ContentTypeIcon size={16} className="text-default-500" />
+            <Select
+              size="sm"
+              variant="flat"
+              selectedKeys={[block.type]}
+              onSelectionChange={handleTypeChange}
+              className="w-32"
+              aria-label="Content type"
+            >
+              {CONTENT_TYPES.map(({ key, label }) => (
+                <SelectItem key={key}>{label}</SelectItem>
+              ))}
+            </Select>
+          </div>
+
+          <div className="flex items-center gap-1">
+            <Button
+              isIconOnly
+              size="sm"
+              variant="light"
+              onPress={() => onMove(block.id, "up")}
+              isDisabled={index === 0}
+              aria-label="Move up"
+            >
+              ↑
+            </Button>
+            <Button
+              isIconOnly
+              size="sm"
+              variant="light"
+              onPress={() => onMove(block.id, "down")}
+              isDisabled={index === totalBlocks - 1}
+              aria-label="Move down"
+            >
+              ↓
+            </Button>
+            <Button
+              isIconOnly
+              size="sm"
+              variant="light"
+              color="danger"
+              onPress={() => onRemove(block.id)}
+              aria-label="Delete block"
+            >
+              <Trash2 size={16} />
+            </Button>
+          </div>
+        </div>
+      </CardHeader>
+      <Divider />
+      <CardBody className="pt-3">
+        {renderInput()}
+        {!block.text.trim() && (
+          <p className="text-xs text-default-400 mt-1">
+            This {block.type} is empty. Add some content to include it in your
+            blog post.
+          </p>
+        )}
+      </CardBody>
+    </Card>
+  );
+});
+
 export default function ContentEditor({
   content,
   onChange,
 }: ContentEditorProps) {
-  // Debug: Log the content being received
-  console.log("ContentEditor received content:", content);
-
   // Convert content to blocks with IDs for easier manipulation
   const [blocks, setBlocks] = useState<ContentBlock[]>(() => {
     const initialBlocks = content.map((item, index) => ({
       ...item,
       id: item.id || `block-${index}-${Date.now()}`,
     }));
-    console.log("ContentEditor initial blocks:", initialBlocks);
     return initialBlocks;
   });
 
@@ -46,31 +190,37 @@ export default function ContentEditor({
   // Update blocks when content prop changes (important for edit mode)
   useEffect(() => {
     // Only update if content has actually changed from the previous content
+    // and if the change is not from our own updateContent function
     const contentChanged =
       JSON.stringify(previousContentRef.current) !== JSON.stringify(content);
 
-    console.log(
-      "ContentEditor useEffect - contentChanged:",
-      contentChanged,
-      "content:",
-      content
-    );
-
-    if (contentChanged) {
+    if (contentChanged && content.length !== blocks.length) {
+      // Only update if the structure has changed (different number of blocks)
+      // This prevents re-rendering when just text content changes
       const newBlocks = content.map((item, index) => ({
         ...item,
-        id: item.id || `block-${index}-${Date.now()}`,
+        id: item.id || blocks[index]?.id || `block-${index}-${Date.now()}`,
       }));
-      console.log("ContentEditor useEffect - setting new blocks:", newBlocks);
       setBlocks(newBlocks);
       previousContentRef.current = content;
+    } else if (contentChanged) {
+      // If only content changed but structure is the same, update existing blocks
+      const updatedBlocks = blocks.map((block, index) => ({
+        ...block,
+        ...content[index],
+        id: block.id, // Keep the existing ID to maintain component identity
+      }));
+      setBlocks(updatedBlocks);
+      previousContentRef.current = content;
     }
-  }, [content]);
+  }, [content, blocks.length, blocks]);
 
   // Update parent component when blocks change
   const updateContent = (newBlocks: ContentBlock[]) => {
     setBlocks(newBlocks);
     const contentWithoutIds = newBlocks.map(({ id: _id, ...block }) => block);
+    // Update the ref to prevent the useEffect from triggering unnecessarily
+    previousContentRef.current = contentWithoutIds;
     onChange(contentWithoutIds);
   };
 
@@ -92,16 +242,26 @@ export default function ContentEditor({
   };
 
   // Update block content
-  const updateBlock = (
-    blockId: string,
-    field: keyof Omit<ContentBlock, "id">,
-    value: string
-  ) => {
-    const newBlocks = blocks.map((block) =>
-      block.id === blockId ? { ...block, [field]: value } : block
-    );
-    updateContent(newBlocks);
-  };
+  const updateBlock = useCallback(
+    (blockId: string, field: keyof Omit<ContentBlock, "id">, value: string) => {
+      // Update the blocks state directly without triggering a full re-render
+      setBlocks((prevBlocks) => {
+        const newBlocks = prevBlocks.map((block) =>
+          block.id === blockId ? { ...block, [field]: value } : block
+        );
+
+        // Update parent component
+        const contentWithoutIds = newBlocks.map(
+          ({ id: _id, ...block }) => block
+        );
+        previousContentRef.current = contentWithoutIds;
+        onChange(contentWithoutIds);
+
+        return newBlocks;
+      });
+    },
+    [onChange]
+  );
 
   // Move block up or down
   const moveBlock = (blockId: string, direction: "up" | "down") => {
@@ -117,47 +277,6 @@ export default function ContentEditor({
       newBlocks[currentIndex],
     ];
     updateContent(newBlocks);
-  };
-
-  // Get placeholder text based on content type
-  const getPlaceholder = (type: "heading" | "paragraph"): string => {
-    switch (type) {
-      case "heading":
-        return "Enter heading text...";
-      case "paragraph":
-        return "Enter paragraph content...";
-      default:
-        return "Enter content...";
-    }
-  };
-
-  // Get appropriate input component based on content type
-  const renderContentInput = (block: ContentBlock) => {
-    const commonProps = {
-      value: block.text,
-      onChange: (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-      ) => updateBlock(block.id, "text", e.target.value),
-      placeholder: getPlaceholder(block.type),
-      variant: "bordered" as const,
-    };
-
-    switch (block.type) {
-      case "heading":
-        return (
-          <Input
-            {...commonProps}
-            size="lg"
-            classNames={{
-              input: "text-lg font-semibold",
-            }}
-          />
-        );
-      case "paragraph":
-        return <Textarea {...commonProps} minRows={3} maxRows={8} />;
-      default:
-        return <Textarea {...commonProps} minRows={2} maxRows={6} />;
-    }
   };
 
   return (
@@ -215,87 +334,17 @@ export default function ContentEditor({
         </Card>
       ) : (
         <div className="space-y-3">
-          {blocks.map((block, index) => {
-            const ContentTypeIcon =
-              CONTENT_TYPES.find((type) => type.key === block.type)?.icon ||
-              AlignLeft;
-
-            return (
-              <Card key={block.id} className="relative">
-                <CardHeader className="pb-2">
-                  <div className="flex items-center justify-between w-full">
-                    <div className="flex items-center gap-2">
-                      <GripVertical
-                        size={16}
-                        className="text-default-400 cursor-move"
-                      />
-                      <ContentTypeIcon size={16} className="text-default-500" />
-                      <Select
-                        size="sm"
-                        variant="flat"
-                        selectedKeys={[block.type]}
-                        onSelectionChange={(keys) => {
-                          const newType = Array.from(keys)[0] as
-                            | "heading"
-                            | "paragraph";
-                          updateBlock(block.id, "type", newType);
-                        }}
-                        className="w-32"
-                        aria-label="Content type"
-                      >
-                        {CONTENT_TYPES.map(({ key, label }) => (
-                          <SelectItem key={key}>{label}</SelectItem>
-                        ))}
-                      </Select>
-                    </div>
-
-                    <div className="flex items-center gap-1">
-                      <Button
-                        isIconOnly
-                        size="sm"
-                        variant="light"
-                        onPress={() => moveBlock(block.id, "up")}
-                        isDisabled={index === 0}
-                        aria-label="Move up"
-                      >
-                        ↑
-                      </Button>
-                      <Button
-                        isIconOnly
-                        size="sm"
-                        variant="light"
-                        onPress={() => moveBlock(block.id, "down")}
-                        isDisabled={index === blocks.length - 1}
-                        aria-label="Move down"
-                      >
-                        ↓
-                      </Button>
-                      <Button
-                        isIconOnly
-                        size="sm"
-                        variant="light"
-                        color="danger"
-                        onPress={() => removeBlock(block.id)}
-                        aria-label="Delete block"
-                      >
-                        <Trash2 size={16} />
-                      </Button>
-                    </div>
-                  </div>
-                </CardHeader>
-                <Divider />
-                <CardBody className="pt-3">
-                  {renderContentInput(block)}
-                  {!block.text.trim() && (
-                    <p className="text-xs text-default-400 mt-1">
-                      This {block.type} is empty. Add some content to include it
-                      in your blog post.
-                    </p>
-                  )}
-                </CardBody>
-              </Card>
-            );
-          })}
+          {blocks.map((block, index) => (
+            <ContentBlockComponent
+              key={block.id}
+              block={block}
+              index={index}
+              totalBlocks={blocks.length}
+              onUpdate={updateBlock}
+              onMove={moveBlock}
+              onRemove={removeBlock}
+            />
+          ))}
         </div>
       )}
 
@@ -319,7 +368,7 @@ export default function ContentEditor({
 
       {blocks.length > 0 && (
         <div className="text-sm text-default-500 text-center pt-2">
-          {blocks.length} content block{blocks.length !== 1 ? "s" : ""} •
+          {blocks.length} content block{blocks.length !== 1 ? "s" : ""} •{" "}
           {blocks.filter((b) => b.text.trim()).length} with content
         </div>
       )}

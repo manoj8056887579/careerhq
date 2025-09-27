@@ -149,7 +149,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-primary-50 to-white py-16 md:py-24">
+      <section className="relative bg-gradient-to-b from-primary-50 to-white py-16 ">
         <div className="absolute inset-0 hero-pattern opacity-30"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -165,7 +165,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-16 bg-white">
+      <section className="py-10 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -212,9 +212,9 @@ export default function AboutPage() {
                 <Image
                   src="/images/19871.jpg"
                   alt="CareerHQ Office"
-                  width={800}
-                  height={600}
-                  className="w-full h-[450px] object-cover"
+                  width={400}
+                  height={200}
+                  className="w-full h-[420px] object-cover"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary-100 rounded-full z-0"></div>
@@ -439,14 +439,14 @@ export default function AboutPage() {
               <div className="flex flex-wrap gap-4">
                 <Button
                   as={Link}
-                  href="/contact"
+                  href="/career-test"
                   color="default"
                   variant="solid"
                   size="lg"
                   startContent={<Icon icon="lucide:calendar" />}
                   className="font-medium bg-white text-primary"
                 >
-                  Book Free Consultation
+                  Begin Test
                 </Button>
                 <Button
                   as={Link}

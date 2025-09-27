@@ -6,7 +6,6 @@ import Image from "next/image";
 import { Button } from "@heroui/button";
 import { Card, CardBody } from "@heroui/card";
 import { Breadcrumbs, BreadcrumbItem } from "@heroui/breadcrumbs";
-import { Tabs, Tab } from "@heroui/tabs";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { UniversityCard } from "@/components/university-card";
@@ -49,22 +48,7 @@ export const CountryPageClient: React.FC<CountryPageClientProps> = ({
   universities,
   countryId: _countryId,
 }) => {
-  const [selected, setSelected] = React.useState("all");
   const enquiryRef = React.useRef<EnquiryFormHandle | null>(null);
-
-  const filteredUniversities = React.useMemo(() => {
-    if (selected === "all") return universities;
-
-    if (selected === "top-ranked") {
-      return universities.filter((uni) => uni.ranking <= 50);
-    }
-
-    if (selected === "research") {
-      return universities.filter((uni) => uni.tags.includes("Research"));
-    }
-
-    return universities;
-  }, [selected, universities]);
 
   return (
     <>
@@ -239,22 +223,10 @@ export const CountryPageClient: React.FC<CountryPageClientProps> = ({
                 Explore top educational institutions
               </p>
             </div>
-            <Tabs
-              selectedKey={selected}
-              onSelectionChange={(key) => setSelected(String(key))}
-              variant="light"
-              color="primary"
-              radius="full"
-              className="mt-4 md:mt-0"
-            >
-              <Tab key="all" title="All" />
-              <Tab key="top-ranked" title="Top Ranked" />
-              <Tab key="research" title="Research" />
-            </Tabs>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredUniversities.map((university) => (
+            {universities.map((university) => (
               <UniversityCard
                 key={university.id}
                 id={university.id}
@@ -269,7 +241,7 @@ export const CountryPageClient: React.FC<CountryPageClientProps> = ({
             ))}
           </div>
 
-          {filteredUniversities.length === 0 && (
+          {universities.length === 0 && (
             <div className="text-center py-12">
               <p className="text-foreground-500">
                 No universities found matching your criteria.

@@ -17,23 +17,10 @@ export async function GET(_request: NextRequest, { params }: RouteParams) {
   let countryId: string | undefined;
 
   try {
-    console.log("🔍 API: Starting country lookup", {
-      timestamp: new Date().toISOString(),
-      environment: process.env.NODE_ENV,
-    });
-
     await connectToDatabase();
-    console.log("✅ Database connected successfully");
 
     const { id } = await params;
     countryId = id;
-
-    console.log("📝 API: Processing request", {
-      countryId: id,
-      idType: typeof id,
-      idLength: id?.length,
-      trimmed: id?.trim(),
-    });
 
     // Validate route parameter (Requirement 4.1)
     if (!id || typeof id !== "string" || id.trim() === "") {
@@ -45,21 +32,9 @@ export async function GET(_request: NextRequest, { params }: RouteParams) {
     }
 
     const trimmedId = id.trim();
-    console.log("🔎 Looking up country:", {
-      originalId: id,
-      trimmedId,
-      isObjectId: trimmedId.match(/^[0-9a-fA-F]{24}$/),
-    });
 
     // Use the utility function to find by either ID or slug (Requirements 5.1, 5.2)
     const country = await findEntityBySlugOrId(Country, trimmedId, "name");
-
-    console.log("🔍 Country lookup result:", {
-      found: !!country,
-      countryName: country?.name,
-      countryId: country?._id || country?.id,
-      published: country?.published,
-    });
 
     // Return 404 if country not found (Requirements 1.2, 4.2, 5.4)
     if (!country) {
@@ -69,18 +44,8 @@ export async function GET(_request: NextRequest, { params }: RouteParams) {
 
     // Only return published countries unless explicitly requested
     if (country.published === false) {
-      console.log("❌ Country found but not published:", {
-        countryName: country.name,
-        published: country.published,
-      });
       return NextResponse.json({ error: "Country not found" }, { status: 404 });
     }
-
-    const responseTime = Date.now() - startTime;
-    console.log("✅ Country found and returned:", {
-      countryName: country.name,
-      responseTime: `${responseTime}ms`,
-    });
 
     return NextResponse.json({ country });
   } catch (error) {

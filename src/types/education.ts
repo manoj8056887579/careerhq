@@ -6,7 +6,10 @@ export interface Country {
   flagImageId?: string; // Cloudinary image ID for flag
   imageId?: string; // Cloudinary image ID for country image
   description?: string;
+  avgTuition?: string;
   costOfLiving?: string;
+  workRights?: string;
+  intakes?: string;
   visaRequirements?: string;
   scholarshipsAvailable?: string;
   // Keep existing fields for backward compatibility
@@ -98,7 +101,10 @@ export interface CreateCountryData {
   flagImageId?: string;
   imageId?: string;
   description?: string;
+  avgTuition?: string;
   costOfLiving?: string;
+  workRights?: string;
+  intakes?: string;
   visaRequirements?: string;
   scholarshipsAvailable?: string;
   // Keep existing fields for backward compatibility

@@ -63,6 +63,26 @@ export async function GET(request: NextRequest) {
       query.published = { $ne: false };
     }
 
+    // If no universities found with the provided countryId, try to find the country by slug/name
+    // and use its _id for the query
+    let alternativeQuery = null;
+    if (countryId && !countryId.match(/^[0-9a-fA-F]{24}$/)) {
+      const country = await Country.findOne({
+        $or: [
+          { slug: countryId },
+          {
+            name: {
+              $regex: new RegExp(`^${countryId.replace(/-/g, "\\s+")}$`, "i"),
+            },
+          },
+        ],
+      });
+
+      if (country) {
+        alternativeQuery = { ...query, countryId: country._id.toString() };
+      }
+    }
+
     let universitiesQuery = University.find(query).sort({ name: 1 });
 
     // Apply limit if specified
@@ -71,6 +91,21 @@ export async function GET(request: NextRequest) {
     }
 
     let universities = await universitiesQuery;
+
+    // If no universities found and we have an alternative query, try that
+    if (universities.length === 0 && alternativeQuery) {
+      let alternativeUniversitiesQuery = University.find(alternativeQuery).sort(
+        { name: 1 }
+      );
+
+      if (limit) {
+        alternativeUniversitiesQuery = alternativeUniversitiesQuery.limit(
+          parseInt(limit)
+        );
+      }
+
+      universities = await alternativeUniversitiesQuery;
+    }
 
     if (populate) {
       universities = await University.populate(universities, {

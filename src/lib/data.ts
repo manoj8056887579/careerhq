@@ -7,10 +7,7 @@ import {
   logNetworkError,
 } from "@/utils/errorUtils";
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL ||
-  process.env.NEXT_PUBLIC_BASE_URL ||
-  "http://localhost:3000";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 // Helper function to handle API responses
 async function handleApiResponse<T>(response: Response): Promise<T> {

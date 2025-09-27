@@ -19,7 +19,7 @@ export const ContactClient: React.FC<ContactClientProps> = ({ faqs }) => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-primary-50 to-white py-16 md:py-24">
+      <section className="relative bg-gradient-to-b from-primary-50 to-white py-16 ">
         <div className="absolute inset-0 hero-pattern opacity-30"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -45,8 +45,15 @@ export const ContactClient: React.FC<ContactClientProps> = ({ faqs }) => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-16" id="contact-form">
+      <section className="py-10" id="contact-form">
         <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+            Send Us a Message
+          </h2>
+          <p className="text-foreground-500 mb-8">
+            Fill out the form below and our team will get back to you within 24
+            hours.
+          </p>
           <div className="flex flex-col lg:flex-row gap-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -55,14 +62,6 @@ export const ContactClient: React.FC<ContactClientProps> = ({ faqs }) => {
               transition={{ duration: 0.5 }}
               className="w-full lg:w-1/2"
             >
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                Send Us a Message
-              </h2>
-              <p className="text-foreground-500 mb-8">
-                Fill out the form below and our team will get back to you within
-                24 hours.
-              </p>
-
               <EnquiryForm title="" subtitle="" />
             </motion.div>
 
@@ -71,7 +70,7 @@ export const ContactClient: React.FC<ContactClientProps> = ({ faqs }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="w-full lg:w-1/2 relative h-[450px] lg:h-[668px] rounded-xl overflow-hidden shadow-lg border border-default-200"
+              className="w-full lg:w-1/2 relative h-[450px] lg:h-[360px] rounded-xl overflow-hidden shadow-lg border border-default-200"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary-100/20 via-transparent to-primary-400/10 z-10 pointer-events-none" />
               <iframe

@@ -32,6 +32,7 @@ interface NavItemsProps {
   }[];
   className?: string;
   onItemClick?: () => void;
+  currentPath?: string;
 }
 
 interface MobileNavProps {
@@ -124,9 +125,21 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   );
 };
 
-export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
+export const NavItems = ({
+  items,
+  className,
+  onItemClick,
+  currentPath,
+}: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
   const [dropdownOpen, setDropdownOpen] = useState<number | null>(null);
+
+  // Helper function to check if a nav item is active
+  const isActive = (itemLink: string) => {
+    if (itemLink === "/" && currentPath === "/") return true;
+    if (itemLink !== "/" && currentPath?.startsWith(itemLink)) return true;
+    return false;
+  };
 
   return (
     <motion.div
@@ -152,10 +165,44 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         >
           <a
             onClick={onItemClick}
-            className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300 flex items-center gap-1 hover:text-neutral-900"
+            className={cn(
+              "relative px-4 py-2 flex items-center gap-1 transition-all duration-200",
+              isActive(item.link)
+                ? "text-primary font-semibold drop-shadow-sm"
+                : "text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100"
+            )}
             href={item.link}
           >
-            {hovered === idx && (
+            {/* Active indicator */}
+            {isActive(item.link) && (
+              <>
+                <motion.div
+                  layoutId="active"
+                  className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 -z-10"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                />
+                <motion.div
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"
+                  initial={{ opacity: 0, y: 2, scale: 0 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    scale: [0, 1.2, 1],
+                  }}
+                  exit={{ opacity: 0, y: 2, scale: 0 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.1,
+                    scale: { times: [0, 0.7, 1], duration: 0.4 },
+                  }}
+                />
+              </>
+            )}
+            {/* Hover indicator */}
+            {hovered === idx && !isActive(item.link) && (
               <motion.div
                 layoutId="hovered"
                 className="absolute inset-0 rounded-full bg-gray-100 dark:bg-neutral-800 -z-10"
@@ -184,18 +231,26 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className="absolute top-full left-0 mt-1 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 dark:bg-neutral-900 z-50"
+              className="absolute top-full left-0 mt-0 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 dark:bg-neutral-900 z-50"
             >
               <div className="py-1">
-                {item.dropdown?.map((dropdownItem, dropIdx) => (
-                  <a
-                    key={`dropdown-${idx}-${dropIdx}`}
-                    href={dropdownItem.link}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-neutral-800"
-                  >
-                    {dropdownItem.name}
-                  </a>
-                ))}
+                {item.dropdown?.map((dropdownItem, dropIdx) => {
+                  const isDropdownActive = currentPath === dropdownItem.link;
+                  return (
+                    <a
+                      key={`dropdown-${idx}-${dropIdx}`}
+                      href={dropdownItem.link}
+                      className={cn(
+                        "block px-4 py-2 text-sm transition-colors duration-200",
+                        isDropdownActive
+                          ? "bg-primary/10 text-primary font-medium border-l-2 border-primary"
+                          : "text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-neutral-800"
+                      )}
+                    >
+                      {dropdownItem.name}
+                    </a>
+                  );
+                })}
               </div>
             </motion.div>
           )}

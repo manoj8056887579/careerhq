@@ -6,7 +6,6 @@ import { Button } from "@heroui/button";
 import { Card, CardBody } from "@heroui/card";
 import { Breadcrumbs, BreadcrumbItem } from "@heroui/breadcrumbs";
 import { Chip } from "@heroui/chip";
-import { Tabs, Tab } from "@heroui/tabs";
 import { Divider } from "@heroui/divider";
 import { Icon } from "@iconify/react";
 import { EnquiryForm } from "@/components/enquiry-form";
@@ -32,7 +31,7 @@ interface CourseData {
   scholarships?: string[];
   campus?: string;
   ieltsScore?: number;
-  ieltsNoBandLessThan?: number;
+  ieltsNoBandLessThan?: number | null;
   pteScore?: number | null;
   pteNoBandLessThan?: number | null;
   toeflScore?: number;
@@ -56,7 +55,6 @@ export const CoursePageClient: React.FC<CoursePageClientProps> = ({
   countryName: propCountryName,
   initialCourseData,
 }) => {
-  const [selected, setSelected] = React.useState("overview");
   const enquiryRef = React.useRef<EnquiryFormHandle | null>(null);
   const [isApplicationModalOpen, setIsApplicationModalOpen] =
     React.useState(false);
@@ -206,255 +204,147 @@ export const CoursePageClient: React.FC<CoursePageClientProps> = ({
             <div className="lg:col-span-2">
               <Card className="border border-default-200">
                 <CardBody className="p-0">
-                  <Tabs
-                    selectedKey={selected}
-                    onSelectionChange={(key) => setSelected(String(key))}
-                    variant="bordered"
-                    color="primary"
-                    classNames={{
-                      tabList: "bg-default-50 p-0",
-                      cursor: "bg-primary",
-                      tab: "h-12",
-                    }}
-                    aria-label="Course tabs"
-                  >
-                    <Tab key="overview" title="Overview">
-                      <div className="p-6">
-                        <h2 className="text-xl font-semibold mb-4">
-                          Course Overview
-                        </h2>
-                        <p className="text-foreground-600 mb-6">
-                          {courseData.description}
-                        </p>
+                  <div className="p-6">
+                    <h2 className="text-xl font-semibold mb-4">
+                      Course Overview
+                    </h2>
+                    <p className="text-foreground-600 mb-6">
+                      {courseData.description}
+                    </p>
 
-                        <h3 className="text-lg font-semibold mb-3">
-                          Key Information
-                        </h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                          <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mt-1">
-                              <Icon
-                                icon="lucide:clock"
-                                className="text-primary"
-                              />
-                            </div>
-                            <div>
-                              <p className="font-medium">Duration</p>
-                              <p className="text-foreground-500">
-                                {courseData.duration}
-                              </p>
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mt-1">
-                              <Icon
-                                icon="lucide:wallet"
-                                className="text-primary"
-                              />
-                            </div>
-                            <div>
-                              <p className="font-medium">Tuition Fee</p>
-                              <p className="text-foreground-500">
-                                {courseData.fee}
-                              </p>
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mt-1">
-                              <Icon
-                                icon="lucide:calendar"
-                                className="text-primary"
-                              />
-                            </div>
-                            <div>
-                              <p className="font-medium">Intake Months</p>
-                              <p className="text-foreground-500">
-                                {courseData.intake?.join(", ") ||
-                                  "Contact for intake dates"}
-                              </p>
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mt-1">
-                              <Icon
-                                icon="lucide:file-clock"
-                                className="text-primary"
-                              />
-                            </div>
-                            <div>
-                              <p className="font-medium">
-                                Application Deadline
-                              </p>
-                              <p className="text-foreground-500">
-                                {courseData.applicationDeadline}
-                              </p>
-                            </div>
-                          </div>
+                    <h3 className="text-lg font-semibold mb-3">
+                      Key Information
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                          <Icon icon="lucide:clock" className="text-primary" />
                         </div>
+                        <div>
+                          <p className="font-medium">Duration</p>
+                          <p className="text-foreground-500">
+                            {courseData.duration}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                          <Icon icon="lucide:wallet" className="text-primary" />
+                        </div>
+                        <div>
+                          <p className="font-medium">Tuition Fee</p>
+                          <p className="text-foreground-500">
+                            {courseData.fee}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                          <Icon
+                            icon="lucide:calendar"
+                            className="text-primary"
+                          />
+                        </div>
+                        <div>
+                          <p className="font-medium">Intake Months</p>
+                          <p className="text-foreground-500">
+                            {courseData.intake?.join(", ") ||
+                              "Contact for intake dates"}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                          <Icon
+                            icon="lucide:file-clock"
+                            className="text-primary"
+                          />
+                        </div>
+                        <div>
+                          <p className="font-medium">Application Deadline</p>
+                          <p className="text-foreground-500">
+                            {courseData.applicationDeadline}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
 
-                        {/* English Requirements */}
-                        {courseData.ieltsScore && (
+                    {/* English Requirements */}
+                    {courseData.ieltsScore && (
+                      <>
+                        <h3 className="text-lg font-semibold mb-3">
+                          English Language Requirements
+                        </h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                          <div className="flex items-start gap-3">
+                            <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                              <Icon
+                                icon="lucide:book-open"
+                                className="text-primary"
+                              />
+                            </div>
+                            <div>
+                              <p className="font-medium">IELTS</p>
+                              <p className="text-foreground-500">
+                                Overall: {courseData.ieltsScore}, No band less
+                                than: {courseData.ieltsNoBandLessThan}
+                              </p>
+                            </div>
+                          </div>
+                          {courseData.pteScore && (
+                            <div className="flex items-start gap-3">
+                              <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                                <Icon
+                                  icon="lucide:book-open"
+                                  className="text-primary"
+                                />
+                              </div>
+                              <div>
+                                <p className="font-medium">PTE Academic</p>
+                                <p className="text-foreground-500">
+                                  Overall: {courseData.pteScore}, No band less
+                                  than: {courseData.pteNoBandLessThan || "N/A"}
+                                </p>
+                              </div>
+                            </div>
+                          )}
+                          {courseData.toeflScore && (
+                            <div className="flex items-start gap-3">
+                              <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                                <Icon
+                                  icon="lucide:book-open"
+                                  className="text-primary"
+                                />
+                              </div>
+                              <div>
+                                <p className="font-medium">TOEFL</p>
+                                <p className="text-foreground-500">
+                                  Overall: {courseData.toeflScore}
+                                </p>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                        {courseData.campus && (
                           <>
                             <h3 className="text-lg font-semibold mb-3">
-                              English Language Requirements
+                              Campus Location
                             </h3>
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                              <div className="flex items-start gap-3">
-                                <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mt-1">
-                                  <Icon
-                                    icon="lucide:book-open"
-                                    className="text-primary"
-                                  />
-                                </div>
-                                <div>
-                                  <p className="font-medium">IELTS</p>
-                                  <p className="text-foreground-500">
-                                    Overall: {courseData.ieltsScore}, No band
-                                    less than: {courseData.ieltsNoBandLessThan}
-                                  </p>
-                                </div>
-                              </div>
-                              {courseData.pteScore && (
-                                <div className="flex items-start gap-3">
-                                  <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mt-1">
-                                    <Icon
-                                      icon="lucide:book-open"
-                                      className="text-primary"
-                                    />
-                                  </div>
-                                  <div>
-                                    <p className="font-medium">PTE Academic</p>
-                                    <p className="text-foreground-500">
-                                      Overall: {courseData.pteScore}, No band
-                                      less than:{" "}
-                                      {courseData.pteNoBandLessThan || "N/A"}
-                                    </p>
-                                  </div>
-                                </div>
-                              )}
-                              {courseData.toeflScore && (
-                                <div className="flex items-start gap-3">
-                                  <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mt-1">
-                                    <Icon
-                                      icon="lucide:book-open"
-                                      className="text-primary"
-                                    />
-                                  </div>
-                                  <div>
-                                    <p className="font-medium">TOEFL</p>
-                                    <p className="text-foreground-500">
-                                      Overall: {courseData.toeflScore}
-                                    </p>
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-                            {courseData.campus && (
-                              <>
-                                <h3 className="text-lg font-semibold mb-3">
-                                  Campus Location
-                                </h3>
-                                <p className="text-foreground-600 mb-6">
-                                  📍 {courseData.campus}
-                                </p>
-                              </>
-                            )}
+                            <p className="text-foreground-600 mb-6">
+                              📍 {courseData.campus}
+                            </p>
                           </>
                         )}
+                      </>
+                    )}
 
-                        <h3 className="text-lg font-semibold mb-3">
-                          Eligibility Requirements
-                        </h3>
-                        <p className="text-foreground-600 mb-6">
-                          {courseData.eligibility}
-                        </p>
-                      </div>
-                    </Tab>
-                    <Tab key="curriculum" title="Curriculum">
-                      <div className="p-6">
-                        <h2 className="text-xl font-semibold mb-4">
-                          Course Curriculum
-                        </h2>
-                        <ul className="space-y-4">
-                          {courseData.curriculum.map(
-                            (item: string, index: number) => (
-                              <li
-                                key={index}
-                                className="flex items-start gap-3"
-                              >
-                                <div className="w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1 flex-shrink-0">
-                                  <span className="text-primary text-xs font-medium">
-                                    {index + 1}
-                                  </span>
-                                </div>
-                                <p className="text-foreground-600">{item}</p>
-                              </li>
-                            )
-                          )}
-                        </ul>
-                      </div>
-                    </Tab>
-                    <Tab key="careers" title="Career Outcomes">
-                      <div className="p-6">
-                        <h2 className="text-xl font-semibold mb-4">
-                          Career Outcomes
-                        </h2>
-                        <p className="text-foreground-600 mb-4">
-                          Graduates of this program have pursued successful
-                          careers in various sectors, including:
-                        </p>
-                        <ul className="space-y-2 mb-6">
-                          {courseData.careerOutcomes.map(
-                            (outcome: string, index: number) => (
-                              <li
-                                key={index}
-                                className="flex items-start gap-3"
-                              >
-                                <div className="w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1 flex-shrink-0">
-                                  <Icon
-                                    icon="lucide:check"
-                                    className="text-primary text-xs"
-                                  />
-                                </div>
-                                <p className="text-foreground-600">{outcome}</p>
-                              </li>
-                            )
-                          )}
-                        </ul>
-                      </div>
-                    </Tab>
-                    <Tab key="scholarships" title="Scholarships">
-                      <div className="p-6">
-                        <h2 className="text-xl font-semibold mb-4">
-                          Available Scholarships
-                        </h2>
-                        <p className="text-foreground-600 mb-4">
-                          Students may be eligible for the following
-                          scholarships and financial aid options:
-                        </p>
-                        <ul className="space-y-2">
-                          {courseData.scholarships.map(
-                            (scholarship: string, index: number) => (
-                              <li
-                                key={index}
-                                className="flex items-start gap-3"
-                              >
-                                <div className="w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1 flex-shrink-0">
-                                  <Icon
-                                    icon="lucide:award"
-                                    className="text-primary text-xs"
-                                  />
-                                </div>
-                                <p className="text-foreground-600">
-                                  {scholarship}
-                                </p>
-                              </li>
-                            )
-                          )}
-                        </ul>
-                      </div>
-                    </Tab>
-                  </Tabs>
+                    <h3 className="text-lg font-semibold mb-3">
+                      Eligibility Requirements
+                    </h3>
+                    <p className="text-foreground-600 mb-6">
+                      {courseData.eligibility}
+                    </p>
+                  </div>
                 </CardBody>
               </Card>
             </div>

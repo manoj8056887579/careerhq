@@ -415,10 +415,10 @@ export const UniversityPageClient: React.FC<UniversityPageClientProps> = ({
                     entryRequirements:
                       course.entryRequirements ||
                       "Contact University for Requirements",
-                    ieltsScore: course.ieltsScore || 6.5,
-                    ieltsNoBandLessThan: course.ieltsNoBandLessThan || 6,
-                    pteScore: course.pteScore || 58,
-                    pteNoBandLessThan: course.pteNoBandLessThan || 50,
+                    ieltsScore: course.ieltsScore || 0,
+                    ieltsNoBandLessThan: course.ieltsNoBandLessThan || 0,
+                    pteScore: course.pteScore || 0,
+                    pteNoBandLessThan: course.pteNoBandLessThan || 0,
                     yearlyTuitionFees:
                       course.yearlyTuitionFees ||
                       (course as Course & { fee?: string }).fee ||

@@ -200,7 +200,7 @@ function SafeCourseCard({
               <div className="space-y-1 text-xs">
                 {safeData.ieltsScore > 0 && (
                   <div>
-                    IELTS: {safeData.ieltsScore} (min{" "}
+                    IELTS: {safeData.ieltsScore} {} (min{" "}
                     {safeData.ieltsNoBandLessThan})
                   </div>
                 )}

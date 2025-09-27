@@ -36,7 +36,19 @@ const CountrySchema = new Schema<ICountry>(
       type: String,
       trim: true,
     },
+    avgTuition: {
+      type: String,
+      trim: true,
+    },
     costOfLiving: {
+      type: String,
+      trim: true,
+    },
+    workRights: {
+      type: String,
+      trim: true,
+    },
+    intakes: {
       type: String,
       trim: true,
     },
