@@ -383,11 +383,6 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 <p className="text-foreground-500 mb-4">
                   No countries available at the moment.
                 </p>
-                <Link href="/admin/education">
-                  <Button color="primary" variant="flat">
-                    Add Countries
-                  </Button>
-                </Link>
               </div>
             )}
           </div>
@@ -395,7 +390,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
             <Link href="/study-abroad">
               {" "}
               <Button
-                variant="light"
+                variant="flat"
                 color="primary"
                 endContent={<Icon icon="lucide:arrow-right" />}
                 className="mt-4 md:mt-0"
@@ -640,7 +635,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
               <Link href="/blog">
                 {" "}
                 <Button
-                  variant="light"
+                  variant="flat"
                   color="primary"
                   endContent={<Icon icon="lucide:arrow-right" />}
                   className="mt-4 md:mt-0"

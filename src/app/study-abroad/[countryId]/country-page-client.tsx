@@ -325,20 +325,15 @@ export const CountryPageClient: React.FC<CountryPageClientProps> = ({
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button
+                  as={Link}
+                  href="/career-test"
                   color="default"
                   variant="solid"
                   size="lg"
                   startContent={<Icon icon="lucide:calendar" />}
                   className="font-medium bg-white text-primary"
-                  onClick={() => {
-                    enquiryRef.current?.scrollIntoView({
-                      behavior: "smooth",
-                      block: "center",
-                    });
-                    setTimeout(() => enquiryRef.current?.focus(), 450);
-                  }}
                 >
-                  Book Free Consultation
+                  Begin Test
                 </Button>
                 <Button
                   as={Link}
