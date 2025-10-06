@@ -287,7 +287,6 @@ export default function SimpleBlogForm({
                   setImageFile(file);
                 }}
                 error={errors.imageId}
-                isRequired
                 description="Upload or select a featured image for your blog post (Image will be uploaded when you save the post)"
               />
 
@@ -297,7 +296,9 @@ export default function SimpleBlogForm({
                 onChange={(categoryId) =>
                   handleInputChange("category", categoryId)
                 }
-                onCategoriesUpdate={setCategories}
+                onCategoriesUpdate={(cats) =>
+                  setCategories(cats as BlogCategory[])
+                }
                 error={errors.category}
                 isRequired
               />

@@ -3,127 +3,160 @@
 import { useState, useRef } from "react";
 import { Button } from "@heroui/button";
 import { Card, CardBody } from "@heroui/card";
+import { Upload, X, Loader2, Image as ImageIcon } from "lucide-react";
 import Image from "next/image";
-import { Upload, X, ImageIcon } from "lucide-react";
-import { getImageUrl, isCloudinaryPublicId } from "@/lib/cloudinary-utils";
 
 interface ImageUploadProps {
   value?: string;
-  onChange: (imageId: string) => void;
-  onFileChange?: (file: File | null) => void; // New prop for file handling
+  onChange?: (imageId: string) => void;
+  onFileChange?: (file: File | null) => void;
+  error?: string;
   label?: string;
   description?: string;
-  isRequired?: boolean;
-  error?: string;
   folder?: string;
+  multiple?: boolean;
+  onMultipleChange?: (imageIds: string[]) => void;
 }
 
 export default function ImageUpload({
-  value,
+  value = "",
   onChange,
   onFileChange,
-  label = "Image",
-  description,
-  isRequired = false,
   error,
-  folder = "blog-images",
+  label,
+  description,
+  folder = "uploads",
+  multiple = false,
+  onMultipleChange,
 }: ImageUploadProps) {
   const [isUploading, setIsUploading] = useState(false);
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const [_selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [uploadError, setUploadError] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFileSelect = async (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
+  const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+
+    // Handle multiple files
+    if (multiple && files.length > 1) {
+      await handleMultipleFiles(files);
+      return;
+    }
+
+    const file = files[0];
 
     // Validate file type
     if (!file.type.startsWith("image/")) {
-      alert("Please select an image file");
+      setUploadError("Please select an image file");
       return;
     }
 
     // Validate file size (max 5MB)
     if (file.size > 5 * 1024 * 1024) {
-      alert("File size must be less than 5MB");
+      setUploadError("Image size should be less than 5MB");
       return;
     }
 
-    // Create preview URL
-    const preview = URL.createObjectURL(file);
-    setPreviewUrl(preview);
-    setSelectedFile(file);
+    setUploadError("");
 
-    // If onFileChange is provided, use deferred upload (for countries/universities)
+    // If onFileChange is provided, use file-based approach (country-management pattern)
     if (onFileChange) {
       onFileChange(file);
-      // Set a temporary ID to indicate a file is selected
-      onChange(`temp-${Date.now()}`);
+      // Create preview URL
+      const previewUrl = URL.createObjectURL(file);
+      if (onChange) {
+        onChange(previewUrl);
+      }
       return;
     }
 
-    // Otherwise, upload immediately (for blog posts)
+    // Otherwise, upload immediately
     setIsUploading(true);
 
     try {
-      // Upload to Cloudinary via API
       const formData = new FormData();
       formData.append("file", file);
+      formData.append("folder", folder);
 
-      const uploadUrl = `/api/upload?folder=${encodeURIComponent(folder)}`;
-      const response = await fetch(uploadUrl, {
+      const response = await fetch("/api/upload", {
         method: "POST",
         body: formData,
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Upload failed");
+        throw new Error("Upload failed");
       }
 
-      const result = await response.json();
-
-      // Debug: Log the upload result
-      console.log("Upload API response:", result);
-      console.log("Public ID:", result.data?.publicId);
-
-      // Use Cloudinary public_id as the imageId
-      if (result.data?.publicId) {
-        onChange(result.data.publicId);
-      } else {
-        console.error("No publicId in response:", result);
-        throw new Error("No publicId returned from upload");
+      const data = await response.json();
+      if (onChange) {
+        onChange(data.publicId);
       }
     } catch (error) {
-      console.error("Error uploading image:", error);
-      alert(
-        `Failed to upload image: ${
-          error instanceof Error ? error.message : "Unknown error"
-        }`
-      );
-
-      // Clear preview on error
-      setPreviewUrl(null);
-      setSelectedFile(null);
+      console.error("Upload error:", error);
+      setUploadError("Failed to upload image. Please try again.");
+    } finally {
+      setIsUploading(false);
       if (fileInputRef.current) {
         fileInputRef.current.value = "";
       }
+    }
+  };
+
+  const handleMultipleFiles = async (files: FileList) => {
+    setIsUploading(true);
+    setUploadError("");
+
+    const uploadedIds: string[] = [];
+
+    try {
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+
+        // Validate file type
+        if (!file.type.startsWith("image/")) {
+          continue;
+        }
+
+        // Validate file size (max 5MB)
+        if (file.size > 5 * 1024 * 1024) {
+          continue;
+        }
+
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("folder", folder);
+
+        const response = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          uploadedIds.push(data.publicId);
+        }
+      }
+
+      if (onMultipleChange && uploadedIds.length > 0) {
+        onMultipleChange(uploadedIds);
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+      setUploadError("Failed to upload some images. Please try again.");
     } finally {
       setIsUploading(false);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
     }
   };
 
   const handleRemove = () => {
-    onChange("");
-    setPreviewUrl(null);
-    setSelectedFile(null);
+    if (onChange) {
+      onChange("");
+    }
     if (onFileChange) {
       onFileChange(null);
-    }
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
     }
   };
 
@@ -131,111 +164,93 @@ export default function ImageUpload({
     fileInputRef.current?.click();
   };
 
+  const getImageUrl = (imageId: string) => {
+    // If it's a blob URL (preview), return as-is
+    if (imageId.startsWith("blob:")) {
+      return imageId;
+    }
+    // Otherwise, construct Cloudinary URL
+    return `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/${imageId}`;
+  };
+
   return (
     <div className="space-y-2">
       {label && (
-        <label className="text-sm font-medium text-default-700">
-          {label}
-          {isRequired && <span className="text-danger ml-1">*</span>}
-        </label>
+        <label className="text-sm font-medium text-default-700">{label}</label>
       )}
-
-      <Card
-        className={`border-2 border-dashed ${
-          error ? "border-danger" : "border-default-200"
-        } hover:border-default-300 transition-colors`}
-      >
-        <CardBody className="p-4">
-          {value || previewUrl ? (
-            <div className="space-y-3">
-              <div className="relative">
-                {previewUrl ? (
-                  <div className="relative w-full h-48 rounded-lg overflow-hidden">
-                    <Image
-                      src={previewUrl}
-                      alt="Preview"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  </div>
-                ) : value && isCloudinaryPublicId(value) ? (
-                  <div className="relative w-full h-48 rounded-lg overflow-hidden">
-                    <Image
-                      src={getImageUrl(value, "card")}
-                      alt="Uploaded image"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  </div>
-                ) : (
-                  <div className="w-full h-48 bg-default-100 rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <ImageIcon
-                        size={48}
-                        className="text-default-400 mx-auto mb-2"
-                      />
-                      <p className="text-sm text-default-500">
-                        {value ? `Image ID: ${value}` : "No image selected"}
-                      </p>
-                    </div>
-                  </div>
-                )}
-                <Button
-                  isIconOnly
-                  size="sm"
-                  color="danger"
-                  variant="solid"
-                  className="absolute top-2 right-2"
-                  onPress={handleRemove}
-                >
-                  <X size={16} />
-                </Button>
-              </div>
-              <Button
-                variant="flat"
-                startContent={<Upload size={16} />}
-                onPress={handleClick}
-                isDisabled={isUploading}
-              >
-                Change Image
-              </Button>
-            </div>
-          ) : (
-            <div className="text-center py-8">
-              <ImageIcon size={48} className="text-default-400 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-default-700 mb-2">
-                Upload an image
-              </h3>
-              <p className="text-sm text-default-500 mb-4">
-                Drag and drop or click to select
-              </p>
-              <Button
-                color="primary"
-                variant="flat"
-                startContent={<Upload size={16} />}
-                onPress={handleClick}
-                isLoading={isUploading}
-              >
-                {isUploading ? "Uploading..." : "Select Image"}
-              </Button>
-            </div>
-          )}
-        </CardBody>
-      </Card>
 
       <input
         ref={fileInputRef}
         type="file"
         accept="image/*"
+        multiple={multiple}
         onChange={handleFileSelect}
         className="hidden"
       />
 
+      {value ? (
+        <Card>
+          <CardBody className="p-0 relative">
+            <div className="relative w-full h-48">
+              <Image
+                src={getImageUrl(value)}
+                alt={label || "Uploaded"}
+                fill
+                className="object-cover rounded-lg"
+                unoptimized={value.startsWith("blob:")}
+              />
+            </div>
+            <Button
+              isIconOnly
+              size="sm"
+              color="danger"
+              className="absolute top-2 right-2"
+              onPress={handleRemove}
+            >
+              <X size={16} />
+            </Button>
+          </CardBody>
+        </Card>
+      ) : (
+        <Card
+          isPressable
+          onPress={handleClick}
+          className={`border-2 border-dashed ${
+            error ? "border-danger" : "border-default-300"
+          }`}
+        >
+          <CardBody className="flex flex-col items-center justify-center py-8">
+            {isUploading ? (
+              <>
+                <Loader2 size={32} className="animate-spin text-primary mb-2" />
+                <p className="text-sm text-default-500">
+                  {multiple ? "Uploading images..." : "Uploading..."}
+                </p>
+              </>
+            ) : (
+              <>
+                {multiple ? (
+                  <ImageIcon size={32} className="text-default-400 mb-2" />
+                ) : (
+                  <Upload size={32} className="text-default-400 mb-2" />
+                )}
+                <p className="text-sm text-default-600 font-medium">
+                  Click to upload {multiple ? "images" : "image"}
+                </p>
+                <p className="text-xs text-default-400 mt-1">
+                  PNG, JPG up to 5MB {multiple ? "(multiple files)" : ""}
+                </p>
+              </>
+            )}
+          </CardBody>
+        </Card>
+      )}
+
       {description && <p className="text-xs text-default-500">{description}</p>}
 
-      {error && <p className="text-xs text-danger">{error}</p>}
+      {(error || uploadError) && (
+        <p className="text-xs text-danger">{error || uploadError}</p>
+      )}
     </div>
   );
 }

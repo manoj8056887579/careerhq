@@ -7,12 +7,13 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "seed": "node scripts/seed-modules.cjs"
   },
   "dependencies": {
     "@heroui/accordion": "^2.2.23",
     "@heroui/autocomplete": "^2.3.28",
     "@heroui/avatar": "^2.2.21",
+    "@heroui/badge": "^2.2.16",
     "@heroui/breadcrumbs": "^2.2.21",
     "@heroui/button": "^2.2.26",
     "@heroui/card": "^2.2.24",

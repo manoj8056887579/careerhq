@@ -133,7 +133,7 @@ export const ContactClient: React.FC<ContactClientProps> = ({ faqs }) => {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Ready to Begin Your International Education Journey?
+              Connecting worldwide career in one dot
             </h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto">
               Schedule a free consultation with our expert counselors to discuss

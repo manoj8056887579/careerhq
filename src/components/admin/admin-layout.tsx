@@ -40,6 +40,12 @@ export function AdminLayout({ children }: AdminLayoutProps) {
       icon: <FileText className="w-5 h-5" />,
       isActive: pathname.startsWith("/admin/leads"),
     },
+    {
+      label: "Universal Modules",
+      href: "/admin/modules",
+      icon: <FileText className="w-5 h-5" />,
+      isActive: pathname.startsWith("/admin/modules"),
+    },
   ];
 
   // Handle navigation

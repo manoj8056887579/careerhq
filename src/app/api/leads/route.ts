@@ -18,6 +18,7 @@ export async function POST(request: Request) {
 
 interface LeadQuery {
   status?: string;
+  program?: string | { $ne: string };
   $or?: Array<{ [key: string]: { $regex: string; $options: string } }>;
 }
 
@@ -28,6 +29,7 @@ export async function GET(request: Request) {
     const limit = parseInt(searchParams.get("limit") || "10");
     const status = searchParams.get("status");
     const search = searchParams.get("search");
+    const program = searchParams.get("program");
 
     const skip = (page - 1) * limit;
 
@@ -37,6 +39,14 @@ export async function GET(request: Request) {
     const query: LeadQuery = {};
     if (status && status !== "all") {
       query.status = status;
+    }
+    if (program && program !== "all") {
+      // Special handling for "Study Abroad" - show all non-Career Test leads
+      if (program === "Study Abroad") {
+        query.program = { $ne: "Career Test" };
+      } else {
+        query.program = program;
+      }
     }
     if (search) {
       query.$or = [

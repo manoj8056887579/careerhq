@@ -14,15 +14,17 @@ import {
 } from "@heroui/modal";
 import { Plus, Check } from "lucide-react";
 import type { BlogCategory } from "@/types/blog";
+import type { ModuleCategory, ModuleType } from "@/types/universal-module";
 import { blogApi } from "@/lib/data";
 
 interface CategorySelectorProps {
-  categories: BlogCategory[];
+  categories: BlogCategory[] | ModuleCategory[];
   value: string;
   onChange: (categoryId: string) => void;
-  onCategoriesUpdate: (categories: BlogCategory[]) => void;
+  onCategoriesUpdate: (categories: unknown[]) => void;
   isRequired?: boolean;
   error?: string;
+  moduleType?: ModuleType; // For universal modules
 }
 
 export default function CategorySelector({
@@ -32,6 +34,7 @@ export default function CategorySelector({
   onCategoriesUpdate,
   isRequired = false,
   error,
+  moduleType,
 }: CategorySelectorProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [newCategoryName, setNewCategoryName] = useState("");
@@ -64,7 +67,22 @@ export default function CategorySelector({
     setCreateError("");
 
     try {
-      const newCategory = await blogApi.createCategory(newCategoryName.trim());
+      let newCategory;
+
+      if (moduleType) {
+        // Universal module category
+        const response = await fetch("/api/modules/categories", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: newCategoryName.trim(), moduleType }),
+        });
+
+        if (!response.ok) throw new Error("Failed to create category");
+        newCategory = await response.json();
+      } else {
+        // Blog category
+        newCategory = await blogApi.createCategory(newCategoryName.trim());
+      }
 
       // Update the categories list
       const updatedCategories = [...categories, newCategory];
@@ -93,7 +111,7 @@ export default function CategorySelector({
   return (
     <>
       <div className="space-y-2">
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-end">
           <div className="flex-1">
             <Select
               label="Category"
@@ -114,11 +132,12 @@ export default function CategorySelector({
           </div>
           <Button
             isIconOnly
+            size="sm"
             variant="flat"
             color="primary"
             onPress={onOpen}
-            className="mt-6"
             title="Add new category"
+            className="mb-1"
           >
             <Plus size={16} />
           </Button>

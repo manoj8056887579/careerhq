@@ -21,11 +21,13 @@ export interface SidebarProps {
 export function Sidebar({ links, className, onLinkClick }: SidebarProps) {
   const [isExpanded, setIsExpanded] = useState(true); // Default to open
   const [isPinned, setIsPinned] = useState(true); // Track if sidebar is pinned open
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // Default to false for SSR
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   // Check if we're on mobile
   useEffect(() => {
+    setMounted(true);
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -151,7 +153,7 @@ export function Sidebar({ links, className, onLinkClick }: SidebarProps) {
                 {link.icon}
               </span>
             }
-            onClick={() => handleLinkClick(link.href)}
+            onPress={() => handleLinkClick(link.href)}
           >
             <AnimatePresence mode="wait">
               {(isMobile || isPinned || isExpanded) && (
@@ -173,15 +175,16 @@ export function Sidebar({ links, className, onLinkClick }: SidebarProps) {
     </motion.div>
   );
 
-  if (isMobile) {
-    return (
-      <>
-        {/* Mobile Menu Button */}
+  // Desktop Sidebar (always render this for SSR)
+  return (
+    <>
+      {/* Mobile Menu Button - only show after mount */}
+      {mounted && isMobile && (
         <Button
           variant="light"
           isIconOnly
           className="md:hidden fixed top-4 left-4 z-50"
-          onClick={() => setIsMobileOpen(true)}
+          onPress={() => setIsMobileOpen(true)}
         >
           <svg
             className="w-6 h-6"
@@ -197,11 +200,13 @@ export function Sidebar({ links, className, onLinkClick }: SidebarProps) {
             />
           </svg>
         </Button>
+      )}
 
-        {/* Mobile Overlay */}
-        <MobileOverlay />
+      {/* Mobile Overlay */}
+      {mounted && <MobileOverlay />}
 
-        {/* Mobile Sidebar */}
+      {/* Mobile Sidebar */}
+      {mounted && isMobile && (
         <AnimatePresence>
           {isMobileOpen && (
             <motion.div
@@ -215,15 +220,13 @@ export function Sidebar({ links, className, onLinkClick }: SidebarProps) {
             </motion.div>
           )}
         </AnimatePresence>
-      </>
-    );
-  }
+      )}
 
-  // Desktop Sidebar
-  return (
-    <div className="hidden md:flex h-full">
-      <SidebarContent />
-    </div>
+      {/* Desktop Sidebar - always rendered for SSR */}
+      <div className="hidden md:flex h-full">
+        <SidebarContent />
+      </div>
+    </>
   );
 }
 

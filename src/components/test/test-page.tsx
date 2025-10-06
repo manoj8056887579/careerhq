@@ -7,6 +7,8 @@ import { Button } from "@heroui/button";
 import { RadioGroup, Radio } from "@heroui/radio";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
+import { calculateTestScore } from "@/utils/test-score";
+import { TestSubmissionModal } from "./test-submission-modal";
 
 interface TestQuestion {
   id: number;
@@ -21,6 +23,12 @@ interface TestPageProps {
 export function TestPage({ questions }: TestPageProps) {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [answers, setAnswers] = React.useState<Record<number, string>>({});
+  const [showSubmissionModal, setShowSubmissionModal] = React.useState(false);
+  const [testScore, setTestScore] = React.useState<{
+    total: number;
+    percentage: number;
+    maxScore: number;
+  } | null>(null);
   const questionsPerPage = 5;
   const totalPages = Math.ceil(questions.length / questionsPerPage);
 
@@ -52,6 +60,19 @@ export function TestPage({ questions }: TestPageProps) {
   const isPageComplete = currentQuestions.every(
     (question) => answers[question.id]
   );
+
+  const handleSubmit = () => {
+    const score = calculateTestScore(answers, questions.length);
+    setTestScore(score);
+    setShowSubmissionModal(true);
+  };
+
+  const handleSubmissionSuccess = () => {
+    setShowSubmissionModal(false);
+    // Optional: Reset test or redirect
+    // setAnswers({});
+    // setCurrentPage(1);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
@@ -113,7 +134,7 @@ export function TestPage({ questions }: TestPageProps) {
               </Button>
               <Button
                 color="primary"
-                onPress={handleNext}
+                onPress={currentPage === totalPages ? handleSubmit : handleNext}
                 isDisabled={!isPageComplete}
                 endContent={
                   currentPage === totalPages ? (
@@ -145,6 +166,16 @@ export function TestPage({ questions }: TestPageProps) {
           ))}
         </div>
       </div>
+
+      {/* Test Submission Modal */}
+      {testScore && (
+        <TestSubmissionModal
+          isOpen={showSubmissionModal}
+          onClose={() => setShowSubmissionModal(false)}
+          testScore={testScore}
+          onSubmitSuccess={handleSubmissionSuccess}
+        />
+      )}
     </div>
   );
 }

@@ -319,11 +319,11 @@ export default function StudyAbroadPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-4">
-                Ready to Begin Your International Education Journey?
+                Connecting worldwide career in one dot
               </h2>
               <p className="text-white/90 mb-6">
-                Our expert counselors are ready to guide you through every step
-                of the process. Schedule a free consultation today.
+                One destination, countless opportunities – where worldwide
+                careers meet at one dot .
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button

@@ -43,3 +43,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+PUBLIC_PAGES_SUMMARY.md

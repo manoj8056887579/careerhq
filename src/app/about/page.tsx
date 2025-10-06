@@ -27,37 +27,6 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const team = [
-    {
-      name: "Dr. Rajesh Kumar",
-      role: "Founder & CEO",
-      bio: "With over 20 years of experience in international education, Dr. Kumar has helped thousands of students achieve their study abroad dreams.",
-      avatarId:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-    },
-    {
-      name: "Sarah Williams",
-      role: "Head of Counseling",
-      bio: "Former admissions officer at a top UK university with expertise in helping students craft compelling applications.",
-      avatarId:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face",
-    },
-    {
-      name: "David Chen",
-      role: "Visa Specialist",
-      bio: "Immigration expert with a 98% success rate in student visa applications across multiple countries.",
-      avatarId:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    },
-    {
-      name: "Priya Sharma",
-      role: "University Relations",
-      bio: "Manages partnerships with over 500 universities worldwide to provide exclusive opportunities for our students.",
-      avatarId:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-    },
-  ];
-
   const values = [
     {
       title: "Student-Centric Approach",
@@ -82,38 +51,6 @@ export default function AboutPage() {
       description:
         "We embrace diversity and foster a global mindset, helping students become successful global citizens.",
       icon: "lucide:globe",
-    },
-  ];
-  const milestones = [
-    {
-      year: "2005",
-      title: "Foundation",
-      description:
-        "CareerHQ was established with a mission to help students achieve their international education dreams.",
-    },
-    {
-      year: "2010",
-      title: "Expansion",
-      description:
-        "Opened offices in 5 major cities and expanded our university network to over 200 institutions.",
-    },
-    {
-      year: "2015",
-      title: "Recognition",
-      description:
-        'Received the "Best Education Consultant" award and reached the milestone of 5,000 successful placements.',
-    },
-    {
-      year: "2020",
-      title: "Digital Transformation",
-      description:
-        "Launched our comprehensive online platform to provide seamless services to students worldwide.",
-    },
-    {
-      year: "2023",
-      title: "Global Reach",
-      description:
-        "Expanded to 10 countries with a network of over 500 universities and 10,000+ successful placements.",
     },
   ];
   const testimonials = [
@@ -196,14 +133,6 @@ export default function AboutPage() {
                   href="/contact"
                 >
                   Contact Us
-                </Button>
-                <Button
-                  variant="flat"
-                  color="primary"
-                  as={Link}
-                  href="/study-abroad"
-                >
-                  Explore Programs
                 </Button>
               </div>
             </div>
@@ -293,110 +222,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Team Section */}
-      <section className="py-16 bg-default-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3">Meet Our Team</h2>
-            <p className="text-foreground-500 max-w-2xl mx-auto">
-              Experienced professionals dedicated to helping you achieve your
-              international education goals
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member, index) => (
-              <Card key={index} className="border border-default-200">
-                <CardBody className="p-0">
-                  <div className="h-64 overflow-hidden">
-                    <Image
-                      src={member.avatarId}
-                      alt={member.name}
-                      width={400}
-                      height={400}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-primary text-sm mb-3">{member.role}</p>
-                    <p className="text-foreground-500 text-sm">{member.bio}</p>
-                  </div>
-                </CardBody>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3">Our Journey</h2>
-            <p className="text-foreground-500 max-w-2xl mx-auto">
-              Key milestones in our mission to empower students globally
-            </p>
-          </div>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-primary-200"></div>
-
-            {/* Timeline items */}
-            <div className="relative z-10">
-              {milestones.map((milestone, index) => (
-                <div
-                  key={index}
-                  className={`flex flex-col md:flex-row items-center mb-12 ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
-                >
-                  <div className="md:w-1/2 flex justify-end md:pr-8">
-                    <div
-                      className={`w-full md:max-w-md ${
-                        index % 2 === 0 ? "md:text-right" : "md:text-left"
-                      }`}
-                    >
-                      <div className="bg-primary-100 text-primary font-bold py-1 px-4 rounded-full inline-block mb-2">
-                        {milestone.year}
-                      </div>
-                      <h3 className="text-xl font-semibold mb-2">
-                        {milestone.title}
-                      </h3>
-                      <p className="text-foreground-500">
-                        {milestone.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center my-4 md:my-0 z-10">
-                    <span className="text-white font-bold">{index + 1}</span>
-                  </div>
-
-                  <div className="md:w-1/2 md:pl-8">
-                    {index % 2 === 0 ? null : (
-                      <div className="w-full md:max-w-md">
-                        <div className="bg-primary-100 text-primary font-bold py-1 px-4 rounded-full inline-block mb-2 md:hidden">
-                          {milestone.year}
-                        </div>
-                        <h3 className="text-xl font-semibold mb-2 md:hidden">
-                          {milestone.title}
-                        </h3>
-                        <p className="text-foreground-500 md:hidden">
-                          {milestone.description}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Testimonials Section */}
       <section className="py-16 bg-default-50">
         <div className="container mx-auto px-4">
@@ -430,11 +255,11 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-4">
-                Start Your International Education Journey Today
+                Connecting worldwide career in one dot
               </h2>
               <p className="text-white/90 mb-6">
-                Our expert counselors are ready to guide you through every step
-                of the process. Schedule a free consultation today.
+                One destination, countless opportunities – where worldwide
+                careers meet at one dot .
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button

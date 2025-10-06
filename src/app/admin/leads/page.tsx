@@ -30,6 +30,7 @@ export default function LeadsManagement() {
   const [_isSubmitting, setIsSubmitting] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("new"); // Default to "new" leads
+  const [selectedProgram, setSelectedProgram] = useState("all"); // Filter by program
   const [pagination, setPagination] = useState({
     page: 1,
     limit: 10,
@@ -49,6 +50,10 @@ export default function LeadsManagement() {
         params.append("search", searchTerm);
       }
 
+      if (selectedProgram && selectedProgram !== "all") {
+        params.append("program", selectedProgram);
+      }
+
       const response = await fetch(`/api/leads?${params}`);
 
       if (!response.ok) {
@@ -57,6 +62,7 @@ export default function LeadsManagement() {
           "/api/leads",
           {
             status: selectedStatus,
+            program: selectedProgram,
             page: pagination.page,
             limit: pagination.limit,
             searchTerm,
@@ -77,6 +83,7 @@ export default function LeadsManagement() {
       if (error instanceof TypeError && error.message.includes("fetch")) {
         logNetworkError(error, "/api/leads", {
           status: selectedStatus,
+          program: selectedProgram,
           page: pagination.page,
           limit: pagination.limit,
           searchTerm,
@@ -88,6 +95,7 @@ export default function LeadsManagement() {
           undefined,
           {
             status: selectedStatus,
+            program: selectedProgram,
             page: pagination.page,
             limit: pagination.limit,
             searchTerm,
@@ -101,7 +109,13 @@ export default function LeadsManagement() {
     } finally {
       setLoading(false);
     }
-  }, [selectedStatus, pagination.page, pagination.limit, searchTerm]);
+  }, [
+    selectedStatus,
+    selectedProgram,
+    pagination.page,
+    pagination.limit,
+    searchTerm,
+  ]);
 
   useEffect(() => {
     fetchLeads();
@@ -186,12 +200,24 @@ export default function LeadsManagement() {
             setSelectedStatus(status);
           }}
           className="md:w-48"
+          label="Status"
         >
           <SelectItem key="new">New Leads</SelectItem>
-
           <SelectItem key="converted">Converted</SelectItem>
-
           <SelectItem key="all">All Status</SelectItem>
+        </Select>
+        <Select
+          selectedKeys={[selectedProgram]}
+          onSelectionChange={(keys) => {
+            const program = Array.from(keys)[0] as string;
+            setSelectedProgram(program);
+          }}
+          className="md:w-48"
+          label="Program"
+        >
+          <SelectItem key="all">All Programs</SelectItem>
+          <SelectItem key="Career Test">Career Test</SelectItem>
+          <SelectItem key="Study Abroad">Study Abroad</SelectItem>
         </Select>
       </div>
 
@@ -200,7 +226,7 @@ export default function LeadsManagement() {
         <TableHeader>
           <TableColumn>NAME</TableColumn>
           <TableColumn>CONTACT</TableColumn>
-          <TableColumn>COURSE DETAILS</TableColumn>
+          <TableColumn>PROGRAM/DETAILS</TableColumn>
           <TableColumn>STATUS</TableColumn>
           <TableColumn>DATE</TableColumn>
           <TableColumn>ACTIONS</TableColumn>
@@ -227,9 +253,20 @@ export default function LeadsManagement() {
               </TableCell>
               <TableCell>
                 <div className="space-y-1">
-                  <div>{lead.program}</div>
-                  <div className="text-sm text-gray-500">{lead.university}</div>
-                  <div className="text-sm text-gray-500">{lead.country}</div>
+                  <div className="font-medium">{lead.program}</div>
+                  {lead.program === "Career Test" && lead.message && (
+                    <div className="text-sm text-primary font-medium">
+                      {lead.message}
+                    </div>
+                  )}
+                  {lead.university && (
+                    <div className="text-sm text-gray-500">
+                      {lead.university}
+                    </div>
+                  )}
+                  {lead.country && (
+                    <div className="text-sm text-gray-500">{lead.country}</div>
+                  )}
                 </div>
               </TableCell>
               <TableCell>

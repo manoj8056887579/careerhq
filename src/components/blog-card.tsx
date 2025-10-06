@@ -43,28 +43,35 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   const imageUrl = getImageUrl(imageId);
 
   return (
-    <Card isPressable className="border border-default-200">
+    <Card
+      isPressable
+      className="border border-default-200 hover:shadow-md transition-shadow duration-300 w-full"
+    >
       <Link href={`/blog/${id}`}>
         <CardHeader className="p-0">
-          <div className="relative w-full aspect-video">
+          <div className="relative w-full h-48 sm:h-56 overflow-hidden">
             <Image
               src={imageUrl}
               alt={title}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           </div>
         </CardHeader>
-        <CardBody className="p-4">
+        <CardBody className="p-4 sm:p-6">
           <Chip color="primary" variant="flat" size="sm" className="mb-2">
             {category}
           </Chip>
-          <h3 className="text-lg font-semibold mb-2 line-clamp-2">{title}</h3>
-          <p className="text-foreground-600 mb-4 line-clamp-2">{excerpt}</p>
-          <div className="flex items-center justify-between text-sm text-foreground-500">
-            <span>{author}</span>
-            <div className="flex items-center gap-4">
+          <h3 className="text-lg sm:text-xl font-semibold mb-2 line-clamp-2">
+            {title}
+          </h3>
+          <p className="text-foreground-600 mb-4 line-clamp-2 text-sm sm:text-base">
+            {excerpt}
+          </p>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 text-sm text-foreground-500">
+            <span className="font-medium">{author}</span>
+            <div className="flex items-center gap-3 sm:gap-4">
               <div className="flex items-center gap-1">
                 <Icon icon="lucide:calendar" width={14} height={14} />
                 <span>{date}</span>

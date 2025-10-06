@@ -320,8 +320,8 @@ export const CountryPageClient: React.FC<CountryPageClientProps> = ({
                 Ready to Study in {countryData.name}?
               </h2>
               <p className="text-white/90 mb-6">
-                Our expert counselors are ready to guide you through every step
-                of the process. Schedule a free consultation today.
+                One destination, countless opportunities – where worldwide
+                careers meet at one dot .
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button

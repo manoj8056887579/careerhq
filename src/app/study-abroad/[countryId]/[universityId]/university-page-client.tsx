@@ -76,6 +76,7 @@ export const UniversityPageClient: React.FC<UniversityPageClientProps> = ({
 }) => {
   const [selected, setSelected] = React.useState("all");
   const enquiryRef = React.useRef<EnquiryFormHandle | null>(null);
+  const tabsRef = React.useRef<HTMLDivElement | null>(null);
 
   // Prefix unused parameter with underscore
   const _universityId = universityId;
@@ -130,6 +131,35 @@ export const UniversityPageClient: React.FC<UniversityPageClientProps> = ({
 
     return courses;
   }, [selected, courses, countryId]);
+
+  // Ensure active tab is visible on mobile when selection changes
+  React.useEffect(() => {
+    if (
+      tabsRef.current &&
+      typeof window !== "undefined" &&
+      window.innerWidth < 768
+    ) {
+      const scrollContainer = tabsRef.current;
+      const activeTab = tabsRef.current.querySelector('[aria-selected="true"]');
+
+      if (scrollContainer && activeTab) {
+        const containerRect = scrollContainer.getBoundingClientRect();
+        const activeTabRect = activeTab.getBoundingClientRect();
+
+        // Check if active tab is not fully visible
+        if (
+          activeTabRect.left < containerRect.left ||
+          activeTabRect.right > containerRect.right
+        ) {
+          activeTab.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        }
+      }
+    }
+  }, [selected]);
 
   return (
     <>
@@ -335,29 +365,54 @@ export const UniversityPageClient: React.FC<UniversityPageClientProps> = ({
       {/* Courses Section */}
       <section id="courses" className="py-16 bg-default-50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
             <div>
               <h2 className="text-3xl font-bold mb-2">
                 Courses at {universityData.name}
               </h2>
               <p className="text-foreground-500">Explore available programs</p>
             </div>
-            <Tabs
-              selectedKey={selected}
-              onSelectionChange={(key) => setSelected(String(key))}
-              variant="light"
-              color="primary"
-              radius="full"
-              className="mt-4 md:mt-0 "
-              classNames={{
-                base: "d-flex gap-[2px] sm-w-[300px] ",
-              }}
+            <div
+              className="w-full md:w-auto overflow-x-auto scrollbar-hide"
+              ref={tabsRef}
             >
-              <Tab key="all" title="All" />
-              <Tab key="undergraduate" title="Undergraduate" />
-              <Tab key="postgraduate" title="Postgraduate" />
-              <Tab key="doctorate" title="Doctorate" />
-            </Tabs>
+              <Tabs
+                selectedKey={selected}
+                onSelectionChange={(key) => setSelected(String(key))}
+                variant="light"
+                color="primary"
+                radius="full"
+                className="mt-4 md:mt-0 min-w-max"
+                classNames={{
+                  tabList: "flex-nowrap gap-2",
+                  tab: "whitespace-nowrap px-4 py-2 min-h-[44px]",
+                }}
+              >
+                <Tab key="all" title="All" />
+                <Tab key="undergraduate" title="Undergraduate" />
+                <Tab key="postgraduate" title="Postgraduate" />
+                <Tab key="doctorate" title="Doctorate" />
+              </Tabs>
+
+              {/* Mobile scroll indicator */}
+              <div
+                className="flex sm:hidden justify-center mt-2"
+                aria-hidden="true"
+              >
+                <div className="flex gap-1">
+                  {["all", "undergraduate", "postgraduate", "doctorate"].map(
+                    (tabKey) => (
+                      <div
+                        key={tabKey}
+                        className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                          tabKey === selected ? "bg-primary" : "bg-gray-300"
+                        }`}
+                      />
+                    )
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

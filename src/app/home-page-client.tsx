@@ -8,9 +8,7 @@ import { BlogSlider } from "../components/blog-ticker";
 
 import { Grid } from "../components/ui/feature-section";
 import { EnquiryForm, EnquiryFormHandle } from "../components/enquiry-form";
-import { SearchBar } from "../components/search-bar";
-import { CountryCard } from "../components/country-card";
-import { UniversityCard } from "../components/university-card";
+
 import { BlogCard } from "../components/blog-card";
 import { AnimatedTestimonials } from "../components/ui/animated-testimonials";
 import { HeroVideoDialog } from "../components/hero-video-dialog";
@@ -35,7 +33,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
   const enquiryRef = React.useRef<EnquiryFormHandle | null>(null);
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [countries, setCountries] = React.useState<CountryWithCounts[]>([]);
-  const [universities, setUniversities] = React.useState<University[]>([]);
+  const [_universities, setUniversities] = React.useState<University[]>([]);
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
@@ -221,11 +219,11 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-100 dark:to-neutral-400">
-                  Your Gateway to <ColourfulText text="Global Education" />
+                  Your Gateway to <ColourfulText text="Global Career" />
                 </h1>
                 <p className="text-xl text-neutral-700 dark:text-neutral-300 mb-8">
-                  Discover the perfect study abroad opportunities tailored to
-                  your academic goals and career aspirations.
+                  Your one-stop platform to explore global opportunities, build
+                  skills, and achieve success across borders.
                 </p>
 
                 <div className="flex flex-wrap gap-4 mb-8">
@@ -323,152 +321,160 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
             </motion.div>
           </div>
 
-          <div className="mt-12 md:mt-16">
+          {/* <div className="mt-12 md:mt-16">
             <SearchBar variant="hero" />
-          </div>
+          </div> */}
 
           {blogTickerItems && blogTickerItems.length > 0 && (
-            <div className="mt-8">
+            <div className="mt-14">
               <BlogSlider items={blogTickerItems} />
             </div>
           )}
         </div>
       </VenomBeam>
 
-      {/* Popular Destinations Section */}
-      <section className="py-16 bg-white">
+      {/* Explore Our Verticals Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
-            <div>
-              <h2 className="text-3xl font-bold mb-2">
-                Popular Study Destinations
-              </h2>
-              <p className="text-foreground-500">
-                Explore top countries for international education
-              </p>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+              Explore Our Verticals
+            </h2>
+            <p className="text-foreground-600 max-w-2xl mx-auto text-lg">
+              Discover opportunities across education, placements, internships,
+              and more
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {loading ? (
-              // Loading skeleton
-              Array.from({ length: 4 }).map((_, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-lg shadow-sm p-6 animate-pulse"
-                >
-                  <div className="w-full h-48 bg-gray-200 rounded-lg mb-4"></div>
-                  <div className="h-6 bg-gray-200 rounded mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded w-1/2"></div>
-                </div>
-              ))
-            ) : countries.length > 0 ? (
-              countries
-                .slice(0, 4)
-                .map((country) => (
-                  <CountryCard
-                    key={country.id}
-                    id={country.id}
-                    name={country.name}
-                    imageId={country.imageId || ""}
-                    flagImageId={country.flagImageId || ""}
-                    universities={country.universities || 0}
-                    courses={country.courses || 0}
-                    code={country.code}
-                  />
-                ))
-            ) : (
-              <div className="col-span-4 text-center py-12">
-                <p className="text-foreground-500 mb-4">
-                  No countries available at the moment.
-                </p>
-              </div>
-            )}
-          </div>
-          <div className="mt-10 text-center">
-            <Link href="/study-abroad">
-              {" "}
-              <Button
-                variant="flat"
-                color="primary"
-                endContent={<Icon icon="lucide:arrow-right" />}
-                className="mt-4 md:mt-0"
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6">
+            {[
+              {
+                type: "study-india",
+                name: "Study India",
+                icon: "lucide:graduation-cap",
+                color: "from-blue-500 to-blue-600",
+                bgColor: "bg-blue-50",
+                iconColor: "text-blue-600",
+              },
+              {
+                type: "placement-india",
+                name: "Placement India",
+                icon: "lucide:briefcase",
+                color: "from-green-500 to-green-600",
+                bgColor: "bg-green-50",
+                iconColor: "text-green-600",
+              },
+              {
+                type: "placement-abroad",
+                name: "Placement Abroad",
+                icon: "lucide:plane",
+                color: "from-purple-500 to-purple-600",
+                bgColor: "bg-purple-50",
+                iconColor: "text-purple-600",
+              },
+              {
+                type: "internship-india",
+                name: "Internship India",
+                icon: "lucide:users",
+                color: "from-orange-500 to-orange-600",
+                bgColor: "bg-orange-50",
+                iconColor: "text-orange-600",
+              },
+              {
+                type: "internship-abroad",
+                name: "Internship Abroad",
+                icon: "lucide:globe",
+                color: "from-cyan-500 to-cyan-600",
+                bgColor: "bg-cyan-50",
+                iconColor: "text-cyan-600",
+              },
+              {
+                type: "mbbs-india",
+                name: "MBBS India",
+                icon: "lucide:stethoscope",
+                color: "from-red-500 to-red-600",
+                bgColor: "bg-red-50",
+                iconColor: "text-red-600",
+              },
+              {
+                type: "mbbs-abroad",
+                name: "MBBS Abroad",
+                icon: "lucide:heart-pulse",
+                color: "from-pink-500 to-pink-600",
+                bgColor: "bg-pink-50",
+                iconColor: "text-pink-600",
+              },
+              {
+                type: "llm",
+                name: "LLM Programs",
+                icon: "lucide:scale",
+                color: "from-indigo-500 to-indigo-600",
+                bgColor: "bg-indigo-50",
+                iconColor: "text-indigo-600",
+              },
+              {
+                type: "uni-project",
+                name: "University Projects",
+                icon: "lucide:flask-conical",
+                color: "from-teal-500 to-teal-600",
+                bgColor: "bg-teal-50",
+                iconColor: "text-teal-600",
+              },
+              {
+                type: "school-project",
+                name: "School Projects",
+                icon: "lucide:book-open",
+                color: "from-amber-500 to-amber-600",
+                bgColor: "bg-amber-50",
+                iconColor: "text-amber-600",
+              },
+              {
+                type: "mou-project",
+                name: "MOU Projects",
+                icon: "lucide:handshake",
+                color: "from-violet-500 to-violet-600",
+                bgColor: "bg-violet-50",
+                iconColor: "text-violet-600",
+              },
+              {
+                type: "loans",
+                name: "Education Loans",
+                icon: "lucide:wallet",
+                color: "from-emerald-500 to-emerald-600",
+                bgColor: "bg-emerald-50",
+                iconColor: "text-emerald-600",
+              },
+            ].map((vertical, index) => (
+              <motion.div
+                key={vertical.type}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05, duration: 0.4 }}
+                viewport={{ once: true }}
               >
-                View All Destinations
-              </Button>{" "}
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Top Universities Section */}
-      <section className="py-16 bg-default-50">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
-            <div>
-              <h2 className="text-3xl font-bold mb-2">Top Universities</h2>
-              <p className="text-foreground-500">
-                Discover world-class educational institutions
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {loading ? (
-              // Loading skeleton
-              Array.from({ length: 4 }).map((_, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-lg shadow-sm p-6 animate-pulse"
-                >
-                  <div className="w-full h-48 bg-gray-200 rounded-lg mb-4"></div>
-                  <div className="h-6 bg-gray-200 rounded mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded w-1/2 mb-2"></div>
-                  <div className="flex gap-2">
-                    <div className="h-6 bg-gray-200 rounded w-16"></div>
-                    <div className="h-6 bg-gray-200 rounded w-20"></div>
+                <Link href={`/${vertical.type}`}>
+                  <div className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border border-gray-100 h-full flex flex-col items-center text-center">
+                    <div
+                      className={`w-16 h-16 rounded-xl ${vertical.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <Icon
+                        icon={vertical.icon}
+                        className={`w-8 h-8 ${vertical.iconColor}`}
+                      />
+                    </div>
+                    <h3 className="font-bold text-gray-900 text-sm sm:text-base mb-2 group-hover:bg-gradient-to-r group-hover:from-primary-600 group-hover:to-secondary-600 group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                      {vertical.name}
+                    </h3>
+                    <div
+                      className="absolute inset-0 rounded-2xl bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                      style={{
+                        backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))`,
+                      }}
+                    />
                   </div>
-                </div>
-              ))
-            ) : universities.length > 0 ? (
-              universities.map((university) => (
-                <UniversityCard
-                  key={university.id}
-                  id={university.id}
-                  name={university.name}
-                  location={
-                    university.location || university.country?.name || ""
-                  }
-                  imageId={university.imageId || ""}
-                  country={university.country?.name || "Unknown"}
-                  ranking={university.ranking}
-                  courses={university.courses || 0}
-                  tags={university.tags || []}
-                />
-              ))
-            ) : (
-              <div className="col-span-4 text-center py-12">
-                <p className="text-foreground-500 mb-4">
-                  No universities available at the moment.
-                </p>
-              </div>
-            )}
-          </div>
-
-          <div className="mt-10 text-center">
-            <Link href="/study-abroad">
-              {" "}
-              <Button
-                color="primary"
-                variant="flat"
-                size="lg"
-                endContent={<Icon icon="lucide:arrow-right" />}
-              >
-                Explore All Universities
-              </Button>
-            </Link>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -527,8 +533,8 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 Ready to Start Your International Education Journey?
               </h2>
               <p className="text-white/90 mb-6">
-                Our expert counselors are ready to guide you through every step
-                of the process. Schedule a free consultation today.
+                One destination, countless opportunities – where worldwide
+                careers meet at one dot .
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/career-test">
@@ -607,7 +613,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {blogPosts.length > 0 ? (
               blogPosts.map((post) => (
                 <BlogCard
@@ -623,7 +629,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 />
               ))
             ) : (
-              <div className="col-span-3 text-center py-12">
+              <div className="col-span-1 sm:col-span-2 lg:col-span-3 text-center py-12">
                 <p className="text-foreground-500 mb-4">
                   No blog posts available at the moment.
                 </p>

@@ -111,9 +111,13 @@ function SafeCourseCard({
 
   return (
     <>
-      <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
-        <Card className="border border-default-200">
-          <CardBody className="p-4">
+      <motion.div
+        whileHover={{ y: -5 }}
+        transition={{ duration: 0.3 }}
+        className="h-full"
+      >
+        <Card className="border border-default-200 h-full">
+          <CardBody className="p-4 flex flex-col h-full">
             {/* Validation warnings for development */}
             {showValidationWarnings && validation.warnings.length > 0 && (
               <div className="mb-3 p-2 bg-warning-50 border border-warning-200 rounded text-xs">
@@ -225,7 +229,7 @@ function SafeCourseCard({
               </div>
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex gap-2 mt-auto">
               <Button
                 as={Link}
                 href={constructStudyAbroadUrl(

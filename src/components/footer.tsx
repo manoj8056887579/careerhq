@@ -1,25 +1,29 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Link as HeroLink } from "@heroui/link";
 import { Divider } from "@heroui/divider";
 import { Icon } from "@iconify/react";
+import type { Country } from "@/types/education";
+import { generateCountrySlug } from "@/lib/slug-utils";
+import {
+  logDataFetchError,
+  logNetworkError,
+  logApiError,
+} from "@/utils/errorUtils";
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const [countries, setCountries] = React.useState<Country[]>([]);
 
   const footerSections = [
     {
       title: "Study Abroad",
-      links: [
-        { name: "United States", path: "/study-abroad/usa" },
-        { name: "United Kingdom", path: "/study-abroad/uk" },
-        { name: "Canada", path: "/study-abroad/canada" },
-        { name: "Australia", path: "/study-abroad/australia" },
-        { name: "Germany", path: "/study-abroad/germany" },
-        { name: "Ireland", path: "/study-abroad/ireland" },
-        { name: "France", path: "/study-abroad/france" },
-        { name: "New Zealand", path: "/study-abroad/new-zealand" },
-      ],
+      links: countries.map((country) => ({
+        name: country.name,
+        path: `/study-abroad/${generateCountrySlug(country.name) || country.id}`,
+      })),
     },
     {
       title: "Resources",
@@ -56,6 +60,43 @@ export const Footer: React.FC = () => {
     },
     { name: "YouTube", icon: "logos:youtube-icon", url: "https://youtube.com" },
   ];
+
+  const fetchCountries = async () => {
+    try {
+      const response = await fetch("/api/countries?limit=8");
+
+      if (!response.ok) {
+        logApiError(
+          `Failed to fetch countries for footer: ${response.status}`,
+          "/api/countries",
+          { limit: 8 },
+          response.status
+        );
+        return;
+      }
+
+      const data = await response.json();
+
+      if (data.countries) {
+        setCountries(data.countries);
+      }
+    } catch (error) {
+      if (error instanceof TypeError && error.message.includes("fetch")) {
+        logNetworkError(error, "/api/countries", { limit: 8 });
+      } else {
+        logDataFetchError(
+          error instanceof Error ? error : String(error),
+          "footer_countries",
+          undefined,
+          { limit: 8 }
+        );
+      }
+    }
+  };
+
+  React.useEffect(() => {
+    fetchCountries();
+  }, []);
 
   return (
     <footer className="bg-content1 pt-16 pb-8">
