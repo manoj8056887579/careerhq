@@ -108,22 +108,28 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <p className="text-foreground-600 mb-4">
-                Founded in 2005, CareerHQ began with a simple mission: to help
-                students navigate the complex process of studying abroad and
-                building successful international careers.
+                CareerHQ began with a simple vision – to make global education
+                and career guidance accessible to every student. What started as
+                a small counseling center has now evolved into a trusted global
+                education consultancy, connecting worldwide career at one dot.
               </p>
               <p className="text-foreground-600 mb-4">
-                What started as a small counseling center has now grown into a
-                global education consultancy with offices in multiple countries,
-                helping thousands of students achieve their dreams of
-                international education.
+                Over the years, we’ve helped thousands of students turn their
+                dream of studying abroad into reality. With offices across
+                multiple countries, CareerHQ bridges students with top
+                universities and international career opportunities around the
+                world.
               </p>
               <p className="text-foreground-600 mb-6">
-                Our team of experienced counselors, many of whom have studied
-                abroad themselves, provide personalized guidance to students at
-                every step of their journey – from choosing the right university
-                and program to securing scholarships and navigating visa
-                processes.
+                Our team of expert counselors – many of whom have experienced
+                studying abroad themselves – provide end-to-end guidance, from
+                choosing the right course and university to securing
+                scholarships and handling visa procedures.
+              </p>
+              <p className="text-foreground-600 mb-6">
+                At CareerHQ, we believe in more than just admissions; we believe
+                in connecting students to a world of limitless career
+                possibilities, all at one dot.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button
@@ -171,9 +177,12 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Our Mission</h3>
                 <p className="text-foreground-600">
-                  To empower students with the guidance, resources, and support
-                  they need to access quality international education
-                  opportunities and build successful global careers.
+                  Our mission is to empower students to explore global
+                  opportunities with confidence by providing the right guidance,
+                  resources, and personalized support. We aim to simplify the
+                  path to international education and career success –
+                  connecting worldwide career at one dot through trust,
+                  knowledge, and continuous support.
                 </p>
               </CardBody>
             </Card>
@@ -185,10 +194,12 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Our Vision</h3>
                 <p className="text-foreground-600">
-                  To be the most trusted global education consultancy, known for
-                  our student-centric approach, integrity, and excellence in
-                  helping students achieve their international education and
-                  career goals.
+                  Our vision is to become the most trusted global platform for
+                  international education and career connection, recognized for
+                  our integrity, innovation, and student-first approach. We
+                  aspire to create a world where every student can easily
+                  connect to global education and career possibilities – all at
+                  one dot.
                 </p>
               </CardBody>
             </Card>
@@ -287,7 +298,7 @@ export default function AboutPage() {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <EnquiryForm
                 title="Get Expert Guidance"
-                subtitle="Fill out this form and our education experts will get back to you within 24 hours."
+                subtitle="Fill out this form and our experts will get back to you within 24 hours."
               />
             </div>
           </div>

@@ -551,7 +551,7 @@ export const UniversityPageClient: React.FC<UniversityPageClientProps> = ({
               <EnquiryForm
                 ref={enquiryRef}
                 title="Get Application Guidance"
-                subtitle="Fill out this form and our education experts will get back to you within 24 hours."
+                subtitle="Fill out this form and our experts will get back to you within 24 hours."
               />
             </div>
           </div>

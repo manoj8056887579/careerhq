@@ -111,8 +111,8 @@ export const BlogListingClient: React.FC<BlogListingClientProps> = ({
               transition={{ delay: 0.2, duration: 0.5 }}
               className="text-xl text-foreground-600 mb-8"
             >
-              Insights, guides, and resources for your international education
-              journey
+              Insights, guides, and resources for your international career
+              journey.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

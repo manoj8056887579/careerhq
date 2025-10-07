@@ -61,6 +61,13 @@ export default function ModuleDetailPage({
     return `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_${width},h_${height},c_fill/${imageId}`;
   };
 
+  const handleApplyNow = () => {
+    enquiryRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  };
+
   const handleShare = async () => {
     if (navigator.share) {
       try {
@@ -131,7 +138,7 @@ export default function ModuleDetailPage({
                   </Chip>
                 </div>
 
-                <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent leading-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent leading-tight">
                   {module.title}
                 </h1>
 
@@ -294,12 +301,12 @@ export default function ModuleDetailPage({
                     {module.customFields.map((field, index) => (
                       <div
                         key={index}
-                        className="flex justify-between items-center py-2 border-b border-slate-200 dark:border-slate-700 last:border-0"
+                        className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-2 py-2 border-b border-slate-200 dark:border-slate-700 last:border-0"
                       >
-                        <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+                        <span className="text-sm text-slate-500 dark:text-slate-400 font-medium break-words">
                           {field.key}
                         </span>
-                        <span className="text-sm font-semibold text-slate-900 dark:text-white">
+                        <span className="text-sm font-semibold text-slate-900 dark:text-white break-words sm:text-right">
                           {field.value}
                         </span>
                       </div>
@@ -327,7 +334,7 @@ export default function ModuleDetailPage({
                       variant="solid"
                       className="w-full bg-white text-primary-600 font-semibold hover:bg-primary-50"
                       startContent={<ExternalLink size={18} />}
-                      onPress={handleShare}
+                      onPress={handleApplyNow}
                     >
                       Apply Now
                     </Button>
@@ -398,7 +405,7 @@ export default function ModuleDetailPage({
               <EnquiryForm
                 ref={enquiryRef}
                 title="Get Expert Guidance"
-                subtitle="Fill out this form and our education experts will get back to you within 24 hours."
+                subtitle="Fill out this form and our experts will get back to you within 24 hours."
               />
             </div>
           </div>

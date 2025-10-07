@@ -52,6 +52,7 @@ export default function AdminBlogList({
   initialCategories = [],
 }: AdminBlogListProps) {
   const router = useRouter();
+  const [isMounted, setIsMounted] = useState(false);
 
   // State management
   const [posts, setPosts] = useState<BlogPost[]>(initialPosts);
@@ -65,7 +66,6 @@ export default function AdminBlogList({
     column: "date",
     direction: "descending",
   });
-
   // Delete confirmation modal state
   const [deleteModal, setDeleteModal] = useState<{
     isOpen: boolean;
@@ -87,6 +87,10 @@ export default function AdminBlogList({
 
   // Debounced search
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -306,7 +310,7 @@ export default function AdminBlogList({
   ];
 
   // Loading skeleton
-  if (loading && posts.length === 0) {
+  if (!isMounted || (loading && posts.length === 0)) {
     return (
       <div className="space-y-4">
         <div className="flex gap-4 mb-6">
@@ -338,6 +342,7 @@ export default function AdminBlogList({
             onChange={(e) => setSearchTerm(e.target.value)}
             startContent={<Search className="w-4 h-4 text-gray-400" />}
             className="sm:max-w-xs"
+            aria-label="Search posts by title..."
           />
 
           <Select
@@ -348,6 +353,7 @@ export default function AdminBlogList({
               setSelectedCategory(selected || "all");
             }}
             className="sm:max-w-xs"
+            aria-label="Filter by category"
           >
             {categories.map((category) => (
               <SelectItem key={category.id}>{category.name}</SelectItem>
@@ -362,10 +368,17 @@ export default function AdminBlogList({
               setPublishedFilter(selected || "all");
             }}
             className="sm:max-w-xs"
+            aria-label="Filter by status"
           >
-            <SelectItem key="all">All Posts</SelectItem>
-            <SelectItem key="published">Published</SelectItem>
-            <SelectItem key="draft">Drafts</SelectItem>
+            <SelectItem key="all" aria-label="All Posts">
+              All Posts
+            </SelectItem>
+            <SelectItem key="published" aria-label="Published Posts">
+              Published
+            </SelectItem>
+            <SelectItem key="draft" aria-label="Drafts">
+              Drafts
+            </SelectItem>
           </Select>
 
           <Select
@@ -376,9 +389,12 @@ export default function AdminBlogList({
               handlePageSizeChange(parseInt(selected));
             }}
             className="sm:max-w-xs"
+            aria-label="Items per page"
           >
             {ITEMS_PER_PAGE_OPTIONS.map((size) => (
-              <SelectItem key={size.toString()}>{size} per page</SelectItem>
+              <SelectItem key={size.toString()} aria-label={`${size} per page`}>
+                {size} per page
+              </SelectItem>
             ))}
           </Select>
         </div>

@@ -488,8 +488,8 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
               Our Services
             </h2>
             <p className="text-foreground-600 max-w-2xl mx-auto text-lg">
-              We provide comprehensive support for your international education
-              journey, from university selection to visa processing.
+              Discover your path to success, where worldwide careers meet at one
+              dot .
             </p>
           </div>
 
@@ -530,7 +530,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-4">
-                Ready to Start Your International Education Journey?
+                Connecting worldwide career in one dot{" "}
               </h2>
               <p className="text-white/90 mb-6">
                 One destination, countless opportunities – where worldwide
@@ -563,7 +563,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
               <EnquiryForm
                 ref={enquiryRef}
                 title="Get Started Today"
-                subtitle="Fill out this form and our education experts will get back to you within 24 hours."
+                subtitle="Fill out this form and our experts will get back to you within 24 hours."
               />
             </div>
           </div>
@@ -588,8 +588,8 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-3">Student Success Stories</h2>
             <p className="text-foreground-500 max-w-2xl mx-auto">
-              Hear from our students who have successfully achieved their
-              international education goals with our guidance.
+              Hear from our students who have successfully achieved their career
+              goals with our guidance.
             </p>
           </div>
 
