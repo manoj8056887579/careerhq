@@ -227,7 +227,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 </p>
 
                 <div className="flex flex-wrap gap-4 mb-8">
-                  <Link href="/study-abroad">
+                  <Link href="/about">
                     {" "}
                     <Button
                       color="primary"
@@ -235,7 +235,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                       endContent={<Icon icon="lucide:arrow-right" />}
                       className="font-medium"
                     >
-                      Explore Programs
+                      Learn More
                     </Button>{" "}
                   </Link>
                   <Button
@@ -548,7 +548,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                     Begin Test
                   </Button>
                 </Link>
-                <Link href="/about-us">
+                <Link href="/about">
                   <Button
                     variant="bordered"
                     size="lg"

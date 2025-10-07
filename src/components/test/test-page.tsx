@@ -90,6 +90,7 @@ export function TestPage({ questions }: TestPageProps) {
               className="mb-8"
               color="primary"
               showValueLabel
+              aria-label="Test Progress"
             />
 
             <AnimatePresence mode="wait">
@@ -113,10 +114,17 @@ export function TestPage({ questions }: TestPageProps) {
                       }
                       orientation="horizontal"
                       className="gap-6"
+                      aria-label="Question Radio Group"
                     >
-                      <Radio value="Never">Never</Radio>
-                      <Radio value="Sometimes">Sometimes</Radio>
-                      <Radio value="Always">Always</Radio>
+                      <Radio value="Never" aria-label="Never">
+                        Never
+                      </Radio>
+                      <Radio value="Sometimes" aria-label="Sometimes">
+                        Sometimes
+                      </Radio>
+                      <Radio value="Always" aria-label="Always">
+                        Always
+                      </Radio>
                     </RadioGroup>
                   </div>
                 ))}
