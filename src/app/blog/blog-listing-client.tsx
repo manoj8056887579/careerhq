@@ -212,32 +212,6 @@ export const BlogListingClient: React.FC<BlogListingClientProps> = ({
           )}
         </div>
       </section>
-
-      {/* Newsletter Section */}
-      <section className="py-16 bg-default-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-3">
-              Subscribe to Our Newsletter
-            </h2>
-            <p className="text-foreground-500 mb-8">
-              Stay updated with the latest articles, resources, and study abroad
-              opportunities
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <Input
-                placeholder="Enter your email"
-                type="email"
-                size="lg"
-                className="flex-grow"
-              />
-              <Button color="primary" size="lg" className="sm:flex-shrink-0">
-                Subscribe
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 };
