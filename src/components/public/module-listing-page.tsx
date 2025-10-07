@@ -283,15 +283,15 @@ export default function ModuleListingModern({
                       Featured Opportunities
                     </h2>
                   </div>
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-                    <div className="lg:col-span-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    <div className="md:col-span-2 lg:col-span-2">
                       <FeaturedModuleCard
                         module={featuredModules[0]}
                         moduleType={moduleType}
                         large={true}
                       />
                     </div>
-                    <div className="lg:col-span-1 flex flex-col gap-4 sm:gap-6">
+                    <div className="md:col-span-2 lg:col-span-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
                       {featuredModules.slice(1, 3).map((module) => (
                         <FeaturedModuleCard
                           key={module.id}
@@ -356,7 +356,7 @@ function FeaturedModuleCard({
     <Link href={`/${moduleType}/${module.id}`} className="group block h-full">
       <div className="relative glass-strong rounded-2xl sm:rounded-3xl overflow-hidden h-full transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl hover:shadow-blue-500/30">
         {module.coverImage && (
-          <div className="relative w-full h-full min-h-[280px] sm:min-h-[320px]">
+          <div className="relative w-full h-full min-h-[240px] sm:min-h-[280px] md:min-h-[320px]">
             <Image
               src={getImageUrl(module.coverImage) || "/placeholder.svg"}
               alt={module.title}
@@ -365,21 +365,21 @@ function FeaturedModuleCard({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
-            <div className="absolute top-4 sm:top-6 right-4 sm:right-6">
-              <div className="bg-white/20 backdrop-blur-md px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/30">
-                <span className="text-xs sm:text-sm font-semibold text-white">
+            <div className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6">
+              <div className="bg-white/20 backdrop-blur-md px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full border border-white/30">
+                <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-white">
                   {module.category}
                 </span>
               </div>
             </div>
 
-            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 md:p-8">
-              <div className="space-y-3 sm:space-y-4">
+            <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 md:p-6 lg:p-8">
+              <div className="space-y-2 sm:space-y-3 md:space-y-4">
                 <h3
                   className={`font-bold text-white leading-tight ${
                     large
-                      ? "text-xl sm:text-2xl md:text-3xl line-clamp-2"
-                      : "text-lg sm:text-xl line-clamp-2"
+                      ? "text-lg sm:text-xl md:text-2xl lg:text-3xl line-clamp-2"
+                      : "text-base sm:text-lg md:text-xl line-clamp-2"
                   }`}
                 >
                   {module.title}
@@ -388,7 +388,7 @@ function FeaturedModuleCard({
                 <p
                   className={`text-white/90 leading-relaxed ${
                     large
-                      ? "text-sm sm:text-base line-clamp-2"
+                      ? "text-xs sm:text-sm md:text-base line-clamp-2"
                       : "text-xs sm:text-sm line-clamp-2"
                   }`}
                 >
@@ -396,20 +396,20 @@ function FeaturedModuleCard({
                 </p>
 
                 {module.highlights && module.highlights.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {module.highlights
                       .slice(0, large ? 3 : 2)
                       .map((highlight, index) => (
                         <div
                           key={index}
-                          className="bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/20"
+                          className="bg-white/10 backdrop-blur-sm px-2 py-1 sm:px-2.5 sm:py-1.5 md:px-3 rounded-lg border border-white/20"
                         >
-                          <div className="flex items-center gap-1.5">
+                          <div className="flex items-center gap-1 sm:gap-1.5">
                             <CheckCircle2
-                              size={14}
-                              className="text-green-400"
+                              size={12}
+                              className="text-green-400 sm:w-3.5 sm:h-3.5"
                             />
-                            <span className="text-xs text-white font-medium">
+                            <span className="text-[10px] sm:text-xs text-white font-medium line-clamp-1">
                               {highlight}
                             </span>
                           </div>
@@ -418,11 +418,13 @@ function FeaturedModuleCard({
                   </div>
                 )}
 
-                <div className="flex items-center gap-2 text-white font-semibold group-hover:gap-3 transition-all pt-2">
-                  <span className="text-sm sm:text-base">Learn More</span>
+                <div className="flex items-center gap-2 text-white font-semibold group-hover:gap-3 transition-all pt-1 sm:pt-2">
+                  <span className="text-xs sm:text-sm md:text-base">
+                    Learn More
+                  </span>
                   <ArrowRight
-                    size={18}
-                    className="transition-transform group-hover:translate-x-1"
+                    size={16}
+                    className="transition-transform group-hover:translate-x-1 sm:w-4 sm:h-4 md:w-5 md:h-5"
                   />
                 </div>
               </div>
