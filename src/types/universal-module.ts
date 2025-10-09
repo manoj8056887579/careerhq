@@ -8,7 +8,7 @@ export type ModuleType =
   | "internship-abroad"
   | "mbbs-india"
   | "mbbs-abroad"
-  | "llm"
+  | "lms"
   | "uni-project"
   | "school-project"
   | "mou-project"
@@ -81,7 +81,7 @@ export const MODULE_CUSTOM_FIELDS: Record<ModuleType, string[]> = {
   "internship-abroad": ["Country", "Company", "Stipend", "Duration"],
   "mbbs-india": ["College", "State", "Fees", "Seats Available"],
   "mbbs-abroad": ["Country", "University", "Fees", "Duration"],
-  llm: ["University", "Specialization", "Duration", "Fees"],
+  lms: ["University", "Specialization", "Duration", "Fees"],
   "uni-project": ["University", "Department", "Duration", "Funding"],
   "school-project": ["School", "Grade Level", "Subject", "Duration"],
   "mou-project": ["Partner Organization", "Duration", "Scope", "Benefits"],
@@ -97,7 +97,7 @@ export const MODULE_DISPLAY_NAMES: Record<ModuleType, string> = {
   "internship-abroad": "Internship Abroad",
   "mbbs-india": "MBBS India",
   "mbbs-abroad": "MBBS Abroad",
-  llm: "LLM",
+  lms: "LMS",
   "uni-project": "University Project",
   "school-project": "School Project",
   "mou-project": "MOU Project",

@@ -11,7 +11,7 @@ export async function generateMetadata({
   try {
     const response = await fetch(
       `${
-        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+        process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"
       }/api/modules/${id}`,
       { cache: "no-store" }
     );
@@ -19,7 +19,7 @@ export async function generateMetadata({
     if (response.ok) {
       const moduleData = await response.json();
       return {
-        title: `${moduleData.title} | LLM Programs | CareerHQ`,
+        title: `${moduleData.title} | LMS Programs | CareerHQ`,
         description: moduleData.shortDescription,
       };
     }
@@ -28,17 +28,17 @@ export async function generateMetadata({
   }
 
   return {
-    title: "LLM Programs | CareerHQ",
-    description: "Explore LLM programs worldwide",
+    title: "LMS Programs | CareerHQ",
+    description: "Explore LMS programs worldwide",
   };
 }
 
-export default async function LLMDetailPage({
+export default async function LMSDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
 
-  return <ModuleDetailPage moduleId={id} moduleType="llm" />;
+  return <ModuleDetailPage moduleId={id} moduleType="lms" />;
 }

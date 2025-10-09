@@ -237,14 +237,14 @@ const sampleData = {
       },
     ],
   },
-  llm: {
+  lms: {
     categories: ["Corporate Law", "International Law", "IP Law", "Tax Law"],
     modules: [
       {
-        title: "Harvard Law School - LLM",
-        shortDescription: "Elite LLM program at Harvard",
+        title: "Harvard Law School - LMS",
+        shortDescription: "Elite LMS program at Harvard",
         detailedDescription:
-          "Harvard Law School's LLM program offers specialized legal education for international lawyers. Students can customize their curriculum, participate in clinics, and benefit from Harvard's extensive resources and network.",
+          "Harvard Law School's LMS program offers specialized legal education for international lawyers. Students can customize their curriculum, participate in clinics, and benefit from Harvard's extensive resources and network.",
         category: "International Law",
         customFields: [
           { key: "University", value: "Harvard Law School" },

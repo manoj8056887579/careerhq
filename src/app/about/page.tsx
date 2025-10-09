@@ -233,6 +233,58 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Global Exclusive Tie-up Section */}
+      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              Global Exclusive Tie-up With
+            </h2>
+            <p className="text-foreground-500 max-w-2xl mx-auto">
+              We have established exclusive partnerships with leading career
+              providers across 12 countries worldwide
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+            {[
+              { name: "India", code: "in" },
+              { name: "United Kingdom", code: "gb" },
+              { name: "Australia", code: "au" },
+              { name: "Canada", code: "ca" },
+              { name: "USA", code: "us" },
+              { name: "New Zealand", code: "nz" },
+              { name: "Finland", code: "fi" },
+              { name: "Europe", code: "eu" },
+              { name: "Kyrgyzstan", code: "kg" },
+              { name: "Uzbekistan", code: "uz" },
+              { name: "Vietnam", code: "vn" },
+              { name: "Georgia", code: "ge" },
+            ].map((country, index) => (
+              <Card
+                key={index}
+                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-default-200 bg-white/80 backdrop-blur-sm"
+              >
+                <CardBody className="p-6 flex flex-col items-center justify-center text-center gap-3">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-300 border-2 border-gray-200">
+                    <Image
+                      src={`https://flagcdn.com/w160/${country.code}.png`}
+                      alt={`${country.name} flag`}
+                      fill
+                      className="object-cover"
+                      unoptimized
+                    />
+                  </div>
+                  <h3 className="text-sm font-semibold text-gray-900 group-hover:text-primary transition-colors">
+                    {country.name}
+                  </h3>
+                </CardBody>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-16 bg-default-50">
         <div className="container mx-auto px-4">

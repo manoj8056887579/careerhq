@@ -22,6 +22,22 @@ import type { UniversalModule, ModuleType } from "@/types/universal-module";
 import { EnquiryForm, EnquiryFormHandle } from "@/components/enquiry-form";
 import { MODULE_DISPLAY_NAMES } from "@/types/universal-module";
 
+// Map module types to their route names
+const MODULE_TYPE_TO_ROUTE: Record<ModuleType, string> = {
+  "study-india": "study-india",
+  "placement-india": "placement-india",
+  "placement-abroad": "placement-abroad",
+  "internship-india": "internship-india",
+  "internship-abroad": "internship-abroad",
+  "mbbs-india": "mbbs-india",
+  "mbbs-abroad": "mbbs-abroad",
+  lms: "lms",
+  "uni-project": "university-projects",
+  "school-project": "school-projects",
+  "mou-project": "mou-projects",
+  loans: "loans",
+};
+
 interface ModuleDetailPageProps {
   moduleId: string;
   moduleType: ModuleType;
@@ -91,7 +107,7 @@ export default function ModuleDetailPage({
             <p className="text-default-500 mb-6">
               The requested content could not be found or may have been removed.
             </p>
-            <Link href={`/${moduleType}`}>
+            <Link href={`/${MODULE_TYPE_TO_ROUTE[moduleType]}`}>
               <Button color="primary" variant="solid">
                 Back to {MODULE_DISPLAY_NAMES[moduleType]}
               </Button>
@@ -149,7 +165,7 @@ export default function ModuleDetailPage({
               <div className="flex flex-wrap gap-4">
                 <Button
                   as={Link}
-                  href={`/${moduleType}`}
+                  href={`/${MODULE_TYPE_TO_ROUTE[moduleType]}`}
                   size="lg"
                   color="primary"
                   variant="shadow"

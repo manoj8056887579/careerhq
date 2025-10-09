@@ -11,7 +11,7 @@ export async function generateMetadata({
   try {
     const response = await fetch(
       `${
-        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+        process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"
       }/api/modules/${id}`,
       { cache: "no-store" }
     );

@@ -23,6 +23,22 @@ import type {
 } from "@/types/universal-module";
 import { MODULE_DISPLAY_NAMES } from "@/types/universal-module";
 
+// Map module types to their route names
+const MODULE_TYPE_TO_ROUTE: Record<ModuleType, string> = {
+  "study-india": "study-india",
+  "placement-india": "placement-india",
+  "placement-abroad": "placement-abroad",
+  "internship-india": "internship-india",
+  "internship-abroad": "internship-abroad",
+  "mbbs-india": "mbbs-india",
+  "mbbs-abroad": "mbbs-abroad",
+  lms: "lms",
+  "uni-project": "university-projects",
+  "school-project": "school-projects",
+  "mou-project": "mou-projects",
+  loans: "loans",
+};
+
 interface ModuleListingModernProps {
   moduleType: ModuleType;
   title: string;
@@ -353,7 +369,10 @@ function FeaturedModuleCard({
   };
 
   return (
-    <Link href={`/${moduleType}/${module.id}`} className="group block h-full">
+    <Link
+      href={`/${MODULE_TYPE_TO_ROUTE[moduleType]}/${module.id}`}
+      className="group block h-full"
+    >
       <div className="relative glass-strong rounded-2xl sm:rounded-3xl overflow-hidden h-full transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl hover:shadow-blue-500/30">
         {module.coverImage && (
           <div className="relative w-full h-full min-h-[240px] sm:min-h-[280px] md:min-h-[320px]">
@@ -447,7 +466,10 @@ function ModuleCardModern({ module, moduleType }: ModuleCardModernProps) {
   };
 
   return (
-    <Link href={`/${moduleType}/${module.id}`} className="group block h-full">
+    <Link
+      href={`/${MODULE_TYPE_TO_ROUTE[moduleType]}/${module.id}`}
+      className="group block h-full"
+    >
       <div className="relative bg-white rounded-2xl sm:rounded-3xl overflow-hidden h-full flex flex-col shadow-lg shadow-gray-200/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/30">
         {module.coverImage && (
           <div className="relative w-full h-40 sm:h-48 md:h-52 overflow-hidden">

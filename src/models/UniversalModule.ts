@@ -22,7 +22,7 @@ const UniversalModuleSchema = new Schema<UniversalModule>(
         "internship-abroad",
         "mbbs-india",
         "mbbs-abroad",
-        "llm",
+        "lms",
         "uni-project",
         "school-project",
         "mou-project",

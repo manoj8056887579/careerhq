@@ -54,7 +54,7 @@ export const MainNavbar: React.FC = () => {
     },
     { name: "MBBS India", link: "/mbbs-india", icon: "lucide:stethoscope" },
     { name: "MBBS Abroad", link: "/mbbs-abroad", icon: "lucide:heart-pulse" },
-    { name: "LLM", link: "/llm", icon: "lucide:scale" },
+    { name: "LMS", link: "/lms", icon: "lucide:book-open" },
     {
       name: "Uni Projects",
       link: "/university-projects",

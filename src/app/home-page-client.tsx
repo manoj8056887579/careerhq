@@ -349,6 +349,14 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6">
             {[
               {
+                type: "study-abroad",
+                name: "Study Abroad",
+                icon: "lucide:book-open",
+                color: "from-red-500 to-red-600",
+                bgColor: "bg-red-50",
+                iconColor: "text-red-600",
+              },
+              {
                 type: "study-india",
                 name: "Study India",
                 icon: "lucide:graduation-cap",
@@ -405,12 +413,12 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 iconColor: "text-pink-600",
               },
               {
-                type: "llm",
-                name: "LLM Programs",
-                icon: "lucide:scale",
-                color: "from-indigo-500 to-indigo-600",
-                bgColor: "bg-indigo-50",
-                iconColor: "text-indigo-600",
+                type: "lms",
+                name: "LMS",
+                icon: "lucide:book-open",
+                color: "from-blue-500 to-blue-600",
+                bgColor: "bg-blue-50",
+                iconColor: "text-blue-600",
               },
               {
                 type: "uni-project",

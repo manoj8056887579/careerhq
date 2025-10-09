@@ -15,7 +15,7 @@ const ModuleCategorySchema = new Schema<ModuleCategory>(
         "internship-abroad",
         "mbbs-india",
         "mbbs-abroad",
-        "llm",
+        "lms",
         "uni-project",
         "school-project",
         "mou-project",
