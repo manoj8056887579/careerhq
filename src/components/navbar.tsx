@@ -84,24 +84,24 @@ export const MainNavbar: React.FC = () => {
       {/* Desktop Navigation */}
       <motion.nav
         className={cn(
-          "hidden lg:block transition-all duration-300",
-          isScrolled && "bg-white/95 backdrop-blur-md shadow-md"
+          "hidden lg:block transition-all duration-300 bg-white",
+          isScrolled && "shadow-md"
         )}
       >
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-1 gap-4">
+          <div className="flex items-center justify-between py-3 gap-8 min-h-[88px]">
             <Link href="/" className="flex items-center gap-2 flex-shrink-0">
               <Image
                 src="/images/career-hq-logo.png"
                 alt="CareerHQ Logo"
-                width={150}
-                height={50}
-                className="h-12 w-auto object-contain"
+                width={220}
+                height={73}
+                className="h-20 w-auto object-contain"
                 priority
               />
             </Link>
 
-            <div className="flex items-center gap-4 flex-shrink-0">
+            <div className="flex items-center gap-3 flex-shrink-0 flex-wrap justify-end">
               {navLinks.map((link) => {
                 const isActive =
                   link.link === "/"
@@ -112,7 +112,7 @@ export const MainNavbar: React.FC = () => {
                     key={link.link}
                     href={link.link}
                     className={cn(
-                      "text-sm font-medium transition-colors",
+                      "text-sm font-medium transition-colors whitespace-nowrap",
                       isActive
                         ? "text-blue-600"
                         : "text-gray-700 hover:text-blue-600"
@@ -126,7 +126,7 @@ export const MainNavbar: React.FC = () => {
                 as={Link}
                 href="/career-test"
                 color="primary"
-                className="font-medium"
+                className="font-medium whitespace-nowrap"
               >
                 Begin Test
               </Button>
@@ -175,9 +175,9 @@ export const MainNavbar: React.FC = () => {
               <Image
                 src="/images/career-hq-logo.png"
                 alt="CareerHQ Logo"
-                width={160}
-                height={53}
-                className="h-12 w-auto object-contain"
+                width={200}
+                height={67}
+                className="h-16 w-auto object-contain"
                 priority
               />
             </Link>
@@ -223,9 +223,9 @@ export const MainNavbar: React.FC = () => {
                 <Image
                   src="/images/career-hq-logo.png"
                   alt="CareerHQ Logo"
-                  width={160}
-                  height={53}
-                  className="h-12 w-auto object-contain"
+                  width={200}
+                  height={67}
+                  className="h-16 w-auto object-contain"
                 />
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}

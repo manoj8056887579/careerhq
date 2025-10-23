@@ -110,9 +110,9 @@ export const Footer: React.FC = () => {
               <Image
                 src="/images/career-hq-logo.png"
                 alt="CareerHQ Logo"
-                width={200}
-                height={67}
-                className="h-16 w-auto object-contain"
+                width={280}
+                height={93}
+                className="h-24 w-auto object-contain"
               />
             </Link>
             <p className="text-foreground-500 mb-6 max-w-md">
