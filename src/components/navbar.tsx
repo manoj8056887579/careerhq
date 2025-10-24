@@ -88,75 +88,80 @@ export const MainNavbar: React.FC = () => {
           isScrolled && "shadow-md"
         )}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-3 gap-8 min-h-[88px]">
-            <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-              <Image
-                src="/images/career-hq-logo.png"
-                alt="CareerHQ Logo"
-                width={220}
-                height={73}
-                className="h-20 w-auto object-contain"
-                priority
-              />
-            </Link>
+        <div className="w-full px-6">
+          <div className="max-w-[1600px] mx-auto">
+            <div className="grid grid-cols-[auto_1fr] items-center gap-8 py-4">
+              <Link href="/" className="flex items-center">
+                <Image
+                  src="/images/career-hq-logo.png"
+                  alt="CareerHQ Logo"
+                  width={360}
+                  height={120}
+                  className="h-32 w-auto object-contain"
+                  priority
+                />
+              </Link>
 
-            <div className="flex items-center gap-3 flex-shrink-0 flex-wrap justify-end">
-              {navLinks.map((link) => {
-                const isActive =
-                  link.link === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(link.link);
-                return (
-                  <Link
-                    key={link.link}
-                    href={link.link}
-                    className={cn(
-                      "text-sm font-medium transition-colors whitespace-nowrap",
-                      isActive
-                        ? "text-blue-600"
-                        : "text-gray-700 hover:text-blue-600"
-                    )}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
-              <Button
-                as={Link}
-                href="/career-test"
-                color="primary"
-                className="font-medium whitespace-nowrap"
-              >
-                Begin Test
-              </Button>
+              <div className="flex items-center justify-end gap-6">
+                {navLinks.map((link) => {
+                  const isActive =
+                    link.link === "/"
+                      ? pathname === "/"
+                      : pathname.startsWith(link.link);
+                  return (
+                    <Link
+                      key={link.link}
+                      href={link.link}
+                      className={cn(
+                        "text-base font-semibold transition-colors whitespace-nowrap",
+                        isActive
+                          ? "text-blue-600"
+                          : "text-gray-700 hover:text-blue-600"
+                      )}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
+                <Button
+                  as={Link}
+                  href="/career-test"
+                  color="primary"
+                  size="lg"
+                  className="font-semibold whitespace-nowrap"
+                >
+                  Begin Test
+                </Button>
+              </div>
             </div>
           </div>
 
           {/* Verticals Bar */}
           <div className="border-t border-gray-200 overflow-hidden">
-            <div className="flex items-center gap-1 py-2 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400">
-              {verticals.map((vertical) => {
-                const isActive = pathname.startsWith(vertical.link);
-                return (
-                  <Link
-                    key={vertical.link}
-                    href={vertical.link}
-                    className={cn(
-                      "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-all whitespace-nowrap flex-shrink-0",
-                      isActive
-                        ? "bg-blue-600 text-white shadow-md"
-                        : "text-gray-700 hover:bg-gray-100 hover:text-blue-600"
-                    )}
-                  >
-                    <Icon
-                      icon={vertical.icon}
-                      className="w-3.5 h-3.5 flex-shrink-0"
-                    />
-                    <span>{vertical.name}</span>
-                  </Link>
-                );
-              })}
+            <div className="max-w-[1600px] mx-auto">
+              <div className="flex items-center gap-1 py-2 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400">
+                {verticals.map((vertical) => {
+                  const isActive = pathname.startsWith(vertical.link);
+                  return (
+                    <Link
+                      key={vertical.link}
+                      href={vertical.link}
+                      className={cn(
+                        "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-all whitespace-nowrap flex-shrink-0",
+                        isActive
+                          ? "bg-blue-600 text-white shadow-md"
+                          : "text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+                      )}
+                    >
+                      <Icon
+                        icon={vertical.icon}
+                        className="w-3.5 h-3.5 flex-shrink-0"
+                      />
+                      <span>{vertical.name}</span>
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -175,9 +180,9 @@ export const MainNavbar: React.FC = () => {
               <Image
                 src="/images/career-hq-logo.png"
                 alt="CareerHQ Logo"
-                width={200}
-                height={67}
-                className="h-16 w-auto object-contain"
+                width={280}
+                height={93}
+                className="h-24 w-auto object-contain"
                 priority
               />
             </Link>
@@ -223,9 +228,9 @@ export const MainNavbar: React.FC = () => {
                 <Image
                   src="/images/career-hq-logo.png"
                   alt="CareerHQ Logo"
-                  width={200}
-                  height={67}
-                  className="h-16 w-auto object-contain"
+                  width={280}
+                  height={93}
+                  className="h-24 w-auto object-contain"
                 />
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}

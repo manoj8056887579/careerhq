@@ -106,13 +106,13 @@ export const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2">
-            <Link href="/" className="mb-4 inline-block">
+            <Link href="/" className="mb-6 inline-block">
               <Image
                 src="/images/career-hq-logo.png"
                 alt="CareerHQ Logo"
-                width={280}
-                height={93}
-                className="h-24 w-auto object-contain"
+                width={400}
+                height={133}
+                className="h-36 w-auto object-contain"
               />
             </Link>
             <p className="text-foreground-500 mb-6 max-w-md">
