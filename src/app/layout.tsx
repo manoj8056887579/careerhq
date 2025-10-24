@@ -42,6 +42,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.ico" },
       { url: "/images/favicon.png", type: "image/png" },
       { url: "/images/favicon.png", sizes: "32x32", type: "image/png" },
       { url: "/images/favicon.png", sizes: "16x16", type: "image/png" },
@@ -49,6 +50,7 @@ export const metadata: Metadata = {
     apple: [
       { url: "/images/favicon.png", sizes: "180x180", type: "image/png" },
     ],
+    shortcut: [{ url: "/favicon.ico" }],
   },
   openGraph: {
     type: "website",
