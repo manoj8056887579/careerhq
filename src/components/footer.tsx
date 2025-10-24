@@ -168,7 +168,7 @@ export const Footer: React.FC = () => {
               rel="noopener noreferrer"
               className="font-bold bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 bg-clip-text text-transparent hover:from-primary-600 hover:via-primary-700 hover:to-primary-800 transition-all duration-300"
             >
-              Magizh NexGen Technologies
+              MnT
             </Link>
             . All rights reserved.
           </p>
