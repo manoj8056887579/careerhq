@@ -6,8 +6,11 @@ import {
   log404Error,
   logNetworkError,
 } from "@/utils/errorUtils";
+import { getApiBaseUrl } from "@/lib/api-url";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+// Use relative URLs for client-side to avoid CORS issues
+// Use absolute URLs for server-side (SSR/SSG)
+const API_BASE_URL = getApiBaseUrl();
 
 // Helper function to handle API responses
 async function handleApiResponse<T>(response: Response): Promise<T> {
