@@ -120,7 +120,7 @@ export default function RootLayout({
             },
           }}
         />
-        <ChatWidget />
+        {/* <ChatWidget /> */}
       </body>
     </html>
   );
