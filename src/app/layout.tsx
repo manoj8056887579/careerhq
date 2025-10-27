@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { ToastProvider } from "@heroui/toast";
 import { ConditionalLayout } from "@/components/conditional-layout";
+import { ChatWidget } from "@/components/chat-widget";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -119,6 +120,7 @@ export default function RootLayout({
             },
           }}
         />
+        <ChatWidget />
       </body>
     </html>
   );
