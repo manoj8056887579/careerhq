@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+// import "./widget-protection.css"; // IMPORT THIS FIRST!
 import "./globals.css";
 
 import { ToastProvider } from "@heroui/toast";
@@ -15,7 +16,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Career HQ - Study Abroad Platform",
+    default:
+      "Explore Endless Opportunities with Career HQ - Your One-Stop Career Solution",
     template: "%s | Career HQ",
   },
   description:
@@ -57,7 +59,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://career-hq.com",
-    title: "Career HQ - Study Abroad Platform",
+    title:
+      "Explore Endless Opportunities with Career HQ - Your One-Stop Career Solution",
     description:
       "Find the perfect university and course for your international education journey",
     siteName: "Career HQ",
@@ -66,13 +69,14 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Career HQ - Study Abroad Platform",
+        alt: "Explore Endless Opportunities with Career HQ - Your One-Stop Career Solution",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Career HQ - Study Abroad Platform",
+    title:
+      "Explore Endless Opportunities with Career HQ - Your One-Stop Career Solution",
     description:
       "Find the perfect university and course for your international education journey",
     images: ["/og-image.jpg"],
@@ -126,7 +130,6 @@ export default function RootLayout({
   );
 }
 
-// Component to conditionally render header/footer based on route
 function AdminLayoutWrapper({ children }: { children: React.ReactNode }) {
   return <ConditionalLayout>{children}</ConditionalLayout>;
 }
