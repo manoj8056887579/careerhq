@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-// import "./widget-protection.css"; // IMPORT THIS FIRST!
 import "./globals.css";
 
 import { ToastProvider } from "@heroui/toast";
@@ -124,7 +123,7 @@ export default function RootLayout({
             },
           }}
         />
-        {/* <ChatWidget /> */}
+        <ChatWidget />
       </body>
     </html>
   );
