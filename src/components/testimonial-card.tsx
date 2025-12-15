@@ -18,16 +18,25 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
   avatarId,
   rating,
 }) => {
+  // Check if avatarId is an emoji (single character or emoji sequence)
+  const isEmoji = avatarId.length <= 10 && !avatarId.startsWith("http");
+
   return (
     <Card className="border border-default-200">
       <CardBody className="p-6">
         <div className="flex justify-between items-start mb-4">
           <div className="flex gap-3">
-            <Avatar
-              src={avatarId}
-              size="lg"
-              className="border-2 border-primary"
-            />
+            {isEmoji ? (
+              <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-2xl border-2 border-primary">
+                {avatarId}
+              </div>
+            ) : (
+              <Avatar
+                src={avatarId}
+                size="lg"
+                className="border-2 border-primary"
+              />
+            )}
             <div>
               <h4 className="font-semibold">{name}</h4>
               <p className="text-foreground-500 text-sm">{role}</p>

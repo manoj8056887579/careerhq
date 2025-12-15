@@ -112,31 +112,490 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
 
   const testimonials = [
     {
-      name: "Priya Sharma",
-      role: "MBA Student, Harvard Business School",
+      name: "Rajesh Kumar",
+      role: "CSE, SSN College of Engineering",
       content:
-        "CareerHQ made my dream of studying at Harvard a reality. Their counselors provided personalized guidance throughout the application process, helping me secure a scholarship as well.",
-      image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
-      rating: 5,
-    },
-    {
-      name: "James Wilson",
-      role: "Engineering Student, University of Toronto",
-      content:
-        "I was overwhelmed by the options until I found CareerHQ. They simplified the process and helped me find the perfect engineering program that matched my career goals.",
+        "SSN's placement cell connected me with top recruiters; I landed a software role at a unicorn and my coding skills grew fast.",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
       rating: 5,
     },
     {
-      name: "Mei Lin",
-      role: "Computer Science Student, University of Melbourne",
+      name: "Priya Sharma",
+      role: "Mechanical Engg, VIT (Vellore Institute of Technology)",
       content:
-        "The visa application process seemed daunting, but CareerHQ's step-by-step guidance made it straightforward. I'm now thriving in my program in Australia!",
+        "VIT's industry-driven curriculum and internship support helped me secure a summer internship that turned into a job offer.",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Emily Chen",
+      role: "Data Science, Deakin University",
+      content:
+        "Deakin's industry-aligned curriculum helped me secure a Data Analyst internship that quickly became a full-time role.",
       image:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
-      rating: 4,
+      rating: 5,
+    },
+    {
+      name: "Liam Patel",
+      role: "Computer Science, AUT — Auckland University of Technology",
+      content:
+        "AUT's industry-focused teaching and co-op placements opened the door to my first tech job in Auckland.",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Sarah Johnson",
+      role: "Civil Engineering, Griffith University",
+      content:
+        "Griffith's close industry ties helped me earn a paid internship that led to a full-time engineering position.",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Anika Müller",
+      role: "Data Science, IU – International University of Applied Sciences",
+      content:
+        "IU's practical curriculum and flexible study modes helped me gain real industry experience in Germany.",
+      image:
+        "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "David Schmidt",
+      role: "MBA, Berlin School of Business & Innovation (BSBI)",
+      content:
+        "BSBI's business-focused teaching and networking events helped me land an internship in Berlin.",
+      image:
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Michael Rodriguez",
+      role: "Cybersecurity, University of New Haven (USA)",
+      content:
+        "UNH's practical labs and career workshops helped me secure a cybersecurity internship within months.",
+      image:
+        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Sophie Martin",
+      role: "Computer Science, University of Alberta (Canada)",
+      content:
+        "UAlberta's world-class labs and research culture helped me contribute to impactful engineering projects.",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "James Wilson",
+      role: "Management, Durham University (UK)",
+      content:
+        "Durham's rigorous coursework and academic excellence prepared me for a consulting role in the UK.",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Aoife O'Connor",
+      role: "Computer Science, Trinity College Dublin (Ireland)",
+      content:
+        "TCD's research-led teaching and strong tech ecosystem helped me secure a role in Ireland's tech industry.",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Pierre Dubois",
+      role: "Global MBA, NEOMA Business School (Paris)",
+      content:
+        "NEOMA's global curriculum and case-study approach prepared me for real corporate challenges.",
+      image:
+        "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Ananya Reddy",
+      role: "ECE, SSN College of Engineering",
+      content:
+        "Campus life at SSN balanced academics and clubs perfectly — faculty mentorship made a real difference in projects.",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Arjun Menon",
+      role: "IT, VIT (Vellore Institute of Technology)",
+      content:
+        "The global peer group and active placement team gave me confidence to interview with multinational companies.",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Vikram Singh",
+      role: "Civil Engg, SRM Institute of Science & Technology",
+      content:
+        "SRM's placement coaching and mock interviews were game-changers — I cleared multiple rounds and joined a large MNC.",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Meera Krishnan",
+      role: "Biotechnology, SRM Institute of Science & Technology",
+      content:
+        "Excellent lab facilities and supportive faculty helped me publish my first research paper during my final year.",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Dr. Aditya Iyer",
+      role: "Medicine, SRM Ramachandra",
+      content:
+        "Clinical exposure and experienced faculty at Ramachandra prepared me exceptionally well for hospital work.",
+      image:
+        "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Kavya Nair",
+      role: "Allied Health, SRM Ramachandra",
+      content:
+        "Hands-on training and industry collaborations led directly to my placement in a leading healthcare organisation.",
+      image:
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Karthik Ramesh",
+      role: "Electronics, Sathyabama Institute of Science and Technology",
+      content:
+        "Sathyabama's project-driven labs gave me the portfolio I needed to impress recruiters.",
+      image:
+        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Divya Subramanian",
+      role: "IT, Sathyabama Institute of Science and Technology",
+      content:
+        "Placement teams arranged campus drives with reputable firms — the process was well-organised and supportive.",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Dr. Sneha Pillai",
+      role: "Dentistry, Saveetha Institute",
+      content:
+        "Clinical training at Saveetha was rigorous and practical — it boosted my confidence in patient care.",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Rohan Gupta",
+      role: "Biomedical, Saveetha Institute",
+      content:
+        "Strong faculty guidance helped me secure a research assistant position during my studies.",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Arun Xavier",
+      role: "Commerce, Loyola College",
+      content:
+        "Loyola's emphasis on ethics and soft skills made me a better communicator at interviews; I joined a consumer-tech firm after graduation.",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Maria Joseph",
+      role: "Visual Communication, Loyola College",
+      content:
+        "Active alumni network opened doors for mentoring and placements.",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Siddharth Bose",
+      role: "Computer Science, Amrita Vishwa Vidyapeetham",
+      content:
+        "Amrita's research culture and collaboration with industry helped me land a role in AI research.",
+      image:
+        "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Lakshmi Venkat",
+      role: "Electrical Engg, Amrita Vishwa Vidyapeetham",
+      content:
+        "Holistic education, strong labs and experienced faculty — great foundation for my career in engineering.",
+      image:
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Naveen Kumar",
+      role: "Mechanical Engg, PSG College of Technology",
+      content:
+        "PSG's corporate connections and robust placement training helped me receive multiple offers.",
+      image:
+        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Deepika Rajan",
+      role: "Mechatronics, PSG College of Technology",
+      content:
+        "Excellent hands-on workshops and industry projects made me job-ready.",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Harish Balaji",
+      role: "Computer Science, Rajalakshmi Engineering College",
+      content:
+        "Rajalakshmi's focused placement drives and soft-skill sessions helped me secure a role in product engineering.",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Pooja Sundaram",
+      role: "ECE, Rajalakshmi Engineering College",
+      content:
+        "Supportive faculty guided me through internships that turned into full-time offers.",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Ashwin Prakash",
+      role: "CSE, Kumaraguru College of Technology",
+      content:
+        "Kumaraguru's emphasis on practical learning and entrepreneurship helped me launch a startup post-graduation.",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Nithya Mohan",
+      role: "IT, Kumaraguru College of Technology",
+      content:
+        "Placement cell was proactive; the mock interviews built my confidence.",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Samuel David",
+      role: "Biotechnology, Karunya Institute of Technology and Sciences",
+      content:
+        "Karunya's ethical values and industry-focused curriculum made me a well-rounded engineer.",
+      image:
+        "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Grace Thomas",
+      role: "Chemical Engg, Karunya Institute of Technology and Sciences",
+      content:
+        "Strong lab facilities and internship pipelines helped me secure a research role.",
+      image:
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Oliver Thompson",
+      role: "Engineering, Deakin University",
+      content:
+        "Hands-on labs and supportive faculty strengthened my research skills and boosted my confidence in global interviews.",
+      image:
+        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Jack Anderson",
+      role: "IT, Charles Sturt University",
+      content:
+        "CSU's practical modules and flexible learning helped me land a cyber security role soon after graduation.",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Emma Williams",
+      role: "Business Analytics, Charles Sturt University",
+      content:
+        "Personalised faculty guidance made my academic and career journey smooth and impactful.",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Aria Singh",
+      role: "Design Technology, AUT — Auckland University of Technology",
+      content:
+        "A multicultural environment and excellent labs helped me build a strong creative portfolio.",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Isabella Brown",
+      role: "Health Sciences, Flinders University",
+      content:
+        "Flinders' internship pathways and hands-on training directly helped me secure a role in the healthcare sector.",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Noah Davis",
+      role: "Biotechnology, Flinders University",
+      content:
+        "Friendly faculty and strong research facilities made project work meaningful and career-focused.",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Chloe Taylor",
+      role: "Business, Griffith University",
+      content:
+        "Excellent campus support and global exposure prepared me well for competitive business roles.",
+      image:
+        "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Lucas Mitchell",
+      role: "Mechanical Engg, The University of Newcastle (Australia)",
+      content:
+        "Newcastle's research-driven learning gave me the technical depth to join an international engineering firm.",
+      image:
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Mia Roberts",
+      role: "IT, The University of Newcastle (Australia)",
+      content:
+        "Career services guided me through every interview step until I secured a graduate position.",
+      image:
+        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Lars Weber",
+      role: "Business Management, IU – International University of Applied Sciences",
+      content:
+        "Career-focused modules helped me secure a working student role within the first semester.",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Hannah Fischer",
+      role: "Marketing, Berlin School of Business & Innovation (BSBI)",
+      content:
+        "Their career guidance and international community opened doors to opportunities across Europe.",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Ryan Lee",
+      role: "IT, EDU International (Adelaide)",
+      content:
+        "Practical training sessions and faculty mentorship helped me build strong skills and secure my placement.",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Zoe Campbell",
+      role: "Business, EDU International (Adelaide)",
+      content:
+        "Supportive staff and well-structured internships made my transition into the workforce smooth.",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Erik Andersson",
+      role: "Entrepreneurship, Jönköping University (Sweden)",
+      content:
+        "The startup-driven ecosystem at Jönköping helped me co-found a student-led venture during my course.",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Sofia Larsson",
+      role: "Engineering, Jönköping University (Sweden)",
+      content:
+        "Strong industry collaboration opened up multiple internship pathways across Europe.",
+      image:
+        "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Camille Laurent",
+      role: "Marketing, NEOMA Business School (Paris)",
+      content:
+        "Their alumni network and career support guided me toward a role in a multinational firm.",
+      image:
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Jessica Martinez",
+      role: "Forensic Science, University of New Haven (USA)",
+      content:
+        "Faculty mentorship and research opportunities strengthened my profile for competitive roles.",
+      image:
+        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Ethan MacDonald",
+      role: "Engineering, University of Alberta (Canada)",
+      content:
+        "Co-op programs and career fairs made it easier to connect with top recruiters.",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Charlotte Smith",
+      role: "Economics, Durham University (UK)",
+      content:
+        "The college system and mentorship helped me grow personally and professionally.",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
+    },
+    {
+      name: "Conor Murphy",
+      role: "Business Analytics, Trinity College Dublin (Ireland)",
+      content:
+        "Great campus culture and well-structured internships strengthened my global career profile.",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3",
+      rating: 5,
     },
   ];
 
@@ -676,28 +1135,40 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
           <AnimatedLogosCanopy
             data={[
               {
-                name: "Berlin School of Business and Innovation (BSBI), Berlin and Hamburg",
-                logo: "https://student-cms.prd.timeshighereducation.com/sites/default/files/inline-images/BSBI%20NEW%20LOGO.png",
+                name: "Berlin School of Business and Innovation (BSBI), Germany",
+                logo: "/images/university-partners/Berlin School of Business and Innovation (BSBI), Germany.png",
               },
               {
-                name: "Toi Ohomai Institute of Technology, New Zealand",
-                logo: "https://www.toiohomai.ac.nz/sites/default/files/images/uploaded/TOI%20OHOMAI%20WM_Wordmark%20B%20LT_RGB.jpg",
+                name: "Durham University, UK",
+                logo: "/images/university-partners/Durham University, UK.png",
               },
               {
-                name: "University of Alberta",
-                logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmn5W_r8FMOFOWPDiP92kGfPXmkxM1u6PY9A&s",
+                name: "Edu International, Adelaide, Australia",
+                logo: "/images/university-partners/Edu International, Adelaide, Australia.png",
               },
               {
-                name: "Equals International, Australia",
-                logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ78kFjobut3y6CACKTJmLhsBe6Tyf_vrLYFA&s",
+                name: "International University of Applied Sciences, Germany",
+                logo: "/images/university-partners/International University of Applied Sciences, Germany.png",
               },
               {
-                name: "University of New Haven, USA",
-                logo: "https://upload.wikimedia.org/wikipedia/en/5/55/University_of_New_Haven_seal.png",
+                name: "Jonkoping University, Sweden",
+                logo: "/images/university-partners/Jonkoping University, Sweden.png",
               },
               {
-                name: "NEOMA Business School, France",
-                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/NEOMA_LOGOTYPE_RVB.jpg/1200px-NEOMA_LOGOTYPE_RVB.jpg",
+                name: "NEOMA Business School, Paris, France",
+                logo: "/images/university-partners/NEOMA Business School, Paris, France.png",
+              },
+              {
+                name: "Trinity College Dublin (TCD), Ireland",
+                logo: "/images/university-partners/Trinity College Dublin (TCD), Ireland.png",
+              },
+              {
+                name: "University of Alberta, Canada",
+                logo: "/images/university-partners/University of Alberta, Canada.png",
+              },
+              {
+                name: "University of New Haven, Connecticut, USA",
+                logo: "/images/university-partners/University of New Haven, Connecticut, USA.png",
               },
             ]}
             className="py-8"
