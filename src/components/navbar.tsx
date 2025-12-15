@@ -17,11 +17,13 @@ import {
   DropdownItem,
 } from "@heroui/dropdown";
 import { Avatar } from "@heroui/avatar";
+import { LogoutModal } from "@/components/logout-modal";
 
 export const MainNavbar: React.FC = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [showLogoutModal, setShowLogoutModal] = React.useState(false);
   const { isRegistered, userData, clearRegistration } = useUserRegistration();
 
   const navLinks = [
@@ -159,16 +161,7 @@ export const MainNavbar: React.FC = () => {
                       <DropdownItem
                         key="logout"
                         color="danger"
-                        onPress={() => {
-                          if (
-                            confirm(
-                              "Are you sure you want to logout? You will need to verify again to access restricted pages."
-                            )
-                          ) {
-                            clearRegistration();
-                            window.location.reload();
-                          }
-                        }}
+                        onPress={() => setShowLogoutModal(true)}
                       >
                         Logout
                       </DropdownItem>
@@ -378,15 +371,8 @@ export const MainNavbar: React.FC = () => {
                       variant="flat"
                       className="w-full"
                       onPress={() => {
-                        if (
-                          confirm(
-                            "Are you sure you want to logout? You will need to verify again to access restricted pages."
-                          )
-                        ) {
-                          clearRegistration();
-                          setIsMobileMenuOpen(false);
-                          window.location.reload();
-                        }
+                        setShowLogoutModal(true);
+                        setIsMobileMenuOpen(false);
                       }}
                     >
                       Logout
@@ -409,6 +395,17 @@ export const MainNavbar: React.FC = () => {
           </>
         )}
       </AnimatePresence>
+
+      {/* Logout Confirmation Modal */}
+      <LogoutModal
+        isOpen={showLogoutModal}
+        onClose={() => setShowLogoutModal(false)}
+        onConfirm={() => {
+          clearRegistration();
+          window.location.reload();
+        }}
+        userName={userData?.name}
+      />
     </div>
   );
 };
