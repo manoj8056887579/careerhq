@@ -120,7 +120,7 @@ export const AnimatedTestimonials = ({
       <AnimatedCanopy
         key={`Canopy-${index}`}
         reverse={reverse}
-        className={cn("[--duration:25s]", index === 0 ? "mb-8" : "")}
+        className={cn("[--duration:120s]", index === 0 ? "mb-8" : "")}
         pauseOnHover
         applyMask={false}
         repeat={3}

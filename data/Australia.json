@@ -1,0 +1,2037 @@
+[
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Equals International "
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Equals International  is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Australian Institute of Advanced Technologies (AIAT)"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Australian Institute of Advanced Technologies (AIAT) is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "International Institute of Business & Information Technology (IIBIT)"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "International Institute of Business & Information Technology (IIBIT) is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Ironwood Institute"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Ironwood Institute is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Charles Darwin University (CDU)"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Charles Darwin University (CDU) is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Swinburne University of Technology "
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Swinburne University of Technology  is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Universiry of Tasmania"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Universiry of Tasmania is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "ICHM(International College of Hotel Management)"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "ICHM(International College of Hotel Management) is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Torrens University"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Torrens University is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Victorian Institute of Technology (VIT )"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Victorian Institute of Technology (VIT ) is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of South Australia"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "University of South Australia is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Adelaide"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "University of Adelaide is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Eynesbury College to The University of South Australia (UNISA)"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Eynesbury College to The University of South Australia (UNISA) is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "South Australian Institute of Business & Technology (SAIBT) to University of South Australia (UNISA)"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "South Australian Institute of Business & Technology (SAIBT) to University of South Australia (UNISA) is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "The University of Adelaide College leading to The University of Adelaide"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "The University of Adelaide College leading to The University of Adelaide is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Australian Catholic University (ACU)"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Australian Catholic University (ACU) is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "AIHE"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "AIHE is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Skills Australia Institute"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Skills Australia Institute is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Stanley College "
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Stanley College  is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "TAFE SA"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "TAFE SA is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Flinders University"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Flinders University is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "AIBT(Adelaide Institute of Business and Technology)"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "AIBT(Adelaide Institute of Business and Technology) is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Blue Mountains International Hotel Mangement School"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Blue Mountains International Hotel Mangement School is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "LCB(Le Cordon Bleu)"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "LCB(Le Cordon Bleu) is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Southern cross education institute ( SCEI and SCHE)"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Southern cross education institute ( SCEI and SCHE) is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Sydney City College of Management"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Sydney City College of Management is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Adelaide College"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "University of Adelaide College is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Queensford"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Queensford is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Salford college"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Salford college is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Quality training and hospitality college"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Quality training and hospitality college is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Kaplan Business School"
+   },
+   "STATE": "SOUTH AUSTRALIA",
+   "CITY": "ADELAIDE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Kaplan Business School is a leading institution located in Adelaide, South Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Edith Cowan University (ECU)"
+   },
+   "STATE": "WESTERN AUSTRALIA",
+   "CITY": "PERTH",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Edith Cowan University (ECU) is a leading institution located in Perth, Western Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Murdoch University "
+   },
+   "STATE": "WESTERN AUSTRALIA",
+   "CITY": "PERTH",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Murdoch University  is a leading institution located in Perth, Western Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Edith Cowan College (ECC) to Edith Cowan University (ECU)"
+   },
+   "STATE": "WESTERN AUSTRALIA",
+   "CITY": "PERTH",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Edith Cowan College (ECC) to Edith Cowan University (ECU) is a leading institution located in Perth, Western Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Curtin College to Curtin University"
+   },
+   "STATE": "WESTERN AUSTRALIA",
+   "CITY": "PERTH",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Curtin College to Curtin University is a leading institution located in Perth, Western Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Phoenix Academy"
+   },
+   "STATE": "WESTERN AUSTRALIA",
+   "CITY": "PERTH",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Phoenix Academy is a leading institution located in Perth, Western Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Curtin University"
+   },
+   "STATE": "WESTERN AUSTRALIA",
+   "CITY": "PERTH",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Curtin University is a leading institution located in Perth, Western Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Western Australia (UWA)"
+   },
+   "STATE": "WESTERN AUSTRALIA",
+   "CITY": "PERTH",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "University of Western Australia (UWA) is a leading institution located in Perth, Western Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "IHNA (Institute of Health and Nursing Australia)"
+   },
+   "STATE": "WESTERN AUSTRALIA",
+   "CITY": "PERTH",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "IHNA (Institute of Health and Nursing Australia) is a leading institution located in Perth, Western Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Kaplan Business School"
+   },
+   "STATE": "WESTERN AUSTRALIA",
+   "CITY": "PERTH",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Kaplan Business School is a leading institution located in Perth, Western Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Skills Australia Institute"
+   },
+   "STATE": "WESTERN AUSTRALIA",
+   "CITY": "PERTH",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Skills Australia Institute is a leading institution located in Perth, Western Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Notre Dame "
+   },
+   "STATE": "WESTERN AUSTRALIA",
+   "CITY": "PERTH",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "University of Notre Dame  is a leading institution located in Perth, Western Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Phoenix Institute "
+   },
+   "STATE": "WESTERN AUSTRALIA",
+   "CITY": "PERTH",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Phoenix Institute  is a leading institution located in Perth, Western Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Stanley College "
+   },
+   "STATE": "WESTERN AUSTRALIA",
+   "CITY": "PERTH",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Stanley College  is a leading institution located in Perth, Western Australia, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Curtin University"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Curtin University is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "La Trobe University"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "La Trobe University is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Macquarie University"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Macquarie University is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Southern Cross University (SCU)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Southern Cross University (SCU) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Southern Queensland (USQ)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "University of Southern Queensland (USQ) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Technology Sydney (UTS)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "University of Technology Sydney (UTS) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "ATMC"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "ATMC is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "International Institute of Business & Information Technology (IIBIT)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "International Institute of Business & Information Technology (IIBIT) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "EIT"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "EIT is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Melbourne Institute of Technology (MIT)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Melbourne Institute of Technology (MIT) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Victoria University (VU)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Victoria University (VU) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Asia Pacific International College (APIC)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Asia Pacific International College (APIC) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Central Queensland Univeristy (CQU)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Central Queensland Univeristy (CQU) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Charles Sturt University (CSU)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Charles Sturt University (CSU) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "IIBIT-Federation University "
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "IIBIT-Federation University  is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Deakin University"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Deakin University is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of New Southwales (UNSW)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "University of New Southwales (UNSW) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Australian Catholic University (ACU)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Australian Catholic University (ACU) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Charles Sturt University (CSU)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Charles Sturt University (CSU) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Australian Catholic University (ACU)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Australian Catholic University (ACU) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Charles Sturt University (CSU)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Charles Sturt University (CSU) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Charles Sturt University (CSU)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Charles Sturt University (CSU) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Charles Sturt University (CSU)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Charles Sturt University (CSU) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Charles Sturt University (CSU)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Charles Sturt University (CSU) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of New England"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "University of New England is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "MIT Federation University (MIT FedUni)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "MIT Federation University (MIT FedUni) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "College of Health Sciences (CHS)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "College of Health Sciences (CHS) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Canberra"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "University of Canberra is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Kings Own Institute (KOI)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Kings Own Institute (KOI) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Federation University"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Federation University is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Taylors College"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Taylors College is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "The Hotel School"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "The Hotel School is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Institute of Health and Nursing Australia (IHNA)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Institute of Health and Nursing Australia (IHNA) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Institute of Health and Management (IHM)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Institute of Health and Management (IHM) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Skyline International College (SIC)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Skyline International College (SIC) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Latrobe College to Latrobe University"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Latrobe College to Latrobe University is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Western Sydney University City Campus"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Western Sydney University City Campus is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Sydney Institute of Business & Technology (SIBT) to Western Sydney University (WSU)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Sydney Institute of Business & Technology (SIBT) to Western Sydney University (WSU) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Western Sydney University International College (WSUIC) Leading to Western Sydney University (WSU)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Western Sydney University International College (WSUIC) Leading to Western Sydney University (WSU) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Excelsia College"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Excelsia College is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "AIT"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "AIT is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Notre Dame "
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "University of Notre Dame  is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Victoria University "
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Victoria University  is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Excelsia College "
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Excelsia College  is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Lincoln Institute "
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Lincoln Institute  is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of New Castle "
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "University of New Castle  is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Polytechnic Institute of Australia"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Polytechnic Institute of Australia is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Quality training and hospitality college"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Quality training and hospitality college is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "LCB(Le Cordon Bleu)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "LCB(Le Cordon Bleu) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Blue Mountains International Hotel Mangement School"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Blue Mountains International Hotel Mangement School is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Queensford"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Queensford is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Salford college "
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Salford college  is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "IHNA (Institute of Health and Nursing Australia)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "IHNA (Institute of Health and Nursing Australia) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "ATMC (Australian Technical and Management College)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "ATMC (Australian Technical and Management College) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Sydney City College of Management"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Sydney City College of Management is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Canterbury Institute of Management (CIM)"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Canterbury Institute of Management (CIM) is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Kaplan Business School"
+   },
+   "STATE": "NEW SOUTHWALES",
+   "CITY": "SYDNEY",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Kaplan Business School is a leading institution located in Sydney, New Southwales, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Royal Melbourne Institute of Technology (RMIT)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "MELBOURNE",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Royal Melbourne Institute of Technology (RMIT) is a leading institution located in Melbourne, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Western Sydney University (WSU)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "MELBOURNE",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Western Sydney University (WSU) is a leading institution located in Melbourne, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Melbourne Institute of Technology (MIT)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "MELBOURNE",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Melbourne Institute of Technology (MIT) is a leading institution located in Melbourne, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Victoria University "
+   },
+   "STATE": "VICTORIA",
+   "CITY": "MELBOURNE",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Victoria University  is a leading institution located in Melbourne, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "La Trobe University "
+   },
+   "STATE": "VICTORIA",
+   "CITY": "MELBOURNE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "La Trobe University  is a leading institution located in Melbourne, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Southern Cross University (SCU)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "MELBOURNE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Southern Cross University (SCU) is a leading institution located in Melbourne, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Adelaide (UOA)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "MELBOURNE",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "University of Adelaide (UOA) is a leading institution located in Melbourne, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Canberra"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "MELBOURNE",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "University of Canberra is a leading institution located in Melbourne, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Universiry of Tasmania"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "MELBOURNE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Universiry of Tasmania is a leading institution located in Melbourne, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "ATMC"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "MELBOURNE",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "ATMC is a leading institution located in Melbourne, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "CIC - HIGHER EDUCATION"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "MELBOURNE",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "CIC - HIGHER EDUCATION is a leading institution located in Melbourne, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "EIT"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "MELBOURNE",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "EIT is a leading institution located in Melbourne, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Central Queensland University (CQU)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "MELBOURNE",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Central Queensland University (CQU) is a leading institution located in Melbourne, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Australian Catholic University (ACU)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Australian Catholic University (ACU) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "MIT Federation University (MIT FedUni)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "MIT Federation University (MIT FedUni) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Asia Pacific International College (APIC)/ZBA"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Asia Pacific International College (APIC)/ZBA is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Higher Education Leadership Institute (HELI)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Higher Education Leadership Institute (HELI) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Holmes Institute"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Holmes Institute is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Federation University"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Federation University is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Kangan Batman TAFE"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Kangan Batman TAFE is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "The Hotel School"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "The Hotel School is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Institute of Health and Nursing Australia (IHNA)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Institute of Health and Nursing Australia (IHNA) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Deakin College to Deakin University"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Deakin College to Deakin University is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Latrobe College to Latrobe University"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Latrobe College to Latrobe University is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "The University of Adelaide College leading to The University of Adelaide"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "The University of Adelaide College leading to The University of Adelaide is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Australian National College of English (ANCE)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Australian National College of English (ANCE) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Cambridge International College (CIC)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Cambridge International College (CIC) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Strathfield College"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Strathfield College is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Australian National Institute of Business and Technology (ANIBT)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Australian National Institute of Business and Technology (ANIBT) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Melbourne City Institute of Education (MCIE)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Melbourne City Institute of Education (MCIE) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Deakin University"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Deakin University is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "AIT"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "AIT is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Kaplan Business School"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Kaplan Business School is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "AIBT(Adelaide Institute of Business and Technology)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "AIBT(Adelaide Institute of Business and Technology) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "ATMC (Australian Technical and Management College)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "ATMC (Australian Technical and Management College) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Adelaide College"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "University of Adelaide College is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Southern cross education institute ( SCEI and SCHE)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Southern cross education institute ( SCEI and SCHE) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Blue Mountains International Hotel Mangement School"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Blue Mountains International Hotel Mangement School is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Polytechnic Institute of Australia"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Polytechnic Institute of Australia is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "LCB(Le Cordon Bleu)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "LCB(Le Cordon Bleu) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "IHNA (Institute of Health and Nursing Australia)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "IHNA (Institute of Health and Nursing Australia) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Canterbury Institute of Management (CIM)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Canterbury Institute of Management (CIM) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Polytechnic Institute of Australia"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "GEELONG",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Polytechnic Institute of Australia is a leading institution located in Geelong, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Edvantage Institute "
+   },
+   "STATE": "VICTORIA",
+   "CITY": "GEELONG",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Edvantage Institute  is a leading institution located in Geelong, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Lyons College "
+   },
+   "STATE": "VICTORIA",
+   "CITY": "GEELONG",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Lyons College  is a leading institution located in Geelong, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "James Cook University (JCU)"
+   },
+   "STATE": "VICTORIA",
+   "CITY": "BALLARAT",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "James Cook University (JCU) is a leading institution located in Ballarat, Victoria, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Victoria University "
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Victoria University  is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "APIC"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "APIC is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Central Queensland University (CQU)"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Central Queensland University (CQU) is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Central Queensland University (CQU)"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "ROCKHAMPTON",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Central Queensland University (CQU) is a leading institution located in Rockhampton, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "James Cook University "
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "TOWNSVILLE",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "James Cook University  is a leading institution located in Townsville, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Central Queensland University (CQU)"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "CAIRNS",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Central Queensland University (CQU) is a leading institution located in Cairns, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "James Cook University "
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "CAIRNS",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "James Cook University  is a leading institution located in Cairns, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "James Cook University "
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "James Cook University  is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Quality training and hospitality college"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Quality training and hospitality college is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "IHNA (Institute of Health and Nursing Australia)"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "IHNA (Institute of Health and Nursing Australia) is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "LCB(Le Cordon Bleu)"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "LCB(Le Cordon Bleu) is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Queensford"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Queensford is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Kaplan Business School"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Kaplan Business School is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Southern Queensland (USQ)"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "TOOWMBA",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "University of Southern Queensland (USQ) is a leading institution located in Toowmba, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Queensland University of Technology (QUT)"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "TOOWMBA",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Queensland University of Technology (QUT) is a leading institution located in Toowmba, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Griffith University"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Griffith University is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "The University of Queensland (UQ)"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "The University of Queensland (UQ) is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "College of Health Sciences (CHS)"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "College of Health Sciences (CHS) is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Griffith College to Griffith University"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Griffith College to Griffith University is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Australian Catholic University (ACU)"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Australian Catholic University (ACU) is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Southern Cross University (SCU)"
+   },
+   "STATE": "QUEENSLAND",
+   "CITY": "BRISBANE",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Southern Cross University (SCU) is a leading institution located in Brisbane, Queensland, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Tasmania TAFE "
+   },
+   "STATE": "TASMANIA",
+   "CITY": "HOBART",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Tasmania TAFE  is a leading institution located in Hobart, Tasmania, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Queensford"
+   },
+   "STATE": "TASMANIA",
+   "CITY": "HOBART",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "Queensford is a leading institution located in Hobart, Tasmania, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Canberra  "
+   },
+   "STATE": "CANBERRA",
+   "CITY": "Unknown City",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "University of Canberra   is a leading institution located in Unknown City, Canberra, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Australian Catholic University (ACU)"
+   },
+   "STATE": "CANBERRA",
+   "CITY": "Unknown City",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Australian Catholic University (ACU) is a leading institution located in Unknown City, Canberra, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Canberra College (UC College) to University of Canberra (UC)"
+   },
+   "STATE": "CANBERRA",
+   "CITY": "Unknown City",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "University of Canberra College (UC College) to University of Canberra (UC) is a leading institution located in Unknown City, Canberra, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Technology labs, Internship opportunities, Student clubs & activities"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Wollongong "
+   },
+   "STATE": "Unknown State",
+   "CITY": "WOLLONGONG",
+   "Country": "Australia",
+   "Type": "Technical Institute",
+   "Description": "University of Wollongong  is a leading institution located in Wollongong, Unknown State, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of New Castle "
+   },
+   "STATE": "Unknown State",
+   "CITY": "NEW CASTLE",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "University of New Castle  is a leading institution located in New Castle, Unknown State, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Sydney City College of Management"
+   },
+   "STATE": "Unknown State",
+   "CITY": "Unknown City",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Sydney City College of Management is a leading institution located in Unknown City, Unknown State, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Canterbury Institute of Management (CIM)"
+   },
+   "STATE": "Unknown State",
+   "CITY": "Unknown City",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Canterbury Institute of Management (CIM) is a leading institution located in Unknown City, Unknown State, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Australian Careers College"
+   },
+   "STATE": "All campuses",
+   "CITY": "All campuses",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Australian Careers College is a leading institution located in All Campuses, All Campuses, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Australian Institute of Business and Technology (AIBT)"
+   },
+   "STATE": "Unknown State",
+   "CITY": "Unknown City",
+   "Country": "Australia",
+   "Type": "Business School",
+   "Description": "Australian Institute of Business and Technology (AIBT) is a leading institution located in Unknown City, Unknown State, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Australian Skills Management Institute (ASMI)"
+   },
+   "STATE": "Unknown State",
+   "CITY": "Unknown City",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Australian Skills Management Institute (ASMI) is a leading institution located in Unknown City, Unknown State, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Southern Cross University (SCU)"
+   },
+   "STATE": "Unknown State",
+   "CITY": "Unknown City",
+   "Country": "Australia",
+   "Type": "Private University",
+   "Description": "Southern Cross University (SCU) is a leading institution located in Unknown City, Unknown State, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Industry partnerships, Innovation hub, Career guidance center"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Central Queensland University (CQU)"
+   },
+   "STATE": "Unknown State",
+   "CITY": "Unknown City",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "Central Queensland University (CQU) is a leading institution located in Unknown City, Unknown State, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Wollongong (UOW)"
+   },
+   "STATE": "Unknown State",
+   "CITY": "Unknown City",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "University of Wollongong (UOW) is a leading institution located in Unknown City, Unknown State, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Advanced research centers, E-learning support, On-campus accommodation"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "University of Tasmania (UTAS)"
+   },
+   "STATE": "Unknown State",
+   "CITY": "Unknown City",
+   "Country": "Australia",
+   "Type": "Vocational College",
+   "Description": "University of Tasmania (UTAS) is a leading institution located in Unknown City, Unknown State, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Global exchange programs, Student support services, Cafeteria & Gym"
+},
+ {
+   "UNIVERSITY": {
+      "COLLEGE": "Charles Sturt University (CSU)"
+   },
+   "STATE": "Unknown State",
+   "CITY": "Unknown City",
+   "Country": "Australia",
+   "Type": "Public University",
+   "Description": "Charles Sturt University (CSU) is a leading institution located in Unknown City, Unknown State, recognized for its academic excellence and innovation in education.",
+   "Facilities": "Modern laboratories, Digital library, Student housing, Sports complex"
+}
+]
