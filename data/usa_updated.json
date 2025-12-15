@@ -1,0 +1,482 @@
+[
+ {
+   "University Name": "University of New Haven",
+   "Country": "USA",
+   "Location": "West Haven, Connecticut",
+   "Type": "Public Research University",
+   "Description": "University of New Haven is a leading public research university in West Haven, Connecticut, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Arizona State University",
+   "Country": "USA",
+   "Location": "Phoenix Metropolitan Area",
+   "Type": "Public Research University",
+   "Description": "Arizona State University is a leading public research university in Phoenix Metropolitan Area, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "DePaul University",
+   "Country": "USA",
+   "Location": "Chicago",
+   "Type": "Public Research University",
+   "Description": "DePaul University is a leading public research university in Chicago, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Lehigh University",
+   "Country": "USA",
+   "Location": "Pennsylvania",
+   "Type": "Public Research University",
+   "Description": "Lehigh University is a leading public research university in Pennsylvania, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Miami University",
+   "Country": "USA",
+   "Location": "Ohio",
+   "Type": "Public Research University",
+   "Description": "Miami University is a leading public research university in Ohio, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of North Carolina- Wilmington",
+   "Country": "USA",
+   "Location": "Wilmington",
+   "Type": "Public Research University",
+   "Description": "University of North Carolina- Wilmington is a leading public research university in Wilmington, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of Potomac",
+   "Country": "USA",
+   "Location": "Washington, D.C., Virginia, Chicago, Illinois",
+   "Type": "Public Research University",
+   "Description": "University of Potomac is a leading public research university in Washington, D.C., Virginia, Chicago, Illinois, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "The University of Nebraska -Lincoln",
+   "Country": "USA",
+   "Location": "Lincoln",
+   "Type": "Public Research University",
+   "Description": "The University of Nebraska -Lincoln is a leading public research university in Lincoln, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of Denver",
+   "Country": "USA",
+   "Location": "Denver",
+   "Type": "Public Research University",
+   "Description": "University of Denver is a leading public research university in Denver, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Missouri Southern State University",
+   "Country": "USA",
+   "Location": "Missouri",
+   "Type": "Public Research University",
+   "Description": "Missouri Southern State University is a leading public research university in Missouri, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of South Carolina Upsatate",
+   "Country": "USA",
+   "Location": "Greenville",
+   "Type": "Public Research University",
+   "Description": "University of South Carolina Upsatate is a leading public research university in Greenville, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of South Florida",
+   "Country": "USA",
+   "Location": "Florida",
+   "Type": "Public Research University",
+   "Description": "University of South Florida is a leading public research university in Florida, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of North Florida",
+   "Country": "USA",
+   "Location": "Florida",
+   "Type": "Public Research University",
+   "Description": "University of North Florida is a leading public research university in Florida, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Southern Illinois University Carbondale",
+   "Country": "USA",
+   "Location": "Carbondale",
+   "Type": "Public Research University",
+   "Description": "Southern Illinois University Carbondale is a leading public research university in Carbondale, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "The University of Kansas",
+   "Country": "USA",
+   "Location": "Kansas",
+   "Type": "Public Research University",
+   "Description": "The University of Kansas is a leading public research university in Kansas, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of Illinois at Chicago",
+   "Country": "USA",
+   "Location": "Chicago",
+   "Type": "Public Research University",
+   "Description": "University of Illinois at Chicago is a leading public research university in Chicago, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of Bridgeport",
+   "Country": "USA",
+   "Location": "Connecticut",
+   "Type": "Public Research University",
+   "Description": "University of Bridgeport is a leading public research university in Connecticut, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of Hartford",
+   "Country": "USA",
+   "Location": "WEST HARTFORD,\n CONNECTICUT",
+   "Type": "Public Research University",
+   "Description": "University of Hartford is a leading public research university in WEST HARTFORD,\n CONNECTICUT, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of The Pacific",
+   "Country": "USA",
+   "Location": "California",
+   "Type": "Public Research University",
+   "Description": "University of The Pacific is a leading public research university in California, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of Mississippi",
+   "Country": "USA",
+   "Location": "Mississippi",
+   "Type": "Public Research University",
+   "Description": "University of Mississippi is a leading public research university in Mississippi, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of Central Florida",
+   "Country": "USA",
+   "Location": "Florida",
+   "Type": "Public Research University",
+   "Description": "University of Central Florida is a leading public research university in Florida, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of Dayton ",
+   "Country": "USA",
+   "Location": "Ohio",
+   "Type": "Public Research University",
+   "Description": "University of Dayton  is a leading public research university in Ohio, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "California State University, Sacramento",
+   "Country": "USA",
+   "Location": "California",
+   "Type": "Public Research University",
+   "Description": "California State University, Sacramento is a leading public research university in California, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "California State University, San Bernardino",
+   "Country": "USA",
+   "Location": "California",
+   "Type": "Public Research University",
+   "Description": "California State University, San Bernardino is a leading public research university in California, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Kent State University",
+   "Country": "USA",
+   "Location": "Ohio",
+   "Type": "Public Research University",
+   "Description": "Kent State University is a leading public research university in Ohio, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of North Texas",
+   "Country": "USA",
+   "Location": "Denton, Texas",
+   "Type": "Public Research University",
+   "Description": "University of North Texas is a leading public research university in Denton, Texas, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Texas A and M  University",
+   "Country": "USA",
+   "Location": "Corpus Christi",
+   "Type": "Public Research University",
+   "Description": "Texas A and M  University is a leading public research university in Corpus Christi, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of Maryland",
+   "Country": "USA",
+   "Location": "Baltimore, County",
+   "Type": "Public Research University",
+   "Description": "University of Maryland is a leading public research university in Baltimore, County, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of Arizona ",
+   "Country": "USA",
+   "Location": "Tucson, Arizona",
+   "Type": "Public Research University",
+   "Description": "University of Arizona  is a leading public research university in Tucson, Arizona, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Stevens Institute of Technology",
+   "Country": "USA",
+   "Location": "New Jersey",
+   "Type": "Public Research University",
+   "Description": "Stevens Institute of Technology is a leading public research university in New Jersey, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "National university",
+   "Country": "USA",
+   "Location": "San Diego, California",
+   "Type": "Public Research University",
+   "Description": "National university is a leading public research university in San Diego, California, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Depaul University",
+   "Country": "USA",
+   "Location": "Chicago, Illinois",
+   "Type": "Public Research University",
+   "Description": "Depaul University is a leading public research university in Chicago, Illinois, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Florida Institute of Technology",
+   "Country": "USA",
+   "Location": "Melbourne/ Orlando",
+   "Type": "Public Research University",
+   "Description": "Florida Institute of Technology is a leading public research university in Melbourne/ Orlando, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Florida International University",
+   "Country": "USA",
+   "Location": "Miami",
+   "Type": "Public Research University",
+   "Description": "Florida International University is a leading public research university in Miami, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Drexel University",
+   "Country": "USA",
+   "Location": "Pennsylvania",
+   "Type": "Public Research University",
+   "Description": "Drexel University is a leading public research university in Pennsylvania, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Gannon University",
+   "Country": "USA",
+   "Location": "Pennsylvania",
+   "Type": "Public Research University",
+   "Description": "Gannon University is a leading public research university in Pennsylvania, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Adelphi University",
+   "Country": "USA",
+   "Location": "New york",
+   "Type": "Public Research University",
+   "Description": "Adelphi University is a leading public research university in New york, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Auburn University at Montgomery",
+   "Country": "USA",
+   "Location": "Montgomery, Alabama",
+   "Type": "Public Research University",
+   "Description": "Auburn University at Montgomery is a leading public research university in Montgomery, Alabama, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Concordia University",
+   "Country": "USA",
+   "Location": "Chicago ",
+   "Type": "Public Research University",
+   "Description": "Concordia University is a leading public research university in Chicago , USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Governors State University",
+   "Country": "USA",
+   "Location": "Illinois",
+   "Type": "Public Research University",
+   "Description": "Governors State University is a leading public research university in Illinois, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Missouri University of Science and Technology",
+   "Country": "USA",
+   "Location": "Missouri",
+   "Type": "Public Research University",
+   "Description": "Missouri University of Science and Technology is a leading public research university in Missouri, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "New York Institute of Technology",
+   "Country": "USA",
+   "Location": "New york",
+   "Type": "Public Research University",
+   "Description": "New York Institute of Technology is a leading public research university in New york, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "New Jersey Institute of Technology",
+   "Country": "USA",
+   "Location": "New Jersey",
+   "Type": "Public Research University",
+   "Description": "New Jersey Institute of Technology is a leading public research university in New Jersey, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Saint Leo University",
+   "Country": "USA",
+   "Location": "Florida",
+   "Type": "Public Research University",
+   "Description": "Saint Leo University is a leading public research university in Florida, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of South Carolina",
+   "Country": "USA",
+   "Location": "South Carolina",
+   "Type": "Public Research University",
+   "Description": "University of South Carolina is a leading public research university in South Carolina, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of Utah",
+   "Country": "USA",
+   "Location": "Utah",
+   "Type": "Public Research University",
+   "Description": "University of Utah is a leading public research university in Utah, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Cleveland State University",
+   "Country": "USA",
+   "Location": "Cleveland, Ohio",
+   "Type": "Public Research University",
+   "Description": "Cleveland State University is a leading public research university in Cleveland, Ohio, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of Illinois, Springfield",
+   "Country": "USA",
+   "Location": "SPRING FIELD, ILLINOIS",
+   "Type": "Public Research University",
+   "Description": "University of Illinois, Springfield is a leading public research university in SPRING FIELD, ILLINOIS, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Florida Atlantic University",
+   "Country": "USA",
+   "Location": "Boca Raton",
+   "Type": "Public Research University",
+   "Description": "Florida Atlantic University is a leading public research university in Boca Raton, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Western New England University",
+   "Country": "USA",
+   "Location": "Springfield, MA",
+   "Type": "Public Research University",
+   "Description": "Western New England University is a leading public research university in Springfield, MA, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Baylor University",
+   "Country": "USA",
+   "Location": "Waco, Texas",
+   "Type": "Public Research University",
+   "Description": "Baylor University is a leading public research university in Waco, Texas, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Washington State University",
+   "Country": "USA",
+   "Location": "Washington",
+   "Type": "Public Research University",
+   "Description": "Washington State University is a leading public research university in Washington, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of Cincinnati",
+   "Country": "USA",
+   "Location": "Ohio",
+   "Type": "Public Research University",
+   "Description": "University of Cincinnati is a leading public research university in Ohio, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "University of Central Oklahoma",
+   "Country": "USA",
+   "Location": "Okhalama",
+   "Type": "Public Research University",
+   "Description": "University of Central Oklahoma is a leading public research university in Okhalama, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Texas Tech University",
+   "Country": "USA",
+   "Location": "Texas",
+   "Type": "Public Research University",
+   "Description": "Texas Tech University is a leading public research university in Texas, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Western Kentucky University",
+   "Country": "USA",
+   "Location": "Bowling Greenky",
+   "Type": "Public Research University",
+   "Description": "Western Kentucky University is a leading public research university in Bowling Greenky, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Wichita State University",
+   "Country": "USA",
+   "Location": "Kanasas",
+   "Type": "Public Research University",
+   "Description": "Wichita State University is a leading public research university in Kanasas, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Weber State University",
+   "Country": "USA",
+   "Location": "Utah",
+   "Type": "Public Research University",
+   "Description": "Weber State University is a leading public research university in Utah, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Saint Peters",
+   "Country": "USA",
+   "Location": "New Jersey",
+   "Type": "Public Research University",
+   "Description": "Saint Peters is a leading public research university in New Jersey, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ },
+ {
+   "University Name": "Christian Brothers University",
+   "Country": "USA",
+   "Location": "Memphis,Tennessee",
+   "Type": "Public Research University",
+   "Description": "Christian Brothers University is a leading public research university in Memphis,Tennessee, USA. It offers a strong academic environment with diverse programs and an emphasis on innovation. The university is known for high-quality teaching, research excellence, and student support.",
+   "Facilities": "Modern libraries; Advanced research labs; Student recreation centers; On-campus housing; Sports complexes; Career development centers"
+ }
+]

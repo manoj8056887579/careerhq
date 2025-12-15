@@ -8,12 +8,13 @@ export function calculateTestScore(
   answers: Record<number, string>,
   totalQuestions: number
 ): TestScore {
-  const scoreMap = { Never: 0, Sometimes: 1, Always: 2 };
-  const total = Object.values(answers).reduce(
-    (sum, answer) => sum + (scoreMap[answer as keyof typeof scoreMap] || 0),
-    0
-  );
+  // Count how many questions were answered
+  const answeredCount = Object.keys(answers).length;
+  
+  // For the new multiple choice format, we give 2 points per answered question
+  const total = answeredCount * 2;
   const maxScore = totalQuestions * 2;
   const percentage = Math.round((total / maxScore) * 100);
+  
   return { total, percentage, maxScore };
 }

@@ -20,6 +20,7 @@ import Link from "next/link";
 import type { UniversalModule, ModuleType } from "@/types/universal-module";
 import { EnquiryForm, EnquiryFormHandle } from "@/components/enquiry-form";
 import { MODULE_DISPLAY_NAMES } from "@/types/universal-module";
+import { ProtectedPageWrapper } from "@/components/protected-page-wrapper";
 
 // Map module types to their route names
 const MODULE_TYPE_TO_ROUTE: Record<ModuleType, string> = {
@@ -61,298 +62,302 @@ export default function ModuleDetailPage({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900">
-      {/* Hero Section */}
-      <div className="relative pt-24 pb-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <Chip
+    <ProtectedPageWrapper
+      requiredFor={`${module.title} - ${MODULE_DISPLAY_NAMES[moduleType]}`}
+    >
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900">
+        {/* Hero Section */}
+        <div className="relative pt-24 pb-12">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Content */}
+              <div className="space-y-6">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <Chip
+                      color="primary"
+                      variant="shadow"
+                      startContent={<Sparkles size={14} />}
+                      className="font-semibold"
+                    >
+                      {module.category}
+                    </Chip>
+                  </div>
+
+                  <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent leading-tight">
+                    {module.title}
+                  </h1>
+
+                  <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {module.shortDescription}
+                  </p>
+                </div>
+
+                {/* Quick Stats */}
+                <div className="flex flex-wrap gap-6 py-6 border-y border-slate-200 dark:border-slate-700">
+                  <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                    <Star size={16} className="text-yellow-500" />
+                    <span className="text-sm font-medium">Featured</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                    <CheckCircle2 size={16} className="text-green-500" />
+                    <span className="text-sm font-medium">
+                      {module.highlights.length} Key Points
+                    </span>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap gap-4">
+                  <Button
+                    as={Link}
+                    href={`/${MODULE_TYPE_TO_ROUTE[moduleType]}`}
+                    size="lg"
                     color="primary"
                     variant="shadow"
-                    startContent={<Sparkles size={14} />}
+                    startContent={<ArrowLeft size={18} />}
                     className="font-semibold"
                   >
-                    {module.category}
-                  </Chip>
-                </div>
-
-                <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent leading-tight">
-                  {module.title}
-                </h1>
-
-                <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
-                  {module.shortDescription}
-                </p>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="flex flex-wrap gap-6 py-6 border-y border-slate-200 dark:border-slate-700">
-                <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-                  <Star size={16} className="text-yellow-500" />
-                  <span className="text-sm font-medium">Featured</span>
-                </div>
-                <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-                  <CheckCircle2 size={16} className="text-green-500" />
-                  <span className="text-sm font-medium">
-                    {module.highlights.length} Key Points
-                  </span>
+                    Back to {MODULE_DISPLAY_NAMES[moduleType]}
+                  </Button>
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-wrap gap-4">
-                <Button
-                  as={Link}
-                  href={`/${MODULE_TYPE_TO_ROUTE[moduleType]}`}
-                  size="lg"
-                  color="primary"
-                  variant="shadow"
-                  startContent={<ArrowLeft size={18} />}
-                  className="font-semibold"
-                >
-                  Back to {MODULE_DISPLAY_NAMES[moduleType]}
-                </Button>
-              </div>
-            </div>
+              {/* Hero Image */}
+              <div className="relative">
+                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+                  <Image
+                    src={getImageUrl(selectedImage)}
+                    alt={module.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                </div>
 
-            {/* Hero Image */}
-            <div className="relative">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src={getImageUrl(selectedImage)}
-                  alt={module.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                {/* Floating Elements */}
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full blur-xl opacity-60"></div>
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full blur-xl opacity-40"></div>
               </div>
-
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full blur-xl opacity-60"></div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full blur-xl opacity-40"></div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Content Sections */}
-      <div className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-12">
-            {/* Gallery */}
-            {module.galleryImages && module.galleryImages.length > 0 && (
-              <section className="space-y-6">
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-                  Gallery
-                </h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div
-                    className={`relative aspect-square cursor-pointer rounded-2xl overflow-hidden transition-all duration-300 ${
-                      selectedImage === module.coverImage
-                        ? "ring-4 ring-primary-400 shadow-xl scale-105"
-                        : "hover:scale-105 hover:shadow-lg"
-                    }`}
-                    onClick={() => setSelectedImage(module.coverImage)}
-                  >
-                    <Image
-                      src={getImageUrl(module.coverImage, 300, 300)}
-                      alt="Cover"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  {module.galleryImages.map((imageId, index) => (
+        {/* Content Sections */}
+        <div className="max-w-7xl mx-auto px-6 pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* Main Content */}
+            <div className="lg:col-span-2 space-y-12">
+              {/* Gallery */}
+              {module.galleryImages && module.galleryImages.length > 0 && (
+                <section className="space-y-6">
+                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                    Gallery
+                  </h2>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div
-                      key={index}
                       className={`relative aspect-square cursor-pointer rounded-2xl overflow-hidden transition-all duration-300 ${
-                        selectedImage === imageId
+                        selectedImage === module.coverImage
                           ? "ring-4 ring-primary-400 shadow-xl scale-105"
                           : "hover:scale-105 hover:shadow-lg"
                       }`}
-                      onClick={() => setSelectedImage(imageId)}
+                      onClick={() => setSelectedImage(module.coverImage)}
                     >
                       <Image
-                        src={getImageUrl(imageId, 300, 300)}
-                        alt={`Gallery ${index + 1}`}
+                        src={getImageUrl(module.coverImage, 300, 300)}
+                        alt="Cover"
                         fill
                         className="object-cover"
                       />
                     </div>
-                  ))}
-                </div>
-              </section>
-            )}
-            {/* About Section */}
-            <section className="space-y-6">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-                Detailed Overview
-              </h2>
-              <Card className="border-0 shadow-lg bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl">
-                <CardBody className="p-8">
-                  <p className="text-slate-700 dark:text-slate-300 whitespace-pre-line leading-relaxed text-lg">
-                    {module.detailedDescription}
-                  </p>
-                </CardBody>
-              </Card>
-            </section>
-            {/* Key Highlights */}
-            {module.highlights && module.highlights.length > 0 && (
-              <section className="space-y-6">
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-                  Key Highlights
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {module.highlights.map((highlight, index) => (
-                    <Card
-                      key={index}
-                      className="border-0 shadow-md bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl"
-                    >
-                      <CardBody className="p-6">
-                        <div className="flex items-start gap-4">
-                          <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center flex-shrink-0">
-                            <CheckCircle2 size={16} className="text-white" />
-                          </div>
-                          <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                            {highlight}
-                          </p>
-                        </div>
-                      </CardBody>
-                    </Card>
-                  ))}
-                </div>
-              </section>
-            )}{" "}
-          </div>
-
-          {/* Sidebar */}
-          <div className="space-y-8">
-            {/* Custom Fields */}
-            {module.customFields && module.customFields.length > 0 && (
-              <Card className="border-0 shadow-lg bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl">
-                <CardBody className="p-6">
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6">
-                    Quick Details
-                  </h3>
-                  <div className="space-y-4">
-                    {module.customFields.map((field, index) => (
+                    {module.galleryImages.map((imageId, index) => (
                       <div
                         key={index}
-                        className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-2 py-2 border-b border-slate-200 dark:border-slate-700 last:border-0"
+                        className={`relative aspect-square cursor-pointer rounded-2xl overflow-hidden transition-all duration-300 ${
+                          selectedImage === imageId
+                            ? "ring-4 ring-primary-400 shadow-xl scale-105"
+                            : "hover:scale-105 hover:shadow-lg"
+                        }`}
+                        onClick={() => setSelectedImage(imageId)}
                       >
-                        <span className="text-sm text-slate-500 dark:text-slate-400 font-medium break-words">
-                          {field.key}
-                        </span>
-                        <span className="text-sm font-semibold text-slate-900 dark:text-white break-words sm:text-right">
-                          {field.value}
-                        </span>
+                        <Image
+                          src={getImageUrl(imageId, 300, 300)}
+                          alt={`Gallery ${index + 1}`}
+                          fill
+                          className="object-cover"
+                        />
                       </div>
                     ))}
                   </div>
+                </section>
+              )}
+              {/* About Section */}
+              <section className="space-y-6">
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                  Detailed Overview
+                </h2>
+                <Card className="border-0 shadow-lg bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl">
+                  <CardBody className="p-8">
+                    <p className="text-slate-700 dark:text-slate-300 whitespace-pre-line leading-relaxed text-lg">
+                      {module.detailedDescription}
+                    </p>
+                  </CardBody>
+                </Card>
+              </section>
+              {/* Key Highlights */}
+              {module.highlights && module.highlights.length > 0 && (
+                <section className="space-y-6">
+                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                    Key Highlights
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {module.highlights.map((highlight, index) => (
+                      <Card
+                        key={index}
+                        className="border-0 shadow-md bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl"
+                      >
+                        <CardBody className="p-6">
+                          <div className="flex items-start gap-4">
+                            <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                              <CheckCircle2 size={16} className="text-white" />
+                            </div>
+                            <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                              {highlight}
+                            </p>
+                          </div>
+                        </CardBody>
+                      </Card>
+                    ))}
+                  </div>
+                </section>
+              )}{" "}
+            </div>
+
+            {/* Sidebar */}
+            <div className="space-y-8">
+              {/* Custom Fields */}
+              {module.customFields && module.customFields.length > 0 && (
+                <Card className="border-0 shadow-lg bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl">
+                  <CardBody className="p-6">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6">
+                      Quick Details
+                    </h3>
+                    <div className="space-y-4">
+                      {module.customFields.map((field, index) => (
+                        <div
+                          key={index}
+                          className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-2 py-2 border-b border-slate-200 dark:border-slate-700 last:border-0"
+                        >
+                          <span className="text-sm text-slate-500 dark:text-slate-400 font-medium break-words">
+                            {field.key}
+                          </span>
+                          <span className="text-sm font-semibold text-slate-900 dark:text-white break-words sm:text-right">
+                            {field.value}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardBody>
+                </Card>
+              )}
+
+              {/* Contact Card */}
+              <Card className="border-0 shadow-lg bg-gradient-to-br from-primary-500 to-primary-700 text-white">
+                <CardBody className="p-8">
+                  <div className="text-center space-y-4">
+                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto">
+                      <Users size={24} />
+                    </div>
+                    <h3 className="text-xl font-bold">Ready to Apply?</h3>
+                    <p className="text-primary-100">
+                      Take the next step towards your future. Our team is here
+                      to guide you through the process.
+                    </p>
+                    <div className="space-y-3 pt-4">
+                      <Button
+                        size="lg"
+                        variant="solid"
+                        className="w-full bg-white text-primary-600 font-semibold hover:bg-primary-50"
+                        startContent={<ExternalLink size={18} />}
+                        onPress={handleApplyNow}
+                      >
+                        Apply Now
+                      </Button>
+                    </div>
+                  </div>
                 </CardBody>
               </Card>
-            )}
 
-            {/* Contact Card */}
-            <Card className="border-0 shadow-lg bg-gradient-to-br from-primary-500 to-primary-700 text-white">
-              <CardBody className="p-8">
-                <div className="text-center space-y-4">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto">
-                    <Users size={24} />
-                  </div>
-                  <h3 className="text-xl font-bold">Ready to Apply?</h3>
-                  <p className="text-primary-100">
-                    Take the next step towards your future. Our team is here to
-                    guide you through the process.
+              {/* Share Card */}
+              <Card className="border-0 shadow-lg bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl">
+                <CardBody className="p-6">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+                    Share This Opportunity
+                  </h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                    Help others discover this amazing opportunity
                   </p>
-                  <div className="space-y-3 pt-4">
+                  <div className="space-y-3">
                     <Button
-                      size="lg"
-                      variant="solid"
-                      className="w-full bg-white text-primary-600 font-semibold hover:bg-primary-50"
-                      startContent={<ExternalLink size={18} />}
-                      onPress={handleApplyNow}
+                      variant="flat"
+                      color="primary"
+                      className="w-full"
+                      startContent={<Share2 size={16} />}
                     >
-                      Apply Now
+                      Share Link
                     </Button>
                   </div>
-                </div>
-              </CardBody>
-            </Card>
-
-            {/* Share Card */}
-            <Card className="border-0 shadow-lg bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl">
-              <CardBody className="p-6">
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
-                  Share This Opportunity
-                </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
-                  Help others discover this amazing opportunity
+                </CardBody>
+              </Card>
+            </div>
+          </div>
+        </div>
+        <section className="py-16 bg-gradient-to-r from-primary-500 to-secondary-500 text-white ">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl font-bold mb-4">
+                  Connecting worldwide career in one dot
+                </h2>
+                <p className="text-white/90 mb-6">
+                  One destination, countless opportunities – where worldwide
+                  careers meet at one dot .
                 </p>
-                <div className="space-y-3">
+                <div className="flex flex-wrap gap-4">
                   <Button
-                    variant="flat"
-                    color="primary"
-                    className="w-full"
-                    startContent={<Share2 size={16} />}
+                    as={Link}
+                    href="/career-test"
+                    color="default"
+                    variant="solid"
+                    size="lg"
+                    startContent={<Icon icon="lucide:calendar" />}
+                    className="font-medium bg-white text-primary"
                   >
-                    Share Link
+                    Begin Test
+                  </Button>
+                  <Button
+                    as={Link}
+                    href="/blog"
+                    variant="bordered"
+                    size="lg"
+                    className="font-medium text-white border-white"
+                  >
+                    Read Our Blog
                   </Button>
                 </div>
-              </CardBody>
-            </Card>
-          </div>
-        </div>
-      </div>
-      <section className="py-16 bg-gradient-to-r from-primary-500 to-secondary-500 text-white ">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-4">
-                Connecting worldwide career in one dot
-              </h2>
-              <p className="text-white/90 mb-6">
-                One destination, countless opportunities – where worldwide
-                careers meet at one dot .
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Button
-                  as={Link}
-                  href="/career-test"
-                  color="default"
-                  variant="solid"
-                  size="lg"
-                  startContent={<Icon icon="lucide:calendar" />}
-                  className="font-medium bg-white text-primary"
-                >
-                  Begin Test
-                </Button>
-                <Button
-                  as={Link}
-                  href="/blog"
-                  variant="bordered"
-                  size="lg"
-                  className="font-medium text-white border-white"
-                >
-                  Read Our Blog
-                </Button>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <EnquiryForm
+                  ref={enquiryRef}
+                  title="Get Expert Guidance"
+                  subtitle="Fill out this form and our experts will get back to you within 24 hours."
+                />
               </div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <EnquiryForm
-                ref={enquiryRef}
-                title="Get Expert Guidance"
-                subtitle="Fill out this form and our experts will get back to you within 24 hours."
-              />
-            </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </ProtectedPageWrapper>
   );
 }

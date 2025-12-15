@@ -1,0 +1,306 @@
+[
+ {
+   "UNIVERSITY NAME": "Jonkoping University",
+   "COUNTRY": "Sweden",
+   "LOCATION": "Sweden",
+   "TYPE": "Business School",
+   "DESCRIPTION": "Jonkoping University is a reputed institution located in Unknown City, Sweden, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Advanced research centers, E-learning support, On-campus accommodation"
+ },
+ {
+   "UNIVERSITY NAME": "University West",
+   "COUNTRY": "Sweden",
+   "LOCATION": "Sweden",
+   "TYPE": "Private University",
+   "DESCRIPTION": "University West is a reputed institution located in Unknown City, Sweden, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Technology labs, Internship opportunities, Student clubs & activities"
+ },
+ {
+   "UNIVERSITY NAME": "Linnaeus University",
+   "COUNTRY": "Sweden",
+   "LOCATION": "Sweden",
+   "TYPE": "Public University",
+   "DESCRIPTION": "Linnaeus University is a reputed institution located in Unknown City, Sweden, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Industry partnerships, Innovation hub, Career guidance center"
+ },
+ {
+   "UNIVERSITY NAME": "Dalarna University",
+   "COUNTRY": "Sweden",
+   "LOCATION": "Sweden",
+   "TYPE": "Technical Institute",
+   "DESCRIPTION": "Dalarna University is a reputed institution located in Unknown City, Sweden, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Advanced research centers, E-learning support, On-campus accommodation"
+ },
+ {
+   "UNIVERSITY NAME": "University of Skovde",
+   "COUNTRY": "Sweden",
+   "LOCATION": "Sweden",
+   "TYPE": "Private University",
+   "DESCRIPTION": "University of Skovde is a reputed institution located in Unknown City, Sweden, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Industry partnerships, Innovation hub, Career guidance center"
+ },
+ {
+   "UNIVERSITY NAME": "Halmstad University",
+   "COUNTRY": "Sweden",
+   "LOCATION": "Sweden",
+   "TYPE": "Public University",
+   "DESCRIPTION": "Halmstad University is a reputed institution located in Unknown City, Sweden, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Industry partnerships, Innovation hub, Career guidance center"
+ },
+ {
+   "UNIVERSITY NAME": "David Tvildiani Medical University, Tbilsi",
+   "COUNTRY": "Georgia",
+   "LOCATION": "Georgia",
+   "TYPE": "Business School",
+   "DESCRIPTION": "David Tvildiani Medical University, Tbilsi is a reputed institution located in Unknown City, Georgia, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Advanced research centers, E-learning support, On-campus accommodation"
+ },
+ {
+   "UNIVERSITY NAME": "Alte University",
+   "COUNTRY": "Georgia",
+   "LOCATION": "Georgia",
+   "TYPE": "Public University",
+   "DESCRIPTION": "Alte University is a reputed institution located in Unknown City, Georgia, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Modern laboratories, Digital library, Student housing, Sports complex"
+ },
+ {
+   "UNIVERSITY NAME": "Grigol Robakidze University",
+   "COUNTRY": "Georgia",
+   "LOCATION": "Georgia",
+   "TYPE": "Public University",
+   "DESCRIPTION": "Grigol Robakidze University is a reputed institution located in Unknown City, Georgia, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Advanced research centers, E-learning support, On-campus accommodation"
+ },
+ {
+   "UNIVERSITY NAME": "National Research Nuclear University (MEPhl), Moscow",
+   "COUNTRY": "Russia",
+   "LOCATION": "Russia",
+   "TYPE": "Vocational College",
+   "DESCRIPTION": "National Research Nuclear University (MEPhl), Moscow is a reputed institution located in Unknown City, Russia, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Technology labs, Internship opportunities, Student clubs & activities"
+ },
+ {
+   "UNIVERSITY NAME": "Synergy University, Moscow",
+   "COUNTRY": "Russia",
+   "LOCATION": "Russia",
+   "TYPE": "Vocational College",
+   "DESCRIPTION": "Synergy University, Moscow is a reputed institution located in Unknown City, Russia, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Technology labs, Internship opportunities, Student clubs & activities"
+ },
+ {
+   "UNIVERSITY NAME": "University of Twente, Enschede",
+   "COUNTRY": "Netherlands",
+   "LOCATION": "Netherlands",
+   "TYPE": "Technical Institute",
+   "DESCRIPTION": "University of Twente, Enschede is a reputed institution located in Unknown City, Netherlands, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Industry partnerships, Innovation hub, Career guidance center"
+ },
+ {
+   "UNIVERSITY NAME": "Tio Business School, Utrecht",
+   "COUNTRY": "Netherlands",
+   "LOCATION": "Netherlands",
+   "TYPE": "Public University",
+   "DESCRIPTION": "Tio Business School, Utrecht is a reputed institution located in Unknown City, Netherlands, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Global exchange programs, Student support services, Cafeteria & Gym"
+ },
+ {
+   "UNIVERSITY NAME": "University of Applied Sciences Europe, Amsterdam",
+   "COUNTRY": "Netherlands",
+   "LOCATION": "Netherlands",
+   "TYPE": "Private University",
+   "DESCRIPTION": "University of Applied Sciences Europe, Amsterdam is a reputed institution located in Unknown City, Netherlands, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Industry partnerships, Innovation hub, Career guidance center"
+ },
+ {
+   "UNIVERSITY NAME": "Tio University of Applied Sciences",
+   "COUNTRY": "Netherlands",
+   "LOCATION": "Netherlands",
+   "TYPE": "Business School",
+   "DESCRIPTION": "Tio University of Applied Sciences is a reputed institution located in Unknown City, Netherlands, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Modern laboratories, Digital library, Student housing, Sports complex"
+ },
+ {
+   "UNIVERSITY NAME": "University of Debrecen, Debrecen",
+   "COUNTRY": "Hungary",
+   "LOCATION": "Hungary",
+   "TYPE": "Technical Institute",
+   "DESCRIPTION": "University of Debrecen, Debrecen is a reputed institution located in Unknown City, Hungary, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Advanced research centers, E-learning support, On-campus accommodation"
+ },
+ {
+   "UNIVERSITY NAME": "University of Pecs, Pecs",
+   "COUNTRY": "Hungary",
+   "LOCATION": "Hungary",
+   "TYPE": "Business School",
+   "DESCRIPTION": "University of Pecs, Pecs is a reputed institution located in Unknown City, Hungary, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Technology labs, Internship opportunities, Student clubs & activities"
+ },
+ {
+   "UNIVERSITY NAME": "Budapest University of Economics and Business, Budapest",
+   "COUNTRY": "Hungary",
+   "LOCATION": "Hungary",
+   "TYPE": "Vocational College",
+   "DESCRIPTION": "Budapest University of Economics and Business, Budapest is a reputed institution located in Unknown City, Hungary, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Advanced research centers, E-learning support, On-campus accommodation"
+ },
+ {
+   "UNIVERSITY NAME": "International Business School, Budapest",
+   "COUNTRY": "Hungary",
+   "LOCATION": "Hungary",
+   "TYPE": "Public University",
+   "DESCRIPTION": "International Business School, Budapest is a reputed institution located in Unknown City, Hungary, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Modern laboratories, Digital library, Student housing, Sports complex"
+ },
+ {
+   "UNIVERSITY NAME": "Budapest Metropolitan University of Applied Science",
+   "COUNTRY": "Hungary",
+   "LOCATION": "Hungary",
+   "TYPE": "Vocational College",
+   "DESCRIPTION": "Budapest Metropolitan University of Applied Science is a reputed institution located in Unknown City, Hungary, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Modern laboratories, Digital library, Student housing, Sports complex"
+ },
+ {
+   "UNIVERSITY NAME": "Wekerle Business School, Budapest",
+   "COUNTRY": "Hungary",
+   "LOCATION": "Hungary",
+   "TYPE": "Vocational College",
+   "DESCRIPTION": "Wekerle Business School, Budapest is a reputed institution located in Unknown City, Hungary, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Modern laboratories, Digital library, Student housing, Sports complex"
+ },
+ {
+   "UNIVERSITY NAME": "EU Business School",
+   "COUNTRY": "Spain",
+   "LOCATION": "Spain",
+   "TYPE": "Private University",
+   "DESCRIPTION": "EU Business School is a reputed institution located in Unknown City, Spain, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Technology labs, Internship opportunities, Student clubs & activities"
+ },
+ {
+   "UNIVERSITY NAME": "UCAM International, Murcia",
+   "COUNTRY": "Spain",
+   "LOCATION": "Spain",
+   "TYPE": "Technical Institute",
+   "DESCRIPTION": "UCAM International, Murcia is a reputed institution located in Unknown City, Spain, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Technology labs, Internship opportunities, Student clubs & activities"
+ },
+ {
+   "UNIVERSITY NAME": "Swiss Business School",
+   "COUNTRY": "Spain",
+   "LOCATION": "Spain",
+   "TYPE": "Technical Institute",
+   "DESCRIPTION": "Swiss Business School is a reputed institution located in Unknown City, Spain, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Modern laboratories, Digital library, Student housing, Sports complex"
+ },
+ {
+   "UNIVERSITY NAME": "ENAE Business School, Murcia",
+   "COUNTRY": "Spain",
+   "LOCATION": "Spain",
+   "TYPE": "Technical Institute",
+   "DESCRIPTION": "ENAE Business School, Murcia is a reputed institution located in Unknown City, Spain, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Modern laboratories, Digital library, Student housing, Sports complex"
+ },
+ {
+   "UNIVERSITY NAME": "Geneva Business School, Barcelona",
+   "COUNTRY": "Spain",
+   "LOCATION": "Spain",
+   "TYPE": "Business School",
+   "DESCRIPTION": "Geneva Business School, Barcelona is a reputed institution located in Unknown City, Spain, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Modern laboratories, Digital library, Student housing, Sports complex"
+ },
+ {
+   "UNIVERSITY NAME": "Schiller International University, Madrid Campus",
+   "COUNTRY": "Spain",
+   "LOCATION": "Spain",
+   "TYPE": "Public University",
+   "DESCRIPTION": "Schiller International University, Madrid Campus is a reputed institution located in Unknown City, Spain, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Modern laboratories, Digital library, Student housing, Sports complex"
+ },
+ {
+   "UNIVERSITY NAME": "Campus Spain, Madrid",
+   "COUNTRY": "Spain",
+   "LOCATION": "Spain",
+   "TYPE": "Vocational College",
+   "DESCRIPTION": "Campus Spain, Madrid is a reputed institution located in Unknown City, Spain, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Technology labs, Internship opportunities, Student clubs & activities"
+ },
+ {
+   "UNIVERSITY NAME": "Aarhus University, Aarhus",
+   "COUNTRY": "Denmark",
+   "LOCATION": "Denmark",
+   "TYPE": "Business School",
+   "DESCRIPTION": "Aarhus University, Aarhus is a reputed institution located in Unknown City, Denmark, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Advanced research centers, E-learning support, On-campus accommodation"
+ },
+ {
+   "UNIVERSITY NAME": "University of Southern Denmark, Odense and Sonderborg",
+   "COUNTRY": "Denmark",
+   "LOCATION": "Denmark",
+   "TYPE": "Public University",
+   "DESCRIPTION": "University of Southern Denmark, Odense and Sonderborg is a reputed institution located in Unknown City, Denmark, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Industry partnerships, Innovation hub, Career guidance center"
+ },
+ {
+   "UNIVERSITY NAME": "International Business Academy, Kolding",
+   "COUNTRY": "Denmark",
+   "LOCATION": "Denmark",
+   "TYPE": "Technical Institute",
+   "DESCRIPTION": "International Business Academy, Kolding is a reputed institution located in Unknown City, Denmark, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Advanced research centers, E-learning support, On-campus accommodation"
+ },
+ {
+   "UNIVERSITY NAME": "VIA University College, Horsens and Herning Campus",
+   "COUNTRY": "Denmark",
+   "LOCATION": "Denmark",
+   "TYPE": "Business School",
+   "DESCRIPTION": "VIA University College, Horsens and Herning Campus is a reputed institution located in Unknown City, Denmark, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Global exchange programs, Student support services, Cafeteria & Gym"
+ },
+ {
+   "UNIVERSITY NAME": "Modul University",
+   "COUNTRY": "Austria",
+   "LOCATION": "Austria",
+   "TYPE": "Technical Institute",
+   "DESCRIPTION": "Modul University is a reputed institution located in Unknown City, Austria, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Global exchange programs, Student support services, Cafeteria & Gym"
+ },
+ {
+   "UNIVERSITY NAME": "International Business School, Vienna",
+   "COUNTRY": "Austria",
+   "LOCATION": "Austria",
+   "TYPE": "Public University",
+   "DESCRIPTION": "International Business School, Vienna is a reputed institution located in Unknown City, Austria, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Global exchange programs, Student support services, Cafeteria & Gym"
+ },
+ {
+   "UNIVERSITY NAME": "Webster Vienna Private Univeristy, Vienna",
+   "COUNTRY": "Austria",
+   "LOCATION": "Austria",
+   "TYPE": "Public University",
+   "DESCRIPTION": "Webster Vienna Private Univeristy, Vienna is a reputed institution located in Unknown City, Austria, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Global exchange programs, Student support services, Cafeteria & Gym"
+ },
+ {
+   "UNIVERSITY NAME": "EU Business School",
+   "COUNTRY": "Austria",
+   "LOCATION": "Austria",
+   "TYPE": "Vocational College",
+   "DESCRIPTION": "EU Business School is a reputed institution located in Unknown City, Austria, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Technology labs, Internship opportunities, Student clubs & activities"
+ },
+ {
+   "UNIVERSITY NAME": "University of Ecology  and Management in Warsaw",
+   "COUNTRY": "Poland",
+   "LOCATION": "Poland",
+   "TYPE": "Technical Institute",
+   "DESCRIPTION": "University of Ecology  and Management in Warsaw is a reputed institution located in Unknown City, Poland, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Modern laboratories, Digital library, Student housing, Sports complex"
+ },
+ {
+   "UNIVERSITY NAME": "Coventry University, Wroclaw",
+   "COUNTRY": "Poland",
+   "LOCATION": "Poland",
+   "TYPE": "Business School",
+   "DESCRIPTION": "Coventry University, Wroclaw is a reputed institution located in Unknown City, Poland, recognized for its strong academic programs, research contributions, and global learning environment.",
+   "FACILITIES": "Industry partnerships, Innovation hub, Career guidance center"
+ }
+]

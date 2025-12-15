@@ -9,11 +9,20 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { Icon } from "@iconify/react";
 import { Button } from "@heroui/button";
+import { useUserRegistration } from "@/hooks/useUserRegistration";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@heroui/dropdown";
+import { Avatar } from "@heroui/avatar";
 
 export const MainNavbar: React.FC = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const { isRegistered, userData, clearRegistration } = useUserRegistration();
 
   const navLinks = [
     { name: "Home", link: "/" },
@@ -66,7 +75,7 @@ export const MainNavbar: React.FC = () => {
       link: "/school-projects",
       icon: "lucide:book-open",
     },
-    { name: "MOU Projects", link: "/mou-projects", icon: "lucide:handshake" },
+    // { name: "MOU Projects", link: "/mou-projects", icon: "lucide:handshake" },
     { name: "Loans", link: "/loans", icon: "lucide:wallet" },
   ];
 
@@ -123,15 +132,59 @@ export const MainNavbar: React.FC = () => {
                     </Link>
                   );
                 })}
-                <Button
-                  as={Link}
-                  href="/career-test"
-                  color="primary"
-                  size="lg"
-                  className="font-semibold whitespace-nowrap"
-                >
-                  Begin Test
-                </Button>
+                {isRegistered && userData ? (
+                  <Dropdown placement="bottom-end">
+                    <DropdownTrigger>
+                      <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+                        <Avatar
+                          name={userData.name}
+                          size="sm"
+                          className="bg-primary text-white"
+                        />
+                        <div className="hidden md:block text-left">
+                          <p className="text-sm font-semibold">
+                            {userData.name}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {userData.email}
+                          </p>
+                        </div>
+                      </div>
+                    </DropdownTrigger>
+                    <DropdownMenu aria-label="User menu">
+                      <DropdownItem key="profile" className="h-14 gap-2">
+                        <p className="font-semibold">{userData.name}</p>
+                        <p className="text-xs text-gray-500">{userData.email}</p>
+                      </DropdownItem>
+                      <DropdownItem
+                        key="logout"
+                        color="danger"
+                        onPress={() => {
+                          if (
+                            confirm(
+                              "Are you sure you want to logout? You will need to verify again to access restricted pages."
+                            )
+                          ) {
+                            clearRegistration();
+                            window.location.reload();
+                          }
+                        }}
+                      >
+                        Logout
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
+                ) : (
+                  <Button
+                    as={Link}
+                    href="/career-test"
+                    color="primary"
+                    size="lg"
+                    className="font-semibold whitespace-nowrap"
+                  >
+                    Register
+                  </Button>
+                )}
               </div>
             </div>
           </div>
@@ -306,17 +359,51 @@ export const MainNavbar: React.FC = () => {
                   </div>
                 </div>
 
-                {/* CTA Button */}
-                <Button
-                  as={Link}
-                  href="/career-test"
-                  color="primary"
-                  className="w-full font-medium"
-                  size="lg"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Begin Test
-                </Button>
+                {/* CTA Button / User Info */}
+                {isRegistered && userData ? (
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3 p-4 bg-primary/10 rounded-lg">
+                      <Avatar
+                        name={userData.name}
+                        size="md"
+                        className="bg-primary text-white"
+                      />
+                      <div className="flex-1">
+                        <p className="font-semibold text-sm">{userData.name}</p>
+                        <p className="text-xs text-gray-500">{userData.email}</p>
+                      </div>
+                    </div>
+                    <Button
+                      color="danger"
+                      variant="flat"
+                      className="w-full"
+                      onPress={() => {
+                        if (
+                          confirm(
+                            "Are you sure you want to logout? You will need to verify again to access restricted pages."
+                          )
+                        ) {
+                          clearRegistration();
+                          setIsMobileMenuOpen(false);
+                          window.location.reload();
+                        }
+                      }}
+                    >
+                      Logout
+                    </Button>
+                  </div>
+                ) : (
+                  <Button
+                    as={Link}
+                    href="/career-test"
+                    color="primary"
+                    className="w-full font-medium"
+                    size="lg"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Register
+                  </Button>
+                )}
               </div>
             </motion.div>
           </>

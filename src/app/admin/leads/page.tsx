@@ -289,16 +289,32 @@ export default function LeadsManagement() {
                 {new Date(lead.createdAt).toLocaleDateString()}
               </TableCell>
               <TableCell>
-                <Button
-                  size="sm"
-                  color="primary"
-                  variant="flat"
-                  onPress={() => handleConvertToCRM(lead._id?.toString() || "")}
-                  startContent={<Icon icon="lucide:user-plus" />}
-                  isDisabled={lead.status === "converted"}
-                >
-                  Convert to CRM
-                </Button>
+                <div className="flex gap-2">
+                  <Button
+                    size="sm"
+                    color="default"
+                    variant="flat"
+                    isIconOnly
+                    onPress={() =>
+                      (window.location.href = `/admin/leads/${lead._id}`)
+                    }
+                    aria-label="View lead details"
+                  >
+                    <Icon icon="lucide:eye" />
+                  </Button>
+                  <Button
+                    size="sm"
+                    color="primary"
+                    variant="flat"
+                    onPress={() =>
+                      handleConvertToCRM(lead._id?.toString() || "")
+                    }
+                    startContent={<Icon icon="lucide:user-plus" />}
+                    isDisabled={lead.status === "converted"}
+                  >
+                    Convert to CRM
+                  </Button>
+                </div>
               </TableCell>
             </TableRow>
           ))}

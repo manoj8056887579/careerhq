@@ -9,7 +9,6 @@ import {
   Search,
   Sparkles,
   ArrowRight,
-  Calendar,
   CheckCircle2,
   X,
   Filter,
@@ -22,6 +21,7 @@ import type {
   ModuleCategory,
 } from "@/types/universal-module";
 import { MODULE_DISPLAY_NAMES } from "@/types/universal-module";
+import { ProtectedPageWrapper } from "@/components/protected-page-wrapper";
 
 // Map module types to their route names
 const MODULE_TYPE_TO_ROUTE: Record<ModuleType, string> = {
@@ -126,6 +126,7 @@ export default function ModuleListingModern({
   const regularModules = filteredModules.slice(3);
 
   return (
+    <ProtectedPageWrapper requiredFor={MODULE_DISPLAY_NAMES[moduleType]}>
     <div className="min-h-screen gradient-mesh relative overflow-hidden">
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100/60 rounded-full blur-3xl" />
       <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-blue-50/80 rounded-full blur-3xl" />
@@ -358,6 +359,7 @@ export default function ModuleListingModern({
         </div>
       </div>
     </div>
+    </ProtectedPageWrapper>
   );
 }
 
@@ -500,8 +502,8 @@ function ModuleCardModern({ module, moduleType }: ModuleCardModernProps) {
         )}
 
         <div className="p-4 sm:p-6 flex-1 flex flex-col">
-          <div className="flex items-start justify-between gap-2 sm:gap-3 mb-2 sm:mb-3">
-            <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 line-clamp-2 leading-tight group-hover:text-blue-600 transition-colors">
+          <div className="flex items-start justify-between gap-2 sm:gap-3 mb-3 sm:mb-4">
+            <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 line-clamp-2 leading-tight group-hover:text-blue-600 transition-colors flex-1">
               {module.title}
             </h3>
           </div>
@@ -511,7 +513,7 @@ function ModuleCardModern({ module, moduleType }: ModuleCardModernProps) {
           </p>
 
           {module.highlights && module.highlights.length > 0 && (
-            <div className="space-y-2 sm:space-y-2.5 mb-4 sm:mb-5">
+            <div className="space-y-2 sm:space-y-2.5 mb-6 sm:mb-8">
               {module.highlights.slice(0, 2).map((highlight, index) => (
                 <div
                   key={index}
@@ -531,33 +533,13 @@ function ModuleCardModern({ module, moduleType }: ModuleCardModernProps) {
             </div>
           )}
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 pt-3 sm:pt-4 border-t-2 border-gray-100 mt-auto">
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-blue-100 flex items-center justify-center">
-                <Calendar
-                  size={12}
-                  className="text-blue-600 sm:w-3.5 sm:h-3.5"
-                />
-              </div>
-              <span className="text-[10px] sm:text-xs font-medium text-gray-600">
-                {new Date(module.createdAt || Date.now()).toLocaleDateString(
-                  "en-US",
-                  {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  }
-                )}
-              </span>
-            </div>
-            <div className="flex items-center gap-2 text-blue-600 font-bold group-hover:gap-3 transition-all w-full sm:w-auto justify-end">
-              <span className="text-xs sm:text-sm">Explore</span>
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-blue-600 flex items-center justify-center transition-colors">
-                <ArrowRight
-                  size={14}
-                  className="text-white transition-transform group-hover:translate-x-0.5 sm:w-4 sm:h-4"
-                />
-              </div>
+          <div className="flex items-center gap-3 text-blue-600 font-semibold group-hover:gap-4 transition-all mt-auto pt-4 sm:pt-5">
+            <span className="text-xs sm:text-sm">View Details</span>
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 flex items-center justify-center transition-transform group-hover:scale-110 shadow-lg shadow-blue-500/30">
+              <ArrowRight
+                size={16}
+                className="text-white transition-transform group-hover:translate-x-0.5 sm:w-5 sm:h-5"
+              />
             </div>
           </div>
         </div>

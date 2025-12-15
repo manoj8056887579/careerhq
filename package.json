@@ -7,7 +7,15 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "seed": "node scripts/seed-modules.cjs"
+    "seed": "node scripts/seed-modules.cjs",
+    "import:australia": "node --import tsx scripts/import-australia.ts",
+    "import:study-india": "node --import tsx scripts/import-study-india.ts",
+    "import:europe": "node --import tsx scripts/import-europe.ts",
+    "import:france": "node --import tsx scripts/import-france.ts",
+    "import:uk": "node --import tsx scripts/import-uk.ts",
+    "import:usa": "node --import tsx scripts/import-usa.ts",
+    "import:ireland": "node --import tsx scripts/import-ireland.ts",
+    "import:canada": "node --import tsx scripts/import-canada.ts"
   },
   "dependencies": {
     "@heroui/accordion": "^2.2.18",
@@ -64,6 +72,7 @@
     "postcss": "^8",
     "tailwindcss": "3.4.1",
     "autoprefixer": "^10",
-    "typescript": "^5"
+    "typescript": "^5",
+    "tsx": "^4.7.0"
   }
 }

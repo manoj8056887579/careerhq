@@ -12,6 +12,7 @@ import { EnquiryForm } from "@/components/enquiry-form";
 import { useAllCourses } from "@/hooks/useAllCourses";
 import { generateCountrySlug, generateUniversitySlug } from "@/lib/slug-utils";
 import { ApplicationModal } from "@/components/application-modal";
+import { ProtectedPageWrapper } from "@/components/protected-page-wrapper";
 import type { EnquiryFormHandle } from "@/components/enquiry-form";
 
 interface CourseData {
@@ -157,7 +158,9 @@ export const CoursePageClient: React.FC<CoursePageClientProps> = ({
   }
 
   return (
-    <>
+    <ProtectedPageWrapper
+      requiredFor={`${courseData.name} - ${courseData.university}`}
+    >
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-primary-50 to-white py-12 md:py-16">
         <div className="absolute inset-0 hero-pattern opacity-30"></div>
@@ -473,6 +476,6 @@ export const CoursePageClient: React.FC<CoursePageClientProps> = ({
           programName: courseData.name || "Unknown",
         }}
       />
-    </>
+    </ProtectedPageWrapper>
   );
 };
