@@ -8,12 +8,13 @@ import { RadioGroup, Radio } from "@heroui/radio";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { calculateTestScore } from "@/utils/test-score";
-import { TestSubmissionModal } from "./test-submission-modal";
+import { TestSubmissionModal } from "./test-submission-modal"; 
 
 interface TestQuestion {
   id: number;
   question: string;
   category: string;
+  options?: Array<{ value: string; label: string }>;
 }
 
 interface TestPageProps {
@@ -29,7 +30,7 @@ export function TestPage({ questions }: TestPageProps) {
     percentage: number;
     maxScore: number;
   } | null>(null);
-  const questionsPerPage = 5;
+  const questionsPerPage = 3;
   const totalPages = Math.ceil(questions.length / questionsPerPage);
 
   const currentQuestions = questions.slice(
@@ -67,6 +68,22 @@ export function TestPage({ questions }: TestPageProps) {
     setShowSubmissionModal(true);
   };
 
+  // Convert answers to readable format with question text
+  const getAnswersWithQuestions = () => {
+    const answersArray: Array<{ question: string; answer: string }> = [];
+    Object.entries(answers).forEach(([questionId, answerValue]) => {
+      const question = questions.find((q) => q.id === parseInt(questionId));
+      if (question) {
+        const option = question.options?.find((opt) => opt.value === answerValue);
+        answersArray.push({
+          question: question.question,
+          answer: option?.label || answerValue,
+        });
+      }
+    });
+    return answersArray;
+  };
+
   const handleSubmissionSuccess = () => {
     setShowSubmissionModal(false);
     // Optional: Reset test or redirect
@@ -80,7 +97,7 @@ export function TestPage({ questions }: TestPageProps) {
         <Card className="mb-8">
           <CardBody className="p-6">
             <div className="flex items-center justify-between mb-4">
-              <h1 className="text-2xl font-bold">Career Profiling Test</h1>
+              <h1 className="text-2xl font-bold">Career Profiling</h1>
               <span className="text-sm text-gray-500">
                 Page {currentPage} of {totalPages}
               </span>
@@ -112,19 +129,19 @@ export function TestPage({ questions }: TestPageProps) {
                       onValueChange={(value) =>
                         handleAnswer(question.id, value)
                       }
-                      orientation="horizontal"
-                      className="gap-6"
+                      orientation="vertical"
+                      className="gap-3"
                       aria-label="Question Radio Group"
                     >
-                      <Radio value="Never" aria-label="Never">
-                        Never
-                      </Radio>
-                      <Radio value="Sometimes" aria-label="Sometimes">
-                        Sometimes
-                      </Radio>
-                      <Radio value="Always" aria-label="Always">
-                        Always
-                      </Radio>
+                      {question.options?.map((option) => (
+                        <Radio
+                          key={option.value}
+                          value={option.value}
+                          aria-label={option.label}
+                        >
+                          {option.label}
+                        </Radio>
+                      ))}
                     </RadioGroup>
                   </div>
                 ))}
@@ -181,6 +198,7 @@ export function TestPage({ questions }: TestPageProps) {
           isOpen={showSubmissionModal}
           onClose={() => setShowSubmissionModal(false)}
           testScore={testScore}
+          answers={getAnswersWithQuestions()}
           onSubmitSuccess={handleSubmissionSuccess}
         />
       )}

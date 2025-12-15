@@ -1,45 +1,70 @@
 export const careerTestQuestions = [
   {
     id: 1,
-    question: "Would you like to repair an old machine?",
-    category: "Technical",
+    question: "Service of Interest",
+    category: "Service",
+    options: [
+      { value: "study_abroad", label: "Study Abroad" },
+      { value: "admissions_india", label: "Admissions India" },
+      { value: "placement_india", label: "Placement India" },
+      { value: "placement_abroad", label: "Placement Abroad" },
+      { value: "others", label: "Others" },
+    ],
   },
   {
     id: 2,
-    question: "Do you enjoy solving complex mathematical problems?",
-    category: "Analytical",
+    question: "Which country or region do you prefer for study or work?",
+    category: "Location",
+    options: [
+      { value: "india", label: "India" },
+      { value: "abroad", label: "Abroad (USA, UK, Australia, etc.)" },
+      { value: "any_country", label: "Any country with good opportunities" },
+      { value: "not_decided", label: "Not decided" },
+    ],
   },
   {
     id: 3,
-    question: "Do you like working with computers and programming?",
-    category: "Technical",
+    question: "What is your highest qualification?",
+    category: "Education",
+    options: [
+      { value: "10th_12th", label: "10th/12th" },
+      { value: "diploma", label: "Diploma" },
+      { value: "bachelor", label: "Bachelor's Degree" },
+      { value: "master_higher", label: "Master's or higher" },
+    ],
   },
   {
     id: 4,
-    question: "Are you interested in conducting scientific experiments?",
-    category: "Scientific",
+    question: "Which field are you most interested in?",
+    category: "Field",
+    options: [
+      { value: "engineering_it", label: "Engineering / IT" },
+      { value: "healthcare", label: "Healthcare" },
+      { value: "management_business", label: "Management / Business" },
+      { value: "arts_humanities", label: "Arts / Humanities" },
+      { value: "medical_nursing", label: "Medical/Nursing" },
+      { value: "others", label: "Others" },
+    ],
   },
   {
     id: 5,
-    question: "Do you enjoy leading group projects?",
-    category: "Leadership",
+    question: "Have you ever taken any language proficiency test (IELTS, TOEFL, etc.)?",
+    category: "Language",
+    options: [
+      { value: "yes", label: "Yes" },
+      { value: "no", label: "No" },
+      { value: "planning", label: "Planning to take soon" },
+    ],
   },
-  // Add 45 more questions following similar pattern...
   {
-    id: 50,
-    question: "Do you enjoy teaching or explaining concepts to others?",
-    category: "Education",
+    id: 6,
+    question: "Would you like to receive guidance for scholarships, placements, or skill training?",
+    category: "Guidance",
+    options: [
+      { value: "study_abroad", label: "Yes, for study abroad" },
+      { value: "indian_universities", label: "Yes, for Indian universities" },
+      { value: "it_jobs", label: "Yes, for IT jobs and placements" },
+      { value: "all", label: "All of the above" },
+    ],
   },
 ];
-
-// Add all 50 questions with different categories:
-// - Technical
-// - Analytical
-// - Scientific
-// - Creative
-// - Social
-// - Leadership
-// - Business
-// - Healthcare
-// - Education
-// - Arts

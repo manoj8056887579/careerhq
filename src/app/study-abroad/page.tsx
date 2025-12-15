@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { CountryCard } from "@/components/country-card";
 import { SearchBar } from "@/components/search-bar";
 import { EnquiryForm, EnquiryFormHandle } from "@/components/enquiry-form";
+import { ProtectedPageWrapper } from "@/components/protected-page-wrapper";
 import type { Country } from "@/types/education";
 import {
   logDataFetchError,
@@ -108,7 +109,7 @@ export default function StudyAbroadPage() {
   // wrapper to adapt Tabs onSelectionChange typing (Key can be number|string) -> we store string keys
 
   return (
-    <>
+    <ProtectedPageWrapper requiredFor="Study Abroad">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-primary-50 to-white py-16 md:py-24">
         <div className="absolute inset-0 hero-pattern opacity-30"></div>
@@ -420,6 +421,6 @@ export default function StudyAbroadPage() {
           </div>
         </div>
       </section>
-    </>
+    </ProtectedPageWrapper>
   );
 }

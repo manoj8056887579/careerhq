@@ -21,6 +21,7 @@ import type {
   ModuleCategory,
 } from "@/types/universal-module";
 import { MODULE_DISPLAY_NAMES } from "@/types/universal-module";
+import { ProtectedPageWrapper } from "@/components/protected-page-wrapper";
 
 // Map module types to their route names
 const MODULE_TYPE_TO_ROUTE: Record<ModuleType, string> = {
@@ -125,6 +126,7 @@ export default function ModuleListingModern({
   const regularModules = filteredModules.slice(3);
 
   return (
+    <ProtectedPageWrapper requiredFor={MODULE_DISPLAY_NAMES[moduleType]}>
     <div className="min-h-screen gradient-mesh relative overflow-hidden">
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100/60 rounded-full blur-3xl" />
       <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-blue-50/80 rounded-full blur-3xl" />
@@ -357,6 +359,7 @@ export default function ModuleListingModern({
         </div>
       </div>
     </div>
+    </ProtectedPageWrapper>
   );
 }
 

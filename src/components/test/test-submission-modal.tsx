@@ -21,6 +21,7 @@ interface TestSubmissionModalProps {
     percentage: number;
     maxScore: number;
   };
+  answers: Array<{ question: string; answer: string }>;
   onSubmitSuccess?: () => void;
 }
 
@@ -28,6 +29,7 @@ export function TestSubmissionModal({
   isOpen,
   onClose,
   testScore,
+  answers,
   onSubmitSuccess,
 }: TestSubmissionModalProps) {
   const [formData, setFormData] = React.useState({
@@ -138,6 +140,7 @@ export function TestSubmissionModal({
         phone: formattedPhone,
         program: "Career Test",
         message: `Career Test Score: ${testScore.total}/${testScore.maxScore} (${testScore.percentage}%)`,
+        careerTestAnswers: answers,
       };
 
       // Make POST request to /api/leads

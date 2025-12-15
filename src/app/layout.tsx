@@ -5,6 +5,7 @@ import "./globals.css";
 import { ToastProvider } from "@heroui/toast";
 import { ConditionalLayout } from "@/components/conditional-layout";
 import { ChatWidget } from "@/components/chat-widget";
+import { UserRegistrationProvider } from "@/contexts/UserRegistrationContext";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -112,18 +113,20 @@ export default function RootLayout({
   return (
     <html lang="en" className={plusJakartaSans.variable}>
       <body className="font-sans antialiased">
-        <AdminLayoutWrapper>{children}</AdminLayoutWrapper>
-        <ToastProvider
-          placement="top-right"
-          maxVisibleToasts={5}
-          toastProps={{
-            timeout: 5000,
-            classNames: {
-              base: "rounded-lg",
-            },
-          }}
-        />
-        <ChatWidget />
+        <UserRegistrationProvider>
+          <AdminLayoutWrapper>{children}</AdminLayoutWrapper>
+          <ToastProvider
+            placement="top-right"
+            maxVisibleToasts={5}
+            toastProps={{
+              timeout: 5000,
+              classNames: {
+                base: "rounded-lg",
+              },
+            }}
+          />
+          <ChatWidget />
+        </UserRegistrationProvider>
       </body>
     </html>
   );

@@ -10,6 +10,7 @@ export interface ILead extends Document {
   qualification?: string;
   ieltsScore?: string;
   message?: string;
+  careerTestAnswers?: Array<{ question: string; answer: string }>;
   status: "new" | "contacted" | "converted" | "closed";
   createdAt: Date;
   updatedAt: Date;
@@ -26,6 +27,12 @@ const LeadSchema = new Schema(
     qualification: String,
     ieltsScore: String,
     message: String,
+    careerTestAnswers: [
+      {
+        question: { type: String },
+        answer: { type: String },
+      },
+    ],
     status: {
       type: String,
       enum: ["new", "contacted", "converted", "closed"],

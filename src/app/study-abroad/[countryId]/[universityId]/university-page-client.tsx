@@ -15,6 +15,7 @@ import { EnquiryForm } from "@/components/enquiry-form";
 import { useAllCourses } from "@/hooks/useAllCourses";
 import { generateCountrySlug } from "@/lib/slug-utils";
 import { getImageUrl as getCloudinaryImageUrl } from "@/lib/cloudinary-utils";
+import { ProtectedPageWrapper } from "@/components/protected-page-wrapper";
 
 import type { EnquiryFormHandle } from "@/components/enquiry-form";
 
@@ -199,7 +200,7 @@ export const UniversityPageClient: React.FC<UniversityPageClientProps> = ({
   }, [selected]);
 
   return (
-    <>
+    <ProtectedPageWrapper requiredFor={`${universityData.name} - ${countryName}`}>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-primary-50 to-white py-12 md:py-16">
         <div className="absolute inset-0 hero-pattern opacity-30"></div>
@@ -753,6 +754,8 @@ export const UniversityPageClient: React.FC<UniversityPageClientProps> = ({
           </div>
         </div>
       </section>
-    </>
+
+    </ProtectedPageWrapper>
+
   );
 };

@@ -895,14 +895,14 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 bgColor: "bg-amber-50",
                 iconColor: "text-amber-600",
               },
-              {
-                type: "mou-project",
-                name: "MOU Projects",
-                icon: "lucide:handshake",
-                color: "from-violet-500 to-violet-600",
-                bgColor: "bg-violet-50",
-                iconColor: "text-violet-600",
-              },
+              // {
+              //   type: "mou-project",
+              //   name: "MOU Projects",
+              //   icon: "lucide:handshake",
+              //   color: "from-violet-500 to-violet-600",
+              //   bgColor: "bg-violet-50",
+              //   iconColor: "text-violet-600",
+              // },
               {
                 type: "loans",
                 name: "Education Loans",

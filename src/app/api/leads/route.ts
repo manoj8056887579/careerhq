@@ -6,11 +6,38 @@ export async function POST(request: Request) {
   try {
     await connectToDatabase();
     const data = await request.json();
+
+    // Check for duplicate email or phone
+    const existingLead = await Lead.findOne({
+      $or: [
+        { email: data.email?.toLowerCase() },
+        { phone: data.phone },
+      ],
+    });
+
+    if (existingLead) {
+      return NextResponse.json(
+        {
+          error: "A user with this email or phone number already exists",
+          field:
+            existingLead.email === data.email?.toLowerCase()
+              ? "email"
+              : "phone",
+        },
+        { status: 409 }
+      );
+    }
+
+    // Normalize email to lowercase
+    if (data.email) {
+      data.email = data.email.toLowerCase();
+    }
+
     const lead = await Lead.create(data);
     return NextResponse.json({ lead });
   } catch (_error) {
     return NextResponse.json(
-      { error: "Failed to create lead " },
+      { error: "Failed to create lead" },
       { status: 500 }
     );
   }
