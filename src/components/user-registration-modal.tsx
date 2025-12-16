@@ -14,6 +14,7 @@ import { Checkbox } from "@heroui/checkbox";
 import { Radio, RadioGroup } from "@heroui/radio";
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
+import { addToast } from "@heroui/toast";
 import { careerTestQuestions } from "@/data/career-test-questions";
 
 interface UserRegistrationModalProps {
@@ -36,14 +37,18 @@ export function UserRegistrationModal({
   onSuccess,
   requiredFor = "Study Abroad",
 }: UserRegistrationModalProps) {
-  const [step, setStep] = useState<"form" | "questions" | "verification">("form");
+  const [step, setStep] = useState<"form" | "questions" | "verification">(
+    "form"
+  );
   const [verificationField, setVerificationField] = useState<"email" | "phone">(
     "email"
   );
   const [verificationValue, setVerificationValue] = useState("");
   const [isVerifying, setIsVerifying] = useState(false);
   const [verificationError, setVerificationError] = useState("");
-  const [questionAnswers, setQuestionAnswers] = useState<Record<number, string>>({});
+  const [questionAnswers, setQuestionAnswers] = useState<
+    Record<number, string>
+  >({});
 
   const [formData, setFormData] = useState({
     name: "",
@@ -133,7 +138,9 @@ export function UserRegistrationModal({
   const handleVerification = async () => {
     if (!verificationValue.trim()) {
       setVerificationError(
-        `Please enter your ${verificationField === "email" ? "email" : "phone number"}`
+        `Please enter your ${
+          verificationField === "email" ? "email" : "phone number"
+        }`
       );
       return;
     }
@@ -143,7 +150,9 @@ export function UserRegistrationModal({
 
     try {
       const response = await fetch(
-        `/api/leads/verify?${verificationField}=${encodeURIComponent(verificationValue)}`
+        `/api/leads/verify?${verificationField}=${encodeURIComponent(
+          verificationValue
+        )}`
       );
 
       if (!response.ok) {
@@ -162,17 +171,36 @@ export function UserRegistrationModal({
         };
         localStorage.setItem("userRegistered", "true");
         localStorage.setItem("userData", JSON.stringify(userData));
+
+        // Show success toast
+        addToast({
+          title: "Verification Successful",
+          description: `Welcome back, ${userData.name}!`,
+          color: "success",
+        });
+
         onSuccess(userData);
         onClose();
       } else {
-        setVerificationError("No account found. Please register below.");
+        const errorMsg = "No account found. Please register below.";
+        setVerificationError(errorMsg);
         setStep("form");
+        addToast({
+          title: "Account Not Found",
+          description: errorMsg,
+          color: "warning",
+        });
       }
     } catch (_err) {
-      setVerificationError(
-        "No account found with this information. Please register below."
-      );
+      const errorMsg =
+        "No account found with this information. Please register below.";
+      setVerificationError(errorMsg);
       setStep("form");
+      addToast({
+        title: "Verification Failed",
+        description: errorMsg,
+        color: "warning",
+      });
     } finally {
       setIsVerifying(false);
     }
@@ -236,9 +264,17 @@ export function UserRegistrationModal({
 
       if (!response.ok) {
         if (response.status === 409) {
-          throw new Error(
-            data.error || "This email or phone number is already registered."
-          );
+          const errorMessage =
+            data.error || "This email or phone number is already registered.";
+          setError(errorMessage);
+          addToast({
+            title: "Already Registered",
+            description: errorMessage,
+            color: "warning",
+          });
+          // Go back to form step to allow user to use verification
+          setStep("form");
+          throw new Error(errorMessage);
         }
         throw new Error(data.error || "Failed to register");
       }
@@ -253,13 +289,34 @@ export function UserRegistrationModal({
       localStorage.setItem("userRegistered", "true");
       localStorage.setItem("userData", JSON.stringify(userData));
 
+      // Show success toast
+      addToast({
+        title: "Registration Successful",
+        description: `Welcome, ${formData.name}! You now have access to all content.`,
+        color: "success",
+      });
+
       onSuccess(userData);
       onClose();
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
+        // Only show error toast if it's not a 409 (already handled above)
+        if (!err.message.includes("already registered")) {
+          addToast({
+            title: "Registration Failed",
+            description: err.message,
+            color: "danger",
+          });
+        }
       } else {
-        setError("Failed to register. Please try again.");
+        const errorMsg = "Failed to register. Please try again.";
+        setError(errorMsg);
+        addToast({
+          title: "Registration Failed",
+          description: errorMsg,
+          color: "danger",
+        });
       }
     } finally {
       setIsSubmitting(false);
@@ -330,9 +387,7 @@ export function UserRegistrationModal({
                   >
                     <p className="text-sm text-foreground-600">
                       Enter your registered{" "}
-                      {verificationField === "email"
-                        ? "email"
-                        : "phone number"}{" "}
+                      {verificationField === "email" ? "email" : "phone number"}{" "}
                       to continue
                     </p>
                     <Input
@@ -398,9 +453,7 @@ export function UserRegistrationModal({
                       className="w-full"
                     >
                       Use{" "}
-                      {verificationField === "email"
-                        ? "phone number"
-                        : "email"}{" "}
+                      {verificationField === "email" ? "phone number" : "email"}{" "}
                       instead
                     </Button>
                   </motion.div>
