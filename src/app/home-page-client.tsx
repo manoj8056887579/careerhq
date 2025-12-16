@@ -16,6 +16,8 @@ import { AnimatedTooltip } from "../components/ui/animated-tooltip";
 import { ColourfulText } from "../components/ui/colourful-text";
 import VenomBeam from "../components/ui/venom-beam";
 import { AnimatedLogosCanopy } from "../components/ui/animated-logos-canopy";
+import { StatsSection } from "../components/ui/stats-section";
+import DomeGallery from "../components/ui/country-flags";
 import type { BlogPost } from "@/types/blog";
 import type { CountryWithCounts, University } from "@/types/education";
 import { getImageUrl as getCloudinaryImageUrl } from "@/lib/cloudinary-utils";
@@ -596,8 +598,8 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
     },
   ];
 
-  const stats = [
-    { value: "10,000+", label: "Students Placed", icon: "lucide:users" },
+  const statsData = [
+    { value: "10000+", label: "Students Placed", icon: "lucide:users" },
     { value: "95%", label: "Visa Success Rate", icon: "lucide:check-circle" },
     { value: "500+", label: "University Partners", icon: "lucide:building" },
     { value: "50+", label: "Countries Covered", icon: "lucide:globe" },
@@ -660,7 +662,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                   </Button>
                 </div>
 
-                <div className="flex items-center justify-start gap-2 mb-8">
+                <div className="flex items-center justify-start gap-2">
                   <p className="text-sm text-foreground-500 mr-4 hidden md:block">
                     Popular Destinations:
                   </p>
@@ -681,28 +683,6 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                       }))}
                     />
                   )}
-                </div>
-
-                <div className="flex flex-wrap gap-6">
-                  {stats.map((stat, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-                      className="flex items-center gap-2"
-                    >
-                      <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
-                        <Icon icon={stat.icon} className="text-primary" />
-                      </div>
-                      <div>
-                        <p className="font-bold text-lg">{stat.value}</p>
-                        <p className="text-xs text-foreground-500">
-                          {stat.label}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
                 </div>
               </motion.div>
             </div>
@@ -933,6 +913,88 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 </p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+      {/* Stats Section */}
+      <section className="py-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-primary-200 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-200 rounded-full blur-3xl"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent"
+            >
+              Our Impacts
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-foreground-600 max-w-2xl mx-auto text-lg"
+            >
+              Trusted by thousands of students worldwide to achieve their career
+              dreams
+            </motion.p>
+          </div>
+
+          <StatsSection
+            stats={statsData}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+          />
+        </div>
+      </section>
+
+      {/* Country Flags Gallery Section */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent"
+            >
+              Global Education Opportunities
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-foreground-600 max-w-2xl mx-auto text-lg"
+            >
+              Explore world-class universities and programs across multiple countries
+            </motion.p>
+          </div>
+
+          <div className="h-[600px] w-full">
+            <DomeGallery
+              images={countries
+                .filter((country) => country.flagImageId)
+                .map((country) => ({
+                  src: getCloudinaryImageUrl(country.flagImageId!, "card"),
+                  alt: country.name,
+                }))}
+              fit={0.6}
+              minRadius={400}
+              maxRadius={800}
+              segments={30}
+              grayscale={false}
+              imageBorderRadius="16px"
+              openedImageBorderRadius="20px"
+              openedImageWidth="500px"
+              openedImageHeight="350px"
+              overlayBlurColor="rgba(255, 255, 255, 0.1)"
+            />
           </div>
         </div>
       </section>
