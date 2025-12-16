@@ -167,10 +167,13 @@ export default function AboutPage() {
                 choosing the right course and university to securing
                 scholarships and handling visa procedures.
               </p>
-              <p className="text-foreground-600 mb-6">
+              <p className="text-foreground-600 mb-4">
                 At CareerHQ, we believe in more than just admissions; we believe
                 in connecting students to a world of limitless career
                 possibilities, all at one dot.
+              </p>
+              <p className="text-foreground-600 mb-6">
+                We specialize in guiding students and professionals toward the right academic paths and career breakthroughs, both in India and across the world. At Career HQ, we believe that talent knows no boundaries—and neither should opportunities.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button
@@ -255,6 +258,80 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-semibold mb-3">Placement Abroad</h3>
                 <p className="text-foreground-600">
                   We connect candidates to global employers, helping them build successful international careers with ethical, verified, and high-quality opportunities.
+                </p>
+              </CardBody>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Career HQ Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Why Choose Career HQ?</h2>
+            <p className="text-foreground-500 max-w-2xl mx-auto">
+              Your trusted partner for education and career success
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <Card className="border border-default-200 hover:shadow-xl transition-shadow">
+              <CardBody className="p-6">
+                <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                  <Icon icon="lucide:user-check" className="text-primary text-xl" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Personalized Guidance</h3>
+                <p className="text-foreground-600">
+                  Tailored support for every student and job-seeker to help you achieve your unique goals.
+                </p>
+              </CardBody>
+            </Card>
+
+            <Card className="border border-default-200 hover:shadow-xl transition-shadow">
+              <CardBody className="p-6">
+                <div className="w-12 h-12 rounded-full bg-secondary-100 flex items-center justify-center mb-4">
+                  <Icon icon="lucide:network" className="text-secondary text-xl" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Trusted Network</h3>
+                <p className="text-foreground-600">
+                  A reliable network of universities and employers across the globe.
+                </p>
+              </CardBody>
+            </Card>
+
+            <Card className="border border-default-200 hover:shadow-xl transition-shadow">
+              <CardBody className="p-6">
+                <div className="w-12 h-12 rounded-full bg-success-100 flex items-center justify-center mb-4">
+                  <Icon icon="lucide:eye" className="text-success text-xl" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Transparent Processes</h3>
+                <p className="text-foreground-600">
+                  No hidden steps or false promises—just honest, clear guidance every step of the way.
+                </p>
+              </CardBody>
+            </Card>
+
+            <Card className="border border-default-200 hover:shadow-xl transition-shadow">
+              <CardBody className="p-6">
+                <div className="w-12 h-12 rounded-full bg-warning-100 flex items-center justify-center mb-4">
+                  <Icon icon="lucide:award" className="text-warning text-xl" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Expert Team</h3>
+                <p className="text-foreground-600">
+                  Years of industry experience backing every piece of advice and support we provide.
+                </p>
+              </CardBody>
+            </Card>
+
+            <Card className="border border-default-200 hover:shadow-xl transition-shadow">
+              <CardBody className="p-6">
+                <div className="w-12 h-12 rounded-full bg-danger-100 flex items-center justify-center mb-4">
+                  <Icon icon="lucide:heart" className="text-danger text-xl" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Student-First Values</h3>
+                <p className="text-foreground-600">
+                  Our commitment to putting students and careers first in everything we do.
                 </p>
               </CardBody>
             </Card>

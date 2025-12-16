@@ -3,7 +3,7 @@
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Sidebar, SidebarLink } from "@/components/ui/sidebar";
-import { FileText, GraduationCap, Package, Users } from "lucide-react";
+import { FileText, GraduationCap, Package, Users, UserCircle } from "lucide-react";
 
 export interface BreadcrumbItem {
   label: string;
@@ -45,6 +45,12 @@ export function AdminLayout({ children }: AdminLayoutProps) {
       href: "/admin/modules",
       icon: <Package className="w-5 h-5" />,
       isActive: pathname.startsWith("/admin/modules"),
+    },
+    {
+      label: "Profile",
+      href: "/admin/profile",
+      icon: <UserCircle className="w-5 h-5" />,
+      isActive: pathname.startsWith("/admin/profile"),
     },
   ];
 

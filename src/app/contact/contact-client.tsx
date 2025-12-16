@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@heroui/button";
 import { Accordion, AccordionItem } from "@heroui/accordion";
@@ -16,6 +16,27 @@ interface ContactClientProps {
 }
 
 export const ContactClient: React.FC<ContactClientProps> = ({ faqs }) => {
+  const [mapLink, setMapLink] = useState<string>("");
+
+  useEffect(() => {
+    // Fetch map link from admin profile
+    const fetchMapLink = async () => {
+      try {
+        const response = await fetch("/api/admin/profile/public");
+        if (response.ok) {
+          const data = await response.json();
+          console.log("Fetched map link data:", data);
+          setMapLink(data.mapLink || "");
+        } else {
+          console.error("Failed to fetch map link, status:", response.status);
+        }
+      } catch (error) {
+        console.error("Error fetching map link:", error);
+      }
+    };
+
+    fetchMapLink();
+  }, []);
   return (
     <>
       {/* Hero Section */}
@@ -73,15 +94,25 @@ export const ContactClient: React.FC<ContactClientProps> = ({ faqs }) => {
               className="w-full lg:w-1/2 relative h-[450px] lg:h-[360px] rounded-xl overflow-hidden shadow-lg border border-default-200"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary-100/20 via-transparent to-primary-400/10 z-10 pointer-events-none" />
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15718.385755436906!2d78.12247611802658!3d9.967494716978072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c7cc2ecaecf3%3A0x5610bd9fc2fe6ea5!2sMagizh%20NexGen%20Technologies!5e0!3m2!1sen!2smx!4v1742384438780!5m2!1sen!2smx"
-                className="absolute inset-0 w-full h-full border-0 bg-default-100"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Google Maps - Our Office Location"
-                aria-label="Interactive map showing our office location"
-                style={{ filter: "contrast(1.1) brightness(1.05)" }}
-              />
+              {mapLink ? (
+                <div
+                  className="absolute inset-0 w-full h-full [&>iframe]:w-full [&>iframe]:h-full [&>iframe]:border-0"
+                  dangerouslySetInnerHTML={{ __html: mapLink }}
+                  style={{
+                    filter: "contrast(1.1) brightness(1.05)",
+                  }}
+                />
+              ) : (
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15718.385755436906!2d78.12247611802658!3d9.967494716978072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c7cc2ecaecf3%3A0x5610bd9fc2fe6ea5!2sMagizh%20NexGen%20Technologies!5e0!3m2!1sen!2smx!4v1742384438780!5m2!1sen!2smx"
+                  className="absolute inset-0 w-full h-full border-0 bg-default-100"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Google Maps - Our Office Location"
+                  aria-label="Interactive map showing our office location"
+                  style={{ filter: "contrast(1.1) brightness(1.05)" }}
+                />
+              )}
             </motion.div>
           </div>
         </div>

@@ -5,6 +5,17 @@ export interface IAdmin extends Document {
   email: string;
   password: string;
   name?: string;
+  emails?: string[];
+  phones?: string[];
+  address?: string;
+  mapLink?: string;
+  socialLinks?: {
+    facebook?: string;
+    twitter?: string;
+    instagram?: string;
+    linkedin?: string;
+    youtube?: string;
+  };
   resetPasswordToken?: string;
   resetPasswordExpires?: Date;
   createdAt: Date;
@@ -28,6 +39,29 @@ const AdminSchema = new Schema(
     name: {
       type: String,
       trim: true,
+    },
+    emails: {
+      type: [String],
+      default: [],
+    },
+    phones: {
+      type: [String],
+      default: [],
+    },
+    address: {
+      type: String,
+      trim: true,
+    },
+    mapLink: {
+      type: String,
+      default: "",
+    },
+    socialLinks: {
+      facebook: { type: String, trim: true },
+      twitter: { type: String, trim: true },
+      instagram: { type: String, trim: true },
+      linkedin: { type: String, trim: true },
+      youtube: { type: String, trim: true },
     },
     resetPasswordToken: {
       type: String,
