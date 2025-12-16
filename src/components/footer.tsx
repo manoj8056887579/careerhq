@@ -31,6 +31,7 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const [countries, setCountries] = React.useState<Country[]>([]);
   const [adminProfile, setAdminProfile] = React.useState<AdminProfile>({});
+  const [mounted, setMounted] = React.useState(false);
 
   const footerSections = [
    
@@ -65,7 +66,8 @@ export const Footer: React.FC = () => {
     }
   };
 
-  const socialLinks = [
+  // Use useMemo to prevent hydration mismatch
+  const socialLinks = React.useMemo(() => [
     { 
       name: "Facebook", 
       icon: "logos:facebook", 
@@ -96,7 +98,7 @@ export const Footer: React.FC = () => {
       url: adminProfile.socialLinks?.youtube || "https://youtube.com",
       enabled: !!adminProfile.socialLinks?.youtube
     },
-  ];
+  ], [adminProfile.socialLinks]);
 
   const fetchCountries = async () => {
     try {
@@ -132,6 +134,7 @@ export const Footer: React.FC = () => {
   };
 
   React.useEffect(() => {
+    setMounted(true);
     fetchCountries();
     fetchAdminProfile();
   }, []);
@@ -157,20 +160,22 @@ export const Footer: React.FC = () => {
             </p>
 
             {/* Social Media Links */}
-            <div className="flex gap-4 mb-6">
-              {socialLinks.filter(social => social.enabled).map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-default-100 hover:bg-default-200 transition-colors"
-                  aria-label={social.name}
-                >
-                  <Icon icon={social.icon} width={20} height={20} />
-                </a>
-              ))}
-            </div>
+            {mounted && (
+              <div className="flex gap-4 mb-6">
+                {socialLinks.filter(social => social.enabled).map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-default-100 hover:bg-default-200 transition-colors"
+                    aria-label={social.name}
+                  >
+                    <Icon icon={social.icon} width={20} height={20} />
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
 
           {footerSections.map((section) => (
