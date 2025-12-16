@@ -132,6 +132,40 @@ export default function LeadDetailPage() {
                   <p className="text-lg font-medium">{lead.ieltsScore}</p>
                 </div>
               )}
+              {lead.preference && (
+                <div>
+                  <label className="text-sm text-gray-500">
+                    Preference (Country/University/Job Role)
+                  </label>
+                  <p className="text-lg font-medium">{lead.preference}</p>
+                </div>
+              )}
+              <div>
+                <label className="text-sm text-gray-500">Consent Status</label>
+                <div className="flex items-center gap-2 mt-1">
+                  {lead.consent ? (
+                    <>
+                      <Icon
+                        icon="lucide:check-circle"
+                        className="text-success text-xl"
+                      />
+                      <span className="text-lg font-medium text-success">
+                        Consented
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <Icon
+                        icon="lucide:x-circle"
+                        className="text-danger text-xl"
+                      />
+                      <span className="text-lg font-medium text-danger">
+                        Not Consented
+                      </span>
+                    </>
+                  )}
+                </div>
+              </div>
               <div>
                 <label className="text-sm text-gray-500">Created At</label>
                 <p className="text-lg font-medium">
@@ -150,8 +184,14 @@ export default function LeadDetailPage() {
               <>
                 <Divider className="my-6" />
                 <div>
-                  <label className="text-sm text-gray-500">Message</label>
-                  <p className="text-lg mt-2">{lead.message}</p>
+                  <label className="text-sm text-gray-500 block mb-2">
+                    Message
+                  </label>
+                  <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                    <p className="text-base whitespace-pre-wrap">
+                      {lead.message}
+                    </p>
+                  </div>
                 </div>
               </>
             )}

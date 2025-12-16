@@ -10,6 +10,8 @@ export interface ILead extends Document {
   qualification?: string;
   ieltsScore?: string;
   message?: string;
+  preference?: string; // Preferred Country / University / Job Role
+  consent: boolean; // User consent for contact
   careerTestAnswers?: Array<{ question: string; answer: string }>;
   status: "new" | "contacted" | "converted" | "closed";
   createdAt: Date;
@@ -27,6 +29,8 @@ const LeadSchema = new Schema(
     qualification: String,
     ieltsScore: String,
     message: String,
+    preference: String, // Preferred Country / University / Job Role
+    consent: { type: Boolean, required: true, default: true }, // User consent
     careerTestAnswers: [
       {
         question: { type: String },
