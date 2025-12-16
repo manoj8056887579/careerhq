@@ -59,29 +59,29 @@ export const MainNavbar: React.FC = () => {
       link: "/placement-abroad",
       icon: "lucide:plane",
     },
-    {
-      name: "Internship India",
-      link: "/internship-india",
-      icon: "lucide:users",
-    },
-    {
-      name: "Internship Abroad",
-      link: "/internship-abroad",
-      icon: "lucide:globe",
-    },
+    // {
+    //   name: "Internship India",
+    //   link: "/internship-india",
+    //   icon: "lucide:users",
+    // },
+    // {
+    //   name: "Internship Abroad",
+    //   link: "/internship-abroad",
+    //   icon: "lucide:globe",
+    // },
     { name: "MBBS India", link: "/mbbs-india", icon: "lucide:stethoscope" },
     { name: "MBBS Abroad", link: "/mbbs-abroad", icon: "lucide:heart-pulse" },
-    { name: "LMS", link: "/lms", icon: "lucide:book-open" },
-    {
-      name: "Uni Projects",
-      link: "/university-projects",
-      icon: "lucide:flask-conical",
-    },
-    {
-      name: "School Projects",
-      link: "/school-projects",
-      icon: "lucide:book-open",
-    },
+    // { name: "LMS", link: "/lms", icon: "lucide:book-open" },
+    // {
+    //   name: "Uni Projects",
+    //   link: "/university-projects",
+    //   icon: "lucide:flask-conical",
+    // },
+    // {
+    //   name: "School Projects",
+    //   link: "/school-projects",
+    //   icon: "lucide:book-open",
+    // },
     // { name: "MOU Projects", link: "/mou-projects", icon: "lucide:handshake" },
     { name: "Loans", link: "/loans", icon: "lucide:wallet" },
   ];
@@ -315,7 +315,7 @@ export const MainNavbar: React.FC = () => {
                       key={vertical.link}
                       href={vertical.link}
                       className={cn(
-                        "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-all whitespace-nowrap flex-shrink-0",
+                        "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-md font-medium transition-all whitespace-nowrap flex-shrink-0",
                         isActive
                           ? "bg-blue-600 text-white shadow-md"
                           : "text-gray-700 hover:bg-gray-100 hover:text-blue-600"
