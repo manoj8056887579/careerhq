@@ -19,15 +19,7 @@ export const Footer: React.FC = () => {
   const [countries, setCountries] = React.useState<Country[]>([]);
 
   const footerSections = [
-    {
-      title: "Study Abroad",
-      links: countries.map((country) => ({
-        name: country.name,
-        path: `/study-abroad/${
-          generateCountrySlug(country.name) || country.id
-        }`,
-      })),
-    },
+   
     {
       title: "Resources",
       links: [
@@ -41,7 +33,6 @@ export const Footer: React.FC = () => {
         { name: "Home", path: "/" },
 
         { name: "About Us", path: "/about" },
-        { name: "Study Abroad", path: "/study-abroad" },
 
         { name: "Contact", path: "/contact" },
       ],
