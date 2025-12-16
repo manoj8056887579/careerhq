@@ -334,7 +334,7 @@ export const CountryPageClient: React.FC<CountryPageClientProps> = ({
                   startContent={<Icon icon="lucide:calendar" />}
                   className="font-medium bg-white text-primary"
                 >
-                  Begin Test
+                 Register
                 </Button>
                 <Button
                   as={Link}

@@ -3,7 +3,10 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@heroui/button";
+import { Avatar } from "@heroui/avatar";
+import { Icon } from "@iconify/react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export interface SidebarLink {
   label: string;
@@ -16,6 +19,134 @@ export interface SidebarProps {
   links: SidebarLink[];
   className?: string;
   onLinkClick?: (href: string) => void;
+}
+
+// Admin Footer Component
+function AdminFooter({
+  isExpanded,
+  isMobile,
+}: {
+  isExpanded: boolean;
+  isMobile: boolean;
+}) {
+  const [adminData, setAdminData] = useState<{
+    email: string;
+    name?: string;
+  } | null>(null);
+
+  useEffect(() => {
+    const fetchAdminData = async () => {
+      try {
+        const response = await fetch("/api/admin/auth/session");
+        if (response.ok) {
+          const data = await response.json();
+          if (data.authenticated) {
+            setAdminData(data.admin);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching admin data:", error);
+      }
+    };
+
+    fetchAdminData();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/admin/auth/logout", { method: "POST" });
+      window.location.href = "/admin/login";
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+
+  if (!adminData) return null;
+
+  return (
+    <div className="border-t border-gray-200 dark:border-gray-800 p-4 space-y-3">
+      {/* Admin Info */}
+      <AnimatePresence mode="wait">
+        {isExpanded && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.2 }}
+            className="flex items-center gap-3 p-3 bg-danger/5 rounded-lg border border-danger/10"
+          >
+            <Avatar
+              name={adminData.name || "Admin"}
+              size="sm"
+              className="bg-danger text-white flex-shrink-0"
+              icon={<Icon icon="lucide:shield-check" className="text-lg" />}
+            />
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold text-gray-900 dark:text-white truncate flex items-center gap-1">
+                {adminData.name || "Admin"}
+                <Icon
+                  icon="lucide:shield-check"
+                  className="text-xs text-danger flex-shrink-0"
+                />
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                {adminData.email}
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Action Buttons */}
+      <div className="flex gap-2">
+        {isExpanded ? (
+          <>
+            <Button
+              as={Link}
+              href="/"
+              variant="flat"
+              color="default"
+              className="flex-1"
+              startContent={<Icon icon="lucide:home" className="text-lg" />}
+            >
+              Home
+            </Button>
+            <Button
+              variant="flat"
+              color="danger"
+              className="flex-1"
+              startContent={<Icon icon="lucide:log-out" className="text-lg" />}
+              onPress={handleLogout}
+            >
+              Logout
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button
+              as={Link}
+              href="/"
+              isIconOnly
+              variant="flat"
+              color="default"
+              className="flex-1"
+            >
+              <Icon icon="lucide:home" className="text-lg" />
+            </Button>
+            <Button
+              isIconOnly
+              variant="flat"
+              color="danger"
+              className="flex-1"
+              onPress={handleLogout}
+            >
+              <Icon icon="lucide:log-out" className="text-lg" />
+            </Button>
+          </>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export function Sidebar({ links, className, onLinkClick }: SidebarProps) {
@@ -128,7 +259,7 @@ export function Sidebar({ links, className, onLinkClick }: SidebarProps) {
       </div>
 
       {/* Navigation Links */}
-      <nav className="flex-1 p-4 space-y-2">
+      <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
         {links.map((link, _index) => (
           <Button
             key={link.href}
@@ -172,6 +303,12 @@ export function Sidebar({ links, className, onLinkClick }: SidebarProps) {
           </Button>
         ))}
       </nav>
+
+      {/* Admin Info Footer */}
+      <AdminFooter
+        isExpanded={isMobile || isPinned || isExpanded}
+        isMobile={isMobile}
+      />
     </motion.div>
   );
 

@@ -155,7 +155,7 @@ export default function AboutPage() {
                 education consultancy, connecting worldwide career at one dot.
               </p>
               <p className="text-foreground-600 mb-4">
-                Over the years, we've helped thousands of students turn their
+                Over the years, we&apos;ve helped thousands of students turn their
                 dream of studying abroad into reality. With offices across
                 multiple countries, CareerHQ bridges students with top
                 universities and international career opportunities around the
@@ -466,7 +466,7 @@ export default function AboutPage() {
                   startContent={<Icon icon="lucide:calendar" />}
                   className="font-medium bg-white text-primary"
                 >
-                  Begin Test
+                  Register
                 </Button>
                 <Button
                   as={Link}
