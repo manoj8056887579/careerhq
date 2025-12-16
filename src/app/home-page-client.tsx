@@ -1012,7 +1012,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                     startContent={<Icon icon="lucide:calendar" />}
                     className="font-medium bg-white text-primary"
                   >
-                    Begin Test
+                    Register
                   </Button>
                 </Link>
                 <Link href="/about">

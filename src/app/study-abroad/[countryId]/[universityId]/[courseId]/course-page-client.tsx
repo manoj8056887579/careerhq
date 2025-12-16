@@ -444,7 +444,7 @@ export const CoursePageClient: React.FC<CoursePageClientProps> = ({
                   startContent={<Icon icon="lucide:calendar" />}
                   className="font-medium bg-white text-primary"
                 >
-                  Begin Test
+                  Register
                 </Button>
                 <Button
                   as={Link}

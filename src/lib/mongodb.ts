@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { seedAdminUser } from "./seed-admin";
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -33,7 +34,11 @@ export async function connectToDatabase(): Promise<typeof mongoose> {
       bufferCommands: false,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI!, opts);
+    cached.promise = mongoose.connect(MONGODB_URI!, opts).then(async (conn) => {
+      // Automatically seed admin user after connection
+      await seedAdminUser();
+      return conn;
+    });
   }
 
   try {

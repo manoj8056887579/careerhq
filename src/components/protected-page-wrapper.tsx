@@ -21,16 +21,45 @@ export function ProtectedPageWrapper({
   const { isRegistered, isLoading, registerUser } = useUserRegistration();
   const [showModal, setShowModal] = useState(false);
   const [canAccess, setCanAccess] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [checkingAdmin, setCheckingAdmin] = useState(true);
+
+  // Check if user is admin
+  useEffect(() => {
+    const checkAdminSession = async () => {
+      try {
+        const response = await fetch("/api/admin/auth/session");
+        if (response.ok) {
+          const data = await response.json();
+          if (data.authenticated) {
+            setIsAdmin(true);
+            setCanAccess(true);
+          }
+        }
+      } catch (error) {
+        console.error("Error checking admin session:", error);
+      } finally {
+        setCheckingAdmin(false);
+      }
+    };
+
+    checkAdminSession();
+  }, []);
 
   useEffect(() => {
-    if (!isLoading) {
-      if (isRegistered) {
+    if (!isLoading && !checkingAdmin) {
+      if (isAdmin) {
+        // Admin has full access
+        setCanAccess(true);
+      } else if (isRegistered) {
+        // Regular user is registered
         setCanAccess(true);
       } else if (showModalOnMount) {
+        // Show registration modal for non-registered users
         setShowModal(true);
       }
     }
-  }, [isLoading, isRegistered, showModalOnMount]);
+  }, [isLoading, isRegistered, showModalOnMount, isAdmin, checkingAdmin]);
 
   const handleSuccess = (userData: UserData) => {
     registerUser(userData);
@@ -38,12 +67,17 @@ export function ProtectedPageWrapper({
     setShowModal(false);
   };
 
-  if (isLoading) {
+  if (isLoading || checkingAdmin) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
       </div>
     );
+  }
+
+  // Admin users bypass registration
+  if (isAdmin) {
+    return <>{children}</>;
   }
 
   if (!canAccess && !showModal) {

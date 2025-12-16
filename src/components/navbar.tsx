@@ -25,6 +25,11 @@ export const MainNavbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [showLogoutModal, setShowLogoutModal] = React.useState(false);
   const { isRegistered, userData, clearRegistration } = useUserRegistration();
+  const [isAdmin, setIsAdmin] = React.useState(false);
+  const [adminData, setAdminData] = React.useState<{
+    email: string;
+    name?: string;
+  } | null>(null);
 
   const navLinks = [
     { name: "Home", link: "/" },
@@ -90,6 +95,37 @@ export const MainNavbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Check admin session
+  React.useEffect(() => {
+    const checkAdminSession = async () => {
+      try {
+        const response = await fetch("/api/admin/auth/session");
+        if (response.ok) {
+          const data = await response.json();
+          if (data.authenticated) {
+            setIsAdmin(true);
+            setAdminData(data.admin);
+          }
+        }
+      } catch (error) {
+        console.error("Error checking admin session:", error);
+      }
+    };
+
+    checkAdminSession();
+  }, []);
+
+  const handleAdminLogout = async () => {
+    try {
+      await fetch("/api/admin/auth/logout", { method: "POST" });
+      setIsAdmin(false);
+      setAdminData(null);
+      window.location.href = "/admin/login";
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+
   return (
     <div className="fixed inset-x-0 top-0 z-50 w-full">
       {/* Desktop Navigation */}
@@ -134,7 +170,75 @@ export const MainNavbar: React.FC = () => {
                     </Link>
                   );
                 })}
-                {isRegistered && userData ? (
+                {isAdmin && adminData ? (
+                  <Dropdown placement="bottom-end">
+                    <DropdownTrigger>
+                      <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+                        <Avatar
+                          name={adminData.name || "Admin"}
+                          size="sm"
+                          className="bg-danger text-white"
+                          icon={
+                            <Icon
+                              icon="lucide:shield-check"
+                              className="text-lg"
+                            />
+                          }
+                        />
+                        <div className="hidden md:block text-left">
+                          <p className="text-sm font-semibold flex items-center gap-1">
+                            {adminData.name || "Admin"}
+                            <Icon
+                              icon="lucide:shield-check"
+                              className="text-xs text-danger"
+                            />
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {adminData.email}
+                          </p>
+                        </div>
+                      </div>
+                    </DropdownTrigger>
+                    <DropdownMenu aria-label="Admin menu">
+                      <DropdownItem
+                        key="profile"
+                        className="h-14 gap-2"
+                        textValue="Admin Profile"
+                      >
+                        <p className="font-semibold flex items-center gap-1">
+                          {adminData.name || "Admin"}
+                          <Icon
+                            icon="lucide:shield-check"
+                            className="text-sm text-danger"
+                          />
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {adminData.email}
+                        </p>
+                      </DropdownItem>
+                      <DropdownItem
+                        key="admin-panel"
+                        startContent={
+                          <Icon icon="lucide:layout-dashboard" className="text-lg" />
+                        }
+                        as={Link}
+                        href="/admin"
+                      >
+                        Admin Panel
+                      </DropdownItem>
+                      <DropdownItem
+                        key="logout"
+                        color="danger"
+                        startContent={
+                          <Icon icon="lucide:log-out" className="text-lg" />
+                        }
+                        onPress={handleAdminLogout}
+                      >
+                        Logout
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
+                ) : isRegistered && userData ? (
                   <Dropdown placement="bottom-end">
                     <DropdownTrigger>
                       <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
@@ -154,13 +258,20 @@ export const MainNavbar: React.FC = () => {
                       </div>
                     </DropdownTrigger>
                     <DropdownMenu aria-label="User menu">
-                      <DropdownItem key="profile" className="h-14 gap-2">
+                      <DropdownItem
+                        key="profile"
+                        className="h-14 gap-2"
+                        textValue="User Profile"
+                      >
                         <p className="font-semibold">{userData.name}</p>
                         <p className="text-xs text-gray-500">{userData.email}</p>
                       </DropdownItem>
                       <DropdownItem
                         key="logout"
                         color="danger"
+                        startContent={
+                          <Icon icon="lucide:log-out" className="text-lg" />
+                        }
                         onPress={() => setShowLogoutModal(true)}
                       >
                         Logout
@@ -353,7 +464,62 @@ export const MainNavbar: React.FC = () => {
                 </div>
 
                 {/* CTA Button / User Info */}
-                {isRegistered && userData ? (
+                {isAdmin && adminData ? (
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3 p-4 bg-danger/10 rounded-lg border border-danger/20">
+                      <Avatar
+                        name={adminData.name || "Admin"}
+                        size="md"
+                        className="bg-danger text-white"
+                        icon={
+                          <Icon
+                            icon="lucide:shield-check"
+                            className="text-xl"
+                          />
+                        }
+                      />
+                      <div className="flex-1">
+                        <p className="font-semibold text-sm flex items-center gap-1">
+                          {adminData.name || "Admin"}
+                          <Icon
+                            icon="lucide:shield-check"
+                            className="text-xs text-danger"
+                          />
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {adminData.email}
+                        </p>
+                      </div>
+                    </div>
+                    <Button
+                      as={Link}
+                      href="/admin"
+                      color="primary"
+                      variant="flat"
+                      className="w-full"
+                      startContent={
+                        <Icon icon="lucide:layout-dashboard" className="text-lg" />
+                      }
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Admin Panel
+                    </Button>
+                    <Button
+                      color="danger"
+                      variant="flat"
+                      className="w-full"
+                      startContent={
+                        <Icon icon="lucide:log-out" className="text-lg" />
+                      }
+                      onPress={() => {
+                        handleAdminLogout();
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      Logout
+                    </Button>
+                  </div>
+                ) : isRegistered && userData ? (
                   <div className="space-y-3">
                     <div className="flex items-center gap-3 p-4 bg-primary/10 rounded-lg">
                       <Avatar
@@ -370,6 +536,9 @@ export const MainNavbar: React.FC = () => {
                       color="danger"
                       variant="flat"
                       className="w-full"
+                      startContent={
+                        <Icon icon="lucide:log-out" className="text-lg" />
+                      }
                       onPress={() => {
                         setShowLogoutModal(true);
                         setIsMobileMenuOpen(false);
