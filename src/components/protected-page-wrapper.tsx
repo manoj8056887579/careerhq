@@ -28,7 +28,9 @@ export function ProtectedPageWrapper({
   useEffect(() => {
     const checkAdminSession = async () => {
       try {
-        const response = await fetch("/api/admin/auth/session");
+        const response = await fetch("/api/admin/auth/session", {
+          credentials: "include",
+        });
         if (response.ok) {
           const data = await response.json();
           if (data.authenticated) {
@@ -36,8 +38,12 @@ export function ProtectedPageWrapper({
             setCanAccess(true);
           }
         }
+        // 401 is expected when not logged in as admin - don't log as error
       } catch (error) {
-        console.error("Error checking admin session:", error);
+        // Only log actual network errors, not 401s
+        if (error instanceof TypeError) {
+          console.error("Network error checking admin session:", error);
+        }
       } finally {
         setCheckingAdmin(false);
       }

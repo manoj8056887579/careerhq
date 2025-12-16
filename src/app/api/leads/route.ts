@@ -7,12 +7,68 @@ export async function POST(request: Request) {
     await connectToDatabase();
     const data = await request.json();
 
+    // Verify reCAPTCHA token if provided and configured
+    if (data.recaptchaToken) {
+      const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+      const isDevelopment = process.env.NODE_ENV === "development";
+      
+      if (recaptchaSecret && recaptchaSecret !== 'your_recaptcha_secret_key_here' && !isDevelopment) {
+        try {
+          const recaptchaResponse = await fetch(
+            "https://www.google.com/recaptcha/api/siteverify",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+              body: `secret=${recaptchaSecret}&response=${data.recaptchaToken}`,
+            }
+          );
+
+          const recaptchaData = await recaptchaResponse.json();
+
+          console.log("reCAPTCHA verification result:", {
+            success: recaptchaData.success,
+            score: recaptchaData.score,
+            action: recaptchaData.action,
+            errors: recaptchaData["error-codes"],
+          });
+
+          // Only fail if reCAPTCHA explicitly fails (not on low score for now)
+          if (!recaptchaData.success) {
+            console.error("reCAPTCHA verification failed:", recaptchaData["error-codes"]);
+            return NextResponse.json(
+              { 
+                error: "reCAPTCHA verification failed. Please refresh and try again.",
+                details: recaptchaData["error-codes"]
+              },
+              { status: 400 }
+            );
+          }
+
+          // Log low scores but don't block (adjust threshold as needed)
+          if (recaptchaData.score < 0.5) {
+            console.warn("Low reCAPTCHA score:", recaptchaData.score);
+          }
+        } catch (error) {
+          console.error("reCAPTCHA verification error:", error);
+          // Continue even if reCAPTCHA verification fails (network issues, etc.)
+        }
+      } else {
+        if (isDevelopment) {
+          console.log("Development mode: Skipping reCAPTCHA verification");
+        } else {
+          console.warn("reCAPTCHA secret key not configured, skipping verification");
+        }
+      }
+      
+      // Remove recaptchaToken from data before saving
+      delete data.recaptchaToken;
+    }
+
     // Check for duplicate email or phone
     const existingLead = await Lead.findOne({
-      $or: [
-        { email: data.email?.toLowerCase() },
-        { phone: data.phone },
-      ],
+      $or: [{ email: data.email?.toLowerCase() }, { phone: data.phone }],
     });
 
     if (existingLead) {
@@ -31,6 +87,11 @@ export async function POST(request: Request) {
     // Normalize email to lowercase
     if (data.email) {
       data.email = data.email.toLowerCase();
+    }
+
+    // Ensure consent is set (default to true if not provided for backward compatibility)
+    if (data.consent === undefined) {
+      data.consent = true;
     }
 
     const lead = await Lead.create(data);

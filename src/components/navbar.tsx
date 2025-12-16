@@ -99,7 +99,9 @@ export const MainNavbar: React.FC = () => {
   React.useEffect(() => {
     const checkAdminSession = async () => {
       try {
-        const response = await fetch("/api/admin/auth/session");
+        const response = await fetch("/api/admin/auth/session", {
+          credentials: "include",
+        });
         if (response.ok) {
           const data = await response.json();
           if (data.authenticated) {
@@ -107,8 +109,12 @@ export const MainNavbar: React.FC = () => {
             setAdminData(data.admin);
           }
         }
+        // 401 is expected when not logged in as admin - don't log as error
       } catch (error) {
-        console.error("Error checking admin session:", error);
+        // Only log actual network errors, not 401s
+        if (error instanceof TypeError) {
+          console.error("Network error checking admin session:", error);
+        }
       }
     };
 
@@ -219,7 +225,10 @@ export const MainNavbar: React.FC = () => {
                       <DropdownItem
                         key="admin-panel"
                         startContent={
-                          <Icon icon="lucide:layout-dashboard" className="text-lg" />
+                          <Icon
+                            icon="lucide:layout-dashboard"
+                            className="text-lg"
+                          />
                         }
                         as={Link}
                         href="/admin"
@@ -264,7 +273,9 @@ export const MainNavbar: React.FC = () => {
                         textValue="User Profile"
                       >
                         <p className="font-semibold">{userData.name}</p>
-                        <p className="text-xs text-gray-500">{userData.email}</p>
+                        <p className="text-xs text-gray-500">
+                          {userData.email}
+                        </p>
                       </DropdownItem>
                       <DropdownItem
                         key="logout"
@@ -498,7 +509,10 @@ export const MainNavbar: React.FC = () => {
                       variant="flat"
                       className="w-full"
                       startContent={
-                        <Icon icon="lucide:layout-dashboard" className="text-lg" />
+                        <Icon
+                          icon="lucide:layout-dashboard"
+                          className="text-lg"
+                        />
                       }
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -529,7 +543,9 @@ export const MainNavbar: React.FC = () => {
                       />
                       <div className="flex-1">
                         <p className="font-semibold text-sm">{userData.name}</p>
-                        <p className="text-xs text-gray-500">{userData.email}</p>
+                        <p className="text-xs text-gray-500">
+                          {userData.email}
+                        </p>
                       </div>
                     </div>
                     <Button
