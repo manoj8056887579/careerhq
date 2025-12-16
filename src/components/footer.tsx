@@ -14,9 +14,23 @@ import {
   logApiError,
 } from "@/utils/errorUtils";
 
+interface AdminProfile {
+  emails?: string[];
+  phones?: string[];
+  address?: string;
+  socialLinks?: {
+    facebook?: string;
+    twitter?: string;
+    instagram?: string;
+    linkedin?: string;
+    youtube?: string;
+  };
+}
+
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const [countries, setCountries] = React.useState<Country[]>([]);
+  const [adminProfile, setAdminProfile] = React.useState<AdminProfile>({});
 
   const footerSections = [
    
@@ -39,20 +53,49 @@ export const Footer: React.FC = () => {
     },
   ];
 
+  const fetchAdminProfile = async () => {
+    try {
+      const response = await fetch("/api/admin/profile/public");
+      if (response.ok) {
+        const data = await response.json();
+        setAdminProfile(data);
+      }
+    } catch (error) {
+      console.error("Error fetching admin profile for footer:", error);
+    }
+  };
+
   const socialLinks = [
-    { name: "Facebook", icon: "logos:facebook", url: "https://facebook.com" },
-    { name: "Twitter", icon: "logos:x", url: "https://twitter.com" },
+    { 
+      name: "Facebook", 
+      icon: "logos:facebook", 
+      url: adminProfile.socialLinks?.facebook || "https://facebook.com",
+      enabled: !!adminProfile.socialLinks?.facebook
+    },
+    { 
+      name: "Twitter", 
+      icon: "logos:x", 
+      url: adminProfile.socialLinks?.twitter || "https://twitter.com",
+      enabled: !!adminProfile.socialLinks?.twitter
+    },
     {
       name: "Instagram",
       icon: "logos:instagram-icon",
-      url: "https://instagram.com",
+      url: adminProfile.socialLinks?.instagram || "https://instagram.com",
+      enabled: !!adminProfile.socialLinks?.instagram
     },
     {
       name: "LinkedIn",
       icon: "logos:linkedin-icon",
-      url: "https://linkedin.com",
+      url: adminProfile.socialLinks?.linkedin || "https://linkedin.com",
+      enabled: !!adminProfile.socialLinks?.linkedin
     },
-    { name: "YouTube", icon: "logos:youtube-icon", url: "https://youtube.com" },
+    { 
+      name: "YouTube", 
+      icon: "logos:youtube-icon", 
+      url: adminProfile.socialLinks?.youtube || "https://youtube.com",
+      enabled: !!adminProfile.socialLinks?.youtube
+    },
   ];
 
   const fetchCountries = async () => {
@@ -90,13 +133,14 @@ export const Footer: React.FC = () => {
 
   React.useEffect(() => {
     fetchCountries();
+    fetchAdminProfile();
   }, []);
 
   return (
     <footer className="bg-content1 pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="lg:col-span-1">
             <Link href="/" className="mb-6 inline-block">
               <Image
                 src="/images/career-hq-logo.png"
@@ -111,8 +155,10 @@ export const Footer: React.FC = () => {
               international education and career goals through expert guidance
               and comprehensive resources.
             </p>
+
+            {/* Social Media Links */}
             <div className="flex gap-4 mb-6">
-              {socialLinks.map((social) => (
+              {socialLinks.filter(social => social.enabled).map((social) => (
                 <a
                   key={social.name}
                   href={social.url}
@@ -146,6 +192,55 @@ export const Footer: React.FC = () => {
               </ul>
             </div>
           ))}
+
+          {/* Contact Section */}
+          <div>
+            <h3 className="font-semibold text-lg mb-4">Contact</h3>
+            <div className="space-y-3">
+              {adminProfile.emails && adminProfile.emails.length > 0 && (
+                <div className="flex items-start gap-2">
+                  <Icon icon="lucide:mail" className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                  <div className="flex flex-col gap-1">
+                    {adminProfile.emails.map((email, index) => (
+                      <a
+                        key={index}
+                        href={`mailto:${email}`}
+                        className="text-foreground-500 hover:text-primary transition-colors text-sm break-all"
+                      >
+                        {email}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {adminProfile.phones && adminProfile.phones.length > 0 && (
+                <div className="flex items-start gap-2">
+                  <Icon icon="lucide:phone" className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                  <div className="flex flex-col gap-1">
+                    {adminProfile.phones.map((phone, index) => (
+                      <a
+                        key={index}
+                        href={`tel:${phone}`}
+                        className="text-foreground-500 hover:text-primary transition-colors text-sm"
+                      >
+                        {phone}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {adminProfile.address && (
+                <div className="flex items-start gap-2">
+                  <Icon icon="lucide:map-pin" className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-foreground-500 text-sm">
+                    {adminProfile.address}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
 
         <Divider className="my-8" />
