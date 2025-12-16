@@ -74,14 +74,18 @@ const TestimonialCard = ({
   >
     <div className="flex flex-col items-start gap-4">
       <div className="flex items-center gap-3">
-        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-gray-200 dark:border-gray-600">
-          <Image
-            src={testimonial.image}
-            alt={testimonial.name}
-            width={48}
-            height={48}
-            className="h-full w-full not-prose object-cover"
-          />
+        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-gray-200 dark:border-gray-600 flex items-center justify-center bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900 dark:to-secondary-900">
+          {testimonial.image.startsWith('http') ? (
+            <Image
+              src={testimonial.image}
+              alt={testimonial.name}
+              width={48}
+              height={48}
+              className="h-full w-full not-prose object-cover"
+            />
+          ) : (
+            <span className="text-2xl">{testimonial.image}</span>
+          )}
         </div>
         <div>
           <span className="text-sm font-bold text-foreground">
