@@ -46,6 +46,7 @@ interface ModuleListingModernProps {
   heroImage?: string;
   initialModules?: UniversalModule[];
   initialCategories?: ModuleCategory[];
+  companiesSection?: React.ReactNode;
 }
 
 export default function ModuleListingModern({
@@ -54,6 +55,7 @@ export default function ModuleListingModern({
   description,
   initialModules = [],
   initialCategories = [],
+  companiesSection,
 }: ModuleListingModernProps) {
   const [modules, setModules] = useState<UniversalModule[]>(initialModules);
   const [categories, setCategories] =
@@ -122,8 +124,9 @@ export default function ModuleListingModern({
     setSearchQuery("");
   };
 
-  const featuredModules = filteredModules.slice(0, 3);
-  const regularModules = filteredModules.slice(3);
+  // For placement-india, show all modules in one section
+  const featuredModules = moduleType === "placement-india" ? [] : filteredModules.slice(0, 3);
+  const regularModules = moduleType === "placement-india" ? filteredModules : filteredModules.slice(3);
 
   return (
     <ProtectedPageWrapper requiredFor={MODULE_DISPLAY_NAMES[moduleType]}>
@@ -180,87 +183,98 @@ export default function ModuleListingModern({
           </div>
         </div>
 
-        <div className="sticky top-0 z-40 backdrop-blur-xl ">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
-              <div className="flex-1 w-full">
-                <Input
-                  placeholder="Search opportunities..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  size="lg"
-                  startContent={<Search size={18} className="text-gray-400" />}
-                  classNames={{
-                    input:
-                      "text-sm sm:text-base bg-transparent text-gray-900 placeholder:text-gray-400",
-                    inputWrapper:
-                      "glass-strong hover:border-blue-500/50 data-[hover=true]:glass-strong transition-all duration-300",
-                  }}
-                />
-              </div>
+        {moduleType !== "placement-india" && 
+         moduleType !== "study-india" && 
+         moduleType !== "placement-abroad" && (
+          <div className="sticky top-0 z-40 backdrop-blur-xl ">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
+                <div className="flex-1 w-full">
+                  <Input
+                    placeholder="Search opportunities..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    size="lg"
+                    startContent={<Search size={18} className="text-gray-400" />}
+                    classNames={{
+                      input:
+                        "text-sm sm:text-base bg-transparent text-gray-900 placeholder:text-gray-400",
+                      inputWrapper:
+                        "glass-strong hover:border-blue-500/50 data-[hover=true]:glass-strong transition-all duration-300",
+                    }}
+                  />
+                </div>
 
-              <div className="flex gap-2 sm:gap-3">
-                <Button
-                  size="lg"
-                  className="glass-strong border-gray-200 text-gray-900 hover:border-blue-500/50 transition-all duration-300 flex-1 sm:flex-none sm:min-w-[140px]"
-                  startContent={<Filter size={18} />}
-                  onPress={() => setShowFilters(!showFilters)}
-                >
-                  <span className="text-sm sm:text-base">Filters</span>
-                  {selectedCategories.size > 0 && (
-                    <Chip size="sm" className="bg-blue-500 text-white ml-2">
-                      {selectedCategories.size}
-                    </Chip>
-                  )}
-                </Button>
-
-                {selectedCategories.size > 0 && (
+                <div className="flex gap-2 sm:gap-3">
                   <Button
                     size="lg"
-                    variant="light"
-                    className="text-gray-500 hover:text-gray-900 hidden sm:flex"
-                    onPress={clearFilters}
+                    className="glass-strong border-gray-200 text-gray-900 hover:border-blue-500/50 transition-all duration-300 flex-1 sm:flex-none sm:min-w-[140px]"
+                    startContent={<Filter size={18} />}
+                    onPress={() => setShowFilters(!showFilters)}
                   >
-                    Clear all
+                    <span className="text-sm sm:text-base">Filters</span>
+                    {selectedCategories.size > 0 && (
+                      <Chip size="sm" className="bg-blue-500 text-white ml-2">
+                        {selectedCategories.size}
+                      </Chip>
+                    )}
                   </Button>
-                )}
-              </div>
-            </div>
 
-            {showFilters && (
-              <div className="mt-6 space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-medium text-gray-500">
-                    Filter by category
-                  </h3>
-                  <Button
-                    size="sm"
-                    variant="light"
-                    className="text-gray-400 hover:text-gray-900"
-                    onPress={() => setShowFilters(false)}
-                  >
-                    <X size={16} />
-                  </Button>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {categories.map((category) => (
-                    <button
-                      key={category.name}
-                      onClick={() => toggleCategory(category.name)}
-                      className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
-                        selectedCategories.has(category.name)
-                          ? "bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg glow-purple"
-                          : "glass-strong text-gray-700 hover:text-gray-900 hover:border-blue-500/50"
-                      }`}
+                  {selectedCategories.size > 0 && (
+                    <Button
+                      size="lg"
+                      variant="light"
+                      className="text-gray-500 hover:text-gray-900 hidden sm:flex"
+                      onPress={clearFilters}
                     >
-                      {category.name}
-                    </button>
-                  ))}
+                      Clear all
+                    </Button>
+                  )}
                 </div>
               </div>
-            )}
+
+              {showFilters && (
+                <div className="mt-6 space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-sm font-medium text-gray-500">
+                      Filter by category
+                    </h3>
+                    <Button
+                      size="sm"
+                      variant="light"
+                      className="text-gray-400 hover:text-gray-900"
+                      onPress={() => setShowFilters(false)}
+                    >
+                      <X size={16} />
+                    </Button>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    {categories.map((category) => (
+                      <button
+                        key={category.name}
+                        onClick={() => toggleCategory(category.name)}
+                        className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                          selectedCategories.has(category.name)
+                            ? "bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg glow-purple"
+                            : "glass-strong text-gray-700 hover:text-gray-900 hover:border-blue-500/50"
+                        }`}
+                      >
+                        {category.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        )}
+
+        {/* Companies Section */}
+        {companiesSection && (
+          <div className="border-t border-gray-200/50">
+            {companiesSection}
+          </div>
+        )}
 
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">

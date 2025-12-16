@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Tabs, Tab } from "@heroui/tabs";
 import { Card, CardBody } from "@heroui/card";
 import { Button } from "@heroui/button";
-import { Plus } from "lucide-react";
+import { Plus, Building2 } from "lucide-react";
 import {
   Modal,
   ModalContent,
@@ -14,12 +14,15 @@ import {
 } from "@heroui/modal";
 import UniversalModuleForm from "@/components/admin/universal-module-form";
 import ModuleList from "@/components/admin/module-list";
+import CompanyForm from "@/components/admin/company-form";
+import CompanyList from "@/components/admin/company-list";
 import type {
   ModuleType,
   UniversalModule,
   ModuleCategory,
 } from "@/types/universal-module";
 import { MODULE_DISPLAY_NAMES } from "@/types/universal-module";
+import type { Company } from "@/models/Company";
 
 const MODULE_TYPES: ModuleType[] = [
   "study-india",
@@ -46,12 +49,25 @@ export default function ModulesAdminPage() {
     null
   );
 
+  // Company management state
+  const [companies, setCompanies] = useState<Company[]>([]);
+  const [editingCompany, setEditingCompany] = useState<Company | null>(null);
+  const [isLoadingCompanies, setIsLoadingCompanies] = useState(false);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    isOpen: isCompanyModalOpen,
+    onOpen: onCompanyModalOpen,
+    onClose: onCompanyModalClose,
+  } = useDisclosure();
 
   // Fetch modules for selected type
   useEffect(() => {
     fetchModules();
     fetchCategories();
+    if (selectedModule === "placement-india") {
+      fetchCompanies();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedModule]);
 
@@ -172,6 +188,94 @@ export default function ModulesAdminPage() {
     setEditingModule(null);
   };
 
+  // Company management functions
+  const fetchCompanies = async () => {
+    setIsLoadingCompanies(true);
+    try {
+      const response = await fetch("/api/companies?moduleType=placement-india");
+      if (response.ok) {
+        const data = await response.json();
+        setCompanies(data);
+      }
+    } catch (error) {
+      console.error("Error fetching companies:", error);
+    } finally {
+      setIsLoadingCompanies(false);
+    }
+  };
+
+  const handleCreateCompany = async (data: FormData) => {
+    try {
+      const response = await fetch("/api/companies", {
+        method: "POST",
+        body: data,
+      });
+
+      if (response.ok) {
+        await fetchCompanies();
+        onCompanyModalClose();
+        setEditingCompany(null);
+      } else {
+        const error = await response.json();
+        console.error("Error creating company:", error);
+        alert(error.error || "Failed to create company");
+      }
+    } catch (error) {
+      console.error("Error creating company:", error);
+      alert("Failed to create company");
+    }
+  };
+
+  const handleUpdateCompany = async (data: FormData) => {
+    if (!editingCompany) return;
+
+    try {
+      const response = await fetch(`/api/companies/${editingCompany.id}`, {
+        method: "PUT",
+        body: data,
+      });
+
+      if (response.ok) {
+        await fetchCompanies();
+        onCompanyModalClose();
+        setEditingCompany(null);
+      } else {
+        const error = await response.json();
+        console.error("Error updating company:", error);
+        alert(error.error || "Failed to update company");
+      }
+    } catch (error) {
+      console.error("Error updating company:", error);
+      alert("Failed to update company");
+    }
+  };
+
+  const handleDeleteCompany = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this company?")) return;
+
+    try {
+      const response = await fetch(`/api/companies/${id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        await fetchCompanies();
+      }
+    } catch (error) {
+      console.error("Error deleting company:", error);
+    }
+  };
+
+  const handleEditCompany = (company: Company) => {
+    setEditingCompany(company);
+    onCompanyModalOpen();
+  };
+
+  const handleCompanyModalClose = () => {
+    onCompanyModalClose();
+    setEditingCompany(null);
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8 flex items-center justify-between">
@@ -183,13 +287,25 @@ export default function ModulesAdminPage() {
             Manage all 13 modules with a unified interface
           </p>
         </div>
-        <Button
-          color="primary"
-          startContent={<Plus size={16} />}
-          onPress={onOpen}
-        >
-          Create New
-        </Button>
+        <div className="flex gap-3">
+          <Button
+            color="primary"
+            startContent={<Plus size={16} />}
+            onPress={onOpen}
+          >
+            Create New
+          </Button>
+          {selectedModule === "placement-india" && (
+            <Button
+              color="secondary"
+              variant="flat"
+              startContent={<Building2 size={16} />}
+              onPress={onCompanyModalOpen}
+            >
+              Add Company
+            </Button>
+          )}
+        </div>
       </div>
 
       <Tabs
@@ -206,16 +322,32 @@ export default function ModulesAdminPage() {
       >
         {MODULE_TYPES.map((moduleType) => (
           <Tab key={moduleType} title={MODULE_DISPLAY_NAMES[moduleType]}>
-            <Card className="mt-4">
-              <CardBody>
-                <ModuleList
-                  modules={modules}
-                  isLoading={isLoading}
-                  onEdit={handleEdit}
-                  onDelete={handleDelete}
-                />
-              </CardBody>
-            </Card>
+            <div className="space-y-6 mt-4">
+              {moduleType === "placement-india" && (
+                <Card>
+                  <CardBody>
+                    <h2 className="text-xl font-semibold mb-4">Companies</h2>
+                    <CompanyList
+                      companies={companies}
+                      isLoading={isLoadingCompanies}
+                      onEdit={handleEditCompany}
+                      onDelete={handleDeleteCompany}
+                    />
+                  </CardBody>
+                </Card>
+              )}
+              <Card>
+                <CardBody>
+                  <h2 className="text-xl font-semibold mb-4">Modules</h2>
+                  <ModuleList
+                    modules={modules}
+                    isLoading={isLoading}
+                    onEdit={handleEdit}
+                    onDelete={handleDelete}
+                  />
+                </CardBody>
+              </Card>
+            </div>
           </Tab>
         ))}
       </Tabs>
@@ -241,6 +373,27 @@ export default function ModulesAdminPage() {
               onSubmit={editingModule ? handleUpdate : handleCreate}
               onCancel={handleModalClose}
               onCategoriesUpdate={setCategories}
+            />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+
+      <Modal
+        isOpen={isCompanyModalOpen}
+        onClose={handleCompanyModalClose}
+        size="lg"
+      >
+        <ModalContent>
+          <ModalHeader>
+            <h3 className="text-xl font-semibold">
+              {editingCompany ? "Edit" : "Add"} Company
+            </h3>
+          </ModalHeader>
+          <ModalBody className="pb-6">
+            <CompanyForm
+              initialData={editingCompany || undefined}
+              onSubmit={editingCompany ? handleUpdateCompany : handleCreateCompany}
+              onCancel={handleCompanyModalClose}
             />
           </ModalBody>
         </ModalContent>
