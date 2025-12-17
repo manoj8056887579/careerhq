@@ -30,6 +30,8 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
   const activeStrengthRef = useRef({ current: 0 });
 
   const isMobile = useMemo(() => {
+    if (typeof window === "undefined") return false;
+    
     const hasTouchScreen =
       "ontouchstart" in window || navigator.maxTouchPoints > 0;
     const isSmallScreen = window.innerWidth <= 768;
@@ -400,19 +402,19 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
         style={{ willChange: "transform" }}
       />
       <div
-        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-blue-500 -translate-x-[150%] -translate-y-[150%] border-r-0 border-b-0"
+        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[5px] border-blue-500 -translate-x-[150%] -translate-y-[150%] border-r-0 border-b-0"
         style={{ willChange: "transform" }}
       />
       <div
-        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-blue-500 translate-x-1/2 -translate-y-[150%] border-l-0 border-b-0"
+        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[5px] border-blue-500 translate-x-1/2 -translate-y-[150%] border-l-0 border-b-0"
         style={{ willChange: "transform" }}
       />
       <div
-        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-blue-500 translate-x-1/2 translate-y-1/2 border-l-0 border-t-0"
+        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[5px] border-blue-500 translate-x-1/2 translate-y-1/2 border-l-0 border-t-0"
         style={{ willChange: "transform" }}
       />
       <div
-        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-blue-500 -translate-x-[150%] translate-y-1/2 border-r-0 border-t-0"
+        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[5px] border-blue-500 -translate-x-[150%] translate-y-1/2 border-r-0 border-t-0"
         style={{ willChange: "transform" }}
       />
     </div>

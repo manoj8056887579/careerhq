@@ -14,7 +14,6 @@ export default function Mentors() {
         "At the core of Career HQ stands Gandhi, a visionary educator and entrepreneur with over nine years of leadership experience in the educational consulting industry. Guided by a strong belief in purposeful education and ethical guidance, he has dedicated his career to shaping impactful academic and career pathways for students.",
         "A defining achievement of his journey is the successful facilitation of over 5,000 undergraduate admissions into leading deemed universities and premier colleges across Tamil Nadu. His deep industry insight, strategic institutional partnerships, and unwavering student-centric philosophy have positioned him as a trusted authority and respected leader within the education ecosystem.",
         "Gandhi's vision is rooted in delivering value through clarity, integrity, and innovation. Under his leadership, Career HQ has evolved into a premium educational consulting and placement support organization, consistently delivering measurable outcomes and long-term success for students and families.",
-        "Driven by excellence and purpose, Gandhi continues to lead Career HQ with a commitment to transforming aspirations into achievements and setting new benchmarks in educational consulting.",
       ],
       quote:
         "True leadership in education is not about directing choices, but about empowering students with clarity, confidence, and the right opportunities to define their own future.",
@@ -34,7 +33,7 @@ export default function Mentors() {
   ];
 
   return (
-    <section className="py-20 bg-white" id="mentors-section">
+    <section className="py-12 bg-white" id="mentors-section">
       <TargetCursor targetSelector="#mentors-section .cursor-target" />
       <div className="container mx-auto px-4">
         {/* Section Header */}
@@ -113,6 +112,16 @@ export default function Mentors() {
                       — {founder.name}
                     </p>
                   </div>
+
+                  {/* Additional closing paragraph for Gandhi */}
+                  {founder.name === "Gandhi" && (
+                    <p className="text-foreground-700 leading-relaxed cursor-target">
+                      Driven by excellence and purpose, Gandhi continues to lead
+                      Career HQ with a commitment to transforming aspirations
+                      into achievements and setting new benchmarks in
+                      educational consulting.
+                    </p>
+                  )}
                 </div>
               </div>
 
