@@ -14,6 +14,7 @@ import { AnimatedTestimonials } from "../components/ui/animated-testimonials";
 import { HeroVideoDialog } from "../components/hero-video-dialog";
 import { AnimatedTooltip } from "../components/ui/animated-tooltip";
 import { ColourfulText } from "../components/ui/colourful-text";
+import { AnimatedHeroContent } from "../components/ui/animated-hero-content";
 import VenomBeam from "../components/ui/venom-beam";
 import { AnimatedLogosCanopy } from "../components/ui/animated-logos-canopy";
 import { StatsSection } from "../components/ui/stats-section";
@@ -625,13 +626,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-100 dark:to-neutral-400">
-                  Your Gateway to <ColourfulText text="Global Career" />
-                </h1>
-                <p className="text-xl text-neutral-700 dark:text-neutral-300 mb-8">
-                  Your one-stop platform to explore global opportunities, build
-                  skills, and achieve success across borders.
-                </p>
+                <AnimatedHeroContent />
 
                 <div className="flex flex-wrap gap-4 mb-8">
                   <Link href="/about">

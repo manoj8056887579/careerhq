@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
+import { HeroUIProvider } from "@heroui/system";
 import { ToastProvider } from "@heroui/toast";
 import { ConditionalLayout } from "@/components/conditional-layout";
 import { ChatWidget } from "@/components/chat-widget";
@@ -113,20 +114,22 @@ export default function RootLayout({
   return (
     <html lang="en" className={plusJakartaSans.variable}>
       <body className="font-sans antialiased">
-        <UserRegistrationProvider>
-          <AdminLayoutWrapper>{children}</AdminLayoutWrapper>
-          <ToastProvider
-            placement="top-right"
-            maxVisibleToasts={5}
-            toastProps={{
-              timeout: 5000,
-              classNames: {
-                base: "rounded-lg",
-              },
-            }}
-          />
-          <ChatWidget />
-        </UserRegistrationProvider>
+        <HeroUIProvider>
+          <UserRegistrationProvider>
+            <AdminLayoutWrapper>{children}</AdminLayoutWrapper>
+            <ToastProvider
+              placement="top-right"
+              maxVisibleToasts={5}
+              toastProps={{
+                timeout: 5000,
+                classNames: {
+                  base: "rounded-lg",
+                },
+              }}
+            />
+            <ChatWidget />
+          </UserRegistrationProvider>
+        </HeroUIProvider>
       </body>
     </html>
   );
