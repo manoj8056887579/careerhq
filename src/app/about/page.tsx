@@ -9,6 +9,7 @@ import { useState } from "react";
 
 import { TestimonialCard } from "@/components/testimonial-card";
 import { EnquiryForm } from "@/components/enquiry-form";
+import Mentors from "@/components/mentors";
 
 export default function AboutPage() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -127,9 +128,11 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-primary-50 to-white py-16 ">
-        <div className="absolute inset-0 hero-pattern opacity-30"></div>
+      {/* Founder/Mentor Section - First */}
+      <Mentors />
+
+      {/* Our Story Section */}
+      <section className="py-10 bg-white">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -140,10 +143,6 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-      </section>
-
-      {/* Our Story Section */}
-      <section className="py-10 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
