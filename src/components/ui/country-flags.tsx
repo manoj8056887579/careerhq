@@ -121,21 +121,21 @@ function computeItemBaseRotation(
 
 export default function DomeGallery({
   images = [],
-  fit = 0.5,
+  fit = 0.55,
   fitBasis = "auto",
-  minRadius = 600,
+  minRadius = 180,
   maxRadius = Infinity,
-  padFactor = 0.25,
+  padFactor = 0.2,
   overlayBlurColor = "transparent",
   maxVerticalRotationDeg = DEFAULTS.maxVerticalRotationDeg,
   dragSensitivity = DEFAULTS.dragSensitivity,
   enlargeTransitionMs = DEFAULTS.enlargeTransitionMs,
   segments = DEFAULTS.segments,
   dragDampening = 2,
-  openedImageWidth = "400px",
-  openedImageHeight = "400px",
-  imageBorderRadius = "30px",
-  openedImageBorderRadius = "30px",
+  openedImageWidth = "90vw",
+  openedImageHeight = "90vw",
+  imageBorderRadius = "12px",
+  openedImageBorderRadius = "16px",
   grayscale = true,
 }: DomeGalleryProps) {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -164,6 +164,10 @@ export default function DomeGallery({
   const openingRef = useRef(false);
   const openStartedAtRef = useRef(0);
   const lastDragEndAt = useRef(0);
+  const autoRotateRAF = useRef<number | null>(null);
+  const isHoveredRef = useRef(false);
+  const rotateDirectionRef = useRef(1); // 1 for right, -1 for left
+  const rotateStartTimeRef = useRef(0);
 
   const scrollLockedRef = useRef(false);
   const lockScroll = useCallback(() => {
@@ -284,6 +288,48 @@ export default function DomeGallery({
     applyTransform(rotationRef.current.x, rotationRef.current.y);
   }, []);
 
+  const stopAutoRotate = useCallback(() => {
+    if (autoRotateRAF.current) {
+      cancelAnimationFrame(autoRotateRAF.current);
+      autoRotateRAF.current = null;
+    }
+  }, []);
+
+  const startAutoRotate = useCallback(() => {
+    stopAutoRotate();
+
+    const rotateSpeed = 0.08; // Rotation speed (degrees per frame)
+    const directionChangeInterval = 10000; // Change direction every 10 seconds
+
+    if (rotateStartTimeRef.current === 0) {
+      rotateStartTimeRef.current = Date.now();
+    }
+
+    const rotate = () => {
+      if (isHoveredRef.current || draggingRef.current || focusedElRef.current) {
+        autoRotateRAF.current = null;
+        return;
+      }
+
+      // Check if it's time to change direction
+      const elapsed = Date.now() - rotateStartTimeRef.current;
+      if (elapsed >= directionChangeInterval) {
+        rotateDirectionRef.current *= -1; // Reverse direction
+        rotateStartTimeRef.current = Date.now();
+      }
+
+      const nextY = wrapAngleSigned(
+        rotationRef.current.y + rotateSpeed * rotateDirectionRef.current
+      );
+      rotationRef.current = { x: rotationRef.current.x, y: nextY };
+      applyTransform(rotationRef.current.x, nextY);
+
+      autoRotateRAF.current = requestAnimationFrame(rotate);
+    };
+
+    autoRotateRAF.current = requestAnimationFrame(rotate);
+  }, [stopAutoRotate]);
+
   const stopInertia = useCallback(() => {
     if (inertiaRAF.current) {
       cancelAnimationFrame(inertiaRAF.current);
@@ -333,9 +379,11 @@ export default function DomeGallery({
       onDragStart: ({ event }) => {
         if (focusedElRef.current) return;
         stopInertia();
+        stopAutoRotate();
 
         const evt = event as PointerEvent;
-        pointerTypeRef.current = (evt.pointerType as "mouse" | "pen" | "touch") || "mouse";
+        pointerTypeRef.current =
+          (evt.pointerType as "mouse" | "pen" | "touch") || "mouse";
         if (pointerTypeRef.current === "touch") evt.preventDefault();
         if (pointerTypeRef.current === "touch") lockScroll();
         draggingRef.current = true;
@@ -418,6 +466,13 @@ export default function DomeGallery({
 
           if (!isTap && (Math.abs(vx) > 0.005 || Math.abs(vy) > 0.005)) {
             startInertia(vx, vy);
+          } else if (!isHoveredRef.current) {
+            // Resume auto-rotation after drag ends if not hovering
+            setTimeout(() => {
+              if (!isHoveredRef.current && !draggingRef.current) {
+                startAutoRotate();
+              }
+            }, 1000);
           }
           startPosRef.current = null;
           cancelTapRef.current = !isTap;
@@ -658,7 +713,7 @@ export default function DomeGallery({
       grayscale ? "grayscale(1)" : "none"
     };`;
     overlay.appendChild(img);
-    
+
     // Add country name overlay to enlarged image
     if (rawAlt) {
       const nameOverlay = document.createElement("div");
@@ -724,10 +779,39 @@ export default function DomeGallery({
   };
 
   useEffect(() => {
+    const main = mainRef.current;
+    if (!main) return;
+
+    const handleMouseEnter = () => {
+      isHoveredRef.current = true;
+      stopAutoRotate();
+    };
+
+    const handleMouseLeave = () => {
+      isHoveredRef.current = false;
+      if (!draggingRef.current && !focusedElRef.current) {
+        startAutoRotate();
+      }
+    };
+
+    main.addEventListener("mouseenter", handleMouseEnter);
+    main.addEventListener("mouseleave", handleMouseLeave);
+
     return () => {
+      main.removeEventListener("mouseenter", handleMouseEnter);
+      main.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, [stopAutoRotate, startAutoRotate]);
+
+  // Start auto-rotation on mount
+  useEffect(() => {
+    startAutoRotate();
+
+    return () => {
+      stopAutoRotate();
       document.body.classList.remove("dg-scroll-lock");
     };
-  }, []);
+  }, [startAutoRotate, stopAutoRotate]);
 
   const cssStyles = `
     .sphere-root {
@@ -790,20 +874,10 @@ export default function DomeGallery({
       }
     }
     
-    // body.dg-scroll-lock {
-    //   position: fixed !important;
-    //   top: 0;
-    //   left: 0;
-    //   width: 100% !important;
-    //   height: 100% !important;
-    //   overflow: hidden !important;
-    //   touch-action: none !important;
-    //   overscroll-behavior: contain !important;
-    // }
     .item__image {
       position: absolute;
-      inset: 10px;
-      border-radius: var(--tile-radius, 12px);
+      inset: 6px;
+      border-radius: var(--tile-radius, 8px);
       overflow: hidden;
       cursor: pointer;
       backface-visibility: hidden;
@@ -815,8 +889,73 @@ export default function DomeGallery({
     }
     .item__image--reference {
       position: absolute;
-      inset: 10px;
+      inset: 6px;
       pointer-events: none;
+    }
+    
+    /* Mobile responsive adjustments */
+    @media (max-width: 768px) {
+      .sphere-root {
+        --radius: 280px;
+        --viewer-pad: 24px;
+      }
+      
+      .item__image {
+        inset: 4px;
+        border-radius: var(--tile-radius, 6px);
+      }
+      
+      .item__image--reference {
+        inset: 4px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .sphere-root {
+        --radius: 220px;
+        --viewer-pad: 20px;
+      }
+      
+      .item__image {
+        inset: 3px;
+        border-radius: var(--tile-radius, 4px);
+      }
+      
+      .item__image--reference {
+        inset: 3px;
+      }
+    }
+    
+    @media (max-width: 375px) {
+      .sphere-root {
+        --radius: 180px;
+        --viewer-pad: 16px;
+      }
+      
+      .item__image {
+        inset: 2px;
+        border-radius: var(--tile-radius, 3px);
+      }
+      
+      .item__image--reference {
+        inset: 2px;
+      }
+    }
+    
+    @media (max-width: 320px) {
+      .sphere-root {
+        --radius: 160px;
+        --viewer-pad: 12px;
+      }
+      
+      .item__image {
+        inset: 2px;
+        border-radius: var(--tile-radius, 3px);
+      }
+      
+      .item__image--reference {
+        inset: 2px;
+      }
     }
   `;
 
@@ -839,7 +978,7 @@ export default function DomeGallery({
       >
         <main
           ref={mainRef}
-          className="absolute inset-0 grid place-items-center overflow-hidden select-none bg-transparent"
+          className="absolute inset-0 grid place-items-center overflow-hidden select-none bg-transparent px-4 sm:px-6 md:px-8"
           style={{
             touchAction: "none",
             WebkitUserSelect: "none",
@@ -899,7 +1038,6 @@ export default function DomeGallery({
                         openItemFromElement(e.currentTarget as HTMLElement);
                       }}
                       style={{
-                        inset: "10px",
                         borderRadius: `var(--tile-radius, ${imageBorderRadius})`,
                         backfaceVisibility: "hidden",
                       }}
@@ -917,8 +1055,8 @@ export default function DomeGallery({
                         }}
                       />
                       {it.alt && (
-                        <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/80 to-transparent">
-                          <span className="text-white font-bold text-xs text-center block drop-shadow-lg">
+                        <div className="absolute bottom-0 left-0 right-0 p-1 sm:p-2 bg-gradient-to-t from-black/80 to-transparent">
+                          <span className="text-white font-bold text-[10px] xs:text-xs sm:text-sm text-center block drop-shadow-lg leading-tight">
                             {it.alt}
                           </span>
                         </div>
@@ -966,10 +1104,10 @@ export default function DomeGallery({
             <div
               ref={scrimRef}
               className="scrim absolute inset-0 z-10 pointer-events-none opacity-0 transition-opacity duration-500"
-            //   style={{
-            //     background: "rgba(0, 0, 0, 0.4)",
-            //     backdropFilter: "blur(3px)",
-            //   }}
+              //   style={{
+              //     background: "rgba(0, 0, 0, 0.4)",
+              //     backdropFilter: "blur(3px)",
+              //   }}
             />
             <div
               ref={frameRef}

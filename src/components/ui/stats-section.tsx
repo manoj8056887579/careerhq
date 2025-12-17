@@ -72,7 +72,7 @@ function StatCard({ stat, index }: { stat: StatItem; index: number }) {
     >
       {/* Icon with floating animation */}
       <motion.div
-        className="relative mb-6"
+        className="relative mb-4 sm:mb-6"
         animate={{
           y: [0, -10, 0],
         }}
@@ -96,20 +96,23 @@ function StatCard({ stat, index }: { stat: StatItem; index: number }) {
             repeatType: "reverse",
           }}
         />
-        
+
         {/* Icon container */}
         <motion.div
-          className="relative w-24 h-24  flex items-center justify-center "
+          className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center"
           whileHover={{ scale: 1.1, rotate: 5 }}
           transition={{ duration: 0.3 }}
         >
-          <Icon icon={stat.icon} className="text-6xl text-black" />
+          <Icon
+            icon={stat.icon}
+            className="text-4xl sm:text-5xl md:text-6xl text-black"
+          />
         </motion.div>
       </motion.div>
 
       {/* Counter with enhanced animation */}
       <motion.div
-        className="font-black text-6xl md:text-7xl mb-4 bg-gradient-to-r from-primary-600 via-secondary-600 to-primary-600 bg-clip-text text-transparent"
+        className="font-black text-3xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 bg-gradient-to-r from-primary-600 via-secondary-600 to-primary-600 bg-clip-text text-transparent"
         initial={{ scale: 0.5, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{
@@ -131,9 +134,9 @@ function StatCard({ stat, index }: { stat: StatItem; index: number }) {
       </motion.div>
 
       {/* Label with underline animation */}
-      <div className="relative">
+      <div className="relative px-2 sm:px-0">
         <motion.p
-          className="text-gray-700 dark:text-gray-300 font-bold text-xl tracking-wide"
+          className="text-gray-700 dark:text-gray-300 font-bold text-sm xs:text-base sm:text-lg md:text-xl tracking-wide"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: index * 0.1 + 0.4, duration: 0.5 }}
@@ -141,10 +144,10 @@ function StatCard({ stat, index }: { stat: StatItem; index: number }) {
         >
           {stat.label}
         </motion.p>
-        
+
         {/* Animated underline */}
         <motion.div
-          className="h-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full mt-3"
+          className="h-0.5 sm:h-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full mt-2 sm:mt-3"
           initial={{ width: "0%" }}
           whileInView={{ width: "100%" }}
           transition={{ delay: index * 0.1 + 0.6, duration: 0.8 }}
@@ -157,7 +160,9 @@ function StatCard({ stat, index }: { stat: StatItem; index: number }) {
 
 export function StatsSection({ stats, className = "" }: StatsSectionProps) {
   return (
-    <div className={className}>
+    <div
+      className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12 ${className}`}
+    >
       {stats.map((stat, index) => (
         <StatCard key={index} stat={stat} index={index} />
       ))}
