@@ -13,12 +13,14 @@ import { BlogCard } from "../components/blog-card";
 import { AnimatedTestimonials } from "../components/ui/animated-testimonials";
 import { HeroVideoDialog } from "../components/hero-video-dialog";
 import { AnimatedTooltip } from "../components/ui/animated-tooltip";
-import { ColourfulText } from "../components/ui/colourful-text";
 import { AnimatedHeroContent } from "../components/ui/animated-hero-content";
 import VenomBeam from "../components/ui/venom-beam";
 import { AnimatedLogosCanopy } from "../components/ui/animated-logos-canopy";
 import { StatsSection } from "../components/ui/stats-section";
 import DomeGallery from "../components/ui/country-flags";
+import { TiltedCard } from "../components/ui/tilted-card";
+import { ChromaGrid } from "../components/ui/chroma-grid";
+import { AppleCardsCarousel } from "../components/ui/apple-cards-carousel";
 import type { BlogPost } from "@/types/blog";
 import type { CountryWithCounts, University } from "@/types/education";
 import { getImageUrl as getCloudinaryImageUrl } from "@/lib/cloudinary-utils";
@@ -687,7 +689,12 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="relative"
             >
-              <div className="relative z-10">
+              <TiltedCard
+                tiltMaxAngle={10}
+                scale={1.02}
+                transitionDuration={400}
+                containerClassName="relative z-10"
+              >
                 <HeroVideoDialog
                   videoSrc="https://www.youtube.com/embed/t5akgsQsOSk?si=zke8LcRhw_75zT4X"
                   thumbnailSrc="https://www.timeshighereducation.com/student/sites/default/files/harvard-university-campus.jpg"
@@ -695,7 +702,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                   animationStyle="from-center"
                   className="w-full rounded-lg shadow-xl overflow-hidden aspect-video"
                 />
-              </div>
+              </TiltedCard>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary-100 rounded-full blur-2xl opacity-60 z-0"></div>
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary-100 rounded-full blur-2xl opacity-60 z-0"></div>
             </motion.div>
@@ -713,159 +720,147 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
         </div>
       </VenomBeam>
 
-      {/* Explore Our Verticals Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      {/* Why Choose Career HQ Section */}
+      <ChromaGrid className="py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-              Explore Our Verticals
-            </h2>
-            <p className="text-foreground-600 max-w-2xl mx-auto text-lg">
-              Discover opportunities across education, placements, internships,
-              and more
-            </p>
+          <div className="text-center mb-20">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent"
+            >
+              Why Choose Career HQ?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-foreground-600 max-w-3xl mx-auto text-lg"
+            >
+              Your trusted partner in shaping successful careers worldwide
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
             {[
               {
-                type: "study-abroad",
-                name: "Study Abroad",
-                icon: "lucide:book-open",
-                color: "from-red-500 to-red-600",
-                bgColor: "bg-red-50",
-                iconColor: "text-red-600",
+                icon: "lucide:user-check",
+                title: "Personalized Guidance",
+                description:
+                  "Tailored support for every student and job-seeker to help you achieve your unique goals.",
+                gradient: "from-blue-500 to-cyan-500",
+                color: "text-blue-500",
               },
               {
-                type: "study-india",
-                name: "Study India",
-                icon: "lucide:graduation-cap",
-                color: "from-blue-500 to-blue-600",
-                bgColor: "bg-blue-50",
-                iconColor: "text-blue-600",
+                icon: "lucide:network",
+                title: "Trusted Network",
+                description:
+                  "A reliable network of universities and employers across the globe.",
+                gradient: "from-purple-500 to-pink-500",
+                color: "text-purple-500",
               },
               {
-                type: "placement-india",
-                name: "Placement India",
-                icon: "lucide:briefcase",
-                color: "from-green-500 to-green-600",
-                bgColor: "bg-green-50",
-                iconColor: "text-green-600",
+                icon: "lucide:eye",
+                title: "Transparent Processes",
+                description:
+                  "No hidden steps or false promises—just honest, clear guidance every step of the way.",
+                gradient: "from-green-500 to-emerald-500",
+                color: "text-green-500",
               },
               {
-                type: "placement-abroad",
-                name: "Placement Abroad",
-                icon: "lucide:plane",
-                color: "from-purple-500 to-purple-600",
-                bgColor: "bg-purple-50",
-                iconColor: "text-purple-600",
+                icon: "lucide:award",
+                title: "Expert Team",
+                description:
+                  "Years of industry experience backing every piece of advice and support we provide.",
+                gradient: "from-orange-500 to-red-500",
+                color: "text-orange-500",
               },
               {
-                type: "internship-india",
-                name: "Internship India",
-                icon: "lucide:users",
-                color: "from-orange-500 to-orange-600",
-                bgColor: "bg-orange-50",
-                iconColor: "text-orange-600",
+                icon: "lucide:heart",
+                title: "Student-First Values",
+                description:
+                  "Our commitment to putting students and careers first in everything we do.",
+                gradient: "from-red-500 to-pink-500",
+                color: "text-red-500",
               },
               {
-                type: "internship-abroad",
-                name: "Internship Abroad",
-                icon: "lucide:globe",
-                color: "from-cyan-500 to-cyan-600",
-                bgColor: "bg-cyan-50",
-                iconColor: "text-cyan-600",
+                icon: "lucide:globe-2",
+                title: "Global Reach",
+                description:
+                  "Connecting worldwide careers at one dot with opportunities across 12+ countries.",
+                gradient: "from-indigo-500 to-blue-500",
+                color: "text-indigo-500",
               },
-              {
-                type: "mbbs-india",
-                name: "MBBS India",
-                icon: "lucide:stethoscope",
-                color: "from-red-500 to-red-600",
-                bgColor: "bg-red-50",
-                iconColor: "text-red-600",
-              },
-              {
-                type: "mbbs-abroad",
-                name: "MBBS Abroad",
-                icon: "lucide:heart-pulse",
-                color: "from-pink-500 to-pink-600",
-                bgColor: "bg-pink-50",
-                iconColor: "text-pink-600",
-              },
-              {
-                type: "lms",
-                name: "LMS",
-                icon: "lucide:book-open",
-                color: "from-blue-500 to-blue-600",
-                bgColor: "bg-blue-50",
-                iconColor: "text-blue-600",
-              },
-              {
-                type: "uni-project",
-                name: "University Projects",
-                icon: "lucide:flask-conical",
-                color: "from-teal-500 to-teal-600",
-                bgColor: "bg-teal-50",
-                iconColor: "text-teal-600",
-              },
-              {
-                type: "school-project",
-                name: "School Projects",
-                icon: "lucide:book-open",
-                color: "from-amber-500 to-amber-600",
-                bgColor: "bg-amber-50",
-                iconColor: "text-amber-600",
-              },
-              // {
-              //   type: "mou-project",
-              //   name: "MOU Projects",
-              //   icon: "lucide:handshake",
-              //   color: "from-violet-500 to-violet-600",
-              //   bgColor: "bg-violet-50",
-              //   iconColor: "text-violet-600",
-              // },
-              {
-                type: "loans",
-                name: "Education Loans",
-                icon: "lucide:wallet",
-                color: "from-emerald-500 to-emerald-600",
-                bgColor: "bg-emerald-50",
-                iconColor: "text-emerald-600",
-              },
-            ].map((vertical, index) => (
+            ].map((feature, index) => (
               <motion.div
-                key={vertical.type}
-                initial={{ opacity: 0, y: 20 }}
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05, duration: 0.4 }}
+                whileHover={{ 
+                  y: -12,
+                  transition: { duration: 0.3, ease: "easeOut" }
+                }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
+                className="group relative flex flex-col items-center text-center cursor-pointer p-6 rounded-3xl hover:bg-white/50 dark:hover:bg-gray-900/50 backdrop-blur-sm transition-all duration-300"
               >
-                <Link href={`/${vertical.type}`}>
-                  <div className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border border-gray-100 h-full flex flex-col items-center text-center">
-                    <div
-                      className={`w-16 h-16 rounded-xl ${vertical.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <Icon
-                        icon={vertical.icon}
-                        className={`w-8 h-8 ${vertical.iconColor}`}
-                      />
-                    </div>
-                    <h3 className="font-bold text-gray-900 text-sm sm:text-base mb-2 group-hover:bg-gradient-to-r group-hover:from-primary-600 group-hover:to-secondary-600 group-hover:bg-clip-text group-hover:text-transparent transition-all">
-                      {vertical.name}
-                    </h3>
-                    <div
-                      className="absolute inset-0 rounded-2xl bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-300"
-                      style={{
-                        backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))`,
-                      }}
-                    />
+                {/* Floating Icon with Glow Effect */}
+                <motion.div 
+                  className="relative mb-6"
+                  whileHover={{ 
+                    scale: 1.15,
+                    rotate: 360,
+                    transition: { duration: 0.6, ease: "easeInOut" }
+                  }}
+                >
+                  {/* Glow effect */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-full blur-2xl opacity-20 group-hover:opacity-60 transition-all duration-500 scale-150 group-hover:scale-[2]`}
+                  />
+                  {/* Icon container */}
+                  <div
+                    className={`relative w-20 h-20 rounded-full bg-gradient-to-br ${feature.gradient} flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-shadow duration-500`}
+                  >
+                    <Icon icon={feature.icon} className="w-10 h-10 text-white" />
                   </div>
-                </Link>
+                  
+                  {/* Animated ring */}
+                  <div
+                    className={`absolute inset-0 rounded-full border-2 border-transparent group-hover:border-current ${feature.color} opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500`}
+                  />
+                </motion.div>
+
+                {/* Content */}
+                <motion.h3
+                  className="text-2xl font-bold mb-4 transition-all duration-300 group-hover:scale-105"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <span className={`group-hover:bg-gradient-to-r group-hover:${feature.gradient} group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300`}>
+                    {feature.title}
+                  </span>
+                </motion.h3>
+                <motion.p 
+                  className="text-gray-600 dark:text-gray-300 leading-relaxed max-w-sm group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  {feature.description}
+                </motion.p>
+
+                {/* Decorative line */}
+                <div className="mt-6 w-16 h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent group-hover:w-32 group-hover:via-primary-500 transition-all duration-500" />
+                
+                {/* Background gradient on hover */}
+                <div
+                  className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 -z-10`}
+                />
               </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </ChromaGrid>
 
       {/* Services Section */}
       <section className="py-20  bg-white relative overflow-hidden">
@@ -943,6 +938,73 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
           <StatsSection
             stats={statsData}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+          />
+        </div>
+      </section>
+
+      {/* Core Values Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent"
+            >
+              Our Core Values
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-foreground-600 max-w-3xl mx-auto text-lg"
+            >
+              The principles that guide our approach and define our culture
+            </motion.p>
+          </div>
+
+          <AppleCardsCarousel
+            cards={[
+              {
+                title: "Empowerment",
+                description:
+                  "We uplift individuals to take control of their career journeys with clarity, confidence, and independence.",
+                icon: "lucide:zap",
+              },
+              {
+                title: "Integrity",
+                description:
+                  "We operate with honesty, transparency, and trust, ensuring ethical practices in every interaction.",
+                icon: "lucide:shield",
+              },
+              {
+                title: "Growth Mindset",
+                description:
+                  "We believe that learning never stops and encourage continuous personal and professional evolution.",
+                icon: "lucide:trending-up",
+              },
+              {
+                title: "Inclusivity",
+                description:
+                  "We create an environment where every individual is respected, valued, and given equal opportunity—without barriers.",
+                icon: "lucide:users",
+              },
+              {
+                title: "Innovation",
+                description:
+                  "We embrace new ideas, forward-thinking strategies, and transformative tools that drive meaningful career advancement.",
+                icon: "lucide:lightbulb",
+              },
+              {
+                title: "Impact",
+                description:
+                  "We define success by the positive and lasting difference we create in people's lives and career paths.",
+                icon: "lucide:target",
+              },
+            ]}
           />
         </div>
       </section>

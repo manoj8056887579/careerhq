@@ -6,10 +6,13 @@ import { Button } from "@heroui/button";
 import { Card, CardBody } from "@heroui/card";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 import { TestimonialCard } from "@/components/testimonial-card";
 import { EnquiryForm } from "@/components/enquiry-form";
 import Mentors from "@/components/mentors";
+import { ChromaGrid } from "@/components/ui/chroma-grid";
+import { AppleCardsCarousel } from "@/components/ui/apple-cards-carousel";
 
 export default function AboutPage() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -265,140 +268,441 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Career HQ Section */}
-      <section className="py-16 bg-white">
+      <ChromaGrid className="py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3">Why Choose Career HQ?</h2>
-            <p className="text-foreground-500 max-w-2xl mx-auto">
-              Your trusted partner for education and career success
-            </p>
+          <div className="text-center mb-20">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent"
+            >
+              Why Choose Career HQ?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-foreground-600 max-w-3xl mx-auto text-lg"
+            >
+              Your trusted partner in shaping successful careers worldwide
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <Card className="border border-default-200 hover:shadow-xl transition-shadow">
-              <CardBody className="p-6">
-                <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mb-4">
-                  <Icon icon="lucide:user-check" className="text-primary text-xl" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Personalized Guidance</h3>
-                <p className="text-foreground-600">
-                  Tailored support for every student and job-seeker to help you achieve your unique goals.
-                </p>
-              </CardBody>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+            {[
+              {
+                icon: "lucide:user-check",
+                title: "Personalized Guidance",
+                description:
+                  "Tailored support for every student and job-seeker to help you achieve your unique goals.",
+                gradient: "from-blue-500 to-cyan-500",
+                color: "text-blue-500",
+              },
+              {
+                icon: "lucide:network",
+                title: "Trusted Network",
+                description:
+                  "A reliable network of universities and employers across the globe.",
+                gradient: "from-purple-500 to-pink-500",
+                color: "text-purple-500",
+              },
+              {
+                icon: "lucide:eye",
+                title: "Transparent Processes",
+                description:
+                  "No hidden steps or false promises—just honest, clear guidance every step of the way.",
+                gradient: "from-green-500 to-emerald-500",
+                color: "text-green-500",
+              },
+              {
+                icon: "lucide:award",
+                title: "Expert Team",
+                description:
+                  "Years of industry experience backing every piece of advice and support we provide.",
+                gradient: "from-orange-500 to-red-500",
+                color: "text-orange-500",
+              },
+              {
+                icon: "lucide:heart",
+                title: "Student-First Values",
+                description:
+                  "Our commitment to putting students and careers first in everything we do.",
+                gradient: "from-red-500 to-pink-500",
+                color: "text-red-500",
+              },
+              {
+                icon: "lucide:globe-2",
+                title: "Global Reach",
+                description:
+                  "Connecting worldwide careers at one dot with opportunities across 12+ countries.",
+                gradient: "from-indigo-500 to-blue-500",
+                color: "text-indigo-500",
+              },
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{
+                  y: -12,
+                  transition: { duration: 0.3, ease: "easeOut" },
+                }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="group relative flex flex-col items-center text-center cursor-pointer p-6 rounded-3xl hover:bg-white/50 dark:hover:bg-gray-900/50 backdrop-blur-sm transition-all duration-300"
+              >
+                {/* Floating Icon with Glow Effect */}
+                <motion.div
+                  className="relative mb-6"
+                  whileHover={{
+                    scale: 1.15,
+                    rotate: 360,
+                    transition: { duration: 0.6, ease: "easeInOut" },
+                  }}
+                >
+                  {/* Glow effect */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-full blur-2xl opacity-20 group-hover:opacity-60 transition-all duration-500 scale-150 group-hover:scale-[2]`}
+                  />
+                  {/* Icon container */}
+                  <div
+                    className={`relative w-20 h-20 rounded-full bg-gradient-to-br ${feature.gradient} flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-shadow duration-500`}
+                  >
+                    <Icon icon={feature.icon} className="w-10 h-10 text-white" />
+                  </div>
 
-            <Card className="border border-default-200 hover:shadow-xl transition-shadow">
-              <CardBody className="p-6">
-                <div className="w-12 h-12 rounded-full bg-secondary-100 flex items-center justify-center mb-4">
-                  <Icon icon="lucide:network" className="text-secondary text-xl" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Trusted Network</h3>
-                <p className="text-foreground-600">
-                  A reliable network of universities and employers across the globe.
-                </p>
-              </CardBody>
-            </Card>
+                  {/* Animated ring */}
+                  <div
+                    className={`absolute inset-0 rounded-full border-2 border-transparent group-hover:border-current ${feature.color} opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500`}
+                  />
+                </motion.div>
 
-            <Card className="border border-default-200 hover:shadow-xl transition-shadow">
-              <CardBody className="p-6">
-                <div className="w-12 h-12 rounded-full bg-success-100 flex items-center justify-center mb-4">
-                  <Icon icon="lucide:eye" className="text-success text-xl" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Transparent Processes</h3>
-                <p className="text-foreground-600">
-                  No hidden steps or false promises—just honest, clear guidance every step of the way.
-                </p>
-              </CardBody>
-            </Card>
+                {/* Content */}
+                <motion.h3
+                  className="text-2xl font-bold mb-4 transition-all duration-300 group-hover:scale-105"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <span
+                    className={`group-hover:bg-gradient-to-r group-hover:${feature.gradient} group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300`}
+                  >
+                    {feature.title}
+                  </span>
+                </motion.h3>
+                <motion.p
+                  className="text-gray-600 dark:text-gray-300 leading-relaxed max-w-sm group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  {feature.description}
+                </motion.p>
 
-            <Card className="border border-default-200 hover:shadow-xl transition-shadow">
-              <CardBody className="p-6">
-                <div className="w-12 h-12 rounded-full bg-warning-100 flex items-center justify-center mb-4">
-                  <Icon icon="lucide:award" className="text-warning text-xl" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Expert Team</h3>
-                <p className="text-foreground-600">
-                  Years of industry experience backing every piece of advice and support we provide.
-                </p>
-              </CardBody>
-            </Card>
+                {/* Decorative line */}
+                <div className="mt-6 w-16 h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent group-hover:w-32 group-hover:via-primary-500 transition-all duration-500" />
 
-            <Card className="border border-default-200 hover:shadow-xl transition-shadow">
-              <CardBody className="p-6">
-                <div className="w-12 h-12 rounded-full bg-danger-100 flex items-center justify-center mb-4">
-                  <Icon icon="lucide:heart" className="text-danger text-xl" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Student-First Values</h3>
-                <p className="text-foreground-600">
-                  Our commitment to putting students and careers first in everything we do.
-                </p>
-              </CardBody>
-            </Card>
+                {/* Background gradient on hover */}
+                <div
+                  className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 -z-10`}
+                />
+              </motion.div>
+            ))}
           </div>
         </div>
-      </section>
+      </ChromaGrid>
 
       {/* Mission & Vision Section */}
-      <section className="py-16 bg-default-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3">Our Mission & Vision</h2>
-            <p className="text-foreground-500 max-w-2xl mx-auto">
+      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-20">
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 90, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full blur-3xl"
+          />
+          <motion.div
+            animate={{
+              scale: [1, 1.3, 1],
+              rotate: [0, -90, 0],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full blur-3xl"
+          />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-20">
+            <motion.h2
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, type: "spring" }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent"
+            >
+              Our Mission & Vision
+            </motion.h2>
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: "100px" }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full"
+            />
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="text-foreground-600 max-w-3xl mx-auto text-lg"
+            >
               Guiding principles that drive everything we do at Career Head Quarters
-            </p>
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="border border-default-200">
-              <CardBody className="p-6">
-                <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mb-4">
-                  <Icon icon="lucide:target" className="text-primary text-xl" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Our Mission</h3>
-                <p className="text-foreground-600">
-                  At Career Head Quarters, our mission is to empower individuals to realize their fullest potential and build meaningful, sustainable career paths. We inspire growth, enable informed choices, and create a future where every person has the opportunity to thrive professionally with global exposure.
-                </p>
-              </CardBody>
-            </Card>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-stretch">
+            {/* Mission Card */}
+            <motion.div
+              initial={{ opacity: 0, rotateY: -90 }}
+              whileInView={{ opacity: 1, rotateY: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="group relative perspective-1000 flex"
+            >
+              <motion.div
+                whileHover={{ scale: 1.02, rotateX: 5 }}
+                transition={{ duration: 0.3 }}
+                className="relative w-full"
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                {/* Floating gradient orb */}
+                <motion.div
+                  animate={{
+                    y: [0, -20, 0],
+                    opacity: [0.3, 0.6, 0.3],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full blur-2xl"
+                />
 
-            <Card className="border border-default-200">
-              <CardBody className="p-6">
-                <div className="w-12 h-12 rounded-full bg-secondary-100 flex items-center justify-center mb-4">
-                  <Icon icon="lucide:eye" className="text-secondary text-xl" />
+                <div className="relative bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl p-10 md:p-12 overflow-hidden h-full flex flex-col">
+                  {/* Animated border */}
+                  <motion.div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent)",
+                    }}
+                    animate={{
+                      x: ["-100%", "200%"],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                  />
+
+                  {/* Number badge */}
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.5, type: "spring" }}
+                    viewport={{ once: true }}
+                    className="inline-block mb-6 text-7xl font-bold bg-gradient-to-br from-blue-500 to-cyan-500 bg-clip-text text-transparent opacity-20"
+                  >
+                    01
+                  </motion.div>
+
+                  {/* Content */}
+                  <div className="flex-1 flex flex-col">
+                    <motion.h3
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6 }}
+                      viewport={{ once: true }}
+                      className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent"
+                    >
+                      Our Mission
+                    </motion.h3>
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                      viewport={{ once: true }}
+                      className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg flex-1"
+                    >
+                      At Career Head Quarters, our mission is to empower individuals to realize their fullest potential and build meaningful, sustainable career paths. We inspire growth, enable informed choices, and create a future where every person has the opportunity to thrive professionally with global exposure.
+                    </motion.p>
+                  </div>
+
+                  {/* Decorative dots */}
+                  <div className="absolute bottom-6 right-6 flex gap-2">
+                    {[...Array(3)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        animate={{
+                          scale: [1, 1.5, 1],
+                          opacity: [0.3, 1, 0.3],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: i * 0.3,
+                        }}
+                        className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500"
+                      />
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Our Vision</h3>
-                <p className="text-foreground-600">
-                  To become a trusted global gateway for education, careers, and professional development—empowering students, professionals, and organizations to learn, grow, and succeed with future-ready skills across borders.
-                </p>
-              </CardBody>
-            </Card>
+              </motion.div>
+            </motion.div>
+
+            {/* Vision Card */}
+            <motion.div
+              initial={{ opacity: 0, rotateY: 90 }}
+              whileInView={{ opacity: 1, rotateY: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="group relative perspective-1000 flex"
+            >
+              <motion.div
+                whileHover={{ scale: 1.02, rotateX: 5 }}
+                transition={{ duration: 0.3 }}
+                className="relative w-full"
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                {/* Floating gradient orb */}
+                <motion.div
+                  animate={{
+                    y: [0, -20, 0],
+                    opacity: [0.3, 0.6, 0.3],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1,
+                  }}
+                  className="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full blur-2xl"
+                />
+
+                <div className="relative bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl p-10 md:p-12 overflow-hidden h-full flex flex-col">
+                  {/* Animated border */}
+                  <motion.div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.5), transparent)",
+                    }}
+                    animate={{
+                      x: ["-100%", "200%"],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "linear",
+                      delay: 1.5,
+                    }}
+                  />
+
+                  {/* Number badge */}
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.7, type: "spring" }}
+                    viewport={{ once: true }}
+                    className="inline-block mb-6 text-7xl font-bold bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent opacity-20"
+                  >
+                    02
+                  </motion.div>
+
+                  {/* Content */}
+                  <div className="flex-1 flex flex-col">
+                    <motion.h3
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                      viewport={{ once: true }}
+                      className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+                    >
+                      Our Vision
+                    </motion.h3>
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 1 }}
+                      viewport={{ once: true }}
+                      className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg flex-1"
+                    >
+                      To become a trusted global gateway for education, careers, and professional development—empowering students, professionals, and organizations to learn, grow, and succeed with future-ready skills across borders.
+                    </motion.p>
+                  </div>
+
+                  {/* Decorative dots */}
+                  <div className="absolute bottom-6 right-6 flex gap-2">
+                    {[...Array(3)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        animate={{
+                          scale: [1, 1.5, 1],
+                          opacity: [0.3, 1, 0.3],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: i * 0.3 + 0.5,
+                        }}
+                        className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"
+                      />
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Our Values Section */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3">Our Core Values</h2>
-            <p className="text-foreground-500 max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent"
+            >
+              Our Core Values
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-foreground-600 max-w-3xl mx-auto text-lg"
+            >
               The principles that guide our approach and define our culture
-            </p>
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map((value, index) => (
-              <Card key={index} className="border border-default-200 h-full">
-                <CardBody className="p-6">
-                  <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mb-4">
-                    <Icon icon={value.icon} className="text-primary text-xl" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                  <p className="text-foreground-500">{value.description}</p>
-                </CardBody>
-              </Card>
-            ))}
-          </div>
+          <AppleCardsCarousel cards={values} />
         </div>
       </section>
 
