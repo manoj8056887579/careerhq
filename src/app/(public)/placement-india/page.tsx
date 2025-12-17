@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import ModuleListingPage from "@/components/public/module-listing-page";
+import CompaniesSection from "@/components/public/companies-section";
 import type { UniversalModule, ModuleCategory } from "@/types/universal-module";
+import type { Company } from "@/models/Company";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -14,7 +16,7 @@ async function getModulesData() {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
-    const [modulesRes, categoriesRes] = await Promise.all([
+    const [modulesRes, categoriesRes, companiesRes] = await Promise.all([
       fetch(
         `${baseUrl}/api/modules?moduleType=placement-india&published=true`,
         {
@@ -22,6 +24,9 @@ async function getModulesData() {
         }
       ),
       fetch(`${baseUrl}/api/modules/categories?moduleType=placement-india`, {
+        cache: "no-store",
+      }),
+      fetch(`${baseUrl}/api/companies?moduleType=placement-india`, {
         cache: "no-store",
       }),
     ]);
@@ -32,24 +37,30 @@ async function getModulesData() {
     const categories: ModuleCategory[] = categoriesRes.ok
       ? await categoriesRes.json()
       : [];
+    const companies: Company[] = companiesRes.ok
+      ? await companiesRes.json()
+      : [];
 
-    return { modules, categories };
+    return { modules, categories, companies };
   } catch (error) {
     console.error("Error fetching modules data:", error);
-    return { modules: [], categories: [] };
+    return { modules: [], categories: [], companies: [] };
   }
 }
 
 export default async function PlacementIndiaPage() {
-  const { modules, categories } = await getModulesData();
+  const { modules, categories, companies } = await getModulesData();
 
   return (
-    <ModuleListingPage
-      moduleType="placement-india"
-      title="Placement in India"
-      description="Find the best job placement opportunities with top companies in India"
-      initialModules={modules}
-      initialCategories={categories}
-    />
+    <>
+      <ModuleListingPage
+        moduleType="placement-india"
+        title="Placement in India"
+        description="Find the best job placement opportunities with top companies in India"
+        initialModules={modules}
+        initialCategories={categories}
+        companiesSection={<CompaniesSection companies={companies} />}
+      />
+    </>
   );
 }
