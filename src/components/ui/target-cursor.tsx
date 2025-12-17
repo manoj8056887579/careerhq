@@ -18,6 +18,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
   hoverDuration = 0.2,
   parallaxOn = true,
 }) => {
+  const [isMounted, setIsMounted] = React.useState(false);
   const cursorRef = useRef<HTMLDivElement>(null);
   const cornersRef = useRef<NodeListOf<HTMLDivElement> | null>(null);
   const spinTl = useRef<gsap.core.Timeline | null>(null);
@@ -47,6 +48,10 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
   }, []);
 
   const constants = useMemo(() => ({ borderWidth: 3, cornerSize: 12 }), []);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const moveCursor = useCallback((x: number, y: number) => {
     if (!cursorRef.current) return;
@@ -386,15 +391,16 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
     }
   }, [spinDuration, isMobile]);
 
-  if (isMobile) {
-    return null;
+  // Always render a div to prevent hydration mismatch
+  if (!isMounted || isMobile) {
+    return <div className="hidden" />;
   }
 
   return (
     <div
       ref={cursorRef}
       className="fixed top-0 left-0 w-0 h-0 pointer-events-none z-[9999]"
-      style={{ willChange: "transform" }}
+      style={{ willChange: "transform", opacity: 0 }}
     >
       <div
         ref={dotRef}
