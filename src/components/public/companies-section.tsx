@@ -45,17 +45,16 @@ export default function CompaniesSection({ companies }: CompaniesSectionProps) {
             {companies.map((company) => (
               <div
                 key={company.id}
-                className="group relative bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20 hover:-translate-y-1 border border-gray-100 min-w-[140px] sm:min-w-[160px] md:min-w-[180px]"
+                className="group relative flex items-center justify-center transition-all duration-300 hover:-translate-y-2 min-w-[140px] sm:min-w-[160px] md:min-w-[180px]"
               >
                 <div className="relative w-full h-20 sm:h-24 md:h-28 flex items-center justify-center">
                   <Image
                     src={getImageUrl(company.logo)}
                     alt={company.name}
                     fill
-                    className="object-contain p-2 transition-transform duration-300 group-hover:scale-110"
+                    className="object-contain transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
-                <div className="absolute inset-0 rounded-xl sm:rounded-2xl ring-2 ring-transparent group-hover:ring-blue-500/50 transition-all duration-300 pointer-events-none" />
               </div>
             ))}
           </LogoLoop>
