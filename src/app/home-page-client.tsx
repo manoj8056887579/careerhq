@@ -1012,7 +1012,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
       {/* Country Flags Gallery Section */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-7">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1033,7 +1033,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
             </motion.p>
           </div>
 
-          <div className="h-[600px] w-full">
+          <div className="h-[500px] w-full">
             <DomeGallery
               images={countries
                 .filter((country) => country.flagImageId)
