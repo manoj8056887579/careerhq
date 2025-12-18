@@ -143,7 +143,7 @@ const Card = ({ card, index }: { card: Card; index: number }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        "rounded-3xl bg-white dark:bg-gray-900 h-80 w-80 md:h-[450px] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10 border border-gray-200 dark:border-gray-700",
+        "rounded-3xl bg-white dark:bg-gray-900 h-80 w-80 md:h-[550px] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10 border border-gray-200 dark:border-gray-700",
         "transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
       )}
     >

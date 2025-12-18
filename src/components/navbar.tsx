@@ -307,7 +307,7 @@ export const MainNavbar: React.FC = () => {
           {/* Verticals Bar */}
           <div className="border-t border-gray-200 overflow-hidden">
             <div className="max-w-[1600px] mx-auto">
-              <div className="flex items-center gap-1 py-2 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400">
+              <div className="flex items-center justify-center gap-3 py-2 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400">
                 {verticals.map((vertical) => {
                   const isActive = pathname.startsWith(vertical.link);
                   return (
@@ -315,7 +315,7 @@ export const MainNavbar: React.FC = () => {
                       key={vertical.link}
                       href={vertical.link}
                       className={cn(
-                        "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-md font-medium transition-all whitespace-nowrap flex-shrink-0",
+                        "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap flex-shrink-0",
                         isActive
                           ? "bg-blue-600 text-white shadow-md"
                           : "text-gray-700 hover:bg-gray-100 hover:text-blue-600"
@@ -323,7 +323,7 @@ export const MainNavbar: React.FC = () => {
                     >
                       <Icon
                         icon={vertical.icon}
-                        className="w-3.5 h-3.5 flex-shrink-0"
+                        className="w-4 h-4 flex-shrink-0"
                       />
                       <span>{vertical.name}</span>
                     </Link>
