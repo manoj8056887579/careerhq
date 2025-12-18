@@ -127,7 +127,7 @@ export default function RootLayout({
                 },
               }}
             />
-            <ChatWidget />
+            {/* <ChatWidget /> */}
           </UserRegistrationProvider>
         </HeroUIProvider>
       </body>
