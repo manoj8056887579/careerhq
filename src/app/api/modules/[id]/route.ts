@@ -11,14 +11,26 @@ interface RouteParams {
   params: Promise<{ id: string }>;
 }
 
-// GET - Fetch a single module by ID
-export async function GET(_request: NextRequest, { params }: RouteParams) {
+// GET - Fetch a single module by ID or slug
+export async function GET(request: NextRequest, { params }: RouteParams) {
   try {
     await connectToDatabase();
 
     const { id } = await params;
+    const { searchParams } = new URL(request.url);
+    const bySlug = searchParams.get("bySlug") === "true";
 
-    const moduleData = await UniversalModuleModel.findById(id).lean();
+    let moduleData;
+    
+    if (bySlug) {
+      // Try to find by slug first
+      moduleData = await UniversalModuleModel.findOne({ slug: id }).lean();
+    }
+    
+    // If not found by slug or not searching by slug, try by ID
+    if (!moduleData) {
+      moduleData = await UniversalModuleModel.findById(id).lean();
+    }
 
     if (!moduleData) {
       return NextResponse.json({ error: "Module not found" }, { status: 404 });

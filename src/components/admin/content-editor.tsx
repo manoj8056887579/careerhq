@@ -250,18 +250,25 @@ export default function ContentEditor({
           block.id === blockId ? { ...block, [field]: value } : block
         );
 
-        // Update parent component
-        const contentWithoutIds = newBlocks.map(
-          ({ id: _id, ...block }) => block
-        );
-        previousContentRef.current = contentWithoutIds;
-        onChange(contentWithoutIds);
-
         return newBlocks;
       });
     },
-    [onChange]
+    []
   );
+
+  // Sync blocks to parent component using useEffect to avoid setState during render
+  useEffect(() => {
+    const contentWithoutIds = blocks.map(({ id: _id, ...block }) => block);
+
+    // Only update if content actually changed
+    if (
+      JSON.stringify(contentWithoutIds) !==
+      JSON.stringify(previousContentRef.current)
+    ) {
+      previousContentRef.current = contentWithoutIds;
+      onChange(contentWithoutIds);
+    }
+  }, [blocks, onChange]);
 
   // Move block up or down
   const moveBlock = (blockId: string, direction: "up" | "down") => {

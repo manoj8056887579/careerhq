@@ -609,12 +609,20 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
   ];
 
   // Convert blog posts to ticker format
-  const blogTickerItems = blogPosts.map((post) => ({
-    id: post.id,
-    title: post.title,
-    link: `/blog/${post.id}`,
-    isActive: false,
-  }));
+  const blogTickerItems = blogPosts.map((post) => {
+    const urlSlug = post.title
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-")
+      .trim();
+    return {
+      id: post.id,
+      title: post.title,
+      link: `/blog/${urlSlug}`,
+      isActive: false,
+    };
+  });
 
   return (
     <>
@@ -868,7 +876,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
       </ChromaGrid>
 
       {/* Services Section */}
-      <section className="py-20  bg-white relative overflow-hidden">
+      {/* <section className="py-20  bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50/30 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
@@ -910,7 +918,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Stats Section */}
       <section className="py-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-30">

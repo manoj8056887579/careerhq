@@ -31,7 +31,9 @@ export default async function StudyIndiaDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const moduleData = await getModule(id);
+
+  // Try to get module by slug first, then by ID
+  const moduleData = await getModule(id, true); // true = try slug first
 
   if (!moduleData) {
     notFound();

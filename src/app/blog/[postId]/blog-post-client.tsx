@@ -201,13 +201,20 @@ export const BlogPostClient: React.FC<BlogPostClientProps> = ({
                     Related Articles
                   </h3>
                   <div className="space-y-6">
-                    {relatedPosts.map((relatedPost) => (
-                      <Card
-                        key={relatedPost.id}
-                        className="border border-default-200"
-                      >
-                        <CardBody className="p-0">
-                          <Link href={`/blog/${relatedPost.id}`}>
+                    {relatedPosts.map((relatedPost) => {
+                      const urlSlug = relatedPost.title
+                        .toLowerCase()
+                        .replace(/[^\w\s-]/g, "")
+                        .replace(/\s+/g, "-")
+                        .replace(/-+/g, "-")
+                        .trim();
+                      return (
+                        <Card
+                          key={relatedPost.id}
+                          className="border border-default-200"
+                        >
+                          <CardBody className="p-0">
+                            <Link href={`/blog/${urlSlug}`}>
                             <div className="flex gap-4 cursor-pointer hover:bg-default-50 transition-colors">
                               <div className="w-24 h-24 flex-shrink-0 relative">
                                 <Image
@@ -231,9 +238,10 @@ export const BlogPostClient: React.FC<BlogPostClientProps> = ({
                               </div>
                             </div>
                           </Link>
-                        </CardBody>
-                      </Card>
-                    ))}
+                          </CardBody>
+                        </Card>
+                      );
+                    })}
                   </div>
                 </div>
               )}

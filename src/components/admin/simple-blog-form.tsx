@@ -29,6 +29,7 @@ interface SimpleBlogFormProps {
 
 interface FormData {
   title: string;
+  slug: string;
   excerpt: string;
   content: BlogContent[];
   imageId: string;
@@ -40,6 +41,7 @@ interface FormData {
 
 const initialFormData: FormData = {
   title: "",
+  slug: "",
   excerpt: "",
   content: [],
   imageId: "",

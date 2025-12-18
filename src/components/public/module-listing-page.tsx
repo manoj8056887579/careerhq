@@ -361,7 +361,7 @@ function FeaturedModuleCard({
 
   return (
     <Link
-      href={`/${MODULE_TYPE_TO_ROUTE[moduleType]}/${module.id}`}
+      href={`/${MODULE_TYPE_TO_ROUTE[moduleType]}/${module.slug || module.id}`}
       className="group block h-full"
     >
       <div className="relative glass-strong rounded-2xl sm:rounded-3xl overflow-hidden h-full transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl hover:shadow-blue-500/30">
@@ -458,7 +458,7 @@ function ModuleCardModern({ module, moduleType }: ModuleCardModernProps) {
 
   return (
     <Link
-      href={`/${MODULE_TYPE_TO_ROUTE[moduleType]}/${module.id}`}
+      href={`/${MODULE_TYPE_TO_ROUTE[moduleType]}/${module.slug || module.id}`}
       className="group block h-full"
     >
       <div className="relative bg-white rounded-2xl sm:rounded-3xl overflow-hidden h-full flex flex-col shadow-lg shadow-gray-200/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/30">

@@ -11,6 +11,7 @@ import {
 interface BlogPostLeanDocument {
   _id: string;
   title: string;
+  slug?: string;
   excerpt: string;
   content: BlogContent[];
   imageId: string;
@@ -40,7 +41,7 @@ function calculateReadTime(content: BlogContent[]): string {
   return `${minutes} min read`;
 }
 
-// GET /api/blog/[id] - Get a single blog post by ID
+// GET /api/blog/[id] - Get a single blog post by ID or slug
 export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -50,9 +51,31 @@ export async function GET(
 
     const { id } = await params;
 
-    const post = (await BlogPost.findById(
-      id
-    ).lean()) as BlogPostLeanDocument | null;
+    // Try to find by slug first (for SEO-friendly URLs)
+    let post = (await BlogPost.findOne({
+      slug: id,
+    }).lean()) as BlogPostLeanDocument | null;
+
+    // If not found by slug, try by ID (for backward compatibility)
+    if (!post && /^[0-9a-fA-F]{24}$/.test(id)) {
+      post = (await BlogPost.findById(id).lean()) as BlogPostLeanDocument | null;
+    }
+
+    // If still not found, try generating slug from title and search
+    if (!post) {
+      // Try to find by generating slug from all posts
+      const allPosts = await BlogPost.find().lean();
+      const foundPost = allPosts.find((p: any) => {
+        const generatedSlug = p.title
+          .toLowerCase()
+          .replace(/[^\w\s-]/g, "")
+          .replace(/\s+/g, "-")
+          .replace(/-+/g, "-")
+          .trim();
+        return generatedSlug === id;
+      });
+      post = foundPost ? (foundPost as unknown as BlogPostLeanDocument) : null;
+    }
 
     if (!post) {
       return NextResponse.json(
