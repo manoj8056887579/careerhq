@@ -173,9 +173,9 @@ export default function ModuleListingModern({
                     defaultItems={modules}
                     onSelectionChange={(key) => {
                       if (key) {
-                        const module = modules.find(m => m.id === key);
-                        if (module) {
-                          window.location.href = `/${MODULE_TYPE_TO_ROUTE[moduleType]}/${module.id}`;
+                        const selectedModule = modules.find(m => m.id === key);
+                        if (selectedModule) {
+                          window.location.href = `/${MODULE_TYPE_TO_ROUTE[moduleType]}/${selectedModule.id}`;
                         }
                       }
                     }}
