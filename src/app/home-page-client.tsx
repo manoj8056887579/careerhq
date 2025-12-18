@@ -799,21 +799,21 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ 
+                whileHover={{
                   y: -12,
-                  transition: { duration: 0.3, ease: "easeOut" }
+                  transition: { duration: 0.3, ease: "easeOut" },
                 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
                 className="group relative flex flex-col items-center text-center cursor-pointer p-6 rounded-3xl hover:bg-white/50 dark:hover:bg-gray-900/50 backdrop-blur-sm transition-all duration-300"
               >
                 {/* Floating Icon with Glow Effect */}
-                <motion.div 
+                <motion.div
                   className="relative mb-6"
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.15,
                     rotate: 360,
-                    transition: { duration: 0.6, ease: "easeInOut" }
+                    transition: { duration: 0.6, ease: "easeInOut" },
                   }}
                 >
                   {/* Glow effect */}
@@ -824,9 +824,12 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                   <div
                     className={`relative w-20 h-20 rounded-full bg-gradient-to-br ${feature.gradient} flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-shadow duration-500`}
                   >
-                    <Icon icon={feature.icon} className="w-10 h-10 text-white" />
+                    <Icon
+                      icon={feature.icon}
+                      className="w-10 h-10 text-white"
+                    />
                   </div>
-                  
+
                   {/* Animated ring */}
                   <div
                     className={`absolute inset-0 rounded-full border-2 border-transparent group-hover:border-current ${feature.color} opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500`}
@@ -838,11 +841,13 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                   className="text-2xl font-bold mb-4 transition-all duration-300 group-hover:scale-105"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <span className={`group-hover:bg-gradient-to-r group-hover:${feature.gradient} group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300`}>
+                  <span
+                    className={`group-hover:bg-gradient-to-r group-hover:${feature.gradient} group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300`}
+                  >
                     {feature.title}
                   </span>
                 </motion.h3>
-                <motion.p 
+                <motion.p
                   className="text-gray-600 dark:text-gray-300 leading-relaxed max-w-sm group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300"
                   whileHover={{ scale: 1.02 }}
                 >
@@ -851,7 +856,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
 
                 {/* Decorative line */}
                 <div className="mt-6 w-16 h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent group-hover:w-32 group-hover:via-primary-500 transition-all duration-500" />
-                
+
                 {/* Background gradient on hover */}
                 <div
                   className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 -z-10`}
@@ -1029,7 +1034,8 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
               viewport={{ once: true }}
               className="text-foreground-600 max-w-2xl mx-auto text-lg"
             >
-              Explore world-class universities and programs across multiple countries
+              Explore world-class universities and programs across multiple
+              countries
             </motion.p>
           </div>
 
@@ -1091,7 +1097,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
                 </Link>
               </div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className=" p-6">
               <EnquiryForm
                 ref={enquiryRef}
                 title="Get Started Today"
@@ -1237,7 +1243,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
               },
             ]}
             className="py-8"
-            cardClassName="bg-white/90 dark:bg-gray-800/90"
+            cardClassName="bg-transparent"
             repeat={4}
           />
         </div>

@@ -336,7 +336,7 @@ export default function ModuleDetailPage({
                   </Button>
                 </div>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg">
+              <div className=" p-6">
                 <EnquiryForm
                   ref={enquiryRef}
                   title="Get Expert Guidance"

@@ -327,33 +327,33 @@ export const EnquiryForm = React.forwardRef<
             <CardBody
               className={
                 variant === "compact"
-                  ? "p-3 sm:p-4"
-                  : "p-4 sm:p-5 md:p-6 lg:p-8"
+                  ? "p-3 xs:p-4 sm:p-5"
+                  : "p-3 xs:p-4 sm:p-5 md:p-6 lg:p-8"
               }
             >
               {!isSubmitted ? (
                 <>
-                  <div className="mb-4 sm:mb-5 md:mb-6">
+                  <div className="mb-3 xs:mb-4 sm:mb-5 md:mb-6">
                     <h3
                       className={`font-semibold ${
                         variant === "compact"
-                          ? "text-base sm:text-lg"
-                          : "text-lg sm:text-xl md:text-2xl"
-                      } mb-1 sm:mb-2`}
+                          ? "text-sm xs:text-base sm:text-lg"
+                          : "text-base xs:text-lg sm:text-xl md:text-2xl"
+                      } mb-1 xs:mb-1.5 sm:mb-2`}
                     >
                       {title}
                     </h3>
-                    <p className="text-foreground-500 text-xs sm:text-sm">
+                    <p className="text-foreground-500 text-[11px] xs:text-xs sm:text-sm leading-tight">
                       {subtitle}
                     </p>
                   </div>
 
                   <form
                     onSubmit={handleSubmit}
-                    className="space-y-3 sm:space-y-4"
+                    className="space-y-2.5 xs:space-y-3 sm:space-y-4"
                   >
                     {/* Name and Email - Stack on mobile, side by side on tablet+ */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 xs:gap-3 sm:gap-4">
                       <Input
                         label="Full Name"
                         placeholder="Enter your full name"
@@ -374,7 +374,7 @@ export const EnquiryForm = React.forwardRef<
                         startContent={
                           <Icon
                             icon="lucide:user"
-                            className="text-default-400"
+                            className="text-default-400 text-sm xs:text-base"
                           />
                         }
                         isInvalid={touched.name && !!validationErrors.name}
@@ -384,8 +384,10 @@ export const EnquiryForm = React.forwardRef<
                             : ""
                         }
                         classNames={{
-                          input: "text-sm sm:text-base",
-                          inputWrapper: "min-h-[44px]",
+                          label: "text-xs xs:text-sm",
+                          input: "text-xs xs:text-sm sm:text-base",
+                          inputWrapper: "min-h-[40px] xs:min-h-[44px]",
+                          errorMessage: "text-[10px] xs:text-xs",
                         }}
                       />
 
@@ -410,7 +412,7 @@ export const EnquiryForm = React.forwardRef<
                         startContent={
                           <Icon
                             icon="lucide:mail"
-                            className="text-default-400"
+                            className="text-default-400 text-sm xs:text-base"
                           />
                         }
                         isInvalid={touched.email && !!validationErrors.email}
@@ -420,17 +422,19 @@ export const EnquiryForm = React.forwardRef<
                             : ""
                         }
                         classNames={{
-                          input: "text-sm sm:text-base",
-                          inputWrapper: "min-h-[44px]",
+                          label: "text-xs xs:text-sm",
+                          input: "text-xs xs:text-sm sm:text-base",
+                          inputWrapper: "min-h-[40px] xs:min-h-[44px]",
+                          errorMessage: "text-[10px] xs:text-xs",
                         }}
                       />
                     </div>
 
                     {/* Phone and Preference - Stack on mobile, side by side on tablet+ */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 xs:gap-3 sm:gap-4">
                       <Input
                         label="Phone Number"
-                        placeholder="Enter your phone number (with country code)"
+                        placeholder="Enter phone number"
                         name="phone"
                         type="tel"
                         value={formData.phone}
@@ -451,7 +455,7 @@ export const EnquiryForm = React.forwardRef<
                         startContent={
                           <Icon
                             icon="lucide:phone"
-                            className="text-default-400"
+                            className="text-default-400 text-sm xs:text-base"
                           />
                         }
                         isInvalid={touched.phone && !!validationErrors.phone}
@@ -461,15 +465,17 @@ export const EnquiryForm = React.forwardRef<
                             : ""
                         }
                         classNames={{
-                          input: "text-sm sm:text-base",
-                          inputWrapper: "min-h-[44px]",
-                          description: "text-xs",
+                          label: "text-xs xs:text-sm",
+                          input: "text-xs xs:text-sm sm:text-base",
+                          inputWrapper: "min-h-[40px] xs:min-h-[44px]",
+                          description: "text-[10px] xs:text-xs",
+                          errorMessage: "text-[10px] xs:text-xs",
                         }}
                       />
 
                       <Input
-                        label="Preferred Country / University / Job Role"
-                        placeholder="e.g., Canada, Harvard University, Software Engineer"
+                        label="Preference (Optional)"
+                        placeholder="e.g., Canada, Harvard"
                         name="preference"
                         value={formData.preference}
                         onChange={(e) =>
@@ -482,20 +488,21 @@ export const EnquiryForm = React.forwardRef<
                         startContent={
                           <Icon
                             icon="lucide:star"
-                            className="text-default-400"
+                            className="text-default-400 text-sm xs:text-base"
                           />
                         }
                         classNames={{
-                          input: "text-sm sm:text-base",
-                          inputWrapper: "min-h-[44px]",
-                          description: "text-xs",
+                          label: "text-xs xs:text-sm",
+                          input: "text-xs xs:text-sm sm:text-base",
+                          inputWrapper: "min-h-[40px] xs:min-h-[44px]",
+                          description: "text-[10px] xs:text-xs",
                         }}
                       />
                     </div>
 
                     <Textarea
-                      label="Message"
-                      placeholder="Enter your message or query here..."
+                      label="Message (Optional)"
+                      placeholder="Enter your message..."
                       name="message"
                       value={formData.message}
                       onChange={(e) =>
@@ -504,13 +511,14 @@ export const EnquiryForm = React.forwardRef<
                       variant="bordered"
                       minRows={3}
                       classNames={{
-                        input: "text-sm sm:text-base",
-                        inputWrapper: "min-h-[80px]",
-                        description: "text-xs",
+                        label: "text-xs xs:text-sm",
+                        input: "text-xs xs:text-sm sm:text-base",
+                        inputWrapper: "min-h-[70px] xs:min-h-[80px]",
+                        description: "text-[10px] xs:text-xs",
                       }}
                     />
 
-                    <div className="space-y-1.5 sm:space-y-2">
+                    <div className="space-y-1 xs:space-y-1.5 sm:space-y-2">
                       <Checkbox
                         isSelected={formData.consent}
                         onValueChange={(checked) => {
@@ -528,24 +536,24 @@ export const EnquiryForm = React.forwardRef<
                           touched.consent && !!validationErrors.consent
                         }
                         classNames={{
-                          label: "text-xs sm:text-sm",
+                          label: "text-[11px] xs:text-xs sm:text-sm",
                         }}
                       >
-                        <span className="text-xs sm:text-sm leading-tight">
+                        <span className="text-[11px] xs:text-xs sm:text-sm leading-tight">
                           I consent to Career HQ contacting me.
                         </span>
                       </Checkbox>
                       {touched.consent && validationErrors.consent && (
-                        <p className="text-danger text-[10px] sm:text-xs pl-6">
+                        <p className="text-danger text-[10px] xs:text-xs pl-5 xs:pl-6">
                           {validationErrors.consent}
                         </p>
                       )}
                     </div>
 
-                    <div className="text-[10px] sm:text-xs text-foreground-400 flex items-start gap-1.5 sm:gap-2">
+                    <div className="text-[10px] xs:text-[11px] sm:text-xs text-foreground-400 flex items-start gap-1 xs:gap-1.5 sm:gap-2">
                       <Icon
                         icon="lucide:shield-check"
-                        className="text-xs sm:text-sm flex-shrink-0 mt-0.5"
+                        className="text-[11px] xs:text-xs sm:text-sm flex-shrink-0 mt-0.5"
                       />
                       <span className="leading-tight">
                         This site is protected by reCAPTCHA and the Google
@@ -554,13 +562,13 @@ export const EnquiryForm = React.forwardRef<
                     </div>
 
                     {error && (
-                      <div className="p-2.5 sm:p-3 bg-danger/10 border border-danger/20 rounded-lg">
-                        <div className="flex items-start gap-2 text-danger">
+                      <div className="p-2 xs:p-2.5 sm:p-3 bg-danger/10 border border-danger/20 rounded-lg">
+                        <div className="flex items-start gap-1.5 xs:gap-2 text-danger">
                           <Icon
                             icon="lucide:alert-circle"
-                            className="text-base sm:text-lg flex-shrink-0 mt-0.5"
+                            className="text-sm xs:text-base sm:text-lg flex-shrink-0 mt-0.5"
                           />
-                          <span className="text-xs sm:text-sm leading-tight">
+                          <span className="text-[11px] xs:text-xs sm:text-sm leading-tight">
                             {error}
                           </span>
                         </div>
@@ -571,12 +579,12 @@ export const EnquiryForm = React.forwardRef<
                       type="submit"
                       color="primary"
                       size="lg"
-                      className="w-full font-medium text-sm sm:text-base min-h-[44px] sm:min-h-[48px]"
+                      className="w-full font-medium text-xs xs:text-sm sm:text-base min-h-[40px] xs:min-h-[44px] sm:min-h-[48px]"
                       isLoading={isSubmitting}
                       isDisabled={!isFormValid() || isSubmitting}
                       startContent={
                         !isSubmitting && (
-                          <Icon icon="lucide:send" className="text-lg" />
+                          <Icon icon="lucide:send" className="text-base xs:text-lg" />
                         )
                       }
                     >
@@ -588,18 +596,18 @@ export const EnquiryForm = React.forwardRef<
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="flex flex-col items-center justify-center py-6 sm:py-8 md:py-10 px-4"
+                  className="flex flex-col items-center justify-center py-4 xs:py-6 sm:py-8 md:py-10 px-3 xs:px-4"
                 >
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-success/10 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                  <div className="w-12 h-12 xs:w-14 xs:h-14 sm:w-16 sm:h-16 bg-success/10 rounded-full flex items-center justify-center mb-2 xs:mb-3 sm:mb-4">
                     <Icon
                       icon="lucide:check"
-                      className="text-success text-xl sm:text-2xl"
+                      className="text-success text-lg xs:text-xl sm:text-2xl"
                     />
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2">
+                  <h3 className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold mb-1.5 xs:mb-2">
                     Thank You!
                   </h3>
-                  <p className="text-center text-foreground-500 text-sm sm:text-base max-w-md">
+                  <p className="text-center text-foreground-500 text-xs xs:text-sm sm:text-base max-w-md leading-relaxed">
                     Your enquiry has been submitted successfully. Our team will
                     contact you shortly.
                   </p>

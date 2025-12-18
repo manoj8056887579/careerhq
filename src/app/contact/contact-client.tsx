@@ -91,7 +91,7 @@ export const ContactClient: React.FC<ContactClientProps> = ({ faqs }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="w-full lg:w-1/2 relative h-[450px] lg:h-[360px] rounded-xl overflow-hidden shadow-lg border border-default-200"
+              className="w-full lg:w-1/2 relative h-[490px] rounded-xl overflow-hidden shadow-lg border border-default-200"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary-100/20 via-transparent to-primary-400/10 z-10 pointer-events-none" />
               {mapLink ? (
