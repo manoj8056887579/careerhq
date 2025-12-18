@@ -3,16 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Link as HeroLink } from "@heroui/link";
-import { Divider } from "@heroui/divider";
 import { Icon } from "@iconify/react";
-import type { Country } from "@/types/education";
-import { generateCountrySlug } from "@/lib/slug-utils";
-import {
-  logDataFetchError,
-  logNetworkError,
-  logApiError,
-} from "@/utils/errorUtils";
+import { FooterBackgroundGradient, TextHoverEffect } from "@/components/ui/hover-footer";
+
 
 interface AdminProfile {
   emails?: string[];
@@ -29,26 +22,22 @@ interface AdminProfile {
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  const [countries, setCountries] = React.useState<Country[]>([]);
   const [adminProfile, setAdminProfile] = React.useState<AdminProfile>({});
   const [mounted, setMounted] = React.useState(false);
 
   const footerSections = [
-   
     {
       title: "Resources",
       links: [
-        { name: "Blog", path: "/blog" },
-        { name: "Career Test", path: "/career-test" },
+        // { name: "Blog", path: "/blog" },
+        { name: "Register", path: "/career-test" },
       ],
     },
     {
       title: "Company",
       links: [
         { name: "Home", path: "/" },
-
         { name: "About Us", path: "/about" },
-
         { name: "Contact", path: "/contact" },
       ],
     },
@@ -66,205 +55,270 @@ export const Footer: React.FC = () => {
     }
   };
 
-  // Use useMemo to prevent hydration mismatch
-  const socialLinks = React.useMemo(() => [
-    { 
-      name: "Facebook", 
-      icon: "logos:facebook", 
-      url: adminProfile.socialLinks?.facebook || "https://facebook.com",
-      enabled: !!adminProfile.socialLinks?.facebook
-    },
-    { 
-      name: "Twitter", 
-      icon: "logos:x", 
-      url: adminProfile.socialLinks?.twitter || "https://twitter.com",
-      enabled: !!adminProfile.socialLinks?.twitter
-    },
-    {
-      name: "Instagram",
-      icon: "logos:instagram-icon",
-      url: adminProfile.socialLinks?.instagram || "https://instagram.com",
-      enabled: !!adminProfile.socialLinks?.instagram
-    },
-    {
-      name: "LinkedIn",
-      icon: "logos:linkedin-icon",
-      url: adminProfile.socialLinks?.linkedin || "https://linkedin.com",
-      enabled: !!adminProfile.socialLinks?.linkedin
-    },
-    { 
-      name: "YouTube", 
-      icon: "logos:youtube-icon", 
-      url: adminProfile.socialLinks?.youtube || "https://youtube.com",
-      enabled: !!adminProfile.socialLinks?.youtube
-    },
-  ], [adminProfile.socialLinks]);
-
-  const fetchCountries = async () => {
-    try {
-      const response = await fetch("/api/countries?limit=8");
-
-      if (!response.ok) {
-        logApiError(
-          `Failed to fetch countries for footer: ${response.status}`,
-          "/api/countries",
-          { limit: 8 },
-          response.status
-        );
-        return;
-      }
-
-      const data = await response.json();
-
-      if (data.countries) {
-        setCountries(data.countries);
-      }
-    } catch (error) {
-      if (error instanceof TypeError && error.message.includes("fetch")) {
-        logNetworkError(error, "/api/countries", { limit: 8 });
-      } else {
-        logDataFetchError(
-          error instanceof Error ? error : String(error),
-          "footer_countries",
-          undefined,
-          { limit: 8 }
-        );
-      }
-    }
-  };
+  const socialLinks = React.useMemo(
+    () => [
+      {
+        name: "Facebook",
+        icon: "lucide:facebook",
+        url: adminProfile.socialLinks?.facebook || "#",
+        enabled: !!adminProfile.socialLinks?.facebook,
+      },
+      {
+        name: "Twitter",
+        icon: "lucide:twitter",
+        url: adminProfile.socialLinks?.twitter || "#",
+        enabled: !!adminProfile.socialLinks?.twitter,
+      },
+      {
+        name: "Instagram",
+        icon: "lucide:instagram",
+        url: adminProfile.socialLinks?.instagram || "#",
+        enabled: !!adminProfile.socialLinks?.instagram,
+      },
+      {
+        name: "LinkedIn",
+        icon: "lucide:linkedin",
+        url: adminProfile.socialLinks?.linkedin || "#",
+        enabled: !!adminProfile.socialLinks?.linkedin,
+      },
+      {
+        name: "YouTube",
+        icon: "lucide:youtube",
+        url: adminProfile.socialLinks?.youtube || "#",
+        enabled: !!adminProfile.socialLinks?.youtube,
+      },
+    ],
+    [adminProfile.socialLinks]
+  );
 
   React.useEffect(() => {
     setMounted(true);
-    fetchCountries();
     fetchAdminProfile();
   }, []);
 
+  if (!mounted) {
+    return (
+      <footer className="bg-white relative h-fit overflow-hidden w-full">
+        <div className="max-w-7xl mx-auto px-8 py-14 z-40 relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
+            {/* Brand section with Logo */}
+            <div className="flex flex-col space-y-4">
+              <Link href="/" className="inline-block">
+                <Image
+                  src="/images/career-hq-logo.png"
+                  alt="CareerHQ Logo"
+                  width={200}
+                  height={67}
+                  className="h-16 w-auto object-contain"
+                />
+              </Link>
+              <p className="text-sm leading-relaxed text-gray-700">
+                Empowering students and professionals to achieve their
+                international education and career goals through expert guidance
+                and comprehensive resources.
+              </p>
+            </div>
+
+            {/* Footer link sections */}
+            {footerSections.map((section) => (
+              <div key={section.title}>
+                <h4 className="text-gray-900 text-lg font-semibold mb-6">
+                  {section.title}
+                </h4>
+                <ul className="space-y-3">
+                  {section.links.map((link) => (
+                    <li key={link.name} className="relative">
+                      <Link
+                        href={link.path}
+                        className="text-gray-700 hover:text-[#3ca2fa] transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
+            {/* Contact section placeholder */}
+            <div>
+              <h4 className="text-gray-900 text-lg font-semibold mb-6">
+                Contact Us
+              </h4>
+            </div>
+          </div>
+
+          <hr className="border-t border-gray-700 my-8" />
+
+          <div className="flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
+            <div className="flex space-x-6 text-gray-700 z-50 relative" />
+            <p className="text-center md:text-left text-gray-700 z-50 relative">
+              © {currentYear} CareerHQ. Powered by{" "}
+              <Link
+                href="https://mntfuture.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-[#3ca2fa] hover:text-[#5cb4ff] transition-colors"
+              >
+                MnT
+              </Link>
+              . All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    );
+  }
+
   return (
-    <footer className="bg-content1 pt-16 pb-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="lg:col-span-1">
-            <Link href="/" className="mb-6 inline-block">
+    <footer className="bg-white relative h-fit overflow-hidden w-full">
+      <div className="max-w-7xl mx-auto px-8 py-14 z-40 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
+          {/* Brand section with Logo */}
+          <div className="flex flex-col space-y-4">
+            <Link href="/" className="inline-block">
               <Image
                 src="/images/career-hq-logo.png"
                 alt="CareerHQ Logo"
-                width={240}
-                height={80}
-                className="h-20 w-auto object-contain"
+                width={200}
+                height={67}
+                className="h-16 w-auto object-contain"
               />
             </Link>
-            <p className="text-foreground-500 mb-6 max-w-md">
+            <p className="text-sm leading-relaxed text-gray-700">
               Empowering students and professionals to achieve their
               international education and career goals through expert guidance
               and comprehensive resources.
             </p>
-
-            {/* Social Media Links */}
-            {mounted && (
-              <div className="flex gap-4 mb-6">
-                {socialLinks.filter(social => social.enabled).map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 flex items-center justify-center rounded-full bg-default-100 hover:bg-default-200 transition-colors"
-                    aria-label={social.name}
-                  >
-                    <Icon icon={social.icon} width={20} height={20} />
-                  </a>
-                ))}
-              </div>
-            )}
           </div>
 
+          {/* Footer link sections */}
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3 className="font-semibold text-lg mb-4">{section.title}</h3>
+              <h4 className="text-gray-900 text-lg font-semibold mb-6">
+                {section.title}
+              </h4>
               <ul className="space-y-3">
                 {section.links.map((link) => (
-                  <li key={link.name}>
-                    <HeroLink
-                      as={Link}
+                  <li key={link.name} className="relative">
+                    <Link
                       href={link.path}
-                      color="foreground"
-                      className="text-foreground-500 hover:text-primary transition-colors"
+                      className="text-gray-700 hover:text-[#3ca2fa] transition-colors"
                     >
                       {link.name}
-                    </HeroLink>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
 
-          {/* Contact Section */}
+          {/* Contact section */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Contact</h3>
-            <div className="space-y-3">
+            <h4 className="text-gray-900 text-lg font-semibold mb-6">
+              Contact Us
+            </h4>
+            <ul className="space-y-4">
               {adminProfile.emails && adminProfile.emails.length > 0 && (
-                <div className="flex items-start gap-2">
-                  <Icon icon="lucide:mail" className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                <li className="flex items-center space-x-3">
+                  <Icon
+                    icon="lucide:mail"
+                    className="w-5 h-5 text-[#3ca2fa] flex-shrink-0"
+                  />
                   <div className="flex flex-col gap-1">
                     {adminProfile.emails.map((email, index) => (
                       <a
                         key={index}
                         href={`mailto:${email}`}
-                        className="text-foreground-500 hover:text-primary transition-colors text-sm break-all"
+                        className="text-gray-700 hover:text-[#3ca2fa] transition-colors text-sm break-all"
                       >
                         {email}
                       </a>
                     ))}
                   </div>
-                </div>
+                </li>
               )}
 
               {adminProfile.phones && adminProfile.phones.length > 0 && (
-                <div className="flex items-start gap-2">
-                  <Icon icon="lucide:phone" className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                <li className="flex items-center space-x-3">
+                  <Icon
+                    icon="lucide:phone"
+                    className="w-5 h-5 text-[#3ca2fa] flex-shrink-0"
+                  />
                   <div className="flex flex-col gap-1">
                     {adminProfile.phones.map((phone, index) => (
                       <a
                         key={index}
                         href={`tel:${phone}`}
-                        className="text-foreground-500 hover:text-primary transition-colors text-sm"
+                        className="text-gray-700 hover:text-[#3ca2fa] transition-colors text-sm"
                       >
                         {phone}
                       </a>
                     ))}
                   </div>
-                </div>
+                </li>
               )}
 
               {adminProfile.address && (
-                <div className="flex items-start gap-2">
-                  <Icon icon="lucide:map-pin" className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                  <p className="text-foreground-500 text-sm">
+                <li className="flex items-start space-x-3">
+                  <Icon
+                    icon="lucide:map-pin"
+                    className="w-5 h-5 text-[#3ca2fa] flex-shrink-0 mt-0.5"
+                  />
+                  <span className="text-gray-700 text-sm">
                     {adminProfile.address}
-                  </p>
-                </div>
+                  </span>
+                </li>
               )}
-            </div>
+            </ul>
           </div>
         </div>
+         <div className="flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
+          {/* Social icons */}
+          <div className="flex space-x-6 text-gray-700 z-50 relative">
+            {socialLinks
+              .filter((social) => social.enabled)
+              .map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  className="hover:text-[#3ca2fa] transition-colors"
+                >
+                  <Icon icon={social.icon} width={20} height={20} />
+                </a>
+              ))}
+          </div>
 
-        <Divider className="my-8" />
-
-        <div className="flex flex-col md:flex-row justify-center items-center gap-4">
-          <p className="text-foreground-500 text-sm text-center">
+          {/* Copyright */}
+          <p className="text-center md:text-left text-gray-700 z-50 relative">
             © {currentYear} CareerHQ. Powered by{" "}
             <Link
               href="https://mntfuture.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 bg-clip-text text-transparent hover:from-primary-600 hover:via-primary-700 hover:to-primary-800 transition-all duration-300"
+              className="font-bold text-[#3ca2fa] hover:text-[#5cb4ff] transition-colors"
             >
               MnT
             </Link>
             . All rights reserved.
           </p>
         </div>
+
+        <hr className="border-t border-gray-700 my-8" />
+
+        {/* Footer bottom */}
+       
       </div>
+
+      {/* Text hover effect - Full width */}
+      <div className="lg:flex hidden h-[35rem] -mt-64 -mb-44 w-full">
+        <TextHoverEffect text="CAREERHQ" className="z-50 w-full" />
+      </div>
+
+      <FooterBackgroundGradient />
     </footer>
   );
 };
