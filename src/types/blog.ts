@@ -30,6 +30,7 @@ export interface BlogCategory {
 
 export interface CreateBlogPostData {
   title: string;
+  slug: string;
   excerpt: string;
   content: BlogContent[];
   imageId: string;

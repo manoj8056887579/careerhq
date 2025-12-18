@@ -17,18 +17,14 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     await connectToDatabase();
 
     const { id } = await params;
-    const { searchParams } = new URL(request.url);
-    const bySlug = searchParams.get("bySlug") === "true";
 
     let moduleData;
-    
-    if (bySlug) {
-      // Try to find by slug first
-      moduleData = await UniversalModuleModel.findOne({ slug: id }).lean();
-    }
-    
-    // If not found by slug or not searching by slug, try by ID
-    if (!moduleData) {
+
+    // Try to find by slug first (for SEO-friendly URLs)
+    moduleData = await UniversalModuleModel.findOne({ slug: id }).lean();
+
+    // If not found by slug and id looks like a MongoDB ObjectId, try by ID
+    if (!moduleData && /^[0-9a-fA-F]{24}$/.test(id)) {
       moduleData = await UniversalModuleModel.findById(id).lean();
     }
 

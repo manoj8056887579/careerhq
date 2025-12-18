@@ -84,6 +84,7 @@ export default function SimpleBlogForm({
     if (mode === "edit" && initialData) {
       setFormData({
         title: initialData.title,
+        slug: initialData.slug || "",
         excerpt: initialData.excerpt,
         content: initialData.content || [],
         imageId: initialData.imageId,

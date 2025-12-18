@@ -14,13 +14,13 @@ export function BlurText({
   text,
   className,
   delay = 0,
-  duration = 1,
+  duration: _duration = 1,
 }: BlurTextProps) {
   const words = text.split(" ");
 
   const container = {
     hidden: { opacity: 0 },
-    visible: (i = 1) => ({
+    visible: (_i = 1) => ({
       opacity: 1,
       transition: { staggerChildren: 0.12, delayChildren: delay },
     }),
@@ -31,7 +31,7 @@ export function BlurText({
       opacity: 1,
       filter: "blur(0px)",
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },
@@ -44,7 +44,12 @@ export function BlurText({
 
   return (
     <motion.h1
-      style={{ display: "flex", flexWrap: "wrap", gap: "0.25em", justifyContent: "center" }}
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "0.25em",
+        justifyContent: "center",
+      }}
       variants={container}
       initial="hidden"
       animate="visible"
