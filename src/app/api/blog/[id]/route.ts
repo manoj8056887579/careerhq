@@ -58,15 +58,20 @@ export async function GET(
 
     // If not found by slug, try by ID (for backward compatibility)
     if (!post && /^[0-9a-fA-F]{24}$/.test(id)) {
-      post = (await BlogPost.findById(id).lean()) as BlogPostLeanDocument | null;
+      post = (await BlogPost.findById(
+        id
+      ).lean()) as BlogPostLeanDocument | null;
     }
 
     // If still not found, try generating slug from title and search
     if (!post) {
       // Try to find by generating slug from all posts
       const allPosts = await BlogPost.find().lean();
-      const foundPost = allPosts.find((p: any) => {
-        const generatedSlug = p.title
+      const foundPost = allPosts.find((p) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const postData = p as any;
+        if (!postData.title) return false;
+        const generatedSlug = postData.title
           .toLowerCase()
           .replace(/[^\w\s-]/g, "")
           .replace(/\s+/g, "-")
@@ -74,7 +79,9 @@ export async function GET(
           .trim();
         return generatedSlug === id;
       });
-      post = foundPost ? (foundPost as unknown as BlogPostLeanDocument) : null;
+      if (foundPost) {
+        post = foundPost as unknown as BlogPostLeanDocument;
+      }
     }
 
     if (!post) {
