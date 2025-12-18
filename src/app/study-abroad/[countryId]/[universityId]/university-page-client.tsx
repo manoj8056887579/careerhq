@@ -744,7 +744,7 @@ export const UniversityPageClient: React.FC<UniversityPageClientProps> = ({
                 </Button>
               </div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className=" p-6 ">
               <EnquiryForm
                 ref={enquiryRef}
                 title="Get Application Guidance"

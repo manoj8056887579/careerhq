@@ -859,7 +859,7 @@ export default function AboutPage() {
                 </Button>
               </div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className=" p-6 ">
               <EnquiryForm
                 title="Get Expert Guidance"
                 subtitle="Fill out this form and our experts will get back to you within 24 hours."

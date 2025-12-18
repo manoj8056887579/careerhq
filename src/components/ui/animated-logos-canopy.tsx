@@ -60,7 +60,7 @@ const AnimatedCanopy = ({
 const LogoCard = ({ logo, className }: { logo: Logo; className?: string }) => (
   <div
     className={cn(
-      "group mx-2 flex h-20 w-48 shrink-0 cursor-pointer overflow-hidden rounded-xl border border-transparent p-4 transition-all hover:border-primary-400 hover:shadow-[0_0_10px_#60a5fa] dark:hover:border-primary-400 bg-white dark:bg-gray-800",
+      "group mx-6 flex h-28 w-64 shrink-0 cursor-pointer p-3 transition-all",
       className
     )}
   >
@@ -68,9 +68,9 @@ const LogoCard = ({ logo, className }: { logo: Logo; className?: string }) => (
       <Image
         src={logo.logo}
         alt={logo.name}
-        width={120}
-        height={48}
-        className="h-full w-auto max-h-12 object-contain filter dark:brightness-0 dark:invert-[.85] group-hover:scale-110 transition-all duration-300"
+        width={180}
+        height={72}
+        className="h-full w-auto max-h-20 object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 group-hover:scale-110 transition-all duration-300"
       />
     </div>
   </div>
