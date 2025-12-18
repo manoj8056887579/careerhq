@@ -27,6 +27,14 @@ const BlogPostSchema = new Schema<IBlogPost>(
       required: true,
       trim: true,
     },
+    slug: {
+      type: String,
+      trim: true,
+      lowercase: true,
+      index: true,
+      unique: true,
+      sparse: true, // Allow null/undefined values, only enforce uniqueness when present
+    },
     excerpt: {
       type: String,
       required: true,

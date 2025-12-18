@@ -1,11 +1,16 @@
 import type { UniversalModule } from "@/types/universal-module";
 
-export async function getModule(id: string): Promise<UniversalModule | null> {
+export async function getModule(
+  idOrSlug: string,
+  preferSlug: boolean = false
+): Promise<UniversalModule | null> {
   try {
+    // Add query parameter to indicate we're looking for a slug
+    const queryParam = preferSlug ? "?bySlug=true" : "";
     const response = await fetch(
       `${
         process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"
-      }/api/modules/${id}`,
+      }/api/modules/${idOrSlug}${queryParam}`,
       { cache: "no-store" }
     );
 

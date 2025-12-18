@@ -13,6 +13,7 @@ interface RouteParams {
 interface BlogPostLeanDocument {
   _id: unknown;
   title: string;
+  slug?: string;
   excerpt: string;
   content: BlogContent[];
   imageId: string;
@@ -26,7 +27,7 @@ interface BlogPostLeanDocument {
   __v?: number;
 }
 
-// GET /api/blog/related/[id] - Get related blog posts
+// GET /api/blog/related/[id] - Get related blog posts by ID or slug
 async function GET(request: NextRequest, { params }: RouteParams) {
   try {
     await connectToDatabase();
@@ -36,7 +37,27 @@ async function GET(request: NextRequest, { params }: RouteParams) {
     const limit = Number.parseInt(searchParams.get("limit") || "3");
 
     // First, get the current post to find related posts
-    const currentPost = await BlogPost.findById(id);
+    // Try to find by slug first
+    let currentPost = await BlogPost.findOne({ slug: id });
+
+    // If not found by slug, try by ID
+    if (!currentPost && /^[0-9a-fA-F]{24}$/.test(id)) {
+      currentPost = await BlogPost.findById(id);
+    }
+
+    // If still not found, try generating slug from title
+    if (!currentPost) {
+      const allPosts = await BlogPost.find();
+      currentPost = allPosts.find((p) => {
+        const generatedSlug = p.title
+          .toLowerCase()
+          .replace(/[^\w\s-]/g, "")
+          .replace(/\s+/g, "-")
+          .replace(/-+/g, "-")
+          .trim();
+        return generatedSlug === id;
+      });
+    }
 
     if (!currentPost) {
       return NextResponse.json({ error: "Post not found" }, { status: 404 });
@@ -44,7 +65,7 @@ async function GET(request: NextRequest, { params }: RouteParams) {
 
     // Find related posts based on category, excluding the current post
     const relatedPosts = (await BlogPost.find({
-      _id: { $ne: id },
+      _id: { $ne: currentPost._id },
       category: currentPost.category,
       published: { $ne: false }, // Only published posts
     })
@@ -57,7 +78,7 @@ async function GET(request: NextRequest, { params }: RouteParams) {
     if (relatedPosts.length < limit) {
       const additionalPosts = (await BlogPost.find({
         _id: {
-          $ne: id,
+          $ne: currentPost._id,
           $nin: relatedPosts.map((post) => post._id),
         },
         published: { $ne: false },

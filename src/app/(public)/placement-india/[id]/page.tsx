@@ -30,7 +30,9 @@ export default async function PlacementIndiaDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const moduleData = await getModule(id);
+  
+  // Try to get module by slug first, then by ID
+  const moduleData = await getModule(id, true);
 
   if (!moduleData) {
     notFound();

@@ -41,13 +41,21 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   };
 
   const imageUrl = getImageUrl(imageId);
+  
+  // Generate URL-friendly slug from title
+  const urlSlug = title
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .trim();
 
   return (
     <Card
       isPressable
       className="border border-default-200 hover:shadow-md transition-shadow duration-300 w-full"
     >
-      <Link href={`/blog/${id}`}>
+      <Link href={`/blog/${urlSlug}`}>
         <CardHeader className="p-0">
           <div className="relative w-full h-48 sm:h-56 overflow-hidden">
             <Image

@@ -8,7 +8,7 @@ import { getImageUrl as getCloudinaryImageUrl } from "@/lib/cloudinary-utils";
 
 interface BlogPostPageProps {
   params: Promise<{
-    postId: string;
+    postId: string; // Can be either slug or ID for backward compatibility
   }>;
 }
 
