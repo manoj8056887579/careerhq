@@ -119,7 +119,7 @@ export const ContactClient: React.FC<ContactClientProps> = ({ faqs }) => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -152,7 +152,7 @@ export const ContactClient: React.FC<ContactClientProps> = ({ faqs }) => {
             </Accordion>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-16 bg-primary-500 text-white">
