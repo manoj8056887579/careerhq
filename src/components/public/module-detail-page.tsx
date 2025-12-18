@@ -73,17 +73,6 @@ export default function ModuleDetailPage({
               {/* Content */}
               <div className="space-y-6">
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Chip
-                      color="primary"
-                      variant="shadow"
-                      startContent={<Sparkles size={14} />}
-                      className="font-semibold"
-                    >
-                      {module.category}
-                    </Chip>
-                  </div>
-
                   <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent leading-tight">
                     {module.title}
                   </h1>

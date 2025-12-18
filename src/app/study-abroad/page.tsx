@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@heroui/button";
 import { Card, CardBody } from "@heroui/card";
+import { Accordion, AccordionItem } from "@heroui/accordion";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { CountryCard } from "@/components/country-card";
@@ -362,62 +363,61 @@ export default function StudyAbroadPage() {
       {/* FAQ Section */}
       <section className="py-16 bg-default-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Frequently Asked Questions
             </h2>
             <p className="text-foreground-500 max-w-2xl mx-auto">
               Find answers to common questions about studying abroad
             </p>
-          </div>
+          </motion.div>
 
           <div className="max-w-3xl mx-auto">
-            {[
-              {
-                question:
-                  "What are the general requirements for studying abroad?",
-                answer:
-                  "Requirements vary by country and university, but generally include academic transcripts, standardized test scores (like IELTS/TOEFL for English proficiency, GRE/GMAT for graduate programs), statement of purpose, letters of recommendation, and proof of financial support.",
-              },
-              {
-                question: "How much does it cost to study abroad?",
-                answer:
-                  "Costs vary significantly depending on the country, university, and program. They include tuition fees, living expenses, health insurance, travel costs, and visa fees. Many countries offer scholarships and financial aid options for international students.",
-              },
-              {
-                question: "When should I start the application process?",
-                answer:
-                  "Its recommended to start at least 12-18 months before your intended start date. This gives you enough time for research, standardized tests, application preparation, visa processing, and pre-departure arrangements.",
-              },
-              {
-                question: "Can I work while studying abroad?",
-                answer:
-                  "Work regulations for international students vary by country. Many countries allow students to work part-time during the academic year and full-time during breaks, but there are usually restrictions on the number of hours.",
-              },
-              {
-                question: "How can CareerHQ help with my study abroad journey?",
-                answer:
-                  "We provide comprehensive support including university selection, application guidance, scholarship information, visa assistance, pre-departure orientation, and post-arrival support to ensure a smooth transition to studying abroad.",
-              },
-            ].map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                viewport={{ once: true }}
-                className="mb-6"
-              >
-                <Card className="border border-default-200">
-                  <CardBody className="p-6">
-                    <h3 className="text-lg font-semibold mb-2">
-                      {faq.question}
-                    </h3>
-                    <p className="text-foreground-500">{faq.answer}</p>
-                  </CardBody>
-                </Card>
-              </motion.div>
-            ))}
+            <Accordion>
+              {[
+                {
+                  question:
+                    "What are the general requirements for studying abroad?",
+                  answer:
+                    "Requirements vary by country and university, but generally include academic transcripts, standardized test scores (like IELTS/TOEFL for English proficiency, GRE/GMAT for graduate programs), statement of purpose, letters of recommendation, and proof of financial support.",
+                },
+                {
+                  question: "How much does it cost to study abroad?",
+                  answer:
+                    "Costs vary significantly depending on the country, university, and program. They include tuition fees, living expenses, health insurance, travel costs, and visa fees. Many countries offer scholarships and financial aid options for international students.",
+                },
+                {
+                  question: "When should I start the application process?",
+                  answer:
+                    "Its recommended to start at least 12-18 months before your intended start date. This gives you enough time for research, standardized tests, application preparation, visa processing, and pre-departure arrangements.",
+                },
+                {
+                  question: "Can I work while studying abroad?",
+                  answer:
+                    "Work regulations for international students vary by country. Many countries allow students to work part-time during the academic year and full-time during breaks, but there are usually restrictions on the number of hours.",
+                },
+                {
+                  question: "How can CareerHQ help with my study abroad journey?",
+                  answer:
+                    "We provide comprehensive support including university selection, application guidance, scholarship information, visa assistance, pre-departure orientation, and post-arrival support to ensure a smooth transition to studying abroad.",
+                },
+              ].map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  aria-label={faq.question}
+                  title={faq.question}
+                  className="py-2"
+                >
+                  <p className="text-foreground-600 pb-2">{faq.answer}</p>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
