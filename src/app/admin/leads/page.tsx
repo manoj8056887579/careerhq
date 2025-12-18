@@ -216,7 +216,7 @@ export default function LeadsManagement() {
           label="Program"
         >
           <SelectItem key="all">All Programs</SelectItem>
-          <SelectItem key="Career Test">Career Test</SelectItem>
+          <SelectItem key="Register">Register</SelectItem>
           <SelectItem key="Study Abroad">Study Abroad</SelectItem>
         </Select>
       </div>
@@ -254,7 +254,7 @@ export default function LeadsManagement() {
               <TableCell>
                 <div className="space-y-1">
                   <div className="font-medium">{lead.program}</div>
-                  {lead.program === "Career Test" && lead.message && (
+                  {lead.program === "Register" && lead.message && (
                     <div className="text-sm text-primary font-medium">
                       {lead.message}
                     </div>

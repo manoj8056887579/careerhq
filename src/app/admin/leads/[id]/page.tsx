@@ -202,7 +202,7 @@ export default function LeadDetailPage() {
         {lead.careerTestAnswers && lead.careerTestAnswers.length > 0 && (
           <Card>
             <CardHeader>
-              <h2 className="text-2xl font-bold">Career Test Answers</h2>
+              <h2 className="text-2xl font-bold">Register Answers</h2>
             </CardHeader>
             <CardBody>
               <div className="space-y-6">
