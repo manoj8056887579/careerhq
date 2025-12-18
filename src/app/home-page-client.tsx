@@ -739,7 +739,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent"
             >
-              Why Career Headquarters?
+              Why Choose Career HeadQuarters?
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
