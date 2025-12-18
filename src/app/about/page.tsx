@@ -142,7 +142,8 @@ export default function AboutPage() {
               About <span className="text-gradient-primary">CareerHQ</span>
             </h1>
             <p className="text-xl text-foreground-600 mb-8">
-             Welcome to Career Head Quarters — your trusted partner in education, placement, and global opportunities.
+              Welcome to Career Head Quarters — your trusted partner in
+              education, placement, and global opportunities.
             </p>
           </div>
         </div>
@@ -151,21 +152,33 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <p className="text-foreground-600 mb-4">
-                CareerHQ started with one goal—to help students dream bigger and go further. What began as a small counseling center has evolved into a global education and career platform, enabling access to world-class academic and professional opportunities.
-
+                CareerHQ started with one goal—to help students dream bigger and
+                go further. What began as a small counseling center has evolved
+                into a global education and career platform, enabling access to
+                world-class academic and professional opportunities.
               </p>
               <p className="text-foreground-600 mb-4">
-                We have helped thousands of students pursue international education, explore global careers, and build futures without borders. CareerHQ connects ambitious individuals with leading universities and meaningful career pathways worldwide.
-
+                We have helped thousands of students pursue international
+                education, explore global careers, and build futures without
+                borders. CareerHQ connects ambitious individuals with leading
+                universities and meaningful career pathways worldwide.
               </p>
               <p className="text-foreground-600 mb-6">
-               CareerHQ is led by Gandhi and Benita, whose vision is rooted in real-world experience. Having navigated international education and global career transitions themselves, they recognized the need for reliable, transparent, and personalized guidance. Their leadership has shaped CareerHQ into an organization built on trust, integrity, and long-term success—focused on empowering students and professionals to make confident, informed decisions.
-
+                CareerHQ is led by Gandhi and Benita, whose vision is rooted in
+                real-world experience. Having navigated international education
+                and global career transitions themselves, they recognized the
+                need for reliable, transparent, and personalized guidance. Their
+                leadership has shaped CareerHQ into an organization built on
+                trust, integrity, and long-term success—focused on empowering
+                students and professionals to make confident, informed
+                decisions.
               </p>
               <p className="text-foreground-600 mb-4">
-               At CareerHQ, we don’t just support admission / placement—we partner in building futures. Because talent has no boundaries, and neither should opportunities.
+                At CareerHQ, we don’t just support admission / placement—we
+                partner in building futures. Because talent has no boundaries,
+                and neither should opportunities.
               </p>
-             
+
               <div className="flex flex-wrap gap-4">
                 <Button
                   color="primary"
@@ -210,9 +223,13 @@ export default function AboutPage() {
                 <div className="w-14 h-14 rounded-full bg-primary-100 flex items-center justify-center mb-4">
                   <Icon icon="lucide:plane" className="text-primary text-2xl" />
                 </div>
-                <h3 className="text-2xl font-semibold mb-3">Study Abroad Services</h3>
+                <h3 className="text-2xl font-semibold mb-3">
+                  Study Abroad Services
+                </h3>
                 <p className="text-foreground-600">
-                  From course selection to visa assistance, we provide end-to-end support that makes global education accessible, smooth, and stress-free.
+                  From course selection to visa assistance, we provide
+                  end-to-end support that makes global education accessible,
+                  smooth, and stress-free.
                 </p>
               </CardBody>
             </Card>
@@ -220,11 +237,18 @@ export default function AboutPage() {
             <Card className="border border-default-200 hover:shadow-xl transition-shadow">
               <CardBody className="p-8">
                 <div className="w-14 h-14 rounded-full bg-secondary-100 flex items-center justify-center mb-4">
-                  <Icon icon="lucide:graduation-cap" className="text-secondary text-2xl" />
+                  <Icon
+                    icon="lucide:graduation-cap"
+                    className="text-secondary text-2xl"
+                  />
                 </div>
-                <h3 className="text-2xl font-semibold mb-3">Admissions in Indian Universities</h3>
+                <h3 className="text-2xl font-semibold mb-3">
+                  Admissions in Indian Universities
+                </h3>
                 <p className="text-foreground-600">
-                  We help students secure seats in reputable Indian universities through personalized counseling, documentation guidance, and transparent processes.
+                  We help students secure seats in reputable Indian universities
+                  through personalized counseling, documentation guidance, and
+                  transparent processes.
                 </p>
               </CardBody>
             </Card>
@@ -232,11 +256,18 @@ export default function AboutPage() {
             <Card className="border border-default-200 hover:shadow-xl transition-shadow">
               <CardBody className="p-8">
                 <div className="w-14 h-14 rounded-full bg-success-100 flex items-center justify-center mb-4">
-                  <Icon icon="lucide:briefcase" className="text-success text-2xl" />
+                  <Icon
+                    icon="lucide:briefcase"
+                    className="text-success text-2xl"
+                  />
                 </div>
-                <h3 className="text-2xl font-semibold mb-3">Placement in India</h3>
+                <h3 className="text-2xl font-semibold mb-3">
+                  Placement in India
+                </h3>
                 <p className="text-foreground-600">
-                  Our strong industry partnerships open the door to diverse job opportunities for freshers and experienced professionals across India.
+                  Our strong industry partnerships open the door to diverse job
+                  opportunities for freshers and experienced professionals
+                  across India.
                 </p>
               </CardBody>
             </Card>
@@ -244,11 +275,18 @@ export default function AboutPage() {
             <Card className="border border-default-200 hover:shadow-xl transition-shadow">
               <CardBody className="p-8">
                 <div className="w-14 h-14 rounded-full bg-warning-100 flex items-center justify-center mb-4">
-                  <Icon icon="lucide:globe-2" className="text-warning text-2xl" />
+                  <Icon
+                    icon="lucide:globe-2"
+                    className="text-warning text-2xl"
+                  />
                 </div>
-                <h3 className="text-2xl font-semibold mb-3">Placement Abroad</h3>
+                <h3 className="text-2xl font-semibold mb-3">
+                  Placement Abroad
+                </h3>
                 <p className="text-foreground-600">
-                  We connect candidates to global employers, helping them build successful international careers with ethical, verified, and high-quality opportunities.
+                  We connect candidates to global employers, helping them build
+                  successful international careers with ethical, verified, and
+                  high-quality opportunities.
                 </p>
               </CardBody>
             </Card>
@@ -360,7 +398,10 @@ export default function AboutPage() {
                   <div
                     className={`relative w-20 h-20 rounded-full bg-gradient-to-br ${feature.gradient} flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-shadow duration-500`}
                   >
-                    <Icon icon={feature.icon} className="w-10 h-10 text-white" />
+                    <Icon
+                      icon={feature.icon}
+                      className="w-10 h-10 text-white"
+                    />
                   </div>
 
                   {/* Animated ring */}
@@ -455,7 +496,8 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="text-foreground-600 max-w-3xl mx-auto text-base md:text-lg px-4"
             >
-              Guiding principles that drive everything we do at Career Head Quarters
+              Guiding principles that drive everything we do at Career Head
+              Quarters
             </motion.p>
           </div>
 
@@ -535,7 +577,12 @@ export default function AboutPage() {
                       viewport={{ once: true }}
                       className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-base lg:text-lg flex-1"
                     >
-                      At Career Head Quarters, our mission is to empower individuals to realize their fullest potential and build meaningful, sustainable career paths. We inspire growth, enable informed choices, and create a future where every person has the opportunity to thrive professionally with global exposure.
+                      At Career Head Quarters, our mission is to empower
+                      individuals to realize their fullest potential and build
+                      meaningful, sustainable career paths. We inspire growth,
+                      enable informed choices, and create a future where every
+                      person has the opportunity to thrive professionally with
+                      global exposure.
                     </motion.p>
                   </div>
 
@@ -638,7 +685,10 @@ export default function AboutPage() {
                       viewport={{ once: true }}
                       className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-base lg:text-lg flex-1"
                     >
-                      To become a trusted global gateway for education, careers, and professional development—empowering students, professionals, and organizations to learn, grow, and succeed with future-ready skills across borders.
+                      To become a trusted global gateway for education, careers,
+                      and professional development—empowering students,
+                      professionals, and organizations to learn, grow, and
+                      succeed with future-ready skills across borders.
                     </motion.p>
                   </div>
 
@@ -696,39 +746,219 @@ export default function AboutPage() {
       </section>
 
       {/* Global Exclusive Tie-up Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+      <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
+        {/* Animated background lines */}
+        <svg
+          className="absolute inset-0 w-full h-full opacity-10"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <pattern
+              id="grid"
+              width="40"
+              height="40"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 40 0 L 0 0 0 40"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="0.5"
+                className="text-primary-300"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10">
+          <div className="text-center mb-6 sm:mb-8 md:mb-12">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 px-2">
               Global Exclusive Tie-up With
             </h2>
-            <p className="text-foreground-500 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-foreground-500 max-w-2xl mx-auto px-4">
               We have established exclusive partnerships with leading career
-              providers across 12 countries worldwide
+              providers across 24 countries worldwide
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
-            {[
-              { name: "India", code: "in" },
-              { name: "United Kingdom", code: "gb" },
-              { name: "Australia", code: "au" },
-              { name: "Canada", code: "ca" },
-              { name: "USA", code: "us" },
-              { name: "New Zealand", code: "nz" },
-              { name: "Finland", code: "fi" },
-              { name: "Europe", code: "eu" },
-              { name: "Kyrgyzstan", code: "kg" },
-              { name: "Uzbekistan", code: "uz" },
-              { name: "Vietnam", code: "vn" },
-              { name: "Georgia", code: "ge" },
-            ].map((country, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-default-200 bg-white/80 backdrop-blur-sm"
-              >
-                <CardBody className="p-6 flex flex-col items-center justify-center text-center gap-3">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-300 border-2 border-gray-200">
+          <div className="relative max-w-7xl mx-auto">
+            {/* Connecting lines SVG overlay - Full network mesh - Hidden on mobile for performance */}
+            <svg
+              className="hidden sm:block absolute inset-0 w-full h-full pointer-events-none"
+              style={{ zIndex: 0 }}
+            >
+              {/* Generate comprehensive network connections */}
+              {(() => {
+                const positions = [
+                  { x: "8%", y: "12%" },
+                  { x: "25%", y: "12%" },
+                  { x: "41%", y: "12%" },
+                  { x: "58%", y: "12%" },
+                  { x: "75%", y: "12%" },
+                  { x: "92%", y: "12%" },
+                  { x: "8%", y: "35%" },
+                  { x: "25%", y: "35%" },
+                  { x: "41%", y: "35%" },
+                  { x: "58%", y: "35%" },
+                  { x: "75%", y: "35%" },
+                  { x: "92%", y: "35%" },
+                  { x: "8%", y: "58%" },
+                  { x: "25%", y: "58%" },
+                  { x: "41%", y: "58%" },
+                  { x: "58%", y: "58%" },
+                  { x: "75%", y: "58%" },
+                  { x: "92%", y: "58%" },
+                  { x: "8%", y: "81%" },
+                  { x: "25%", y: "81%" },
+                  { x: "41%", y: "81%" },
+                  { x: "58%", y: "81%" },
+                  { x: "75%", y: "81%" },
+                  { x: "92%", y: "81%" },
+                ];
+
+                const lines: Array<{
+                  x1: string;
+                  y1: string;
+                  x2: string;
+                  y2: string;
+                }> = [];
+                // Connect each country to nearby countries (within 2 positions)
+                positions.forEach((pos1, i) => {
+                  positions.forEach((pos2, j) => {
+                    if (i < j) {
+                      const distance = Math.sqrt(
+                        Math.pow(parseFloat(pos1.x) - parseFloat(pos2.x), 2) +
+                          Math.pow(parseFloat(pos1.y) - parseFloat(pos2.y), 2)
+                      );
+                      // Only connect if distance is reasonable (not too far)
+                      if (distance < 50) {
+                        lines.push({
+                          x1: pos1.x,
+                          y1: pos1.y,
+                          x2: pos2.x,
+                          y2: pos2.y,
+                        });
+                      }
+                    }
+                  });
+                });
+
+                return lines.map((line, i) => (
+                  <motion.line
+                    key={i}
+                    x1={line.x1}
+                    y1={line.y1}
+                    x2={line.x2}
+                    y2={line.y2}
+                    stroke="url(#lineGradient)"
+                    strokeWidth="1.5"
+                    strokeDasharray="3 3"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 0.25 }}
+                    transition={{ duration: 2, delay: i * 0.02 }}
+                    viewport={{ once: true }}
+                  />
+                ));
+              })()}
+
+              {/* Animated particles moving along lines */}
+              {[...Array(8)].map((_, i) => (
+                <motion.circle
+                  key={`particle-${i}`}
+                  r="2"
+                  fill="#3b82f6"
+                  initial={{ cx: "8%", cy: "12%" }}
+                  animate={{
+                    cx: ["8%", "92%", "92%", "8%", "8%"],
+                    cy: ["12%", "12%", "81%", "81%", "12%"],
+                  }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    delay: i * 1.25,
+                    ease: "linear",
+                  }}
+                  opacity={0.6}
+                />
+              ))}
+
+              <defs>
+                <linearGradient
+                  id="lineGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
+                  <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="#ec4899" stopOpacity="0.3" />
+                </linearGradient>
+                <radialGradient id="glowGradient">
+                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                </radialGradient>
+              </defs>
+            </svg>
+
+            <div
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 relative"
+              style={{ zIndex: 1 }}
+            >
+              {[
+                { name: "Australia", code: "au" },
+                { name: "New Zealand", code: "nz" },
+                { name: "USA", code: "us" },
+                { name: "Canada", code: "ca" },
+                { name: "Poland", code: "pl" },
+                { name: "Spain", code: "es" },
+                { name: "Germany", code: "de" },
+                { name: "France", code: "fr" },
+                { name: "Denmark", code: "dk" },
+                { name: "Austria", code: "at" },
+                { name: "Netherlands", code: "nl" },
+                { name: "Malta", code: "mt" },
+                { name: "Lithuania", code: "lt" },
+                { name: "Belgium", code: "be" },
+                { name: "Finland", code: "fi" },
+                { name: "Hungary", code: "hu" },
+                { name: "Italy", code: "it" },
+                { name: "Russia", code: "ru" },
+                { name: "Singapore", code: "sg" },
+                { name: "Georgia", code: "ge" },
+                { name: "Sweden", code: "se" },
+                { name: "United Kingdom", code: "gb" },
+                { name: "Ireland", code: "ie" },
+                { name: "India", code: "in" },
+              ].map((country, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.02 }}
+                  viewport={{ once: true }}
+                  className="group flex flex-col items-center justify-center gap-2 sm:gap-3 cursor-pointer relative py-2"
+                >
+                  {/* Pulse ring effect - Hidden on very small screens */}
+                  <motion.div
+                    className="hidden sm:block absolute w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full border-2 border-primary-300"
+                    animate={{
+                      scale: [1, 1.3, 1],
+                      opacity: [0.5, 0, 0.5],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: index * 0.1,
+                    }}
+                  />
+
+                  <motion.div
+                    whileHover={{ scale: 1.15, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                    className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full overflow-hidden shadow-md sm:shadow-lg hover:shadow-xl sm:hover:shadow-2xl transition-shadow duration-300 ring-1 sm:ring-2 ring-white"
+                  >
                     <Image
                       src={`https://flagcdn.com/w160/${country.code}.png`}
                       alt={`${country.name} flag`}
@@ -736,19 +966,20 @@ export default function AboutPage() {
                       className="object-cover"
                       unoptimized
                     />
-                  </div>
-                  <h3 className="text-sm font-semibold text-gray-900 group-hover:text-primary transition-colors">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </motion.div>
+                  <h3 className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-primary transition-colors duration-300 text-center px-1 leading-tight">
                     {country.name}
                   </h3>
-                </CardBody>
-              </Card>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 bg-default-50">
+      {/* <section className="py-16 bg-default-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-3">What Our Students Say</h2>
@@ -758,7 +989,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Testimonials Carousel */}
+         
           <div className="relative max-w-7xl mx-auto">
             <div className="overflow-hidden">
               <div
@@ -792,7 +1023,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Pagination Dots */}
+            
             <div className="flex justify-center gap-2 mt-8">
               {Array.from({ length: Math.ceil(testimonials.length / 3) }).map(
                 (_, index) => (
@@ -811,15 +1042,14 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-primary-500 to-secondary-500 text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-4">
-                Connecting worldwide career in one dot
+               Get In Touch with DOT Agent
               </h2>
               <p className="text-white/90 mb-6">
                 One destination, countless opportunities – where worldwide

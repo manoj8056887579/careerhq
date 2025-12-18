@@ -1068,7 +1068,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-4">
-                Connecting worldwide career in one dot{" "}
+                Get In Touch with DOT Agent{" "}
               </h2>
               <p className="text-white/90 mb-6">
                 One destination, countless opportunities – where worldwide
@@ -1140,7 +1140,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
       </section>
 
       {/* Blog Section */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
             <div>
@@ -1190,7 +1190,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
             </div>
           )}
         </div>
-      </section>
+      </section> */}
 
       {/* Partners Section */}
       <section className="py-16 bg-default-50">

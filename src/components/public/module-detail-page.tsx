@@ -307,7 +307,7 @@ export default function ModuleDetailPage({
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold mb-4">
-                  Connecting worldwide career in one dot
+                   Get In Touch with DOT Agent
                 </h2>
                 <p className="text-white/90 mb-6">
                   One destination, countless opportunities – where worldwide
