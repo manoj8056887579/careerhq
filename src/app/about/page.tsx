@@ -131,9 +131,6 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* Founder/Mentor Section - First */}
-      <Mentors />
-
       {/* Our Story Section */}
       <section className="py-10 bg-white">
         <div className="container mx-auto px-4 relative z-10">
@@ -194,8 +191,12 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Founder/Mentor Section */}
+      <Mentors />
+
       {/* What We Do Section */}
-      <section className="py-16 bg-default-50">
+      {false && (
+        <section className="py-16 bg-default-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-3">What We Do</h2>
@@ -255,9 +256,11 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* Why Choose Career HQ Section */}
-      <ChromaGrid className="py-20">
+      {false && (
+        <ChromaGrid className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <motion.h2
@@ -399,276 +402,11 @@ export default function AboutPage() {
           </div>
         </div>
       </ChromaGrid>
-
-      {/* Mission & Vision Section */}
-      <section className="py-12 md:py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 opacity-20">
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 90, 0],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            className="absolute top-20 left-10 w-64 h-64 md:w-96 md:h-96 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full blur-3xl"
-          />
-          <motion.div
-            animate={{
-              scale: [1, 1.3, 1],
-              rotate: [0, -90, 0],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            className="absolute bottom-20 right-10 w-64 h-64 md:w-96 md:h-96 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full blur-3xl"
-          />
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-12 md:mb-20">
-            <motion.h2
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, type: "spring" }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent"
-            >
-              Our Mission & Vision
-            </motion.h2>
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: "100px" }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4 md:mb-6 rounded-full"
-            />
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="text-foreground-600 max-w-3xl mx-auto text-base md:text-lg px-4"
-            >
-              Guiding principles that drive everything we do at Career Head Quarters
-            </motion.p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 max-w-6xl mx-auto items-stretch">
-            {/* Mission Card */}
-            <motion.div
-              initial={{ opacity: 0, rotateY: -90 }}
-              whileInView={{ opacity: 1, rotateY: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="group relative perspective-1000 flex"
-            >
-              <motion.div
-                whileHover={{ scale: 1.02, rotateX: 5 }}
-                transition={{ duration: 0.3 }}
-                className="relative w-full"
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                {/* Floating gradient orb */}
-                <motion.div
-                  animate={{
-                    y: [0, -20, 0],
-                    opacity: [0.3, 0.6, 0.3],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute -top-10 -right-10 w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full blur-2xl"
-                />
-
-                <div className="relative bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl p-6 md:p-10 lg:p-12 rounded-2xl overflow-hidden h-full flex flex-col">
-                  {/* Animated border */}
-                  <motion.div
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        "linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent)",
-                    }}
-                    animate={{
-                      x: ["-100%", "200%"],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                  />
-
-                  {/* Number badge */}
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.5, type: "spring" }}
-                    viewport={{ once: true }}
-                    className="inline-block mb-4 md:mb-6 text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-br from-blue-500 to-cyan-500 bg-clip-text text-transparent opacity-20"
-                  >
-                    01
-                  </motion.div>
-
-                  {/* Content */}
-                  <div className="flex-1 flex flex-col">
-                    <motion.h3
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.6 }}
-                      viewport={{ once: true }}
-                      className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent"
-                    >
-                      Our Mission
-                    </motion.h3>
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.6, delay: 0.8 }}
-                      viewport={{ once: true }}
-                      className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-base lg:text-lg flex-1"
-                    >
-                      At Career Head Quarters, our mission is to empower individuals to realize their fullest potential and build meaningful, sustainable career paths. We inspire growth, enable informed choices, and create a future where every person has the opportunity to thrive professionally with global exposure.
-                    </motion.p>
-                  </div>
-
-                  {/* Decorative dots */}
-                  <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 flex gap-2">
-                    {[...Array(3)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        animate={{
-                          scale: [1, 1.5, 1],
-                          opacity: [0.3, 1, 0.3],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: i * 0.3,
-                        }}
-                        className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500"
-                      />
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Vision Card */}
-            <motion.div
-              initial={{ opacity: 0, rotateY: 90 }}
-              whileInView={{ opacity: 1, rotateY: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="group relative perspective-1000 flex"
-            >
-              <motion.div
-                whileHover={{ scale: 1.02, rotateX: 5 }}
-                transition={{ duration: 0.3 }}
-                className="relative w-full"
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                {/* Floating gradient orb */}
-                <motion.div
-                  animate={{
-                    y: [0, -20, 0],
-                    opacity: [0.3, 0.6, 0.3],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1,
-                  }}
-                  className="absolute -top-10 -left-10 w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full blur-2xl"
-                />
-
-                <div className="relative bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl p-6 md:p-10 lg:p-12 rounded-2xl overflow-hidden h-full flex flex-col">
-                  {/* Animated border */}
-                  <motion.div
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        "linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.5), transparent)",
-                    }}
-                    animate={{
-                      x: ["-100%", "200%"],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "linear",
-                      delay: 1.5,
-                    }}
-                  />
-
-                  {/* Number badge */}
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.7, type: "spring" }}
-                    viewport={{ once: true }}
-                    className="inline-block mb-4 md:mb-6 text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent opacity-20"
-                  >
-                    02
-                  </motion.div>
-
-                  {/* Content */}
-                  <div className="flex-1 flex flex-col">
-                    <motion.h3
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.8 }}
-                      viewport={{ once: true }}
-                      className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
-                    >
-                      Our Vision
-                    </motion.h3>
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.6, delay: 1 }}
-                      viewport={{ once: true }}
-                      className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-base lg:text-lg flex-1"
-                    >
-                      To become a trusted global gateway for education, careers, and professional development—empowering students, professionals, and organizations to learn, grow, and succeed with future-ready skills across borders.
-                    </motion.p>
-                  </div>
-
-                  {/* Decorative dots */}
-                  <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 flex gap-2">
-                    {[...Array(3)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        animate={{
-                          scale: [1, 1.5, 1],
-                          opacity: [0.3, 1, 0.3],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: i * 0.3 + 0.5,
-                        }}
-                        className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"
-                      />
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      )}
 
       {/* Our Values Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      {false && (
+        <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <motion.h2
@@ -694,6 +432,7 @@ export default function AboutPage() {
           <AppleCardsCarousel cards={values} />
         </div>
       </section>
+      )}
 
       {/* Global Exclusive Tie-up Section */}
       <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
