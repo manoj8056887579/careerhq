@@ -5,6 +5,7 @@ import { Input } from "@heroui/input";
 import { Chip } from "@heroui/chip";
 import { Spinner } from "@heroui/spinner";
 import { Button } from "@heroui/button";
+import { Autocomplete, AutocompleteItem } from "@heroui/autocomplete";
 import {
   Search,
   Sparkles,
@@ -22,6 +23,7 @@ import type {
 } from "@/types/universal-module";
 import { MODULE_DISPLAY_NAMES } from "@/types/universal-module";
 import { ProtectedPageWrapper } from "@/components/protected-page-wrapper";
+import { BlurText } from "@/components/ui/blur-text";
 
 // Map module types to their route names
 const MODULE_TYPE_TO_ROUTE: Record<ModuleType, string> = {
@@ -124,9 +126,17 @@ export default function ModuleListingModern({
     setSearchQuery("");
   };
 
-  // For placement-india, show all modules in one section
-  const featuredModules = moduleType === "placement-india" ? [] : filteredModules.slice(0, 3);
-  const regularModules = moduleType === "placement-india" ? filteredModules : filteredModules.slice(3);
+  // For certain module types, show all modules in one section without featured
+  const shouldHideFeatured = 
+    moduleType === "placement-india" || 
+    moduleType === "study-india" || 
+    moduleType === "placement-abroad" || 
+    moduleType === "mbbs-india" || 
+    moduleType === "mbbs-abroad" || 
+    moduleType === "loans";
+  
+  const featuredModules = shouldHideFeatured ? [] : filteredModules.slice(0, 3);
+  const regularModules = shouldHideFeatured ? filteredModules : filteredModules.slice(3);
 
   return (
     <ProtectedPageWrapper requiredFor={MODULE_DISPLAY_NAMES[moduleType]}>
@@ -139,9 +149,11 @@ export default function ModuleListingModern({
         <div className="">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
             <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6">
-              <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-text leading-tight px-2">
-                {title}
-              </h1>
+              <BlurText
+                text={title}
+                className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-text leading-tight px-2"
+                delay={0.2}
+              />
 
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
                 {description}
@@ -150,9 +162,61 @@ export default function ModuleListingModern({
           </div>
         </div>
 
-        {moduleType !== "placement-india" && 
-         moduleType !== "study-india" && 
-         moduleType !== "placement-abroad" && (
+        {moduleType === "study-india" ? (
+          <div className="sticky top-0 z-40 backdrop-blur-xl bg-white/80 dark:bg-gray-900/80">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
+              <div className="flex gap-3 items-center bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-4">
+                <div className="flex-1">
+                  <Autocomplete
+                    placeholder="Select opportunity..."
+                    size="lg"
+                    defaultItems={modules}
+                    onSelectionChange={(key) => {
+                      if (key) {
+                        const module = modules.find(m => m.id === key);
+                        if (module) {
+                          window.location.href = `/${MODULE_TYPE_TO_ROUTE[moduleType]}/${module.id}`;
+                        }
+                      }
+                    }}
+                    classNames={{
+                      base: "w-full",
+                      listboxWrapper: "max-h-[400px]",
+                      selectorButton: "text-gray-400",
+                    }}
+                    startContent={<Search size={20} className="text-gray-400" />}
+                    inputProps={{
+                      classNames: {
+                        input: "text-base text-gray-900 dark:text-white",
+                        inputWrapper: "bg-gray-50 dark:bg-gray-700 border-0 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300",
+                      },
+                    }}
+                  >
+                    {(module) => (
+                      <AutocompleteItem key={module.id} textValue={module.title}>
+                        <div className="flex flex-col">
+                          <span className="font-medium">{module.title}</span>
+                          <span className="text-xs text-gray-500">{module.category}</span>
+                        </div>
+                      </AutocompleteItem>
+                    )}
+                  </Autocomplete>
+                </div>
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium px-8"
+                  startContent={<Search size={20} />}
+                >
+                  Search
+                </Button>
+              </div>
+            </div>
+          </div>
+        ) : moduleType !== "placement-india" && 
+         moduleType !== "placement-abroad" && 
+         moduleType !== "mbbs-india" && 
+         moduleType !== "mbbs-abroad" && 
+         moduleType !== "loans" ? (
           <div className="sticky top-0 z-40 backdrop-blur-xl ">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
@@ -234,7 +298,7 @@ export default function ModuleListingModern({
               )}
             </div>
           </div>
-        )}
+        ) : null}
 
         {/* Companies Section */}
         {companiesSection && (
@@ -278,7 +342,7 @@ export default function ModuleListingModern({
             </div>
           ) : (
             <div className="space-y-8 sm:space-y-12">
-              {featuredModules.length > 0 && (
+              {featuredModules.length > 0 && !shouldHideFeatured && (
                 <div>
                   <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
                     <Sparkles
