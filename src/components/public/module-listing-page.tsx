@@ -139,20 +139,6 @@ export default function ModuleListingModern({
         <div className="">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
             <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6">
-              <div className="inline-block float">
-                <div className="glass px-4 py-1.5 sm:px-6 sm:py-2 rounded-full">
-                  <div className="flex items-center gap-2">
-                    <Sparkles
-                      size={14}
-                      className="text-blue-600 sm:w-4 sm:h-4"
-                    />
-                    <span className="text-xs sm:text-sm font-medium gradient-text">
-                      {MODULE_DISPLAY_NAMES[moduleType]}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
               <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-text leading-tight px-2">
                 {title}
               </h1>
@@ -160,25 +146,6 @@ export default function ModuleListingModern({
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
                 {description}
               </p>
-
-              <div className="flex flex-wrap justify-center gap-3 sm:gap-4 pt-2 sm:pt-4">
-                <div className="glass-strong rounded-xl sm:rounded-2xl px-4 py-3 sm:px-6 sm:py-4 min-w-[100px] sm:min-w-[120px]">
-                  <div className="text-2xl sm:text-3xl font-bold gradient-text">
-                    {modules.length}
-                  </div>
-                  <div className="text-[10px] sm:text-xs text-gray-500 mt-1">
-                    Opportunities
-                  </div>
-                </div>
-                <div className="glass-strong rounded-xl sm:rounded-2xl px-4 py-3 sm:px-6 sm:py-4 min-w-[100px] sm:min-w-[120px]">
-                  <div className="text-2xl sm:text-3xl font-bold gradient-text">
-                    {categories.length}
-                  </div>
-                  <div className="text-[10px] sm:text-xs text-gray-500 mt-1">
-                    Categories
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
