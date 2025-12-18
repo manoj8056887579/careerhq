@@ -151,32 +151,21 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <p className="text-foreground-600 mb-4">
-                CareerHQ began with a simple vision – to make global education
-                and career guidance accessible to every student. What started as
-                a small counseling center has now evolved into a trusted global
-                education consultancy, connecting worldwide career at one dot.
+                CareerHQ started with one goal—to help students dream bigger and go further. What began as a small counseling center has evolved into a global education and career platform, enabling access to world-class academic and professional opportunities.
+
               </p>
               <p className="text-foreground-600 mb-4">
-                Over the years, we&apos;ve helped thousands of students turn their
-                dream of studying abroad into reality. With offices across
-                multiple countries, CareerHQ bridges students with top
-                universities and international career opportunities around the
-                world.
+                We have helped thousands of students pursue international education, explore global careers, and build futures without borders. CareerHQ connects ambitious individuals with leading universities and meaningful career pathways worldwide.
+
               </p>
               <p className="text-foreground-600 mb-6">
-                Our team of expert counselors – many of whom have experienced
-                studying abroad themselves – provide end-to-end guidance, from
-                choosing the right course and university to securing
-                scholarships and handling visa procedures.
+               CareerHQ is led by Gandhi and Benita, whose vision is rooted in real-world experience. Having navigated international education and global career transitions themselves, they recognized the need for reliable, transparent, and personalized guidance. Their leadership has shaped CareerHQ into an organization built on trust, integrity, and long-term success—focused on empowering students and professionals to make confident, informed decisions.
+
               </p>
               <p className="text-foreground-600 mb-4">
-                At CareerHQ, we believe in more than just admissions; we believe
-                in connecting students to a world of limitless career
-                possibilities, all at one dot.
+               At CareerHQ, we don’t just support admission / placement—we partner in building futures. Because talent has no boundaries, and neither should opportunities.
               </p>
-              <p className="text-foreground-600 mb-6">
-                We specialize in guiding students and professionals toward the right academic paths and career breakthroughs, both in India and across the world. At Career HQ, we believe that talent knows no boundaries—and neither should opportunities.
-              </p>
+             
               <div className="flex flex-wrap gap-4">
                 <Button
                   color="primary"
