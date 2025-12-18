@@ -712,15 +712,15 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
             <SearchBar variant="hero" />
           </div> */}
 
-          {blogTickerItems && blogTickerItems.length > 0 && (
+          {/* {blogTickerItems && blogTickerItems.length > 0 && (
             <div className="mt-14">
               <BlogSlider items={blogTickerItems} />
             </div>
-          )}
+          )} */}
         </div>
       </VenomBeam>
 
-      {/* Why Choose Career HQ Section */}
+      {/* Why Career Headquarters Section */}
       <ChromaGrid className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
@@ -731,7 +731,7 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent"
             >
-              Why Choose Career HQ?
+              Why Career Headquarters?
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -740,59 +740,51 @@ export function HomePageClient({ blogPosts }: HomePageClientProps) {
               viewport={{ once: true }}
               className="text-foreground-600 max-w-3xl mx-auto text-lg"
             >
-              Your trusted partner in shaping successful careers worldwide
+              Discover how CareerHQ combines global insight, end-to-end support, and future-focused solutions to shape your career journey.
             </motion.p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
             {[
               {
-                icon: "lucide:user-check",
-                title: "Personalized Guidance",
+                icon: "lucide:globe-2",
+                title: "Global Perspective, Personalized Approach",
                 description:
-                  "Tailored support for every student and job-seeker to help you achieve your unique goals.",
+                  "We provide tailored guidance aligned with each individual’s goals, strengths, and aspirations—ensuring every decision is informed and future-focused. Example: A student aspiring to study overseas receives personalized guidance to choose the right country, university, and course based on academic profile, budget, and long-term career goals.",
                 gradient: "from-blue-500 to-cyan-500",
                 color: "text-blue-500",
               },
               {
-                icon: "lucide:network",
-                title: "Trusted Network",
+                icon: "lucide:award",
+                title: "Proven Experience, Trusted Leadership",
                 description:
-                  "A reliable network of universities and employers across the globe.",
+                  "Led by founders with first-hand education and career experience, CareerHQ offers transparent and reliable guidance grounded in real insight. Example: A student exploring higher education in India is guided toward top universities and specialized programs aligned with industry demand and career growth.",
                 gradient: "from-purple-500 to-pink-500",
                 color: "text-purple-500",
               },
               {
-                icon: "lucide:eye",
-                title: "Transparent Processes",
+                icon: "lucide:target",
+                title: "End-to-End Career Focus",
                 description:
-                  "No hidden steps or false promises—just honest, clear guidance every step of the way.",
+                  "We focus on outcomes that matter—bridging education with global career opportunities. Example: An international graduate receives structured support for overseas placements, including career mapping and guidance toward roles aligned with global industry standards.",
                 gradient: "from-green-500 to-emerald-500",
                 color: "text-green-500",
               },
               {
-                icon: "lucide:award",
-                title: "Expert Team",
+                icon: "lucide:briefcase",
+                title: "Opportunities Without Borders",
                 description:
-                  "Years of industry experience backing every piece of advice and support we provide.",
+                  "We help talent transition confidently into the workforce, both locally and globally. Example: A graduate is guided into a suitable placement within India, aligned with skills, industry preferences, and long-term career progression.",
                 gradient: "from-orange-500 to-red-500",
                 color: "text-orange-500",
               },
               {
-                icon: "lucide:heart",
-                title: "Student-First Values",
+                icon: "lucide:hand-heart",
+                title: "A Partnership for the Future",
                 description:
-                  "Our commitment to putting students and careers first in everything we do.",
+                  "At CareerHQ, we support students beyond guidance by enabling access to financial solutions that make education possible. Example: A student secures an education loan through CareerHQ’s assistance, helping finance tuition and living expenses with clarity and confidence.",
                 gradient: "from-red-500 to-pink-500",
                 color: "text-red-500",
-              },
-              {
-                icon: "lucide:globe-2",
-                title: "Global Reach",
-                description:
-                  "Connecting worldwide careers at one dot with opportunities across 12+ countries.",
-                gradient: "from-indigo-500 to-blue-500",
-                color: "text-indigo-500",
               },
             ].map((feature, index) => (
               <motion.div
