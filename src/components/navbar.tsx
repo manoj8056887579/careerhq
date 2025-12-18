@@ -34,7 +34,7 @@ export const MainNavbar: React.FC = () => {
   const navLinks = [
     { name: "Home", link: "/" },
     { name: "About", link: "/about" },
-    { name: "Blog", link: "/blog" },
+    // { name: "Blog", link: "/blog" },
     { name: "Contact", link: "/contact" },
   ];
 
