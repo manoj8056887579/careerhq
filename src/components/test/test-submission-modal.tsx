@@ -138,8 +138,8 @@ export function TestSubmissionModal({
         name: formData.name,
         email: formData.email,
         phone: formattedPhone,
-        program: "Career Test",
-        message: `Career Test Score: ${testScore.total}/${testScore.maxScore} (${testScore.percentage}%)`,
+        program: "Register",
+        message: `Register Score: ${testScore.total}/${testScore.maxScore} (${testScore.percentage}%)`,
         careerTestAnswers: answers,
       };
 
@@ -214,7 +214,7 @@ export function TestSubmissionModal({
                 <ModalHeader className="flex flex-col gap-1">
                   <div className="flex items-center justify-between">
                     <h2 className="text-xl md:text-2xl font-bold">
-                      Get Your Career Test Results
+                      Get Your Register Results
                     </h2>
                   </div>
                   <div className="mt-3 md:mt-4 p-3 md:p-4 bg-primary/10 rounded-lg">
