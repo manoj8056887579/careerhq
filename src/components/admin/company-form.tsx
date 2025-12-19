@@ -51,10 +51,15 @@ export default function CompanyForm({
     });
 
     if (!response.ok) {
-      throw new Error("Failed to upload image");
+      const errorData = await response.json().catch(() => ({ error: "Unknown error" }));
+      console.error("Upload failed:", errorData);
+      throw new Error(errorData.error || "Failed to upload image");
     }
 
     const result = await response.json();
+    if (!result.success || !result.data?.publicId) {
+      throw new Error("Invalid response from upload API");
+    }
     return result.data.publicId;
   };
 
@@ -91,7 +96,8 @@ export default function CompanyForm({
       await onSubmit(formData);
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Failed to save company");
+      const errorMessage = error instanceof Error ? error.message : "Failed to save company";
+      alert(errorMessage);
     } finally {
       setIsSubmitting(false);
       setUploadingLogo(false);
