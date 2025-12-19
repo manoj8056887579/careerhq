@@ -4,8 +4,10 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
-import { FooterBackgroundGradient, TextHoverEffect } from "@/components/ui/hover-footer";
-
+import {
+  FooterBackgroundGradient,
+  TextHoverEffect,
+} from "@/components/ui/hover-footer";
 
 interface AdminProfile {
   emails?: string[];
@@ -27,18 +29,19 @@ export const Footer: React.FC = () => {
 
   const footerSections = [
     {
-      title: "Resources",
-      links: [
-        // { name: "Blog", path: "/blog" },
-        { name: "Register", path: "/career-test" },
-      ],
-    },
-    {
       title: "Company",
       links: [
         { name: "Home", path: "/" },
         { name: "About Us", path: "/about" },
         { name: "Contact", path: "/contact" },
+        { name: "Register", path: "/career-test" },
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+        { name: "Privacy Policy", path: "/privacy-policy" },
+        { name: "Terms & Conditions", path: "/terms-and-conditions" },
       ],
     },
   ];
@@ -220,10 +223,10 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-4">
               {adminProfile.emails && adminProfile.emails.length > 0 && (
-                <li className="flex items-center space-x-3">
+                <li className="flex items-start space-x-3">
                   <Icon
                     icon="lucide:mail"
-                    className="w-5 h-5 text-[#3ca2fa] flex-shrink-0"
+                    className="w-5 h-5 text-[#3ca2fa] flex-shrink-0 mt-0.5"
                   />
                   <div className="flex flex-col gap-1">
                     {adminProfile.emails.map((email, index) => (
@@ -240,10 +243,10 @@ export const Footer: React.FC = () => {
               )}
 
               {adminProfile.phones && adminProfile.phones.length > 0 && (
-                <li className="flex items-center space-x-3">
+                <li className="flex items-start space-x-3">
                   <Icon
                     icon="lucide:phone"
-                    className="w-5 h-5 text-[#3ca2fa] flex-shrink-0"
+                    className="w-5 h-5 text-[#3ca2fa] flex-shrink-0 mt-0.5"
                   />
                   <div className="flex flex-col gap-1">
                     {adminProfile.phones.map((phone, index) => (
@@ -273,7 +276,8 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-         <div className="flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
+
+        <div className="flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
           {/* Social icons */}
           <div className="flex space-x-6 text-gray-700 z-50 relative">
             {socialLinks
@@ -310,7 +314,6 @@ export const Footer: React.FC = () => {
         <hr className="border-t border-gray-700 my-8" />
 
         {/* Footer bottom */}
-       
       </div>
 
       {/* Text hover effect - Full width */}
