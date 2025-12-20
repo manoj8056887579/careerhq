@@ -263,7 +263,7 @@ export default function AboutPage() {
                   />
                 </div>
                 <h3 className="text-2xl font-semibold mb-3">
-                  Placement in India
+                  Placement India
                 </h3>
                 <p className="text-foreground-600">
                   Our strong industry partnerships open the door to diverse job

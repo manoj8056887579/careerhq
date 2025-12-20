@@ -21,7 +21,7 @@ export async function generateMetadata({
   return {
     title: "Study India | CareerHQ",
     description:
-      "Explore study in India and find top educational opportunities",
+      "Explore study India and find top educational opportunities",
   };
 }
 

@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "Study in India | CareerHQ",
+  title: "Study  India | CareerHQ",
   description: "Find the best universities and courses in India",
 };
 
@@ -43,7 +43,7 @@ export default async function StudyIndiaPage() {
   return (
     <ModuleListingPage
       moduleType="study-india"
-      title="Study in India"
+      title="Study  India"
       description="Explore top universities and educational programs across India"
       initialModules={modules}
       initialCategories={categories}
