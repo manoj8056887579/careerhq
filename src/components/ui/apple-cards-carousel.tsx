@@ -40,7 +40,10 @@ export function AppleCardsCarousel({ cards }: { cards: Card[] }) {
           // On mobile, scroll by full viewport width; on desktop, scroll by 400px
           const isMobile = window.innerWidth < 768;
           const scrollAmount = isMobile ? clientWidth : 400;
-          carouselRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+          carouselRef.current.scrollBy({
+            left: scrollAmount,
+            behavior: "smooth",
+          });
         }
       }
     }, 3000);
@@ -129,12 +132,12 @@ const Card = ({ card, index }: { card: Card; index: number }) => {
   ];
 
   const images = [
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
-    "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
-    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80",
-    "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80",
-    "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
-    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80",
+    "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80", // Empowerment - Indian students studying in library
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80", // Integrity - Team collaboration in modern office
+    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80", // Growth Mindset - Indian students collaborating on project
+    "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80", // Inclusivity - Two coworkers smiling while working together (India) - B74S7bbXrhs
+    "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80", // Innovation - Team celebrating success
+    "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80", // Impact - Professional team working together
   ];
 
   const gradient = gradients[index % gradients.length];
@@ -180,7 +183,10 @@ const Card = ({ card, index }: { card: Card; index: number }) => {
           <div
             className={`w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-xl backdrop-blur-sm`}
           >
-            <Icon icon={card.icon} className="w-7 h-7 md:w-8 md:h-8 text-white" />
+            <Icon
+              icon={card.icon}
+              className="w-7 h-7 md:w-8 md:h-8 text-white"
+            />
           </div>
         </motion.div>
 
