@@ -20,7 +20,7 @@ import { StatsSection } from "../components/ui/stats-section";
 import DomeGallery from "../components/ui/country-flags";
 import { TiltedCard } from "../components/ui/tilted-card";
 import { ChromaGrid } from "../components/ui/chroma-grid";
-import { AppleCardsCarousel } from "../components/ui/apple-cards-carousel";
+import { AppleCardsCarousel } from "@/components/ui/apple-cards-carousel";
 import type { BlogPost } from "@/types/blog";
 import type { CountryWithCounts, University } from "@/types/education";
 import type { Company } from "@/models/Company";
