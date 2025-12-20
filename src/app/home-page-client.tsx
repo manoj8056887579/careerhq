@@ -675,7 +675,7 @@ export function HomePageClient({
                   </Button>
                 </div>
 
-                <div className="flex items-center justify-start gap-2">
+                {/* <div className="flex items-center justify-start gap-2">
                   <p className="text-sm text-foreground-500 mr-4 hidden md:block">
                     Popular Destinations:
                   </p>
@@ -696,7 +696,7 @@ export function HomePageClient({
                       }))}
                     />
                   )}
-                </div>
+                </div> */}
               </motion.div>
             </div>
             <motion.div
@@ -735,6 +735,188 @@ export function HomePageClient({
           )} */}
         </div>
       </VenomBeam>
+
+
+
+  {/* Country Flags Gallery Section */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-7">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent"
+            >
+              Global Education Opportunities
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-foreground-600 max-w-2xl mx-auto text-lg"
+            >
+              Explore world-class universities and programs across multiple
+              countries
+            </motion.p>
+          </div>
+
+          <div className="h-[500px] w-full">
+            <DomeGallery
+              images={countries
+                .filter((country) => country.flagImageId)
+                .map((country) => ({
+                  src: getCloudinaryImageUrl(country.flagImageId!, "card"),
+                  alt: country.name,
+                }))}
+              fit={0.6}
+              minRadius={400}
+              maxRadius={800}
+              segments={30}
+              grayscale={false}
+              imageBorderRadius="16px"
+              openedImageBorderRadius="20px"
+              openedImageWidth="500px"
+              openedImageHeight="350px"
+              overlayBlurColor="rgba(255, 255, 255, 0.1)"
+            />
+          </div>
+        </div>
+      </section>
+
+
+        {/* Placement Partners Section */}
+      {placementCompanies.length > 0 && (
+        <section className="py-16 bg-gradient-to-b from-blue-50 to-indigo-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-3 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+                Our Placement Partners
+              </h2>
+              <p className="text-foreground-600 max-w-2xl mx-auto">
+                We partner with leading companies across industries to provide
+                exceptional placement opportunities for our students.
+              </p>
+            </div>
+
+            <AnimatedLogosCanopy
+              data={placementCompanies.map((company) => ({
+                name: company.name,
+                logo: getCloudinaryUrl(company.logo, {
+                  width: 300,
+                  height: 200,
+                  crop: "fit",
+                }),
+              }))}
+              className="py-8"
+              cardClassName="bg-transparent"
+              repeat={4}
+              noGrayscale={true}
+              duration={90}
+            />
+          </div>
+        </section>
+      )}
+
+
+ {/* Partners Section */}
+      <section className="py-16 bg-default-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Our University Partners</h2>
+            <p className="text-foreground-500 max-w-2xl mx-auto">
+              We collaborate with leading universities and institutions
+              worldwide to provide you with the best opportunities.
+            </p>
+          </div>
+
+          <AnimatedLogosCanopy
+            data={[
+              {
+                name: "Berlin School of Business and Innovation (BSBI), Germany",
+                logo: "/images/university-partners/Berlin School of Business and Innovation (BSBI), Germany.png",
+              },
+              {
+                name: "Durham University, UK",
+                logo: "/images/university-partners/Durham University, UK.png",
+              },
+              {
+                name: "Edu International, Adelaide, Australia",
+                logo: "/images/university-partners/Edu International, Adelaide, Australia.png",
+              },
+              {
+                name: "International University of Applied Sciences, Germany",
+                logo: "/images/university-partners/International University of Applied Sciences, Germany.png",
+              },
+              {
+                name: "Jonkoping University, Sweden",
+                logo: "/images/university-partners/Jonkoping University, Sweden.png",
+              },
+              {
+                name: "NEOMA Business School, Paris, France",
+                logo: "/images/university-partners/NEOMA Business School, Paris, France.png",
+              },
+              {
+                name: "Trinity College Dublin (TCD), Ireland",
+                logo: "/images/university-partners/Trinity College Dublin (TCD), Ireland.png",
+              },
+              {
+                name: "University of Alberta, Canada",
+                logo: "/images/university-partners/University of Alberta, Canada.png",
+              },
+              {
+                name: "University of New Haven, Connecticut, USA",
+                logo: "/images/university-partners/University of New Haven, Connecticut, USA.png",
+              },
+            ]}
+            className="py-8"
+            cardClassName="bg-transparent"
+            repeat={4}
+          />
+        </div>
+      </section>
+
+    
+
+
+      {/* Stats Section */}
+      <section className="py-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-primary-200 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-200 rounded-full blur-3xl"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent"
+            >
+              Our Impacts
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-foreground-600 max-w-2xl mx-auto text-lg"
+            >
+              Trusted by thousands of students worldwide to achieve their career
+              dreams
+            </motion.p>
+          </div>
+
+          <StatsSection
+            stats={statsData}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+          />
+        </div>
+      </section>
+
 
       {/* Why Career Headquarters Section */}
       <ChromaGrid className="py-20">
@@ -1186,41 +1368,19 @@ export function HomePageClient({
           </div>
         </div>
       </section> */}
-      {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-primary-200 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-200 rounded-full blur-3xl"></div>
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent"
-            >
-              Our Impacts
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="text-foreground-600 max-w-2xl mx-auto text-lg"
-            >
-              Trusted by thousands of students worldwide to achieve their career
-              dreams
-            </motion.p>
-          </div>
 
-          <StatsSection
-            stats={statsData}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
-          />
-        </div>
-      </section>
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* Core Values Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -1289,53 +1449,7 @@ export function HomePageClient({
         </div>
       </section>
 
-      {/* Country Flags Gallery Section */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-7">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent"
-            >
-              Global Education Opportunities
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="text-foreground-600 max-w-2xl mx-auto text-lg"
-            >
-              Explore world-class universities and programs across multiple
-              countries
-            </motion.p>
-          </div>
-
-          <div className="h-[500px] w-full">
-            <DomeGallery
-              images={countries
-                .filter((country) => country.flagImageId)
-                .map((country) => ({
-                  src: getCloudinaryImageUrl(country.flagImageId!, "card"),
-                  alt: country.name,
-                }))}
-              fit={0.6}
-              minRadius={400}
-              maxRadius={800}
-              segments={30}
-              grayscale={false}
-              imageBorderRadius="16px"
-              openedImageBorderRadius="20px"
-              openedImageWidth="500px"
-              openedImageHeight="350px"
-              overlayBlurColor="rgba(255, 255, 255, 0.1)"
-            />
-          </div>
-        </div>
-      </section>
+    
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-primary-500 to-secondary-500 text-white">
@@ -1399,7 +1513,7 @@ export function HomePageClient({
         />
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3">Student Success Stories</h2>
+            <h2 className="text-3xl font-bold mb-3">Our Success Stories</h2>
             <p className="text-foreground-500 max-w-2xl mx-auto">
               Hear from our students who have successfully achieved their career
               goals with our guidance.
@@ -1467,95 +1581,7 @@ export function HomePageClient({
         </div>
       </section> */}
 
-      {/* Partners Section */}
-      <section className="py-16 bg-default-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3">Our University Partners</h2>
-            <p className="text-foreground-500 max-w-2xl mx-auto">
-              We collaborate with leading universities and institutions
-              worldwide to provide you with the best opportunities.
-            </p>
-          </div>
-
-          <AnimatedLogosCanopy
-            data={[
-              {
-                name: "Berlin School of Business and Innovation (BSBI), Germany",
-                logo: "/images/university-partners/Berlin School of Business and Innovation (BSBI), Germany.png",
-              },
-              {
-                name: "Durham University, UK",
-                logo: "/images/university-partners/Durham University, UK.png",
-              },
-              {
-                name: "Edu International, Adelaide, Australia",
-                logo: "/images/university-partners/Edu International, Adelaide, Australia.png",
-              },
-              {
-                name: "International University of Applied Sciences, Germany",
-                logo: "/images/university-partners/International University of Applied Sciences, Germany.png",
-              },
-              {
-                name: "Jonkoping University, Sweden",
-                logo: "/images/university-partners/Jonkoping University, Sweden.png",
-              },
-              {
-                name: "NEOMA Business School, Paris, France",
-                logo: "/images/university-partners/NEOMA Business School, Paris, France.png",
-              },
-              {
-                name: "Trinity College Dublin (TCD), Ireland",
-                logo: "/images/university-partners/Trinity College Dublin (TCD), Ireland.png",
-              },
-              {
-                name: "University of Alberta, Canada",
-                logo: "/images/university-partners/University of Alberta, Canada.png",
-              },
-              {
-                name: "University of New Haven, Connecticut, USA",
-                logo: "/images/university-partners/University of New Haven, Connecticut, USA.png",
-              },
-            ]}
-            className="py-8"
-            cardClassName="bg-transparent"
-            repeat={4}
-          />
-        </div>
-      </section>
-
-      {/* Placement Partners Section */}
-      {placementCompanies.length > 0 && (
-        <section className="py-16 bg-gradient-to-b from-blue-50 to-indigo-50">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-3 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-                Our Placement Partners
-              </h2>
-              <p className="text-foreground-600 max-w-2xl mx-auto">
-                We partner with leading companies across industries to provide
-                exceptional placement opportunities for our students.
-              </p>
-            </div>
-
-            <AnimatedLogosCanopy
-              data={placementCompanies.map((company) => ({
-                name: company.name,
-                logo: getCloudinaryUrl(company.logo, {
-                  width: 300,
-                  height: 200,
-                  crop: "fit",
-                }),
-              }))}
-              className="py-8"
-              cardClassName="bg-transparent"
-              repeat={4}
-              noGrayscale={true}
-              duration={90}
-            />
-          </div>
-        </section>
-      )}
+     
     </>
   );
 }

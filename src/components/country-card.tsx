@@ -67,7 +67,7 @@ export const CountryCard: React.FC<CountryCardProps> = ({
               </div>
             </div>
             <div className="p-4">
-              <div className="flex justify-between mb-4">
+              {/* <div className="flex justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <Icon icon="lucide:building" className="text-primary" />
                   <span className="text-sm">{universities} Universities</span>
@@ -76,7 +76,7 @@ export const CountryCard: React.FC<CountryCardProps> = ({
                   <Icon icon="lucide:book-open" className="text-primary" />
                   <span className="text-sm">{courses} Courses</span>
                 </div>
-              </div>
+              </div> */}
               <Button
                 color="primary"
                 variant="flat"

@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "MBBS in India | CareerHQ",
+  title: "MBBS India | CareerHQ",
   description: "Find the best MBBS colleges and programs in India",
 };
 
@@ -43,7 +43,7 @@ export default async function MBBSIndiaPage() {
   return (
     <ModuleListingPage
       moduleType="mbbs-india"
-      title="MBBS in India"
+      title="MBBS India"
       description="Explore top medical colleges and MBBS programs across India"
       initialModules={modules}
       initialCategories={categories}

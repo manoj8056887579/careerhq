@@ -50,6 +50,7 @@ export default async function PlacementAbroadPage() {
       description="Discover international career opportunities with leading global companies"
       initialModules={modules}
       initialCategories={categories}
+      showTrainingPlacement={true}
     />
   );
 }

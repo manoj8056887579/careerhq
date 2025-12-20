@@ -55,11 +55,12 @@ export default async function PlacementIndiaPage() {
     <>
       <ModuleListingPage
         moduleType="placement-india"
-        title="Placement in India"
+        title="Placement India"
         description="Find the best job placement opportunities with top companies in India"
         initialModules={modules}
         initialCategories={categories}
         companiesSection={<CompaniesSection companies={companies} />}
+        showTrainingPlacement={true}
       />
     </>
   );

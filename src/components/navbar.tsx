@@ -83,7 +83,7 @@ export const MainNavbar: React.FC = () => {
     //   icon: "lucide:book-open",
     // },
     // { name: "MOU Projects", link: "/mou-projects", icon: "lucide:handshake" },
-    { name: "Loans", link: "/loans", icon: "lucide:wallet" },
+    { name: "Loan Hub", link: "/loans", icon: "lucide:wallet" },
   ];
 
   React.useEffect(() => {
