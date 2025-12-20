@@ -96,6 +96,7 @@ interface AnimatedLogosProps {
   repeat?: number;
   noGrayscale?: boolean;
   duration?: number;
+  reverse?: boolean;
 }
 
 export const AnimatedLogosCanopy: React.FC<AnimatedLogosProps> = ({
@@ -105,6 +106,7 @@ export const AnimatedLogosCanopy: React.FC<AnimatedLogosProps> = ({
   repeat = 2,
   noGrayscale = false,
   duration = 25,
+  reverse = false,
 }) => (
   <div className={cn("w-full overflow-x-hidden py-4", className)}>
     <AnimatedCanopy
@@ -114,6 +116,7 @@ export const AnimatedLogosCanopy: React.FC<AnimatedLogosProps> = ({
       pauseOnHover
       applyMask={false}
       repeat={repeat}
+      reverse={reverse}
     >
       {data.map((logo) => (
         <LogoCard
