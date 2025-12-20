@@ -814,7 +814,7 @@ export function HomePageClient({
               cardClassName="bg-transparent"
               repeat={4}
               noGrayscale={true}
-              duration={90}
+              reverse={true}
             />
           </div>
         </section>
