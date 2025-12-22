@@ -1100,9 +1100,9 @@ export function HomePageClient({
               },
               {
                 icon: "lucide:users-round",
-                title: "🤝 Team CareerHQ",
+                title: "🤝 Team HQ",
                 description:
-                  "Behind every successful outcome is a coordinated team working seamlessly together. At CareerHQ, our counselors, operations, visa, and support teams collaborate closely to ensure a smooth, transparent, and well-managed client journey—from the first consultation to final outcomes. Example: A student experiences a structured, stress-free process where academic guidance, documentation, applications, and follow-ups are handled efficiently by a unified team, ensuring clarity and consistency at every stage.",
+                  "A dedicated, collaborative team ensures a smooth and transparent client journey from consultation to final outcomes. Example: A student experiences a stress-free process where guidance, documentation, applications, and follow-ups are handled seamlessly by one unified team.",
                 gradient: "from-indigo-500 to-blue-500",
                 color: "text-indigo-500",
               },
