@@ -318,7 +318,7 @@ export const Footer: React.FC = () => {
 
       {/* Text hover effect - Full width */}
       <div className="lg:flex hidden h-[35rem] -mt-64 -mb-44 w-full">
-        <TextHoverEffect text="CAREERHQ" className="z-50 w-full" />
+        <TextHoverEffect text="CAREER HQ" className="z-50 w-full" />
       </div>
 
       <FooterBackgroundGradient />

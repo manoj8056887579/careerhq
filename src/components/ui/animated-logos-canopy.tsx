@@ -81,8 +81,8 @@ const LogoCard = ({
         className={cn(
           "h-full w-auto max-h-20 object-contain group-hover:scale-110 transition-all duration-300",
           noGrayscale
-            ? "opacity-100"
-            : "filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100"
+            ? "opacity-100 filter-none"
+            : "filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100"
         )}
       />
     </div>
@@ -105,7 +105,7 @@ export const AnimatedLogosCanopy: React.FC<AnimatedLogosProps> = ({
   cardClassName,
   repeat = 2,
   noGrayscale = false,
-  duration = 25,
+  duration = 60,
   reverse = false,
 }) => (
   <div className={cn("w-full overflow-x-hidden py-4", className)}>
@@ -118,9 +118,9 @@ export const AnimatedLogosCanopy: React.FC<AnimatedLogosProps> = ({
       repeat={repeat}
       reverse={reverse}
     >
-      {data.map((logo) => (
+      {data.map((logo, index) => (
         <LogoCard
-          key={logo.name}
+          key={`${logo.name}-${index}`}
           logo={logo}
           className={cardClassName}
           noGrayscale={noGrayscale}

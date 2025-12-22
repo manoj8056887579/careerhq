@@ -540,7 +540,7 @@ export const EnquiryForm = React.forwardRef<
                         }}
                       >
                         <span className="text-[11px] xs:text-xs sm:text-sm leading-tight">
-                          I consent to Career HQ contacting me.
+                          Team HQ contacting me and There is terms and condition in all register
                         </span>
                       </Checkbox>
                       {touched.consent && validationErrors.consent && (

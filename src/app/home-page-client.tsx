@@ -736,9 +736,7 @@ export function HomePageClient({
         </div>
       </VenomBeam>
 
-
-
-  {/* Country Flags Gallery Section */}
+      {/* Country Flags Gallery Section */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-7">
@@ -786,8 +784,7 @@ export function HomePageClient({
         </div>
       </section>
 
-
-        {/* Placement Partners Section */}
+      {/* Placement Partners Section */}
       {placementCompanies.length > 0 && (
         <section className="py-16 bg-gradient-to-b from-blue-50 to-indigo-50">
           <div className="container mx-auto px-4">
@@ -820,8 +817,7 @@ export function HomePageClient({
         </section>
       )}
 
-
- {/* Partners Section */}
+      {/* Partners Section */}
       <section className="py-16 bg-default-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -835,51 +831,169 @@ export function HomePageClient({
           <AnimatedLogosCanopy
             data={[
               {
-                name: "Berlin School of Business and Innovation (BSBI), Germany",
-                logo: "/images/university-partners/Berlin School of Business and Innovation (BSBI), Germany.png",
+                name: "University Partner 4",
+                logo: "/images/university-partners/123.jpeg",
               },
               {
-                name: "Durham University, UK",
-                logo: "/images/university-partners/Durham University, UK.png",
+                name: "University Partner 4",
+                logo: "/images/university-partners/4.jpeg",
               },
               {
-                name: "Edu International, Adelaide, Australia",
-                logo: "/images/university-partners/Edu International, Adelaide, Australia.png",
+                name: "University Partner 5",
+                logo: "/images/university-partners/5.jpeg",
               },
               {
-                name: "International University of Applied Sciences, Germany",
-                logo: "/images/university-partners/International University of Applied Sciences, Germany.png",
+                name: "University Partner 6",
+                logo: "/images/university-partners/6.jpeg",
               },
               {
-                name: "Jonkoping University, Sweden",
-                logo: "/images/university-partners/Jonkoping University, Sweden.png",
+                name: "University Partner 7",
+                logo: "/images/university-partners/7.jpeg",
               },
               {
-                name: "NEOMA Business School, Paris, France",
-                logo: "/images/university-partners/NEOMA Business School, Paris, France.png",
+                name: "University Partner 8",
+                logo: "/images/university-partners/8.jpeg",
               },
               {
-                name: "Trinity College Dublin (TCD), Ireland",
-                logo: "/images/university-partners/Trinity College Dublin (TCD), Ireland.png",
+                name: "University Partner 9",
+                logo: "/images/university-partners/9.jpeg",
               },
               {
-                name: "University of Alberta, Canada",
-                logo: "/images/university-partners/University of Alberta, Canada.png",
+                name: "University Partner 10",
+                logo: "/images/university-partners/10.jpeg",
               },
               {
-                name: "University of New Haven, Connecticut, USA",
-                logo: "/images/university-partners/University of New Haven, Connecticut, USA.png",
+                name: "University Partner 11",
+                logo: "/images/university-partners/11.jpeg",
+              },
+              {
+                name: "University Partner 12",
+                logo: "/images/university-partners/12.jpeg",
+              },
+              {
+                name: "University Partner 13",
+                logo: "/images/university-partners/13.jpeg",
+              },
+              {
+                name: "University Partner 14",
+                logo: "/images/university-partners/14.jpeg",
+              },
+              {
+                name: "University Partner 15",
+                logo: "/images/university-partners/15.jpeg",
+              },
+              {
+                name: "University Partner 16",
+                logo: "/images/university-partners/16.jpeg",
+              },
+              {
+                name: "University Partner 17",
+                logo: "/images/university-partners/17.jpeg",
+              },
+              {
+                name: "University Partner 18",
+                logo: "/images/university-partners/18.jpeg",
+              },
+              {
+                name: "University Partner 19",
+                logo: "/images/university-partners/19.jpeg",
+              },
+              {
+                name: "University Partner 20",
+                logo: "/images/university-partners/20.jpeg",
+              },
+              {
+                name: "University Partner 21",
+                logo: "/images/university-partners/21.jpeg",
+              },
+              {
+                name: "University Partner 22",
+                logo: "/images/university-partners/22.jpeg",
+              },
+              {
+                name: "University Partner 23",
+                logo: "/images/university-partners/23.jpeg",
+              },
+              {
+                name: "University Partner 24",
+                logo: "/images/university-partners/24.jpeg",
+              },
+              {
+                name: "University Partner 25",
+                logo: "/images/university-partners/25.jpeg",
+              },
+              {
+                name: "University Partner 26",
+                logo: "/images/university-partners/26.jpeg",
+              },
+              {
+                name: "University Partner 27",
+                logo: "/images/university-partners/27.jpeg",
+              },
+              {
+                name: "University Partner 28",
+                logo: "/images/university-partners/28.jpeg",
+              },
+              {
+                name: "University Partner 29",
+                logo: "/images/university-partners/29.jpeg",
+              },
+              {
+                name: "University Partner 30",
+                logo: "/images/university-partners/30.jpeg",
+              },
+              {
+                name: "University Partner 31",
+                logo: "/images/university-partners/31.jpeg",
+              },
+              {
+                name: "University Partner 32",
+                logo: "/images/university-partners/32.jpeg",
+              },
+              {
+                name: "University Partner 33",
+                logo: "/images/university-partners/33.jpeg",
+              },
+              {
+                name: "University Partner 34",
+                logo: "/images/university-partners/34.jpeg",
+              },
+              {
+                name: "University Partner 35",
+                logo: "/images/university-partners/35.jpeg",
+              },
+              {
+                name: "University Partner 36",
+                logo: "/images/university-partners/36.jpeg",
+              },
+              {
+                name: "University Partner 37",
+                logo: "/images/university-partners/37.jpeg",
+              },
+              {
+                name: "University Partner 38",
+                logo: "/images/university-partners/38.jpeg",
+              },
+              {
+                name: "University Partner 39",
+                logo: "/images/university-partners/39.jpeg",
+              },
+              {
+                name: "University Partner 40",
+                logo: "/images/university-partners/40.jpeg",
+              },
+              {
+                name: "University Partner 41",
+                logo: "/images/university-partners/41.jpeg",
               },
             ]}
             className="py-8"
             cardClassName="bg-transparent"
-            repeat={4}
+            repeat={2}
+            noGrayscale={true}
           />
         </div>
       </section>
-
-    
-
 
       {/* Stats Section */}
       <section className="py-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50 relative overflow-hidden">
@@ -917,7 +1031,6 @@ export function HomePageClient({
         </div>
       </section>
 
-
       {/* Why Career Headquarters Section */}
       <ChromaGrid className="py-20">
         <div className="container mx-auto px-4">
@@ -938,7 +1051,8 @@ export function HomePageClient({
               viewport={{ once: true }}
               className="text-foreground-600 max-w-3xl mx-auto text-lg"
             >
-              Discover how CareerHQ combines global insight, end-to-end support, and future-focused solutions to shape your career journey.
+              Discover how CareerHQ combines global insight, end-to-end support,
+              and future-focused solutions to shape your career journey.
             </motion.p>
           </div>
 
@@ -1112,7 +1226,8 @@ export function HomePageClient({
               viewport={{ once: true }}
               className="text-foreground-600 max-w-3xl mx-auto text-base md:text-lg px-4"
             >
-              Guiding principles that drive everything we do at Career Head Quarters
+              Guiding principles that drive everything we do at Career Head
+              Quarters
             </motion.p>
           </div>
 
@@ -1192,7 +1307,12 @@ export function HomePageClient({
                       viewport={{ once: true }}
                       className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-base lg:text-lg flex-1"
                     >
-                      At Career Head Quarters, our mission is to empower individuals to realize their fullest potential and build meaningful, sustainable career paths. We inspire growth, enable informed choices, and create a future where every person has the opportunity to thrive professionally with global exposure.
+                      At Career Head Quarters, our mission is to empower
+                      individuals to realize their fullest potential and build
+                      meaningful, sustainable career paths. We inspire growth,
+                      enable informed choices, and create a future where every
+                      person has the opportunity to thrive professionally with
+                      global exposure.
                     </motion.p>
                   </div>
 
@@ -1295,7 +1415,10 @@ export function HomePageClient({
                       viewport={{ once: true }}
                       className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-base lg:text-lg flex-1"
                     >
-                      To become a trusted global gateway for education, careers, and professional development—empowering students, professionals, and organizations to learn, grow, and succeed with future-ready skills across borders.
+                      To become a trusted global gateway for education, careers,
+                      and professional development—empowering students,
+                      professionals, and organizations to learn, grow, and
+                      succeed with future-ready skills across borders.
                     </motion.p>
                   </div>
 
@@ -1369,19 +1492,6 @@ export function HomePageClient({
         </div>
       </section> */}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
       {/* Core Values Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
@@ -1448,8 +1558,6 @@ export function HomePageClient({
           />
         </div>
       </section>
-
-    
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-primary-500 to-secondary-500 text-white">
@@ -1580,8 +1688,6 @@ export function HomePageClient({
           )}
         </div>
       </section> */}
-
-     
     </>
   );
 }
