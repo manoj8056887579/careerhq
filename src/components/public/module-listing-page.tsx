@@ -561,13 +561,13 @@ function ModuleCardModern({ module, moduleType }: ModuleCardModernProps) {
             />
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-transparent to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-            <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
+            {/* <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
               <div className="bg-white/95 backdrop-blur-sm px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full shadow-lg">
                 <span className="text-[10px] sm:text-xs font-bold text-blue-600">
                   {module.category}
                 </span>
               </div>
-            </div>
+            </div> */}
           </div>
         )}
 
