@@ -1051,8 +1051,9 @@ export function HomePageClient({
               viewport={{ once: true }}
               className="text-foreground-600 max-w-3xl mx-auto text-lg"
             >
-              Discover how Career HQ combines global insight, end-to-end support,
-              and future-focused solutions to shape your career journey.
+              Discover how Career HQ combines global insight, end-to-end
+              support, and future-focused solutions to shape your career
+              journey.
             </motion.p>
           </div>
 

@@ -152,8 +152,6 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          <hr className="border-t border-gray-700 my-8" />
-
           <div className="flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
             <div className="flex space-x-6 text-gray-700 z-50 relative" />
             <p className="text-center md:text-left text-gray-700 z-50 relative">
@@ -169,6 +167,8 @@ export const Footer: React.FC = () => {
               . All rights reserved.
             </p>
           </div>
+
+          <hr className="border-t border-gray-700 my-8" />
         </div>
       </footer>
     );
@@ -176,7 +176,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-white relative h-fit overflow-hidden w-full">
-      <div className="max-w-7xl mx-auto px-8 py-14 z-40 relative">
+      <div className="max-w-7xl mx-auto px-8 py-14 z-50 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
           {/* Brand section with Logo */}
           <div className="flex flex-col space-y-4">
@@ -318,8 +318,8 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Text hover effect - Full width */}
-      <div className="lg:flex hidden h-[35rem] -mt-64 -mb-44 w-full">
-        <TextHoverEffect text="CAREER HQ" className="z-50 w-full" />
+      <div className="lg:flex hidden h-[35rem] -mt-64 -mb-44 w-full pointer-events-none">
+        <TextHoverEffect text="CAREER HQ" className="w-full" />
       </div>
 
       <FooterBackgroundGradient />

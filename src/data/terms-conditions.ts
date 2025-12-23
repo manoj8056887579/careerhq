@@ -55,9 +55,7 @@ export const termsAndConditionsData = {
     {
       title: "User Responsibilities",
       icon: "lucide:clipboard-check",
-      content: [
-        "Users agree to:",
-      ],
+      content: ["Users agree to:"],
       subsections: [
         {
           title: "Your Obligations",
@@ -73,9 +71,7 @@ export const termsAndConditionsData = {
     {
       title: "No Guarantees",
       icon: "lucide:shield-alert",
-      content: [
-        "Career HQ does not guarantee:",
-      ],
+      content: ["Career HQ does not guarantee:"],
       subsections: [
         {
           title: "External Decisions",
@@ -98,9 +94,7 @@ export const termsAndConditionsData = {
     {
       title: "Limitation of Liability",
       icon: "lucide:shield-off",
-      content: [
-        "Career HQ shall not be liable for:",
-      ],
+      content: ["Career HQ shall not be liable for:"],
       subsections: [
         {
           title: "Exclusions",

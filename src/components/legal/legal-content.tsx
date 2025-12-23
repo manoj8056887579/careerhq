@@ -15,7 +15,7 @@ interface LegalContentProps {
   title: string;
   lastUpdated?: string;
   sections: Section[];
-  type: "terms" | "privacy";
+  type: "terms" | "privacy" | "refund";
 }
 
 interface AdminProfile {
@@ -125,7 +125,11 @@ export const LegalContent: React.FC<LegalContentProps> = ({
             <div className="bg-white/20 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl">
               <Icon
                 icon={
-                  type === "terms" ? "lucide:file-text" : "lucide:shield-check"
+                  type === "terms"
+                    ? "lucide:file-text"
+                    : type === "privacy"
+                    ? "lucide:shield-check"
+                    : "lucide:credit-card"
                 }
                 className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
               />
@@ -357,7 +361,9 @@ export const LegalContent: React.FC<LegalContentProps> = ({
                         If you have any questions about{" "}
                         {type === "terms"
                           ? "these terms"
-                          : "this privacy policy"}
+                          : type === "privacy"
+                          ? "this privacy policy"
+                          : "this refund policy"}
                         , please contact us:
                       </p>
                       <div className="flex flex-col gap-3">

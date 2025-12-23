@@ -25,7 +25,7 @@ export default function RefundPolicyPage() {
     <LegalContent
       title={refundPolicyData.title}
       sections={refundPolicyData.sections}
-      type="terms"
+      type="refund"
     />
   );
 }
