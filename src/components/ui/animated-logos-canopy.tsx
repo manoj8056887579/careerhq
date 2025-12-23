@@ -23,39 +23,48 @@ const AnimatedCanopy = ({
   reverse = false,
   className,
   applyMask = true,
-  ...props
-}: AnimatedCanopyProps) => (
-  <div
-    {...props}
-    className={cn(
-      "group relative flex h-full w-full overflow-hidden p-2 [--duration:10s] [--gap:12px] [gap:var(--gap)]",
-      vertical ? "flex-col" : "flex-row",
-      className
-    )}
-  >
-    {Array.from({ length: repeat }).map((_, index) => (
-      <div
-        key={`item-${index}`}
-        className={cn("flex shrink-0 [gap:var(--gap)]", {
-          "group-hover:[animation-play-state:paused]": pauseOnHover,
-          "[animation-direction:reverse]": reverse,
-          "animate-canopy-horizontal flex-row": !vertical,
-          "animate-canopy-vertical flex-col": vertical,
-        })}
-      >
-        {children}
-      </div>
-    ))}
-    {applyMask && (
-      <div
-        className={cn(
-          "pointer-events-none absolute inset-0 z-10 h-full w-full from-white/50 from-5% via-transparent via-50% to-white/50 to-95% dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50",
-          vertical ? "bg-gradient-to-b" : "bg-gradient-to-r"
-        )}
-      />
-    )}
-  </div>
-);
+  ...props}: AnimatedCanopyProps) => {
+  const childCount = React.Children.count(children);
+  const totalItems = childCount * repeat;
+  
+  // Calculate duration based on total items to maintain consistent speed
+  // Fast scrolling: 12s for ~10 items
+  const calculatedDuration = Math.max(10, (totalItems / 10) * 12);
+  
+  return (
+    <div
+      {...props}
+      className={cn(
+        "group relative flex h-full w-full overflow-hidden p-2 [--gap:12px] [gap:var(--gap)]",
+        vertical ? "flex-col" : "flex-row",
+        className
+      )}
+      style={{ "--duration": `${calculatedDuration}s` } as React.CSSProperties}
+    >
+      {Array.from({ length: repeat }).map((_, index) => (
+        <div
+          key={`item-${index}`}
+          className={cn("flex shrink-0 [gap:var(--gap)]", {
+            "group-hover:[animation-play-state:paused]": pauseOnHover,
+            "[animation-direction:reverse]": reverse,
+            "animate-canopy-horizontal flex-row": !vertical,
+            "animate-canopy-vertical flex-col": vertical,
+          })}
+        >
+          {children}
+        </div>
+      ))}
+      {applyMask && (
+        <div
+          className={cn(
+            "pointer-events-none absolute inset-0 z-10 h-full w-full from-white/50 from-5% via-transparent via-50% to-white/50 to-95% dark:from-gray-800/50 dark:via-transparent dark:to-gray-800/50",
+            vertical ? "bg-gradient-to-b" : "bg-gradient-to-r"
+          )}
+        />
+      )}
+    </div>
+  );
+};
 
 const LogoCard = ({
   logo,
@@ -95,7 +104,6 @@ interface AnimatedLogosProps {
   cardClassName?: string;
   repeat?: number;
   noGrayscale?: boolean;
-  duration?: number;
   reverse?: boolean;
 }
 
@@ -105,14 +113,11 @@ export const AnimatedLogosCanopy: React.FC<AnimatedLogosProps> = ({
   cardClassName,
   repeat = 2,
   noGrayscale = false,
-  duration = 60,
   reverse = false,
 }) => (
   <div className={cn("w-full overflow-x-hidden py-4", className)}>
     <AnimatedCanopy
       key="Canopy-0"
-      className="[--duration:25s]"
-      style={{ "--duration": `${duration}s` } as React.CSSProperties}
       pauseOnHover
       applyMask={false}
       repeat={repeat}
