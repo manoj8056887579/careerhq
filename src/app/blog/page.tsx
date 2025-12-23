@@ -7,7 +7,7 @@ import { BlogListingClient } from "./blog-listing-client";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Blog - Study Abroad Insights & Guides | CareerHQ",
+  title: "Blog - Study Abroad Insights & Guides | Career HQ",
   description:
     "Insights, guides, and resources for your international education journey. Expert advice on studying abroad, scholarships, visas, and more.",
   openGraph: {

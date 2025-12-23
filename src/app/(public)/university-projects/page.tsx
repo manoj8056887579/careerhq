@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "University Projects | CareerHQ",
+  title: "University Projects | Career HQ",
   description: "Explore research and project opportunities at universities",
 };
 

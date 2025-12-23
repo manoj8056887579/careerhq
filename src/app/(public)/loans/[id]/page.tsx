@@ -13,13 +13,13 @@ export async function generateMetadata({
 
   if (moduleData) {
     return {
-      title: `${moduleData.title} | Education Loans | CareerHQ`,
+      title: `${moduleData.title} | Education Loans | Career HQ`,
       description: moduleData.shortDescription,
     };
   }
 
   return {
-    title: "Education Loans | CareerHQ",
+    title: "Education Loans | Career HQ",
     description: "Explore education loan options",
   };
 }

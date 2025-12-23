@@ -18,6 +18,12 @@ interface LegalContentProps {
   type: "terms" | "privacy";
 }
 
+interface AdminProfile {
+  emails?: string[];
+  phones?: string[];
+  address?: string;
+}
+
 export const LegalContent: React.FC<LegalContentProps> = ({
   title,
   sections,
@@ -25,6 +31,8 @@ export const LegalContent: React.FC<LegalContentProps> = ({
 }) => {
   const [activeSection, setActiveSection] = React.useState<number>(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [adminProfile, setAdminProfile] = React.useState<AdminProfile>({});
+  const [mounted, setMounted] = React.useState(false);
   const sectionRefs = React.useRef<(HTMLElement | null)[]>([]);
 
   const containerVariants = {
@@ -48,6 +56,19 @@ export const LegalContent: React.FC<LegalContentProps> = ({
     },
   };
 
+  // Fetch admin profile
+  const fetchAdminProfile = async () => {
+    try {
+      const response = await fetch("/api/admin/profile/public");
+      if (response.ok) {
+        const data = await response.json();
+        setAdminProfile(data);
+      }
+    } catch (error) {
+      console.error("Error fetching admin profile for legal page:", error);
+    }
+  };
+
   // Scroll spy effect to track active section
   React.useEffect(() => {
     const handleScroll = () => {
@@ -66,6 +87,11 @@ export const LegalContent: React.FC<LegalContentProps> = ({
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  React.useEffect(() => {
+    setMounted(true);
+    fetchAdminProfile();
   }, []);
 
   const scrollToSection = (index: number) => {
@@ -334,27 +360,41 @@ export const LegalContent: React.FC<LegalContentProps> = ({
                           : "this privacy policy"}
                         , please contact us:
                       </p>
-                      <div className="flex flex-col gap-2">
-                        <a
-                          href="mailto:info@career-hq.com"
-                          className="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-2 text-sm sm:text-base break-all"
-                        >
-                          <Icon
-                            icon="lucide:mail"
-                            className="w-4 h-4 flex-shrink-0"
-                          />
-                          <span>info@career-hq.com</span>
-                        </a>
-                        <a
-                          href="/contact"
-                          className="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-2 text-sm sm:text-base"
-                        >
-                          <Icon
-                            icon="lucide:message-circle"
-                            className="w-4 h-4 flex-shrink-0"
-                          />
-                          <span>Contact Form</span>
-                        </a>
+                      <div className="flex flex-col gap-3">
+                        {mounted &&
+                          adminProfile.emails &&
+                          adminProfile.emails
+                            .filter((email) => email && email.trim())
+                            .map((email, index) => (
+                              <a
+                                key={index}
+                                href={`mailto:${email}`}
+                                className="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-2 text-sm sm:text-base break-all"
+                              >
+                                <Icon
+                                  icon="lucide:mail"
+                                  className="w-4 h-4 flex-shrink-0"
+                                />
+                                <span>{email}</span>
+                              </a>
+                            ))}
+                        {mounted &&
+                          adminProfile.phones &&
+                          adminProfile.phones
+                            .filter((phone) => phone && phone.trim())
+                            .map((phone, index) => (
+                              <a
+                                key={index}
+                                href={`tel:${phone}`}
+                                className="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-2 text-sm sm:text-base"
+                              >
+                                <Icon
+                                  icon="lucide:phone"
+                                  className="w-4 h-4 flex-shrink-0"
+                                />
+                                <span>{phone}</span>
+                              </a>
+                            ))}
                       </div>
                     </div>
                   </div>

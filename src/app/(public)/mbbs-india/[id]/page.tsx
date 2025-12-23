@@ -13,13 +13,13 @@ export async function generateMetadata({
 
   if (moduleData) {
     return {
-      title: `${moduleData.title} | MBBS India | CareerHQ`,
+      title: `${moduleData.title} | MBBS India | Career HQ`,
       description: moduleData.shortDescription,
     };
   }
 
   return {
-    title: "MBBS India | CareerHQ",
+    title: "MBBS India | Career HQ",
     description: "Explore MBBS programs in India",
   };
 }

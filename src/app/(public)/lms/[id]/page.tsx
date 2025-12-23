@@ -13,13 +13,13 @@ export async function generateMetadata({
 
   if (moduleData) {
     return {
-      title: `${moduleData.title} | LMS Programs | CareerHQ`,
+      title: `${moduleData.title} | LMS Programs | Career HQ`,
       description: moduleData.shortDescription,
     };
   }
 
   return {
-    title: "LMS Programs | CareerHQ",
+    title: "LMS Programs | Career HQ",
     description: "Explore LMS programs worldwide",
   };
 }

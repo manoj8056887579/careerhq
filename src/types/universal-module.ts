@@ -1,4 +1,4 @@
-// Universal Module Types for all 13 modules in CareerHQ
+// Universal Module Types for all 13 modules in Career HQ
 
 export type ModuleType =
   | "study-india"

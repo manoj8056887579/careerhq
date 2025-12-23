@@ -13,13 +13,13 @@ export async function generateMetadata({
 
   if (moduleData) {
     return {
-      title: `${moduleData.title} | MOU Projects | CareerHQ`,
+      title: `${moduleData.title} | MOU Projects | Career HQ`,
       description: moduleData.shortDescription,
     };
   }
 
   return {
-    title: "MOU Projects | CareerHQ",
+    title: "MOU Projects | Career HQ",
     description: "Explore MOU partnership projects",
   };
 }

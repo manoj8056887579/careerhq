@@ -4,7 +4,7 @@ import { ContactClient } from "./contact-client";
 export const metadata: Metadata = {
   title: "Contact Us - Career HQ",
   description:
-    "Get in touch with CareerHQ's expert education counselors. Schedule a free consultation to discuss your study abroad options and get personalized guidance.",
+    "Get in touch with Career HQ's expert education counselors. Schedule a free consultation to discuss your study abroad options and get personalized guidance.",
   keywords: [
     "contact career hq",
     "study abroad consultation",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "study abroad help",
   ],
   openGraph: {
-    title: "Contact CareerHQ - Get Expert Study Abroad Guidance",
+    title: "Contact Career HQ - Get Expert Study Abroad Guidance",
     description:
       "Schedule a free consultation with our expert counselors to discuss your international education options.",
     images: ["/images/contact-hero.jpg"],
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   const faqs = [
     {
-      question: "What services does CareerHQ provide?",
+      question: "What services does Career HQ provide?",
       answer:
-        "CareerHQ offers comprehensive study abroad services including university selection, application assistance, visa guidance, scholarship information, pre-departure orientation, and post-arrival support.",
+        "Career HQ offers comprehensive study abroad services including university selection, application assistance, visa guidance, scholarship information, pre-departure orientation, and post-arrival support.",
     },
     {
       question: "How much do your services cost?",

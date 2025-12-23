@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "MBBS India | CareerHQ",
+  title: "MBBS India | Career HQ",
   description: "Find the best MBBS colleges and programs in India",
 };
 

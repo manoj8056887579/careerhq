@@ -13,13 +13,13 @@ export async function generateMetadata({
 
   if (moduleData) {
     return {
-      title: `${moduleData.title} | Placement Abroad | CareerHQ`,
+      title: `${moduleData.title} | Placement Abroad | Career HQ`,
       description: moduleData.shortDescription,
     };
   }
 
   return {
-    title: "Placement Abroad | CareerHQ",
+    title: "Placement Abroad | Career HQ",
     description: "Explore international placement opportunities",
   };
 }

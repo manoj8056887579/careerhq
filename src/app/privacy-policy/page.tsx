@@ -25,7 +25,6 @@ export default function PrivacyPolicyPage() {
   return (
     <LegalContent
       title={privacyPolicyData.title}
-      lastUpdated={privacyPolicyData.lastUpdated}
       sections={privacyPolicyData.sections}
       type="privacy"
     />

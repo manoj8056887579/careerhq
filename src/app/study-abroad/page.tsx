@@ -403,7 +403,7 @@ export default function StudyAbroadPage() {
                     "Work regulations for international students vary by country. Many countries allow students to work part-time during the academic year and full-time during breaks, but there are usually restrictions on the number of hours.",
                 },
                 {
-                  question: "How can CareerHQ help with my study abroad journey?",
+                  question: "How can Career HQ help with my study abroad journey?",
                   answer:
                     "We provide comprehensive support including university selection, application guidance, scholarship information, visa assistance, pre-departure orientation, and post-arrival support to ensure a smooth transition to studying abroad.",
                 },

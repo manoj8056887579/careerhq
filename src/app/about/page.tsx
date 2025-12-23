@@ -59,7 +59,7 @@ export default function AboutPage() {
       name: "Priya Sharma",
       role: "MBA Student, Harvard Business School",
       content:
-        "CareerHQ made my dream of studying at Harvard a reality. Their counselors provided personalized guidance throughout the application process, helping me secure a scholarship as well.",
+        "Career HQ made my dream of studying at Harvard a reality. Their counselors provided personalized guidance throughout the application process, helping me secure a scholarship as well.",
       avatarId: "👩",
       rating: 5,
     },
@@ -67,7 +67,7 @@ export default function AboutPage() {
       name: "James Wilson",
       role: "Engineering Student, University of Toronto",
       content:
-        "I was overwhelmed by the options until I found CareerHQ. They simplified the process and helped me find the perfect engineering program that matched my career goals.",
+        "I was overwhelmed by the options until I found Career HQ. They simplified the process and helped me find the perfect engineering program that matched my career goals.",
       avatarId: "👨",
       rating: 5,
     },
@@ -75,7 +75,7 @@ export default function AboutPage() {
       name: "Mei Lin",
       role: "Computer Science Student, University of Melbourne",
       content:
-        "The visa application process seemed daunting, but CareerHQ&apos;s step-by-step guidance made it straightforward. I&apos;m now thriving in my program in Australia!",
+        "The visa application process seemed daunting, but Career HQ&apos;s step-by-step guidance made it straightforward. I&apos;m now thriving in my program in Australia!",
       avatarId: "👩‍💻",
       rating: 4,
     },
@@ -136,7 +136,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              About <span className="text-gradient-primary">CareerHQ</span>
+              About <span className="text-gradient-primary">Career HQ</span>
             </h1>
             <p className="text-xl text-foreground-600 mb-8">
               Welcome to Career Head Quarters — your trusted partner in
@@ -149,7 +149,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <p className="text-foreground-600 mb-4">
-                CareerHQ started with one goal—to help students dream bigger and
+                Career HQ started with one goal—to help students dream bigger and
                 go further. What began as a small counseling center has evolved
                 into a global education and career platform, enabling access to
                 world-class academic and professional opportunities.
@@ -157,21 +157,21 @@ export default function AboutPage() {
               <p className="text-foreground-600 mb-4">
                 We have helped thousands of students pursue international
                 education, explore global careers, and build futures without
-                borders. CareerHQ connects ambitious individuals with leading
+                borders. Career HQ connects ambitious individuals with leading
                 universities and meaningful career pathways worldwide.
               </p>
               <p className="text-foreground-600 mb-6">
-                CareerHQ is led by Gandhi and Benita, whose vision is rooted in
+                Career HQ is led by Gandhi and Benita, whose vision is rooted in
                 real-world experience. Having navigated international education
                 and global career transitions themselves, they recognized the
                 need for reliable, transparent, and personalized guidance. Their
-                leadership has shaped CareerHQ into an organization built on
+                leadership has shaped Career HQ into an organization built on
                 trust, integrity, and long-term success—focused on empowering
                 students and professionals to make confident, informed
                 decisions.
               </p>
               <p className="text-foreground-600 mb-4">
-                At CareerHQ, we don’t just support admission / placement—we
+                At Career HQ, we don’t just support admission / placement—we
                 partner in building futures. Because talent has no boundaries,
                 and neither should opportunities.
               </p>
@@ -191,7 +191,7 @@ export default function AboutPage() {
               <div className="relative z-10 rounded-lg overflow-hidden shadow-xl">
                 <Image
                   src="/images/19871.jpg"
-                  alt="CareerHQ Office"
+                  alt="Career HQ Office"
                   width={400}
                   height={200}
                   className="w-full h-[420px] object-cover"
