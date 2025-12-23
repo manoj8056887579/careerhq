@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "Placement Opportunities in India | CareerHQ",
+  title: "Placement Opportunities in India | Career HQ",
   description: "Discover job placement opportunities across India",
 };
 

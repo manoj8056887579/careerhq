@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "Internships in India | CareerHQ",
+  title: "Internships in India | Career HQ",
   description: "Find internship opportunities across India",
 };
 

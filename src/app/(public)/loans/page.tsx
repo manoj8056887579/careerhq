@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "Education Loans | CareerHQ",
+  title: "Education Loans | Career HQ",
   description: "Find the best education loan options for your studies",
 };
 

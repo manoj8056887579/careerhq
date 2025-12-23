@@ -1051,7 +1051,7 @@ export function HomePageClient({
               viewport={{ once: true }}
               className="text-foreground-600 max-w-3xl mx-auto text-lg"
             >
-              Discover how CareerHQ combines global insight, end-to-end support,
+              Discover how Career HQ combines global insight, end-to-end support,
               and future-focused solutions to shape your career journey.
             </motion.p>
           </div>
@@ -1070,7 +1070,7 @@ export function HomePageClient({
                 icon: "lucide:award",
                 title: "Proven Experience, Trusted Leadership",
                 description:
-                  "Led by founders with first-hand education and career experience, CareerHQ offers transparent and reliable guidance grounded in real insight. Example: A student exploring higher education in India is guided toward top universities and specialized programs aligned with industry demand and career growth.",
+                  "Led by founders with first-hand education and career experience, Career HQ offers transparent and reliable guidance grounded in real insight. Example: A student exploring higher education in India is guided toward top universities and specialized programs aligned with industry demand and career growth.",
                 gradient: "from-purple-500 to-pink-500",
                 color: "text-purple-500",
               },
@@ -1094,7 +1094,7 @@ export function HomePageClient({
                 icon: "lucide:hand-heart",
                 title: "A Partnership for the Future",
                 description:
-                  "At CareerHQ, we support students beyond guidance by enabling access to financial solutions that make education possible. Example: A student secures an education loan through CareerHQ’s assistance, helping finance tuition and living expenses with clarity and confidence.",
+                  "At Career HQ, we support students beyond guidance by enabling access to financial solutions that make education possible. Example: A student secures an education loan through Career HQ’s assistance, helping finance tuition and living expenses with clarity and confidence.",
                 gradient: "from-red-500 to-pink-500",
                 color: "text-red-500",
               },

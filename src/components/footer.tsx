@@ -42,6 +42,7 @@ export const Footer: React.FC = () => {
       links: [
         { name: "Privacy Policy", path: "/privacy-policy" },
         { name: "Terms & Conditions", path: "/terms-and-conditions" },
+        { name: "Refund Policy", path: "/refund-policy" },
       ],
     },
   ];
@@ -109,7 +110,7 @@ export const Footer: React.FC = () => {
               <Link href="/" className="inline-block">
                 <Image
                   src="/images/career-hq-logo.png"
-                  alt="CareerHQ Logo"
+                  alt="Career HQ Logo"
                   width={200}
                   height={67}
                   className="h-16 w-auto object-contain"
@@ -156,7 +157,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-center text-sm space-y-4 md:space-y-0">
             <div className="flex space-x-6 text-gray-700 z-50 relative" />
             <p className="text-center md:text-left text-gray-700 z-50 relative">
-              © {currentYear} CareerHQ. Powered by{" "}
+              © {currentYear} Career HQ. Powered by{" "}
               <Link
                 href="https://mntfuture.com/"
                 target="_blank"
@@ -182,7 +183,7 @@ export const Footer: React.FC = () => {
             <Link href="/" className="inline-block">
               <Image
                 src="/images/career-hq-logo.png"
-                alt="CareerHQ Logo"
+                alt="Career HQ Logo"
                 width={200}
                 height={67}
                 className="h-16 w-auto object-contain"
@@ -298,7 +299,7 @@ export const Footer: React.FC = () => {
 
           {/* Copyright */}
           <p className="text-center md:text-left text-gray-700 z-50 relative">
-            © {currentYear} CareerHQ. Powered by{" "}
+            © {currentYear} Career HQ. Powered by{" "}
             <Link
               href="https://mntfuture.com/"
               target="_blank"

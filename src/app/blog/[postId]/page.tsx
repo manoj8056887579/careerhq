@@ -28,13 +28,13 @@ export async function generateMetadata({
 
   if (!post) {
     return {
-      title: "Blog Post Not Found | CareerHQ",
+      title: "Blog Post Not Found | Career HQ",
       description: "The requested blog post could not be found.",
     };
   }
 
   return {
-    title: `${post.title} | CareerHQ Blog`,
+    title: `${post.title} | Career HQ Blog`,
     description: post.excerpt,
     openGraph: {
       title: post.title,

@@ -13,13 +13,13 @@ export async function generateMetadata({
 
   if (moduleData) {
     return {
-      title: `${moduleData.title} | Placement India | CareerHQ`,
+      title: `${moduleData.title} | Placement India | Career HQ`,
       description: moduleData.shortDescription,
     };
   }
 
   return {
-    title: "Placement India | CareerHQ",
+    title: "Placement India | Career HQ",
     description: "Explore placement opportunities in India",
   };
 }

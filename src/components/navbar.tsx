@@ -147,7 +147,7 @@ export const MainNavbar: React.FC = () => {
               <Link href="/" className="flex items-center">
                 <Image
                   src="/images/career-hq-logo.png"
-                  alt="CareerHQ Logo"
+                  alt="Career HQ Logo"
                   width={180}
                   height={60}
                   className="h-14 w-auto object-contain"
@@ -347,7 +347,7 @@ export const MainNavbar: React.FC = () => {
             <Link href="/" className="flex items-center gap-2">
               <Image
                 src="/images/career-hq-logo.png"
-                alt="CareerHQ Logo"
+                alt="Career HQ Logo"
                 width={150}
                 height={50}
                 className="h-12 w-auto object-contain"
@@ -395,7 +395,7 @@ export const MainNavbar: React.FC = () => {
               <div className="flex items-center justify-between p-4 border-b border-gray-200">
                 <Image
                   src="/images/career-hq-logo.png"
-                  alt="CareerHQ Logo"
+                  alt="Career HQ Logo"
                   width={150}
                   height={50}
                   className="h-12 w-auto object-contain"
