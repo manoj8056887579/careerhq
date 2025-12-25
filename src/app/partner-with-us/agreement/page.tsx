@@ -63,4 +63,30 @@ export default function PartnerAgreementPage() {
                     <h2 className="text-2xl font-bold mb-4 text-foreground-800 flex items-center gap-2">
                       <span className="text-primary">2.</span> Nature of Relationship
                     </h2>
-                    <p className="text-fo
+                    <p className="text-foreground-600 leading-relaxed">
+                      This is an independent contractor relationship. The Referral Partner is not
+                      an employee, agent, or legal representative of Career HQ.
+                    </p>
+                  </section>
+
+                  {/* Back Button */}
+                  <div className="mt-12 text-center">
+                    <Button
+                      as={Link}
+                      href="/partner-with-us"
+                      color="primary"
+                      size="lg"
+                      startContent={<Icon icon="lucide:arrow-left" />}
+                    >
+                      Back to Partner Page
+                    </Button>
+                  </div>
+                </div>
+              </CardBody>
+            </Card>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+}
