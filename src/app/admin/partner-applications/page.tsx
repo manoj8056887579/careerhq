@@ -135,19 +135,19 @@ export default function PartnerApplicationsPage() {
             selectedKeys={[statusFilter]}
             onChange={(e) => setStatusFilter(e.target.value)}
           >
-            <SelectItem key="all" value="all">
+            <SelectItem key="all">
               All Status
             </SelectItem>
-            <SelectItem key="pending" value="pending">
+            <SelectItem key="pending">
               Pending
             </SelectItem>
-            <SelectItem key="under-review" value="under-review">
+            <SelectItem key="under-review">
               Under Review
             </SelectItem>
-            <SelectItem key="approved" value="approved">
+            <SelectItem key="approved">
               Approved
             </SelectItem>
-            <SelectItem key="rejected" value="rejected">
+            <SelectItem key="rejected">
               Rejected
             </SelectItem>
           </Select>
@@ -157,25 +157,25 @@ export default function PartnerApplicationsPage() {
             selectedKeys={[businessTypeFilter]}
             onChange={(e) => setBusinessTypeFilter(e.target.value)}
           >
-            <SelectItem key="all" value="all">
+            <SelectItem key="all">
               All Types
             </SelectItem>
-            <SelectItem key="education" value="education">
+            <SelectItem key="education">
               Education Consultancy
             </SelectItem>
-            <SelectItem key="recruitment" value="recruitment">
+            <SelectItem key="recruitment">
               Recruitment / Staffing
             </SelectItem>
-            <SelectItem key="training" value="training">
+            <SelectItem key="training">
               Training Institute
             </SelectItem>
-            <SelectItem key="advisory" value="advisory">
+            <SelectItem key="advisory">
               Career Advisory
             </SelectItem>
-            <SelectItem key="freelancer" value="freelancer">
+            <SelectItem key="freelancer">
               Freelancer
             </SelectItem>
-            <SelectItem key="other" value="other">
+            <SelectItem key="other">
               Other
             </SelectItem>
           </Select>
