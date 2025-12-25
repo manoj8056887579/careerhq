@@ -33,6 +33,8 @@ export const Footer: React.FC = () => {
       links: [
         { name: "Home", path: "/" },
         { name: "About Us", path: "/about" },
+        { name: "Media", path: "/media" },
+        { name: "Partner with Us", path: "/partner-with-us" },
         { name: "Contact", path: "/contact" },
         { name: "Register", path: "/career-test" },
       ],
