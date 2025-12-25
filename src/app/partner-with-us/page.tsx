@@ -18,8 +18,8 @@ export default function PartnerWithUsPage() {
   const handleDownloadPDF = () => {
     // Create a link element and trigger download
     const link = document.createElement('a');
-    link.href = '/templates/partner-application-form.pdf';
-    link.download = 'Career-HQ-Partner-Application-Form.pdf';
+    link.href = '/Career-HQ-Referral-Partner-Agreement.pdf';
+    link.download = 'Career-HQ-Referral-Partner-Agreement.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
