@@ -13,18 +13,18 @@ export async function generateMetadata({
 
   if (moduleData) {
     return {
-      title: `${moduleData.title} | MOU Projects | Career HQ`,
+      title: `${moduleData.title} | Scholarship | Career HQ`,
       description: moduleData.shortDescription,
     };
   }
 
   return {
-    title: "MOU Projects | Career HQ",
-    description: "Explore MOU partnership projects",
+    title: "Scholarship | Career HQ",
+    description: "Explore scholarship opportunities and funding programs",
   };
 }
 
-export default async function MOUProjectsDetailPage({
+export default async function ScholarshipDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;

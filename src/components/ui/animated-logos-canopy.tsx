@@ -77,7 +77,7 @@ const LogoCard = ({
 }) => (
   <div
     className={cn(
-      "group mx-6 flex h-28 w-64 shrink-0 cursor-pointer p-3 transition-all",
+      "group mx-6 flex h-36 w-80 shrink-0 cursor-pointer p-4 transition-all",
       className
     )}
   >
@@ -85,10 +85,10 @@ const LogoCard = ({
       <Image
         src={logo.logo}
         alt={logo.name}
-        width={180}
-        height={72}
+        width={240}
+        height={96}
         className={cn(
-          "h-full w-auto max-h-20 object-contain group-hover:scale-110 transition-all duration-300",
+          "h-full w-auto max-h-28 object-contain group-hover:scale-110 transition-all duration-300",
           noGrayscale
             ? "opacity-100 filter-none"
             : "filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100"

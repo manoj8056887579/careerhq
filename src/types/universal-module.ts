@@ -100,6 +100,6 @@ export const MODULE_DISPLAY_NAMES: Record<ModuleType, string> = {
   lms: "LMS",
   "uni-project": "University Project",
   "school-project": "School Project",
-  "mou-project": "MOU Project",
+  "mou-project": "Scholarship",
   loans: "Loans",
 };

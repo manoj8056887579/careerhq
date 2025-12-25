@@ -11,14 +11,14 @@ export default function NotFound() {
           <div className="w-16 h-16 bg-danger-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <ExternalLink size={24} className="text-danger-500" />
           </div>
-          <h2 className="text-xl font-bold mb-2">Project Not Found</h2>
+          <h2 className="text-xl font-bold mb-2">Scholarship Not Found</h2>
           <p className="text-default-500 mb-6">
-            The requested MOU project could not be found or may have been
+            The requested scholarship could not be found or may have been
             removed.
           </p>
-          <Link href="/mou-projects">
+          <Link href="/scholarship">
             <Button color="primary" variant="solid">
-              Back to MOU Projects
+              Back to Scholarship
             </Button>
           </Link>
         </CardBody>

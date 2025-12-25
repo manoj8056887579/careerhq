@@ -18,7 +18,7 @@ const heroContents: HeroContent[] = [
       "Your one-stop platform to explore global opportunities, build skills, and achieve success across borders.",
   },
   {
-    title: "Transform Your Future with",
+    title: "Transform Future with",
     highlight: "World-Class Education",
     description:
       "Access top universities worldwide, unlock scholarships, and shape your academic journey with expert guidance.",

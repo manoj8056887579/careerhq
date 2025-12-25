@@ -6,8 +6,8 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "MOU Projects | Career HQ",
-  description: "Explore partnership and collaboration opportunities",
+  title: "Scholarship | Career HQ",
+  description: "Explore scholarship opportunities and financial aid programs",
 };
 
 async function getModulesData() {
@@ -37,14 +37,14 @@ async function getModulesData() {
   }
 }
 
-export default async function MOUProjectsPage() {
+export default async function ScholarshipPage() {
   const { modules, categories } = await getModulesData();
 
   return (
     <ModuleListingPage
       moduleType="mou-project"
-      title="MOU Projects"
-      description="Discover strategic partnerships and collaborative initiatives"
+      title="Scholarship"
+      description="Discover scholarship opportunities and funding programs to support your education"
       initialModules={modules}
       initialCategories={categories}
     />

@@ -3,7 +3,7 @@
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Sidebar, SidebarLink } from "@/components/ui/sidebar";
-import { FileText, GraduationCap, Package, Users, UserCircle } from "lucide-react";
+import { FileText, GraduationCap, Package, Users, UserCircle, Handshake, Video } from "lucide-react";
 
 export interface BreadcrumbItem {
   label: string;
@@ -35,10 +35,22 @@ export function AdminLayout({ children }: AdminLayoutProps) {
       isActive: pathname.startsWith("/admin/blog"),
     },
     {
+      label: "Media",
+      href: "/admin/media",
+      icon: <Video className="w-5 h-5" />,
+      isActive: pathname.startsWith("/admin/media"),
+    },
+    {
       label: "Lead Management",
       href: "/admin/leads",
       icon: <Users className="w-5 h-5" />,
       isActive: pathname.startsWith("/admin/leads"),
+    },
+    {
+      label: "Partner Applications",
+      href: "/admin/partner-applications",
+      icon: <Handshake className="w-5 h-5" />,
+      isActive: pathname.startsWith("/admin/partner-applications"),
     },
     {
       label: "Universal Modules",
