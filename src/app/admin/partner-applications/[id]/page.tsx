@@ -414,16 +414,16 @@ export default function PartnerApplicationDetailPage() {
                   selectedKeys={[status]}
                   onChange={(e) => setStatus(e.target.value)}
                 >
-                  <SelectItem key="pending" value="pending">
+                  <SelectItem key="pending">
                     Pending
                   </SelectItem>
-                  <SelectItem key="under-review" value="under-review">
+                  <SelectItem key="under-review">
                     Under Review
                   </SelectItem>
-                  <SelectItem key="approved" value="approved">
+                  <SelectItem key="approved">
                     Approved
                   </SelectItem>
-                  <SelectItem key="rejected" value="rejected">
+                  <SelectItem key="rejected">
                     Rejected
                   </SelectItem>
                 </Select>
