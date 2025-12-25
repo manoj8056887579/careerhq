@@ -34,7 +34,8 @@ export const MainNavbar: React.FC = () => {
   const navLinks = [
     { name: "Home", link: "/" },
     { name: "About", link: "/about" },
-    // { name: "Blog", link: "/blog" },
+    { name: "Media", link: "/media" },
+    { name: "Partner with Us", link: "/partner-with-us" },
     { name: "Contact", link: "/contact" },
   ];
 
@@ -82,8 +83,8 @@ export const MainNavbar: React.FC = () => {
     //   link: "/school-projects",
     //   icon: "lucide:book-open",
     // },
-    // { name: "MOU Projects", link: "/mou-projects", icon: "lucide:handshake" },
     { name: "Loan Hub", link: "/loans", icon: "lucide:wallet" },
+    { name: "Scholarship", link: "/scholarship", icon: "lucide:handshake" },
   ];
 
   React.useEffect(() => {

@@ -21,6 +21,7 @@ import DomeGallery from "../components/ui/country-flags";
 import { TiltedCard } from "../components/ui/tilted-card";
 import { ChromaGrid } from "../components/ui/chroma-grid";
 import { AppleCardsCarousel } from "@/components/ui/apple-cards-carousel";
+import { AnnouncementScroller } from "../components/ui/announcement-scroller";
 import type { BlogPost } from "@/types/blog";
 import type { CountryWithCounts, University } from "@/types/education";
 import type { Company } from "@/models/Company";
@@ -632,6 +633,16 @@ export function HomePageClient({
     };
   });
 
+  // Announcement items for the scroller
+  const announcementItems = blogPosts.slice(0, 10).map((post) => {
+    return {
+      id: post.id,
+      text: post.title,
+      link: "/blog",
+      icon: "📰",
+    };
+  });
+
   return (
     <>
       {/* Hero Section */}
@@ -734,6 +745,17 @@ export function HomePageClient({
             </div>
           )} */}
         </div>
+
+        {/* Announcement Scroller - Fixed at Bottom of Hero */}
+        {announcementItems.length > 0 && (
+          <div className="absolute bottom-0 left-0 right-0 z-20">
+            <AnnouncementScroller
+              items={announcementItems}
+              speed={25}
+              className="rounded-none"
+            />
+          </div>
+        )}
       </VenomBeam>
 
       {/* Country Flags Gallery Section */}
@@ -832,160 +854,160 @@ export function HomePageClient({
             data={[
               {
                 name: "University Partner 4",
-                logo: "/images/university-partners/123.jpeg",
+                logo: "/images/university-partners/123.png",
               },
               {
                 name: "University Partner 4",
-                logo: "/images/university-partners/4.jpeg",
+                logo: "/images/university-partners/4.png",
               },
               {
                 name: "University Partner 5",
-                logo: "/images/university-partners/5.jpeg",
+                logo: "/images/university-partners/5.png",
               },
               {
                 name: "University Partner 6",
-                logo: "/images/university-partners/6.jpeg",
+                logo: "/images/university-partners/6.png",
               },
               {
                 name: "University Partner 7",
-                logo: "/images/university-partners/7.jpeg",
+                logo: "/images/university-partners/7.png",
               },
               {
                 name: "University Partner 8",
-                logo: "/images/university-partners/8.jpeg",
+                logo: "/images/university-partners/8.png",
               },
               {
                 name: "University Partner 9",
-                logo: "/images/university-partners/9.jpeg",
+                logo: "/images/university-partners/9.png",
               },
               {
                 name: "University Partner 10",
-                logo: "/images/university-partners/10.jpeg",
+                logo: "/images/university-partners/10.png",
               },
               {
                 name: "University Partner 11",
-                logo: "/images/university-partners/11.jpeg",
+                logo: "/images/university-partners/11.png",
               },
               {
                 name: "University Partner 12",
-                logo: "/images/university-partners/12.jpeg",
+                logo: "/images/university-partners/12.png",
               },
               {
                 name: "University Partner 13",
-                logo: "/images/university-partners/13.jpeg",
+                logo: "/images/university-partners/13.png",
               },
               {
                 name: "University Partner 14",
-                logo: "/images/university-partners/14.jpeg",
+                logo: "/images/university-partners/14.png",
               },
               {
                 name: "University Partner 15",
-                logo: "/images/university-partners/15.jpeg",
+                logo: "/images/university-partners/15.png",
               },
               {
                 name: "University Partner 16",
-                logo: "/images/university-partners/16.jpeg",
+                logo: "/images/university-partners/16.png",
               },
               {
                 name: "University Partner 17",
-                logo: "/images/university-partners/17.jpeg",
+                logo: "/images/university-partners/17.png",
               },
               {
                 name: "University Partner 18",
-                logo: "/images/university-partners/18.jpeg",
+                logo: "/images/university-partners/18.png",
               },
               {
                 name: "University Partner 19",
-                logo: "/images/university-partners/19.jpeg",
+                logo: "/images/university-partners/19.png",
               },
               {
                 name: "University Partner 20",
-                logo: "/images/university-partners/20.jpeg",
+                logo: "/images/university-partners/20.png",
               },
               {
                 name: "University Partner 21",
-                logo: "/images/university-partners/21.jpeg",
+                logo: "/images/university-partners/21.png",
               },
               {
                 name: "University Partner 22",
-                logo: "/images/university-partners/22.jpeg",
+                logo: "/images/university-partners/22.png",
               },
               {
                 name: "University Partner 23",
-                logo: "/images/university-partners/23.jpeg",
+                logo: "/images/university-partners/23.png",
               },
               {
                 name: "University Partner 24",
-                logo: "/images/university-partners/24.jpeg",
+                logo: "/images/university-partners/24.png",
               },
               {
                 name: "University Partner 25",
-                logo: "/images/university-partners/25.jpeg",
+                logo: "/images/university-partners/25.png",
               },
               {
                 name: "University Partner 26",
-                logo: "/images/university-partners/26.jpeg",
+                logo: "/images/university-partners/26.png",
               },
               {
                 name: "University Partner 27",
-                logo: "/images/university-partners/27.jpeg",
+                logo: "/images/university-partners/27.png",
               },
               {
                 name: "University Partner 28",
-                logo: "/images/university-partners/28.jpeg",
+                logo: "/images/university-partners/28.png",
               },
               {
                 name: "University Partner 29",
-                logo: "/images/university-partners/29.jpeg",
+                logo: "/images/university-partners/29.png",
               },
               {
                 name: "University Partner 30",
-                logo: "/images/university-partners/30.jpeg",
+                logo: "/images/university-partners/30.png",
               },
               {
                 name: "University Partner 31",
-                logo: "/images/university-partners/31.jpeg",
+                logo: "/images/university-partners/31.png",
               },
               {
                 name: "University Partner 32",
-                logo: "/images/university-partners/32.jpeg",
+                logo: "/images/university-partners/32.png",
               },
               {
                 name: "University Partner 33",
-                logo: "/images/university-partners/33.jpeg",
+                logo: "/images/university-partners/33.png",
               },
               {
                 name: "University Partner 34",
-                logo: "/images/university-partners/34.jpeg",
+                logo: "/images/university-partners/34.png",
               },
               {
                 name: "University Partner 35",
-                logo: "/images/university-partners/35.jpeg",
+                logo: "/images/university-partners/35.png",
               },
               {
                 name: "University Partner 36",
-                logo: "/images/university-partners/36.jpeg",
+                logo: "/images/university-partners/36.png",
               },
               {
                 name: "University Partner 37",
-                logo: "/images/university-partners/37.jpeg",
+                logo: "/images/university-partners/37.png",
               },
-              {
-                name: "University Partner 38",
-                logo: "/images/university-partners/38.jpeg",
-              },
-              {
-                name: "University Partner 39",
-                logo: "/images/university-partners/39.jpeg",
-              },
-              {
-                name: "University Partner 40",
-                logo: "/images/university-partners/40.jpeg",
-              },
-              {
-                name: "University Partner 41",
-                logo: "/images/university-partners/41.jpeg",
-              },
+              // {
+              //   name: "University Partner 38",
+              //   logo: "/images/university-partners/38.png",
+              // },
+              // // {
+              // //   name: "University Partner 39",
+              // //   logo: "/images/university-partners/39.png",
+              // // },
+              // // {
+              // //   name: "University Partner 40",
+              // //   logo: "/images/university-partners/40.png",
+              // // },
+              // // {
+              // //   name: "University Partner 41",
+              // //   logo: "/images/university-partners/41.png",
+              // },
             ]}
             className="py-8"
             cardClassName="bg-transparent"
