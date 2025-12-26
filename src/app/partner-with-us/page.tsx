@@ -198,7 +198,7 @@ export default function PartnerWithUsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-16 bg-gradient-to-br from-primary-50 via-white to-secondary-50 overflow-hidden">
+      <section className="relative pt-32 lg:pt-40 pb-16 bg-gradient-to-br from-primary-50 via-white to-secondary-50 overflow-hidden">
         <Grid />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">

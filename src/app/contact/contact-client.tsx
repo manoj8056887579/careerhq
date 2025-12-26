@@ -40,7 +40,7 @@ export const ContactClient: React.FC<ContactClientProps> = ({ faqs }) => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-primary-50 to-white py-16 ">
+      <section className="relative bg-gradient-to-b from-primary-50 to-white pt-32 lg:pt-40 pb-16 ">
         <div className="absolute inset-0 hero-pattern opacity-30"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">

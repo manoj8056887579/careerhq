@@ -646,7 +646,7 @@ export function HomePageClient({
   return (
     <>
       {/* Hero Section */}
-      <VenomBeam className="relative z-10">
+      <VenomBeam className="relative z-10 pt-24 lg:pt-32">
         <div className="container mx-auto px-4 py-16 md:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -901,10 +901,6 @@ export function HomePageClient({
                 logo: "/images/university-partners/14.png",
               },
               {
-                name: "University Partner 15",
-                logo: "/images/university-partners/15.png",
-              },
-              {
                 name: "University Partner 16",
                 logo: "/images/university-partners/16.png",
               },
@@ -916,10 +912,7 @@ export function HomePageClient({
                 name: "University Partner 18",
                 logo: "/images/university-partners/18.png",
               },
-              {
-                name: "University Partner 19",
-                logo: "/images/university-partners/19.png",
-              },
+
               {
                 name: "University Partner 20",
                 logo: "/images/university-partners/20.png",
@@ -972,10 +965,14 @@ export function HomePageClient({
                 name: "University Partner 32",
                 logo: "/images/university-partners/32.png",
               },
-              {
-                name: "University Partner 33",
-                logo: "/images/university-partners/33.png",
+                            {
+                name: "University Partner 19",
+                logo: "/images/university-partners/19.png",
               },
+              // {
+              //   name: "University Partner 33",
+              //   logo: "/images/university-partners/33.png",
+              // },
               {
                 name: "University Partner 34",
                 logo: "/images/university-partners/34.png",
