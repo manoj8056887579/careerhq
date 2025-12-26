@@ -60,7 +60,7 @@ export function AdminJobForm({ job, onClose, onSuccess }: AdminJobFormProps) {
         addToast({
           title: "Success",
           description: `Job ${job ? "updated" : "created"} successfully`,
-          type: "success",
+          color: "success",
         });
         onSuccess();
       } else {
@@ -72,7 +72,7 @@ export function AdminJobForm({ job, onClose, onSuccess }: AdminJobFormProps) {
       addToast({
         title: "Error",
         description: error instanceof Error ? error.message : "Failed to save job",
-        type: "error",
+        color: "danger",
       });
     } finally {
       setLoading(false);
@@ -160,18 +160,11 @@ export function AdminJobForm({ job, onClose, onSuccess }: AdminJobFormProps) {
             }
             required
           >
-            <SelectItem key="Full-time" value="Full-time">
-              Full-time
-            </SelectItem>
-            <SelectItem key="Part-time" value="Part-time">
-              Part-time
-            </SelectItem>
-            <SelectItem key="Contract" value="Contract">
-              Contract
-            </SelectItem>
-            <SelectItem key="Internship" value="Internship">
-              Internship
-            </SelectItem>
+            {["Full-time", "Part-time", "Contract", "Internship"].map((type) => (
+              <SelectItem key={type}>
+                {type}
+              </SelectItem>
+            ))}
           </Select>
 
           <Input

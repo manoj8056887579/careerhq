@@ -43,7 +43,8 @@ export default function CareersClient() {
   };
 
   // Get unique departments
-  const departments = Array.from(new Set(jobs.map((job) => job.department)));
+  const departments = ["all", ...Array.from(new Set(jobs.map((job) => job.department)))];
+  const jobTypes = ["all", "Full-time", "Part-time", "Contract", "Internship"];
 
   // Filter jobs
   const filteredJobs = jobs.filter((job) => {
@@ -140,12 +141,9 @@ export default function CareersClient() {
               className="w-full md:w-64"
               size="lg"
             >
-              <SelectItem key="all" value="all">
-                All Departments
-              </SelectItem>
               {departments.map((dept) => (
-                <SelectItem key={dept} value={dept}>
-                  {dept}
+                <SelectItem key={dept}>
+                  {dept === "all" ? "All Departments" : dept}
                 </SelectItem>
               ))}
             </Select>
@@ -156,21 +154,11 @@ export default function CareersClient() {
               className="w-full md:w-64"
               size="lg"
             >
-              <SelectItem key="all" value="all">
-                All Types
-              </SelectItem>
-              <SelectItem key="Full-time" value="Full-time">
-                Full-time
-              </SelectItem>
-              <SelectItem key="Part-time" value="Part-time">
-                Part-time
-              </SelectItem>
-              <SelectItem key="Contract" value="Contract">
-                Contract
-              </SelectItem>
-              <SelectItem key="Internship" value="Internship">
-                Internship
-              </SelectItem>
+              {jobTypes.map((type) => (
+                <SelectItem key={type}>
+                  {type === "all" ? "All Types" : type}
+                </SelectItem>
+              ))}
             </Select>
           </div>
         </div>

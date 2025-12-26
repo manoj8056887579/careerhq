@@ -24,6 +24,9 @@ export function AdminJobApplications({
   const [statusFilter, setStatusFilter] = useState("all");
   const [jobFilter, setJobFilter] = useState("all");
 
+  const statusOptions = ["all", "pending", "reviewing", "shortlisted", "rejected", "hired"];
+  const jobOptions = ["all", ...jobs.map(j => j.id)];
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case "pending":
@@ -56,7 +59,7 @@ export function AdminJobApplications({
         addToast({
           title: "Success",
           description: "Application status updated",
-          type: "success",
+          color: "success",
         });
         onUpdate();
       } else {
@@ -67,7 +70,7 @@ export function AdminJobApplications({
       addToast({
         title: "Error",
         description: "Failed to update application status",
-        type: "error",
+        color: "danger",
       });
     }
   };
@@ -84,7 +87,7 @@ export function AdminJobApplications({
         addToast({
           title: "Success",
           description: "Application deleted successfully",
-          type: "success",
+          color: "success",
         });
         onUpdate();
       } else {
@@ -95,7 +98,7 @@ export function AdminJobApplications({
       addToast({
         title: "Error",
         description: "Failed to delete application",
-        type: "error",
+        color: "danger",
       });
     }
   };
@@ -126,14 +129,14 @@ export function AdminJobApplications({
       addToast({
         title: "Success",
         description: "Resume downloaded successfully",
-        type: "success",
+        color: "success",
       });
     } catch (error) {
       console.error("Error downloading resume:", error);
       addToast({
         title: "Error",
         description: "Failed to download resume",
-        type: "error",
+        color: "danger",
       });
     }
   };
@@ -167,24 +170,11 @@ export function AdminJobApplications({
           onChange={(e) => setStatusFilter(e.target.value)}
           className="w-full md:w-48"
         >
-          <SelectItem key="all" value="all">
-            All Status
-          </SelectItem>
-          <SelectItem key="pending" value="pending">
-            Pending
-          </SelectItem>
-          <SelectItem key="reviewing" value="reviewing">
-            Reviewing
-          </SelectItem>
-          <SelectItem key="shortlisted" value="shortlisted">
-            Shortlisted
-          </SelectItem>
-          <SelectItem key="rejected" value="rejected">
-            Rejected
-          </SelectItem>
-          <SelectItem key="hired" value="hired">
-            Hired
-          </SelectItem>
+          {statusOptions.map((status) => (
+            <SelectItem key={status}>
+              {status === "all" ? "All Status" : status.charAt(0).toUpperCase() + status.slice(1)}
+            </SelectItem>
+          ))}
         </Select>
         <Select
           label="Job"
@@ -192,11 +182,8 @@ export function AdminJobApplications({
           onChange={(e) => setJobFilter(e.target.value)}
           className="w-full md:w-64"
         >
-          <SelectItem key="all" value="all">
-            All Jobs
-          </SelectItem>
-          {jobs.map((job) => (
-            <SelectItem key={job.id} value={job.id}>
+          {[{ id: "all", title: "All Jobs" }, ...jobs].map((job) => (
+            <SelectItem key={job.id}>
               {job.title}
             </SelectItem>
           ))}
@@ -249,21 +236,11 @@ export function AdminJobApplications({
                   size="sm"
                   className="w-full md:w-48"
                 >
-                  <SelectItem key="pending" value="pending">
-                    Pending
-                  </SelectItem>
-                  <SelectItem key="reviewing" value="reviewing">
-                    Reviewing
-                  </SelectItem>
-                  <SelectItem key="shortlisted" value="shortlisted">
-                    Shortlisted
-                  </SelectItem>
-                  <SelectItem key="rejected" value="rejected">
-                    Rejected
-                  </SelectItem>
-                  <SelectItem key="hired" value="hired">
-                    Hired
-                  </SelectItem>
+                  {["pending", "reviewing", "shortlisted", "rejected", "hired"].map((status) => (
+                    <SelectItem key={status}>
+                      {status.charAt(0).toUpperCase() + status.slice(1)}
+                    </SelectItem>
+                  ))}
                 </Select>
 
                 <div className="flex gap-2">

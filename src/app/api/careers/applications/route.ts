@@ -81,11 +81,15 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(
       {
-        applications: applications.map((app) => ({
-          ...app,
-          id: String(app._id),
-          _id: undefined,
-        })),
+        applications: applications.map((app) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const appData = app as any;
+          return {
+            ...appData,
+            id: String(appData._id),
+            _id: undefined,
+          };
+        }),
         pagination: {
           page,
           limit,

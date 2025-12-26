@@ -41,7 +41,7 @@ export default function AdminCareersPage() {
       addToast({
         title: "Error",
         description: "Failed to fetch jobs",
-        type: "error",
+        color: "danger",
       });
     }
   };
@@ -57,7 +57,7 @@ export default function AdminCareersPage() {
       addToast({
         title: "Error",
         description: "Failed to fetch applications",
-        type: "error",
+        color: "danger",
       });
     }
   };
@@ -84,7 +84,7 @@ export default function AdminCareersPage() {
         addToast({
           title: "Success",
           description: "Job deleted successfully",
-          type: "success",
+          color: "success",
         });
         fetchJobs();
       } else {
@@ -95,7 +95,7 @@ export default function AdminCareersPage() {
       addToast({
         title: "Error",
         description: "Failed to delete job",
-        type: "error",
+        color: "danger",
       });
     }
   };
@@ -113,7 +113,7 @@ export default function AdminCareersPage() {
         addToast({
           title: "Success",
           description: `Job ${!job.published ? "published" : "unpublished"} successfully`,
-          type: "success",
+          color: "success",
         });
         fetchJobs();
       } else {
@@ -124,7 +124,7 @@ export default function AdminCareersPage() {
       addToast({
         title: "Error",
         description: "Failed to update job",
-        type: "error",
+        color: "danger",
       });
     }
   };

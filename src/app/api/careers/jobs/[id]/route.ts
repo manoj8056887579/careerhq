@@ -25,9 +25,12 @@ export async function GET(
       return NextResponse.json({ error: "Job not found" }, { status: 404 });
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const jobData = job as any;
+
     return NextResponse.json({
-      ...job,
-      id: String(job._id),
+      ...jobData,
+      id: String(jobData._id),
       _id: undefined,
     });
   } catch (error) {
@@ -86,6 +89,10 @@ export async function PUT(
       },
       { new: true, runValidators: true }
     );
+
+    if (!updatedJob) {
+      return NextResponse.json({ error: "Job not found" }, { status: 404 });
+    }
 
     return NextResponse.json({
       ...updatedJob.toJSON(),

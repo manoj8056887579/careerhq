@@ -22,9 +22,12 @@ export async function GET(
       );
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const appData = application as any;
+
     return NextResponse.json({
-      ...application,
-      id: String(application._id),
+      ...appData,
+      id: String(appData._id),
       _id: undefined,
     });
   } catch (error) {
@@ -65,6 +68,13 @@ export async function PUT(
       },
       { new: true, runValidators: true }
     );
+
+    if (!updatedApplication) {
+      return NextResponse.json(
+        { error: "Application not found" },
+        { status: 404 }
+      );
+    }
 
     return NextResponse.json({
       ...updatedApplication.toJSON(),

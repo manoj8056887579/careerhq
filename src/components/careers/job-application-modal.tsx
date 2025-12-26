@@ -47,7 +47,7 @@ export function JobApplicationModal({
         addToast({
           title: "Invalid File",
           description: "Please upload a PDF or Word document",
-          type: "error",
+          color: "danger",
         });
         return;
       }
@@ -57,7 +57,7 @@ export function JobApplicationModal({
         addToast({
           title: "File Too Large",
           description: "Resume must be less than 5MB",
-          type: "error",
+          color: "danger",
         });
         return;
       }
@@ -73,7 +73,7 @@ export function JobApplicationModal({
       addToast({
         title: "Resume Required",
         description: "Please upload your resume",
-        type: "error",
+        color: "warning",
       });
       return;
     }
@@ -98,7 +98,7 @@ export function JobApplicationModal({
         addToast({
           title: "Application Submitted!",
           description: "We'll review your application and get back to you soon.",
-          type: "success",
+          color: "success",
         });
         onClose();
         // Reset form
@@ -114,7 +114,7 @@ export function JobApplicationModal({
         title: "Submission Failed",
         description:
           error instanceof Error ? error.message : "Please try again later",
-        type: "error",
+        color: "danger",
       });
     } finally {
       setLoading(false);

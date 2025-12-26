@@ -95,11 +95,15 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(
       {
-        jobs: jobs.map((job) => ({
-          ...job,
-          id: String(job._id),
-          _id: undefined,
-        })),
+        jobs: jobs.map((job) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const jobData = job as any;
+          return {
+            ...jobData,
+            id: String(jobData._id),
+            _id: undefined,
+          };
+        }),
         pagination: {
           page,
           limit,
