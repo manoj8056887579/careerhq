@@ -154,6 +154,26 @@ export async function PUT(
       data.imageId = newImageId;
     }
 
+    // Auto-generate slug from title if slug is being updated and is empty
+    if (data.title && (!data.slug || data.slug.trim() === "")) {
+      data.slug = data.title
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, "") // Remove special characters
+        .replace(/\s+/g, "-") // Replace spaces with hyphens
+        .replace(/-+/g, "-") // Replace multiple hyphens with single hyphen
+        .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
+
+      // Ensure slug is unique (excluding current post)
+      const existingSlugPost = await BlogPost.findOne({
+        slug: data.slug,
+        _id: { $ne: id },
+      });
+      if (existingSlugPost) {
+        data.slug = `${data.slug}-${Date.now()}`;
+      }
+    }
+
     // Update the post with new data
     const updatedPost = await BlogPost.findByIdAndUpdate(
       id,

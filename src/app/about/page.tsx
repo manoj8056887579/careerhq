@@ -132,7 +132,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Our Story Section */}
-      <section className="py-10 bg-white">
+      <section className="pt-32 lg:pt-40 pb-10 bg-white">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">

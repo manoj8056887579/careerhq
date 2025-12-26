@@ -112,7 +112,7 @@ export default function StudyAbroadPage() {
   return (
     <ProtectedPageWrapper requiredFor="Study Abroad">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-primary-50 to-white py-16 md:py-24">
+      <section className="relative bg-gradient-to-b from-primary-50 to-white pt-32 lg:pt-40 pb-16 md:pb-24">
         <div className="absolute inset-0 hero-pattern opacity-30"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">

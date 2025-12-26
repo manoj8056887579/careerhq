@@ -88,7 +88,7 @@ export default function PartnerFAQPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+      <section className="pt-32 lg:pt-40 pb-16 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div

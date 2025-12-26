@@ -3,7 +3,7 @@
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Sidebar, SidebarLink } from "@/components/ui/sidebar";
-import { FileText, GraduationCap, Package, Users, UserCircle, Handshake, Video } from "lucide-react";
+import { FileText, GraduationCap, Package, Users, UserCircle, Handshake, Video, Briefcase } from "lucide-react";
 
 export interface BreadcrumbItem {
   label: string;
@@ -33,6 +33,12 @@ export function AdminLayout({ children }: AdminLayoutProps) {
       href: "/admin/blog",
       icon: <FileText className="w-5 h-5" />,
       isActive: pathname.startsWith("/admin/blog"),
+    },
+    {
+      label: "Careers",
+      href: "/admin/careers",
+      icon: <Briefcase className="w-5 h-5" />,
+      isActive: pathname.startsWith("/admin/careers"),
     },
     {
       label: "Media",

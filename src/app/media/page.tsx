@@ -62,7 +62,7 @@ export default function MediaPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Hero Section */}
-      <section className="relative py-16 overflow-hidden">
+      <section className="relative pt-32 lg:pt-40 pb-16 overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img

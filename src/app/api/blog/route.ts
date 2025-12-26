@@ -171,6 +171,23 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    // Auto-generate slug from title if not provided or empty
+    if (!data.slug || data.slug.trim() === "") {
+      data.slug = data.title
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, "") // Remove special characters
+        .replace(/\s+/g, "-") // Replace spaces with hyphens
+        .replace(/-+/g, "-") // Replace multiple hyphens with single hyphen
+        .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
+
+      // Ensure slug is unique by appending timestamp if needed
+      const existingPost = await BlogPost.findOne({ slug: data.slug });
+      if (existingPost) {
+        data.slug = `${data.slug}-${Date.now()}`;
+      }
+    }
+
     // Handle image upload if there's a file
     if (imageFile) {
       const imageId = await handleImageUpload(
