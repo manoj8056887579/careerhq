@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
-    "start": "next start",
+    "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
     "seed": "node scripts/seed-modules.cjs",
     "import:australia": "node --import tsx scripts/import-australia.ts",
     "import:study-india": "node --import tsx scripts/import-study-india.ts",
