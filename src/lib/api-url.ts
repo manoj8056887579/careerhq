@@ -9,8 +9,24 @@ export function getApiBaseUrl(): string {
     return "";
   }
 
-  // Server-side: use absolute URL
-  return process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  // Server-side: determine the base URL
+  // Priority: NEXT_PUBLIC_API_URL > VERCEL_URL > localhost
+  
+  // 1. Check if NEXT_PUBLIC_API_URL is explicitly set and not localhost
+  if (
+    process.env.NEXT_PUBLIC_API_URL &&
+    !process.env.NEXT_PUBLIC_API_URL.includes("localhost")
+  ) {
+    return process.env.NEXT_PUBLIC_API_URL;
+  }
+
+  // 2. In Vercel production, use VERCEL_URL
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+
+  // 3. Fallback to localhost for development
+  return "http://localhost:3000";
 }
 
 /**
