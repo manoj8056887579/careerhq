@@ -12,11 +12,8 @@ export function getApiBaseUrl(): string {
   // Server-side: determine the base URL
   // Priority: NEXT_PUBLIC_API_URL > VERCEL_URL > localhost
   
-  // 1. Check if NEXT_PUBLIC_API_URL is explicitly set and not localhost
-  if (
-    process.env.NEXT_PUBLIC_API_URL &&
-    !process.env.NEXT_PUBLIC_API_URL.includes("localhost")
-  ) {
+  // 1. Check if NEXT_PUBLIC_API_URL is explicitly set
+  if (process.env.NEXT_PUBLIC_API_URL) {
     return process.env.NEXT_PUBLIC_API_URL;
   }
 
